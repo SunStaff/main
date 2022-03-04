@@ -26,11 +26,11 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="Node2D" type="KinematicBody2D" parent="."]
-light_mask = 2
+light_mask = 3
 position = Vector2( 0, 160 )
 scale = Vector2( 200, 1 )
-collision_layer = 2
-collision_mask = 2
+collision_layer = 3
+collision_mask = 3
 
 [node name="Sprite" type="Sprite" parent="Node2D"]
 light_mask = 2
