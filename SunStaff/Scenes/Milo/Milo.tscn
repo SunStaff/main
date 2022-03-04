@@ -88,7 +88,7 @@ position = Vector2( 168, 18 )
 scale = Vector2( 2, 2 )
 
 [node name="Light2D" type="Light2D" parent="Sprite/Node2D"]
-scale = Vector2( 2, 2 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 3 )
 mode = 3
 

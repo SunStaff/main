@@ -12,11 +12,11 @@ extents = Vector2( 33.5, 33.5 )
 
 [node name="UnLitWorld" type="Sprite" parent="."]
 light_mask = 2
-scale = Vector2( 0.6, 0.75 )
+scale = Vector2( 2, 1.5 )
 texture = ExtResource( 4 )
 
 [node name="LitWorld" type="Sprite" parent="."]
-scale = Vector2( 0.6, 0.75 )
+scale = Vector2( 2, 1.5 )
 texture = ExtResource( 3 )
 
 [node name="Milo" parent="." instance=ExtResource( 1 )]
