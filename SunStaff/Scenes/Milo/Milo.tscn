@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/Milo/MiloMovement.gd" type="Script" id=1]
-[ext_resource path="res://Art/Misc/MiloJump_Fall_Sheet.png" type="Texture" id=2]
+[ext_resource path="res://Art/MiloJump_Fall_Sheet.png" type="Texture" id=2]
 [ext_resource path="res://Art/Misc/thing_i_guess.png" type="Texture" id=3]
 
 [sub_resource type="AtlasTexture" id=2]
