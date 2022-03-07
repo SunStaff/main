@@ -5,6 +5,14 @@ export (int) var speed = 200
 var newVelocity = Vector2()
 onready var sprite = self.get_node("Sprite")
 var faceRight = true
+<<<<<<< Updated upstream
+=======
+export (int) var speed = 300
+export (int) var jump_speed = -1100
+export (int) var gravity = 3000
+export (float, 0, 1.0) var friction = 0.2
+export (float, 0, 1.0) var acceleration = 0.25
+>>>>>>> Stashed changes
 
 func _ready():
 	self.mode = MODE_CHARACTER
