@@ -34,3 +34,11 @@ func get_input():
 func _physics_process(delta):
 	get_input()
 	self.linear_velocity = newVelocity
+	velocity.y += gravity * delta
+	velocity = move_and_slide(velocity, Vector2.UP)
+	if Input.is_action_just_pressed("Jump"):
+		if is_on_floor():
+			velocity.y = jump_speed
+		
+	
+
