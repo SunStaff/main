@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/Milo/MiloMovement.gd" type="Script" id=1]
 [ext_resource path="res://Art/Misc/MiloJump_Fall_Sheet.png" type="Texture" id=2]
-[ext_resource path="res://Art/Misc/thing_i_guess.png" type="Texture" id=3]
+[ext_resource path="res://Art/Misc/lightRadiuswBlur.png" type="Texture" id=3]
 
 [sub_resource type="AtlasTexture" id=16]
 flags = 4
@@ -76,7 +76,6 @@ animations = [ {
 extents = Vector2( 50, 55.5 )
 
 [node name="Milo" type="RigidBody2D"]
-applied_force = Vector2( 10, 0 )
 script = ExtResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
@@ -88,7 +87,7 @@ position = Vector2( 168, 18 )
 scale = Vector2( 2, 2 )
 
 [node name="Light2D" type="Light2D" parent="Sprite/Node2D"]
-scale = Vector2( 3, 3 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 mode = 3
 

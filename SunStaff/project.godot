@@ -14,6 +14,14 @@ config/name="SunStaff"
 run/main_scene="res://Scenes/Demo.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GameManager="*res://Scripts/GameManager.gd"
+
+[global]
+
+autoLoad=false
+
 [input]
 
 Left={
