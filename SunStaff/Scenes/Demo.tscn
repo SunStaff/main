@@ -44,7 +44,7 @@ texture = ExtResource( 2 )
 position = Vector2( 1.5, 0.5 )
 shape = SubResource( 1 )
 
-[node name="Node2D15" type="StaticBody2D" parent="."]
+[node name="Briar" type="Area2D" parent="."]
 light_mask = 3
 position = Vector2( 230, 55 )
 collision_layer = 3
@@ -54,12 +54,13 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="Node2D15"]
+[node name="Sprite" type="Sprite" parent="Briar"]
 light_mask = 2
 texture = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D15"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Briar"]
 position = Vector2( 1.5, 0.5 )
+scale = Vector2( 1.5, 1.5 )
 shape = SubResource( 1 )
 
 [node name="Node2D2" type="KinematicBody2D" parent="."]
@@ -81,7 +82,7 @@ shape = SubResource( 1 )
 
 [node name="Node2D9" type="KinematicBody2D" parent="."]
 light_mask = 3
-position = Vector2( 624, -67 )
+position = Vector2( 624, -19 )
 scale = Vector2( 5, 1 )
 collision_layer = 3
 collision_mask = 3
@@ -98,7 +99,7 @@ shape = SubResource( 1 )
 
 [node name="Node2D10" type="KinematicBody2D" parent="."]
 light_mask = 3
-position = Vector2( 833, -305 )
+position = Vector2( 835, -185 )
 scale = Vector2( 5, 1 )
 collision_layer = 3
 collision_mask = 3
@@ -115,7 +116,7 @@ shape = SubResource( 1 )
 
 [node name="Node2D11" type="KinematicBody2D" parent="."]
 light_mask = 3
-position = Vector2( 1156, -143 )
+position = Vector2( 1156, -95 )
 scale = Vector2( 5, 1 )
 collision_layer = 3
 collision_mask = 3
@@ -132,7 +133,7 @@ shape = SubResource( 1 )
 
 [node name="Node2D12" type="KinematicBody2D" parent="."]
 light_mask = 3
-position = Vector2( 1498, -281 )
+position = Vector2( 1540, -203 )
 scale = Vector2( 5, 1 )
 collision_layer = 3
 collision_mask = 3
@@ -149,7 +150,7 @@ shape = SubResource( 1 )
 
 [node name="Node2D13" type="KinematicBody2D" parent="."]
 light_mask = 3
-position = Vector2( 1679, -524 )
+position = Vector2( 1675, -464 )
 scale = Vector2( 5, 1 )
 collision_layer = 3
 collision_mask = 3
@@ -166,7 +167,7 @@ shape = SubResource( 1 )
 
 [node name="Moveable15" type="KinematicBody2D" parent="."]
 light_mask = 3
-position = Vector2( 2102, -372 )
+position = Vector2( 2102, -324 )
 scale = Vector2( 5, 1 )
 collision_layer = 3
 collision_mask = 3
@@ -183,7 +184,7 @@ shape = SubResource( 1 )
 
 [node name="Moveable16" type="KinematicBody2D" parent="."]
 light_mask = 3
-position = Vector2( 2492, -534 )
+position = Vector2( 2471, -445 )
 scale = Vector2( 5, 1 )
 collision_layer = 3
 collision_mask = 3
@@ -200,7 +201,7 @@ shape = SubResource( 1 )
 
 [node name="Moveable19" type="KinematicBody2D" parent="."]
 light_mask = 3
-position = Vector2( 2915, -748 )
+position = Vector2( 2910, -545 )
 scale = Vector2( 5, 1 )
 collision_layer = 3
 collision_mask = 3
@@ -217,7 +218,7 @@ shape = SubResource( 1 )
 
 [node name="Moveable20" type="KinematicBody2D" parent="."]
 light_mask = 3
-position = Vector2( 3357, -700 )
+position = Vector2( 3349, -632 )
 scale = Vector2( 5, 1 )
 collision_layer = 3
 collision_mask = 3
@@ -234,7 +235,7 @@ shape = SubResource( 1 )
 
 [node name="Node2D21" type="KinematicBody2D" parent="."]
 light_mask = 3
-position = Vector2( 3766, -866 )
+position = Vector2( 3760, -727 )
 scale = Vector2( 5, 1 )
 collision_layer = 3
 collision_mask = 3
@@ -338,7 +339,7 @@ shape = SubResource( 1 )
 
 [node name="Node2D14" type="KinematicBody2D" parent="."]
 light_mask = 3
-position = Vector2( 1222, -481 )
+position = Vector2( 1185, -362 )
 scale = Vector2( 5, 1 )
 collision_layer = 3
 collision_mask = 3

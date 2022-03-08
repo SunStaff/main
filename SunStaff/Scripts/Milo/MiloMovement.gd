@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 onready var sprite = self.get_node("Sprite")
 var faceRight = true
-export (int) var speed = 600
+export (int) var speed = 300
 export (int) var jump_speed = -1100
 export (int) var gravity = 3000
 export (float, 0, 1.0) var friction = 0.2
