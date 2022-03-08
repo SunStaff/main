@@ -1,8 +1,9 @@
 extends "res://Scripts/Objects/Interactable.gd"
 
 var duplicateSprite
+var activated
 func _ready():
-	pass
+	activated = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
