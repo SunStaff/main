@@ -1,7 +1,7 @@
 extends "res://Scripts/Objects/Interactable.gd"
 
 var duplicateSprite
-var activated
+#var activated
 func _ready():
 	activated = false
 
