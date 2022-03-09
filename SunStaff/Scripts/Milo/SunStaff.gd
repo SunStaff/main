@@ -24,7 +24,6 @@ func _on_LightCircle_body_exited(body):
 
 
 func _on_LightCircle_area_entered(area):
-	#if (!activated):
 	if (area.name == "StaffAltar"):
 		emit_signal("PlayerInAltarRange", true)
 	elif (area.name == "Briar"):
@@ -33,7 +32,6 @@ func _on_LightCircle_area_entered(area):
 
 
 func _on_LightCircle_area_exited(area):
-	#if (!activated):
 	if (area.name == "StaffAltar"):
 		emit_signal("PlayerInAltarRange", false)
 	elif (area.name == "Briar"):

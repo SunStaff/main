@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/Milo/Milo.gd" type="Script" id=1]
 [ext_resource path="res://Art/Misc/MiloJump_Fall_Sheet.png" type="Texture" id=2]
@@ -75,6 +75,9 @@ animations = [ {
 [sub_resource type="CapsuleShape2D" id=28]
 radius = 44.0
 
+[sub_resource type="CircleShape2D" id=29]
+radius = 100.0
+
 [node name="Milo" type="KinematicBody2D" groups=["Player"]]
 light_mask = 3
 script = ExtResource( 1 )
@@ -85,6 +88,7 @@ scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 14 )
 
 [node name="SunStaff" parent="Sprite" instance=ExtResource( 3 )]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 3.5 )
@@ -93,6 +97,11 @@ shape = SubResource( 28 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="InteractRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractRange"]
+shape = SubResource( 29 )
 
 [connection signal="PlayerInAltarRange" from="Sprite/SunStaff/LightCircle" to="." method="_on_LightCircle_PlayerInAltarRange"]
 

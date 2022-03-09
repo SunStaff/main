@@ -9,6 +9,8 @@ var SunStaff
 var LightCircle
 var WithinAltarRange
 var StaffAltar
+var StaffVisibility
+var AltarStaffVisibility
 
 # Movement Variables
 var faceRight = true
@@ -26,6 +28,8 @@ func _ready():
 	LightCircle = get_node("/root/Node/Milo/Sprite/SunStaff/LightCircle")
 	StaffAltar = get_node("/root/Node/StaffAltar/Sprite/StaffInAltar") # CHANGE AT LATER POINT --> NEEDS TO BE FROM CHECKPOINTS/GAMEMANAGER
 	WithinAltarRange = false
+	StaffVisibility = true
+	AltarStaffVisibility = false
 
 func get_input():
 	if (GameManager.IsPlayerAlive):
@@ -51,9 +55,9 @@ func get_input():
 		# Sun Staff Placement
 		if (WithinAltarRange):
 			if (Input.is_action_just_pressed("Interact")):
-				SunStaff.visible = !SunStaff.visible
-				StaffAltar.visible = !StaffAltar.visible
-				if (StaffAltar.visible):
+				SunStaff.visible = !StaffVisibility
+				StaffAltar.visible = !AltarStaffVisibility
+				if (AltarStaffVisibility):
 					LightCircle.monitoring = false
 				else:
 					LightCircle.monitoring = true
