@@ -31,6 +31,9 @@ texture = ExtResource( 5 )
 [node name="Milo" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 55 )
 
+[node name="Sprite" parent="Milo" index="0"]
+frame = 2
+
 [node name="Platforms" type="Node" parent="."]
 
 [node name="Moveable19" type="KinematicBody2D" parent="Platforms"]

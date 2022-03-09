@@ -55,19 +55,26 @@ func get_input():
 		# Sun Staff Placement
 		if (WithinAltarRange):
 			if (Input.is_action_just_pressed("Interact")):
-				SunStaff.visible = !StaffVisibility
-				StaffAltar.visible = !AltarStaffVisibility
-				if (AltarStaffVisibility):
+				if (SunStaff.visible): # If Milo is holding staff
+					SunStaff.visible = false
+					print("SunStaffVisibility = ", StaffVisibility)
+					print("Should be false: ", SunStaff.visible)
+					StaffAltar.visible = true
+					print("AltarStaffVisibility = ", AltarStaffVisibility)
+					print("Should be true: ", StaffAltar.visible)
+				else: # If the altar has the Staff
+					SunStaff.visible = true
+					print("SunStaffVisibility = ", StaffVisibility)
+					print("Should be false: ", SunStaff.visible)
+					StaffAltar.visible = false
+					print("AltarStaffVisibility = ", AltarStaffVisibility)
+					print("Should be true: ", StaffAltar.visible)
+				if (StaffAltar.visible): # If the altar has the Staff, turn off LightCircle monitoring
 					LightCircle.monitoring = false
+					print("monitoring turned off")
 				else:
 					LightCircle.monitoring = true
-
-				# SunStaff.set_deferred("visible", !SunStaff.visible)
-				# StaffAltar.set_deferred("visible", !StaffAltar.visible)
-				# if (StaffAltar.call_deferred("visible")):
-				# 	LightCircle.set_deferred("monitoring", false)
-				# else:
-				# 	LightCircle.set_deferred("monitoring", true)
+					print("monitoring turned on")
 	
 func _physics_process(delta):
 	get_input()
@@ -83,6 +90,13 @@ func PlayerDeath(position):
 	StaffAltar.set_deferred("visible", false)
 	LightCircle.set_deferred("monitoring", true)
 	WithinAltarRange = false
-	
-func _on_LightCircle_PlayerInAltarRange(state):
-	WithinAltarRange = state
+
+func _on_InteractRange_area_exited(area:Area2D):
+	if (area.name == "StaffAltar"):
+		WithinAltarRange = false
+		print("NOT Within Altar Range")
+
+func _on_InteractRange_area_entered(area:Area2D):
+	if (area.name == "StaffAltar"):
+		WithinAltarRange = true
+		print("Within Altar Range")
