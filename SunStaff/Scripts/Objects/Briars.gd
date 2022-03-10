@@ -13,7 +13,6 @@ func HurtPlayer():
 	GameManager.SetPlayerAliveState(false)
 
 func _on_Briar_body_entered(body):
-	print(body)
 	if (body.name == "Milo"):
 		HurtPlayer()
 

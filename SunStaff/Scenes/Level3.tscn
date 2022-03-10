@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Milo/Milo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/Briar.tscn" type="PackedScene" id=2]
@@ -7,8 +7,6 @@
 [ext_resource path="res://Art/Lit/gound_and_sky.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/Milo/SunStaff.gd" type="Script" id=6]
 [ext_resource path="res://Art/Misc/lightRadiuswBlur.png" type="Texture" id=7]
-[ext_resource path="res://Scenes/testplatform1.gd" type="Script" id=8]
-[ext_resource path="res://Scenes/testpressureplate_1.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.8, 33.5 )
@@ -32,6 +30,9 @@ texture = ExtResource( 5 )
 
 [node name="Milo" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 55 )
+
+[node name="Sprite" parent="Milo" index="0"]
+frame = 2
 
 [node name="Platforms" type="Node" parent="."]
 
@@ -429,24 +430,6 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Moveable16"]
 shape = SubResource( 1 )
 
-[node name="testplatform1" type="KinematicBody2D" parent="Platforms" groups=["testplatform_1"]]
-light_mask = 3
-position = Vector2( 2500, 317 )
-scale = Vector2( 25, 1 )
-collision_layer = 3
-collision_mask = 3
-script = ExtResource( 8 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Platforms/testplatform1"]
-light_mask = 2
-texture = ExtResource( 3 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/testplatform1"]
-shape = SubResource( 1 )
-
 [node name="Briar" parent="." instance=ExtResource( 2 )]
 position = Vector2( 335, 66 )
 
@@ -456,6 +439,9 @@ position = Vector2( 590, 126 )
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="StaffAltar"]
 light_mask = 2
@@ -479,13 +465,6 @@ shape = SubResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaffAltar"]
 light_mask = 2
 shape = SubResource( 2 )
-
-[node name="pressureplate1" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1250, 300 )
-script = ExtResource( 9 )
-
-[connection signal="body_entered" from="pressureplate1" to="pressureplate1" method="_on_pressureplate1_body_entered"]
-[connection signal="touching" from="pressureplate1" to="Platforms/testplatform1" method="_on_pressureplate1_touching"]
 
 [editable path="Milo"]
 [editable path="Milo/Sprite/SunStaff"]
