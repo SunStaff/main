@@ -1,12 +1,12 @@
 [gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Milo/Milo.gd" type="Script" id=1]
-[ext_resource path="res://Art/Lit/MiloColor1.png" type="Texture" id=2]
+[ext_resource path="res://Art/Lit/Milo/MiloColor1.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Milo/SunStaff.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Art/Lit/MiloColor2.png" type="Texture" id=4]
-[ext_resource path="res://Art/Lit/MiloColor3.png" type="Texture" id=5]
-[ext_resource path="res://Art/Lit/MiloColor4.png" type="Texture" id=6]
-[ext_resource path="res://Art/Lit/MiloColor5.png" type="Texture" id=7]
+[ext_resource path="res://Art/Lit/Milo/MiloColor2.png" type="Texture" id=4]
+[ext_resource path="res://Art/Lit/Milo/MiloColor3.png" type="Texture" id=5]
+[ext_resource path="res://Art/Lit/Milo/MiloColor4.png" type="Texture" id=6]
+[ext_resource path="res://Art/Lit/Milo/MiloColor5.png" type="Texture" id=7]
 
 [sub_resource type="AtlasTexture" id=30]
 flags = 4

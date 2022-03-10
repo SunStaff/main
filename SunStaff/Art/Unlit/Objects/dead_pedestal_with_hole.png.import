@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MiloColor1.png-47ba36ca1c83c8b74cde192084d35f9d.stex"
+path="res://.import/dead_pedestal_with_hole.png-33f3061f9cd3c73f127e50207fe9f9a5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Lit/MiloColor1.png"
-dest_files=[ "res://.import/MiloColor1.png-47ba36ca1c83c8b74cde192084d35f9d.stex" ]
+source_file="res://Art/Unlit/Objects/dead_pedestal_with_hole.png"
+dest_files=[ "res://.import/dead_pedestal_with_hole.png-33f3061f9cd3c73f127e50207fe9f9a5.stex" ]
 
 [params]
 

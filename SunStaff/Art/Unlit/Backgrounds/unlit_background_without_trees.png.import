@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MiloColor3.png-912a07f0f6ad82a4b93a6d2bccb3f200.stex"
+path="res://.import/unlit_background_without_trees.png-d4a10c8fd6608db3d1322ecb3907d902.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Lit/MiloColor3.png"
-dest_files=[ "res://.import/MiloColor3.png-912a07f0f6ad82a4b93a6d2bccb3f200.stex" ]
+source_file="res://Art/Unlit/Backgrounds/unlit_background_without_trees.png"
+dest_files=[ "res://.import/unlit_background_without_trees.png-d4a10c8fd6608db3d1322ecb3907d902.stex" ]
 
 [params]
 

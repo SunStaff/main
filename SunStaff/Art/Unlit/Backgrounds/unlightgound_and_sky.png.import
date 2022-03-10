@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MiloColor2.png-30fad958bd7c5ab87267ba634cbe7f04.stex"
+path="res://.import/unlightgound_and_sky.png-c74baac63fa1ae6103d47cebb2927c86.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Lit/MiloColor2.png"
-dest_files=[ "res://.import/MiloColor2.png-30fad958bd7c5ab87267ba634cbe7f04.stex" ]
+source_file="res://Art/Unlit/Backgrounds/unlightgound_and_sky.png"
+dest_files=[ "res://.import/unlightgound_and_sky.png-c74baac63fa1ae6103d47cebb2927c86.stex" ]
 
 [params]
 

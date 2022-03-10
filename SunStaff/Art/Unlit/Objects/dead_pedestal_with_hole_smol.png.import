@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/unlightgound_and_sky.png-cf498e539ce40deaa31358c4d2c66515.stex"
+path="res://.import/dead_pedestal_with_hole_smol.png-7afb8d1bc1d02f4e97b3c11e991c5151.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Unlit/unlightgound_and_sky.png"
-dest_files=[ "res://.import/unlightgound_and_sky.png-cf498e539ce40deaa31358c4d2c66515.stex" ]
+source_file="res://Art/Unlit/Objects/dead_pedestal_with_hole_smol.png"
+dest_files=[ "res://.import/dead_pedestal_with_hole_smol.png-7afb8d1bc1d02f4e97b3c11e991c5151.stex" ]
 
 [params]
 
