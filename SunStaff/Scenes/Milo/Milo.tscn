@@ -74,7 +74,5 @@ shape = SubResource( 29 )
 
 [connection signal="area_entered" from="InteractRange" to="." method="_on_InteractRange_area_entered"]
 [connection signal="area_exited" from="InteractRange" to="." method="_on_InteractRange_area_exited"]
-[connection signal="body_entered" from="InteractRange" to="." method="_on_InteractRange_body_entered"]
-[connection signal="body_exited" from="InteractRange" to="." method="_on_InteractRange_body_exited"]
 
 [editable path="Sprite/SunStaff"]

@@ -466,5 +466,9 @@ shape = SubResource( 3 )
 light_mask = 2
 shape = SubResource( 2 )
 
+[node name="Briar2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 4000, 900 )
+scale = Vector2( 150, 1 )
+
 [editable path="Milo"]
 [editable path="Milo/Sprite/SunStaff"]
