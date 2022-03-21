@@ -1,11 +1,8 @@
 extends Area2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var isTurnedOn = false
 export (bool) var isInLight = true
+#Sets a signal name for the object in the editor
 export (String) var signalName = ""
 
 
@@ -18,6 +15,7 @@ func _ready():
 #When the switch is interacted with, change lever state from ON to OFF, or OFF to ON.
 func _change_lever_state():
 	isTurnedOn = !isTurnedOn
+	#Sends out signal to tell external object what to do.
 	emit_signal(signalName, isTurnedOn)
 
 #Get lever's position
