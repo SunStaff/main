@@ -1,72 +1,41 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Milo/Milo.gd" type="Script" id=1]
-[ext_resource path="res://Art/Misc/MiloJump_Fall_Sheet.png" type="Texture" id=2]
+[ext_resource path="res://Art/Lit/Milo/MiloColor1.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Milo/SunStaff.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Art/Lit/Milo/MiloColor2.png" type="Texture" id=4]
+[ext_resource path="res://Art/Lit/Milo/MiloColor3.png" type="Texture" id=5]
+[ext_resource path="res://Art/Lit/Milo/MiloColor4.png" type="Texture" id=6]
+[ext_resource path="res://Art/Lit/Milo/MiloColor5.png" type="Texture" id=7]
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=30]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=31]
 flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 500, 0, 500, 500 )
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=18]
+[sub_resource type="AtlasTexture" id=32]
 flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 1000, 0, 500, 500 )
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=19]
+[sub_resource type="AtlasTexture" id=33]
 flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 1500, 0, 500, 500 )
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=20]
+[sub_resource type="AtlasTexture" id=34]
 flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 2000, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=21]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 2500, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=22]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 0, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=23]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 500, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=24]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 1000, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=25]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 1500, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=26]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 2000, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=27]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 2500, 500, 500, 500 )
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 500, 500 )
 
 [sub_resource type="SpriteFrames" id=14]
 animations = [ {
-"frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
+"frames": [ SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -105,7 +74,5 @@ shape = SubResource( 29 )
 
 [connection signal="area_entered" from="InteractRange" to="." method="_on_InteractRange_area_entered"]
 [connection signal="area_exited" from="InteractRange" to="." method="_on_InteractRange_area_exited"]
-[connection signal="body_entered" from="InteractRange" to="." method="_on_InteractRange_body_entered"]
-[connection signal="body_exited" from="InteractRange" to="." method="_on_InteractRange_body_exited"]
 
 [editable path="Sprite/SunStaff"]

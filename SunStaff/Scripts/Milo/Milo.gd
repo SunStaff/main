@@ -57,24 +57,14 @@ func get_input():
 			if (Input.is_action_just_pressed("Interact")):
 				if (SunStaff.visible): # If Milo is holding staff
 					SunStaff.visible = false
-					print("SunStaffVisibility = ", StaffVisibility)
-					print("Should be false: ", SunStaff.visible)
 					StaffAltar.visible = true
-					print("AltarStaffVisibility = ", AltarStaffVisibility)
-					print("Should be true: ", StaffAltar.visible)
 				else: # If the altar has the Staff
 					SunStaff.visible = true
-					print("SunStaffVisibility = ", StaffVisibility)
-					print("Should be false: ", SunStaff.visible)
 					StaffAltar.visible = false
-					print("AltarStaffVisibility = ", AltarStaffVisibility)
-					print("Should be true: ", StaffAltar.visible)
 				if (StaffAltar.visible): # If the altar has the Staff, turn off LightCircle monitoring
 					LightCircle.monitoring = false
-					print("monitoring turned off")
 				else:
 					LightCircle.monitoring = true
-					print("monitoring turned on")
 	
 func _physics_process(delta):
 	get_input()
@@ -94,9 +84,7 @@ func PlayerDeath(position):
 func _on_InteractRange_area_exited(area:Area2D):
 	if (area.name == "StaffAltar"):
 		WithinAltarRange = false
-		print("NOT Within Altar Range")
 
 func _on_InteractRange_area_entered(area:Area2D):
 	if (area.name == "StaffAltar"):
 		WithinAltarRange = true
-		print("Within Altar Range")
