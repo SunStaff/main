@@ -18,6 +18,12 @@ config/icon="res://icon.png"
 
 GameManager="*res://Scripts/GameManager.gd"
 Checkpoints="*res://Scripts/Checkpoints.gd"
+PressurePlateManager="*res://Scripts/Objects/PressurePlateManager.gd"
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
 
 [global]
 
