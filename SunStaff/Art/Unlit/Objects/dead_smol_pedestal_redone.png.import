@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pedestal.png-458e7de73188729286d56cbb5fe7b357.stex"
+path="res://.import/dead_smol_pedestal_redone.png-69aa96a46684cd3e7a2a1dcba3fb08d5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Lit/Objects/pedestal.png"
-dest_files=[ "res://.import/pedestal.png-458e7de73188729286d56cbb5fe7b357.stex" ]
+source_file="res://Art/Unlit/Objects/dead_smol_pedestal_redone.png"
+dest_files=[ "res://.import/dead_smol_pedestal_redone.png-69aa96a46684cd3e7a2a1dcba3fb08d5.stex" ]
 
 [params]
 
