@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MiloColor4.png-bea26a06709335945a0bccd03c7e56bd.stex"
+path="res://.import/magenta_GEM.png-f82ee8cc6079d66028594bb8120508bd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Lit/MiloColor4.png"
-dest_files=[ "res://.import/MiloColor4.png-bea26a06709335945a0bccd03c7e56bd.stex" ]
+source_file="res://Art/Misc/magenta_GEM.png"
+dest_files=[ "res://.import/magenta_GEM.png-f82ee8cc6079d66028594bb8120508bd.stex" ]
 
 [params]
 

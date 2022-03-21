@@ -1,41 +1,17 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Milo/Milo.gd" type="Script" id=1]
-[ext_resource path="res://Art/Lit/Milo/MiloColor1.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Milo/SunStaff.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Art/Lit/Milo/MiloColor2.png" type="Texture" id=4]
 [ext_resource path="res://Art/Lit/Milo/MiloColor3.png" type="Texture" id=5]
-[ext_resource path="res://Art/Lit/Milo/MiloColor4.png" type="Texture" id=6]
-[ext_resource path="res://Art/Lit/Milo/MiloColor5.png" type="Texture" id=7]
-
-[sub_resource type="AtlasTexture" id=30]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=31]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 500, 500 )
 
 [sub_resource type="AtlasTexture" id=32]
 flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=33]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=34]
-flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 0, 0, 500, 500 )
-
 [sub_resource type="SpriteFrames" id=14]
 animations = [ {
-"frames": [ SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
+"frames": [ SubResource( 32 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -55,7 +31,6 @@ script = ExtResource( 1 )
 light_mask = 0
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 14 )
-frame = 4
 
 [node name="SunStaff" parent="Sprite" instance=ExtResource( 3 )]
 

@@ -14,6 +14,17 @@ var AltarStaffVisibility
 var currentClosestAltar
 var minDistanceToAltar = INF
 
+# Lever Vairables
+var WithinLeverRange
+
+# Pedestal Variables
+var WithinPedestalRange
+var currentClosestPedestal
+var minDistanceToPedestal = INF
+var Pedestals = []
+var PedestalName = ""
+var GemObject
+
 # Movement Variables
 var faceRight = true
 export (int) var speed = 300
@@ -35,6 +46,8 @@ func _ready():
 	var staffAltarObjects = GameManager.GetSunStaffAltars()
 	for altar in staffAltarObjects:
 		StaffAltars.append(altar.get_child(1).get_child(0))
+	WithinPedestalRange = false
+	WithinLeverRange = false
 
 func get_input():
 	if (GameManager.IsPlayerAlive):
@@ -60,16 +73,14 @@ func get_input():
 		# Sun Staff Placement
 		if (WithinAltarRange):
 			if (Input.is_action_just_pressed("Interact")):
-				if (SunStaff.visible): # If Milo is holding staff
-					SunStaff.visible = false
-					currentClosestAltar.visible = true
-				else: # If the altar has the Staff
-					SunStaff.visible = true
-					currentClosestAltar.visible = false
-				if (currentClosestAltar.visible): # If the altar has the Staff, turn off LightCircle monitoring
-					LightCircle.monitoring = false
-				else:
-					LightCircle.monitoring = true
+				SunStaffPlacement()
+
+		# Gem Pedestal Placement
+		if (WithinPedestalRange):
+			if (Input.is_action_just_pressed("Interact")):
+				GemPlacement()
+
+		# Lever Toggling
 
 		# If Player is Falling Passed Border
 		if (self.position.y > 900):
@@ -85,10 +96,17 @@ func _physics_process(delta):
 	
 	# Get Current Closest Altar
 	for altar in StaffAltars:
-		var distanceTo = sqrt(pow((altar.position.x - self.position.x),2) + pow((altar.position.y - self.position.y),2))
+		var distanceTo = DistanceTo(self.position, altar.position)
 		if (distanceTo < minDistanceToAltar):
 			minDistanceToAltar = distanceTo
 			currentClosestAltar = altar
+
+	# Get Current Closest Pedestal
+	for pedestal in Pedestals:
+		var distanceTo = DistanceTo(self.positon, pedestal.position)
+		if (distanceTo < minDistanceToPedestal):
+			minDistanceToPedestal = distanceTo
+			currentClosestPedestal = pedestal
 		
 func PlayerDeath(position):
 	self.position = position
@@ -97,10 +115,44 @@ func PlayerDeath(position):
 	LightCircle.set_deferred("monitoring", true)
 	WithinAltarRange = false
 
-func _on_InteractRange_area_exited(area:Area2D):
-	if ("StaffAltar" in area.name):
-		WithinAltarRange = false
-
 func _on_InteractRange_area_entered(area:Area2D):
 	if ("StaffAltar" in area.name):
 		WithinAltarRange = true
+	if ("Lever" in area.name):
+		pass
+	if ("GemPedestal" in area.name):
+		WithinPedestalRange = true
+	if ("GemPickup" in area.name):
+		GemObject = area
+
+func _on_InteractRange_area_exited(area:Area2D):
+	if ("StaffAltar" in area.name):
+		WithinAltarRange = false
+	if ("Lever" in area.name):
+		pass
+	if ("GemPedestal" in area.name):
+		WithinPedestalRange = false
+
+func SunStaffPlacement():
+	if (SunStaff.visible): # If Milo is holding staff
+		SunStaff.visible = false
+		currentClosestAltar.visible = true
+	else: # If the altar has the Staff
+		SunStaff.visible = true
+		currentClosestAltar.visible = false
+	if (currentClosestAltar.visible): # If the altar has the Staff, turn off LightCircle monitoring
+		LightCircle.monitoring = false
+	else:
+		LightCircle.monitoring = true
+
+func GemPlacement():
+	var color = currentClosestPedestal.name.replacen("_GemPedestal", "")
+	GameManager.ToggleGem(color)
+
+func GemPickup():
+	var color = GemObject.name.replacen("_GemPickup", "")
+	GameManager.ToggleGem(color)
+	GemObject.visible = false
+
+func DistanceTo(a,b):
+	return sqrt(pow((b.x - a.x),2) + pow((b.y - a.y),2))

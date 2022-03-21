@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Milo/Milo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/Briar.tscn" type="PackedScene" id=2]
@@ -8,15 +8,13 @@
 [ext_resource path="res://Scenes/Objects/StaffAltar.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Objects/Lever.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Objects/PressurePlate.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scripts/Objects/PressurePlateManager.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/Objects/GemPickup.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Objects/GemPedestal.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.8, 33.5 )
 
 [node name="Level3" type="Node"]
-
-[node name="PressurePlateManager" type="Node" parent="."]
-script = ExtResource( 9 )
 
 [node name="Backgrounds" type="Node" parent="."]
 
@@ -80,9 +78,6 @@ position = Vector2( 0, 55 )
 collision_layer = 3
 collision_mask = 3
 
-[node name="Sprite" parent="Milo" index="0"]
-frame = 2
-
 [node name="Briar" parent="." instance=ExtResource( 2 )]
 position = Vector2( 335, 66 )
 
@@ -96,7 +91,7 @@ collision_mask = 3
 [node name="StaffAltar" parent="." instance=ExtResource( 6 )]
 position = Vector2( 591, 116 )
 
-[node name="PressurePlate" parent="." instance=ExtResource( 8 )]
+[node name="PressurePlate1" parent="." instance=ExtResource( 8 )]
 
 [node name="PressurePlate2" parent="." instance=ExtResource( 8 )]
 position = Vector2( 750, -232 )
@@ -500,6 +495,11 @@ shape = SubResource( 1 )
 [node name="Lever" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1414, 246 )
 
+[node name="GemPedestal" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1678, -581 )
+
+[node name="GemPickup" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1191, -435 )
+
 [editable path="Milo"]
 [editable path="Milo/Sprite/SunStaff"]
-[editable path="PressurePlate"]

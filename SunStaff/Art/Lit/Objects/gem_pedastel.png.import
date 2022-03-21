@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MiloColor2.png-30fad958bd7c5ab87267ba634cbe7f04.stex"
+path="res://.import/gem_pedastel.png-10293dff1008c1a6cf1ebbf63dc8abfa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Lit/MiloColor2.png"
-dest_files=[ "res://.import/MiloColor2.png-30fad958bd7c5ab87267ba634cbe7f04.stex" ]
+source_file="res://Art/Lit/Objects/gem_pedastel.png"
+dest_files=[ "res://.import/gem_pedastel.png-10293dff1008c1a6cf1ebbf63dc8abfa.stex" ]
 
 [params]
 

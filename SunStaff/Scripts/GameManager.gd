@@ -5,8 +5,10 @@ export var CollectibleCount = 0
 export var CurrentLevel = ""
 export var LastLivingPos = Vector2()
 export var SunStaffAltarObjects = []
+export var GemsCollected = {"Green": false, "Blue": false, "Red": false, "Cyan": false, "Magenta": false }
 var activated
 var Player
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -56,3 +58,34 @@ func TeleportPlayer():
 func GetSunStaffAltars():
 	SunStaffAltarObjects = get_tree().get_nodes_in_group("StaffAltar")
 	return SunStaffAltarObjects
+
+func GetGemPedestals():
+	return get_tree().get_nodes_in_group("GemPedestal")
+
+func ToggleGem(color):
+	match color:
+		"Green":
+			if (GemsCollected.get("Green")):
+				GemsCollected.Green = false
+			else:
+				GemsCollected.Green = true
+		"Red":
+			if (GemsCollected.get("Red")):
+				GemsCollected.Red = false
+			else:
+				GemsCollected.Red = true
+		"Blue":
+			if (GemsCollected.get("Blue")):
+				GemsCollected.Blue = false
+			else:
+				GemsCollected.Blue = true
+		"Cyan":
+			if (GemsCollected.get("Cyan")):
+				GemsCollected.Cyan = false
+			else:
+				GemsCollected.Cyan = true
+		"Magenta":
+			if (GemsCollected.get("Magenta")):
+				GemsCollected.Magenta = false
+			else:
+				GemsCollected.Magenta = true
