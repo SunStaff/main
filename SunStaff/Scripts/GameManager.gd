@@ -1,13 +1,17 @@
 extends Node
 
 export var IsPlayerAlive = true
+export var IsGamePlaying = true
 export var CollectibleCount = 0
 export var CurrentLevel = ""
 export var LastLivingPos = Vector2()
 export var SunStaffAltarObjects = []
 export var GemsCollected = {"Green": false, "Blue": false, "Red": false, "Cyan": false, "Magenta": false }
+var placedGem = ""
 var activated
 var Player
+var GemSelectionScreen
+var pedestal
 
 
 
@@ -16,6 +20,7 @@ func _ready():
 	activated = false
 	LastLivingPos = Vector2(0,55)
 	Player = get_tree().get_nodes_in_group("Player")[0]
+	GemSelectionScreen = get_tree().get_nodes_in_group("GemSelectionScreen")[0]
 	SetCurrentLevel(get_tree().get_current_scene().get_name())
 
 
@@ -39,6 +44,7 @@ func GetPlayerAliveState():
 
 func SetPlayerAliveState(playerState):
 	IsPlayerAlive = playerState
+	IsGamePlaying = playerState
 
 func SetCurrentLevel(newLevel):
 	SunStaffAltarObjects.clear()
@@ -61,6 +67,9 @@ func GetSunStaffAltars():
 
 func GetGemPedestals():
 	return get_tree().get_nodes_in_group("GemPedestal")
+
+func GetGemStates():
+	return GemsCollected
 
 func ToggleGem(color):
 	match color:
@@ -89,3 +98,29 @@ func ToggleGem(color):
 				GemsCollected.Magenta = false
 			else:
 				GemsCollected.Magenta = true
+	print("GemsCollected", GemsCollected)
+
+func OpenGemSelectionScreen(currentPedestal):
+	GemSelectionScreen.ButtonsToBePlaced()
+	GemSelectionScreen.visible = true
+	print("Gem Screen Visible")
+	IsGamePlaying = false
+	pedestal = currentPedestal
+	# Player will select gem
+	# GemToBePlaced will execute
+
+func GemToBePlaced(color):
+	placedGem = color
+	print("Placed Gem", placedGem)
+	PlaceGem()
+
+func PlaceGem():
+	# Close Gem Selection Window
+	GemSelectionScreen.visible = false
+	print("Gem Screen Not Visible")
+	# Make Game Playable
+	IsGamePlaying = true
+	# ToggleGem will execute
+	ToggleGem(placedGem)
+	# currentGemPedestal will sprite change to correct gem-pedestal combination
+	var pedestalSprite = pedestal.get_child(0)

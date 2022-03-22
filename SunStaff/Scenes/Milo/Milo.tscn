@@ -34,6 +34,10 @@ frames = SubResource( 14 )
 
 [node name="SunStaff" parent="Sprite" instance=ExtResource( 3 )]
 
+[node name="Light2D" parent="Sprite/SunStaff" index="0"]
+position = Vector2( -45, 0 )
+scale = Vector2( 2.1, 2.1 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 3.5 )
 scale = Vector2( 0.5, 1 )

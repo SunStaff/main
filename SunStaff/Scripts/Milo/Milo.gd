@@ -46,11 +46,15 @@ func _ready():
 	var staffAltarObjects = GameManager.GetSunStaffAltars()
 	for altar in staffAltarObjects:
 		StaffAltars.append(altar.get_child(1).get_child(0))
+	
 	WithinPedestalRange = false
 	WithinLeverRange = false
+	var pedestalObjects = GameManager.GetGemPedestals()
+	for pedestal in pedestalObjects:
+		Pedestals.append(pedestal)
 
 func get_input():
-	if (GameManager.IsPlayerAlive):
+	if (GameManager.IsPlayerAlive and GameManager.IsGamePlaying):
 		# Movement
 		var dir = 0
 		if Input.is_action_just_pressed("Right"):
@@ -79,12 +83,19 @@ func get_input():
 		if (WithinPedestalRange):
 			if (Input.is_action_just_pressed("Interact")):
 				GemPlacement()
-
+		
+		# Gem Pickup
+		if (GemObject != null):
+			if (Input.is_action_just_pressed("Interact")):
+				GemPickup()
+		
 		# Lever Toggling
 
 		# If Player is Falling Passed Border
 		if (self.position.y > 900):
 			GameManager.SetPlayerAliveState(false)
+	else:
+		velocity = Vector2.ZERO
 	
 func _physics_process(delta):
 	get_input()
@@ -103,7 +114,7 @@ func _physics_process(delta):
 
 	# Get Current Closest Pedestal
 	for pedestal in Pedestals:
-		var distanceTo = DistanceTo(self.positon, pedestal.position)
+		var distanceTo = DistanceTo(self.position, pedestal.position)
 		if (distanceTo < minDistanceToPedestal):
 			minDistanceToPedestal = distanceTo
 			currentClosestPedestal = pedestal
@@ -146,8 +157,7 @@ func SunStaffPlacement():
 		LightCircle.monitoring = true
 
 func GemPlacement():
-	var color = currentClosestPedestal.name.replacen("_GemPedestal", "")
-	GameManager.ToggleGem(color)
+	GameManager.OpenGemSelectionScreen(currentClosestPedestal)
 
 func GemPickup():
 	var color = GemObject.name.replacen("_GemPickup", "")
