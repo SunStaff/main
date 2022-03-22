@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MiloJump_Fall_Sheet.png-5193014737acf8bc682737f47ec62c15.stex"
+path="res://.import/MiloRunStaffDEMO.png-99f9722a96ecc9afecc714c163706af3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Misc/MiloJump_Fall_Sheet.png"
-dest_files=[ "res://.import/MiloJump_Fall_Sheet.png-5193014737acf8bc682737f47ec62c15.stex" ]
+source_file="res://Art/DEMO/MiloRunStaffDEMO.png"
+dest_files=[ "res://.import/MiloRunStaffDEMO.png-99f9722a96ecc9afecc714c163706af3.stex" ]
 
 [params]
 

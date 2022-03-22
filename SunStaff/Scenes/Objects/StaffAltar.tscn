@@ -26,9 +26,9 @@ texture = ExtResource( 1 )
 texture = ExtResource( 4 )
 
 [node name="StaffInAltar" type="Node2D" parent="Sprite"]
-visible = false
 
 [node name="Light2D" type="Light2D" parent="Sprite/StaffInAltar"]
+visible = false
 scale = Vector2( 1.25, 1.25 )
 texture = ExtResource( 3 )
 mode = 3

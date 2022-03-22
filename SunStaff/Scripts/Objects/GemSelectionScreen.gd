@@ -20,8 +20,8 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+# func _process(_delta):
+# 	pass
 	
 func ButtonsToBePlaced():
 	Gems = GameManager.GetGemStates().values()

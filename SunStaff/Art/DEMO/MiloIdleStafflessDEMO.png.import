@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/thing_i_guess.png-0abfa99b138c2723dddc0af84edd5c81.stex"
+path="res://.import/MiloIdleStafflessDEMO.png-3fb0273c958be9b1d0d4a8db63158a2a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Misc/thing_i_guess.png"
-dest_files=[ "res://.import/thing_i_guess.png-0abfa99b138c2723dddc0af84edd5c81.stex" ]
+source_file="res://Art/DEMO/MiloIdleStafflessDEMO.png"
+dest_files=[ "res://.import/MiloIdleStafflessDEMO.png-3fb0273c958be9b1d0d4a8db63158a2a.stex" ]
 
 [params]
 

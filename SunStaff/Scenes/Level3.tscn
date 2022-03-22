@@ -79,6 +79,24 @@ position = Vector2( 0, 55 )
 collision_layer = 3
 collision_mask = 3
 
+[node name="AnimatedSprite" parent="Milo" index="0"]
+frame = 10
+
+[node name="Light2D" parent="Milo/AnimatedSprite/SunStaff" index="0"]
+energy = 0.0
+
+[node name="CollisionShape2D" parent="Milo" index="1"]
+light_mask = 2
+
+[node name="Camera2D" parent="Milo" index="2"]
+light_mask = 2
+
+[node name="InteractRange" parent="Milo" index="3"]
+light_mask = 2
+
+[node name="CollisionShape2D" parent="Milo/InteractRange" index="0"]
+light_mask = 2
+
 [node name="Briar" parent="." instance=ExtResource( 2 )]
 position = Vector2( 335, 66 )
 
@@ -502,10 +520,10 @@ position = Vector2( 1678, -581 )
 [node name="Blue_GemPickup" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1191, -435 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Menus" type="CanvasLayer" parent="."]
 
-[node name="GemSelectionScreen" parent="CanvasLayer" instance=ExtResource( 11 )]
+[node name="GemSelectionScreen" parent="Menus" instance=ExtResource( 11 )]
 visible = false
 
 [editable path="Milo"]
-[editable path="Milo/Sprite/SunStaff"]
+[editable path="Milo/AnimatedSprite/SunStaff"]
