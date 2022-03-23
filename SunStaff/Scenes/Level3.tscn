@@ -142,7 +142,10 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="AnimatedSprite2" parent="Milo" index="0"]
-frame = 5
+frame = 0
+
+[node name="AnimatedSprite" parent="Milo" index="1"]
+frame = 10
 
 [node name="CollisionShape2D" parent="Milo" index="2"]
 light_mask = 2
@@ -567,7 +570,7 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Moveable16"]
 shape = SubResource( 1 )
 
-[node name="Lever" parent="." instance=ExtResource( 7 )]
+[node name="Lever1" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1414, 246 )
 
 [node name="GemPedestal" parent="." instance=ExtResource( 10 )]

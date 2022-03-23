@@ -68,6 +68,9 @@ func GetSunStaffAltars():
 func GetGemPedestals():
 	return get_tree().get_nodes_in_group("GemPedestal")
 
+func GetLevers():
+	return get_tree().get_nodes_in_group("Lever")
+
 func GetGemStates():
 	return GemsCollected
 

@@ -17,6 +17,10 @@ var HasStaff = true
 
 # Lever Vairables
 var WithinLeverRange
+var currentClosestLever
+var minDistanceToLever = INF
+var Levers = []
+var LeverObject
 
 # Pedestal Variables
 var WithinPedestalRange
@@ -55,6 +59,10 @@ func _ready():
 	var pedestalObjects = GameManager.GetGemPedestals()
 	for pedestal in pedestalObjects:
 		Pedestals.append(pedestal)
+
+	var leverObjects = GameManager.GetLevers()
+	for lever in leverObjects:
+		Levers.append(lever)
 
 func get_input():
 	if (GameManager.IsPlayerAlive and GameManager.IsGamePlaying):
@@ -151,6 +159,9 @@ func get_input():
 				GemPickup()
 		
 		# Lever Toggling
+		if (WithinLeverRange):
+			if (Input.is_action_just_pressed("Interact")):
+				FlipLever()
 
 		# If Player is Falling Passed Border
 		if (self.position.y > 900):
@@ -176,12 +187,17 @@ func _physics_process(delta):
 		if (distanceTo < minDistanceToPedestal):
 			minDistanceToPedestal = distanceTo
 			currentClosestPedestal = pedestal
+
+	# Get Current Closest Lever
+	for lever in Levers:
+		var distanceTo = DistanceTo(self.position, lever.position)
+		if (distanceTo < minDistanceToLever):
+			minDistanceToLever = distanceTo
+			currentClosestLever = lever
+			LeverObject = currentClosestLever
 		
 func PlayerDeath(position):
 	self.position = position
-	# SunStaff.get_child(0).set_color(Color(1,1,1,1))
-	# currentClosestAltar.set_deferred("visible", false)
-	# LightCircle.set_deferred("monitoring", true)
 	WithinAltarRange = false
 	WithinLeverRange = false
 	WithinPedestalRange = false
@@ -190,7 +206,8 @@ func _on_InteractRange_area_entered(area:Area2D):
 	if ("StaffAltar" in area.name):
 		WithinAltarRange = true
 	if ("Lever" in area.name):
-		pass
+		WithinLeverRange = true
+		LeverObject = area
 	if ("GemPedestal" in area.name):
 		WithinPedestalRange = true
 	if ("GemPickup" in area.name):
@@ -200,7 +217,8 @@ func _on_InteractRange_area_exited(area:Area2D):
 	if ("StaffAltar" in area.name):
 		WithinAltarRange = false
 	if ("Lever" in area.name):
-		pass
+		WithinLeverRange = false
+		LeverObject = null
 	if ("GemPedestal" in area.name):
 		WithinPedestalRange = false
 
@@ -227,6 +245,9 @@ func GemPickup():
 	var color = GemObject.name.replacen("_GemPickup", "")
 	GameManager.ToggleGem(color)
 	GemObject.visible = false
+
+func FlipLever():
+	LeverObject._change_lever_state()
 
 func DistanceTo(a,b):
 	return sqrt(pow((b.x - a.x),2) + pow((b.y - a.y),2))
