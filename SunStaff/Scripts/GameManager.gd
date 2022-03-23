@@ -20,7 +20,7 @@ func _ready():
 	activated = false
 	LastLivingPos = Vector2(0,55)
 	Player = get_tree().get_nodes_in_group("Player")[0]
-	GemSelectionScreen = get_tree().get_nodes_in_group("GemSelectionScreen")[0]
+	#GemSelectionScreen = get_tree().get_nodes_in_group("GemSelectionScreen")[0]
 	SetCurrentLevel(get_tree().get_current_scene().get_name())
 
 
