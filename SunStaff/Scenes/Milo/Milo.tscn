@@ -15,6 +15,66 @@
 [ext_resource path="res://Art/DEMO/MiloJumpFallStafflessUNLITDEMO.png" type="Texture" id=13]
 [ext_resource path="res://Art/DEMO/MiloRunStafflessUNLITDEMO.png" type="Texture" id=14]
 
+[sub_resource type="AtlasTexture" id=120]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 0, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=121]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 500, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=122]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 1000, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=123]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 1500, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=124]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 2000, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=125]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 2500, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=126]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 0, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=127]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 500, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=128]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 1000, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=129]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 1500, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=130]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 2000, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=131]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 2500, 500, 500, 500 )
+
 [sub_resource type="AtlasTexture" id=132]
 flags = 4
 atlas = ExtResource( 14 )
@@ -150,68 +210,13 @@ flags = 4
 atlas = ExtResource( 12 )
 region = Rect2( 1500, 500, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=120]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 0, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=121]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 500, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=122]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 1000, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=123]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 1500, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=124]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 2000, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=125]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 2500, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=126]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 0, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=127]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 500, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=128]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 1000, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=129]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 1500, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=130]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 2000, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=131]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 2500, 500, 500, 500 )
-
 [sub_resource type="SpriteFrames" id=148]
 animations = [ {
+"frames": [ SubResource( 120 ), SubResource( 121 ), SubResource( 122 ), SubResource( 123 ), SubResource( 124 ), SubResource( 125 ), SubResource( 126 ), SubResource( 127 ), SubResource( 128 ), SubResource( 129 ), SubResource( 130 ), SubResource( 131 ) ],
+"loop": true,
+"name": "MiloJumpFallUNLIT",
+"speed": 15.0
+}, {
 "frames": [ SubResource( 132 ), SubResource( 133 ), SubResource( 134 ), SubResource( 135 ), SubResource( 136 ), SubResource( 137 ), SubResource( 138 ), SubResource( 139 ) ],
 "loop": true,
 "name": "MiloRunStafflessUNLIT",
@@ -226,127 +231,7 @@ animations = [ {
 "loop": true,
 "name": "MiloWalkStafflessUNLIT",
 "speed": 15.0
-}, {
-"frames": [ SubResource( 120 ), SubResource( 121 ), SubResource( 122 ), SubResource( 123 ), SubResource( 124 ), SubResource( 125 ), SubResource( 126 ), SubResource( 127 ), SubResource( 128 ), SubResource( 129 ), SubResource( 130 ), SubResource( 131 ) ],
-"loop": true,
-"name": "MiloJumpFallUNLIT",
-"speed": 15.0
 } ]
-
-[sub_resource type="AtlasTexture" id=42]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=43]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 500, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=44]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 1000, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=45]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 1500, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=46]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 2000, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=47]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 2500, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=48]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 0, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=49]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 500, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=50]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 1000, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=51]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 1500, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=52]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 2000, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=65]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 0, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=66]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 500, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=67]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 1000, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=68]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 1500, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=69]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 2000, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=70]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 2500, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=71]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 0, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=72]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 500, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=73]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 1000, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=74]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 1500, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=75]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 2000, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=76]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 2500, 500, 500, 500 )
 
 [sub_resource type="AtlasTexture" id=109]
 flags = 4
@@ -403,44 +288,99 @@ flags = 4
 atlas = ExtResource( 8 )
 region = Rect2( 2000, 500, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=101]
+[sub_resource type="AtlasTexture" id=42]
 flags = 4
-atlas = ExtResource( 5 )
+atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=102]
+[sub_resource type="AtlasTexture" id=43]
 flags = 4
-atlas = ExtResource( 5 )
+atlas = ExtResource( 6 )
 region = Rect2( 500, 0, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=103]
+[sub_resource type="AtlasTexture" id=44]
 flags = 4
-atlas = ExtResource( 5 )
+atlas = ExtResource( 6 )
 region = Rect2( 1000, 0, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=104]
+[sub_resource type="AtlasTexture" id=45]
 flags = 4
-atlas = ExtResource( 5 )
+atlas = ExtResource( 6 )
 region = Rect2( 1500, 0, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=105]
+[sub_resource type="AtlasTexture" id=46]
 flags = 4
-atlas = ExtResource( 5 )
+atlas = ExtResource( 6 )
+region = Rect2( 2000, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=47]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 2500, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=48]
+flags = 4
+atlas = ExtResource( 6 )
 region = Rect2( 0, 500, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=106]
+[sub_resource type="AtlasTexture" id=49]
 flags = 4
-atlas = ExtResource( 5 )
+atlas = ExtResource( 6 )
 region = Rect2( 500, 500, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=107]
+[sub_resource type="AtlasTexture" id=50]
 flags = 4
-atlas = ExtResource( 5 )
+atlas = ExtResource( 6 )
 region = Rect2( 1000, 500, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=108]
+[sub_resource type="AtlasTexture" id=51]
 flags = 4
-atlas = ExtResource( 5 )
+atlas = ExtResource( 6 )
+region = Rect2( 1500, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=52]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 2000, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=85]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=86]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 500, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=87]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 1000, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=88]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 1500, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=89]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=90]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 500, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=91]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 1000, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=92]
+flags = 4
+atlas = ExtResource( 4 )
 region = Rect2( 1500, 500, 500, 500 )
 
 [sub_resource type="AtlasTexture" id=53]
@@ -503,84 +443,44 @@ flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 2500, 500, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=77]
+[sub_resource type="AtlasTexture" id=101]
 flags = 4
-atlas = ExtResource( 2 )
+atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=78]
+[sub_resource type="AtlasTexture" id=102]
 flags = 4
-atlas = ExtResource( 2 )
+atlas = ExtResource( 5 )
 region = Rect2( 500, 0, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=79]
+[sub_resource type="AtlasTexture" id=103]
 flags = 4
-atlas = ExtResource( 2 )
+atlas = ExtResource( 5 )
 region = Rect2( 1000, 0, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=80]
+[sub_resource type="AtlasTexture" id=104]
 flags = 4
-atlas = ExtResource( 2 )
+atlas = ExtResource( 5 )
 region = Rect2( 1500, 0, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=81]
+[sub_resource type="AtlasTexture" id=105]
 flags = 4
-atlas = ExtResource( 2 )
+atlas = ExtResource( 5 )
 region = Rect2( 0, 500, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=82]
+[sub_resource type="AtlasTexture" id=106]
 flags = 4
-atlas = ExtResource( 2 )
+atlas = ExtResource( 5 )
 region = Rect2( 500, 500, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=83]
+[sub_resource type="AtlasTexture" id=107]
 flags = 4
-atlas = ExtResource( 2 )
+atlas = ExtResource( 5 )
 region = Rect2( 1000, 500, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=84]
+[sub_resource type="AtlasTexture" id=108]
 flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 1500, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=85]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=86]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 500, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=87]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 1000, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=88]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 1500, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=89]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 0, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=90]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 500, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=91]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 1000, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=92]
-flags = 4
-atlas = ExtResource( 4 )
+atlas = ExtResource( 5 )
 region = Rect2( 1500, 500, 500, 500 )
 
 [sub_resource type="AtlasTexture" id=93]
@@ -623,36 +523,116 @@ flags = 4
 atlas = ExtResource( 9 )
 region = Rect2( 1500, 500, 500, 500 )
 
+[sub_resource type="AtlasTexture" id=77]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=78]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 500, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=79]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 1000, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=80]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 1500, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=81]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=82]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 500, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=83]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 1000, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=84]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 1500, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=65]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=66]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 500, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=67]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 1000, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=68]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 1500, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=69]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 2000, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=70]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 2500, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=71]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=72]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 500, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=73]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 1000, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=74]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 1500, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=75]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 2000, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=76]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 2500, 500, 500, 500 )
+
 [sub_resource type="SpriteFrames" id=30]
 animations = [ {
-"frames": [ SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ) ],
-"loop": true,
-"name": "MiloIdleStaffless",
-"speed": 15.0
-}, {
-"frames": [ SubResource( 65 ), SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ) ],
-"loop": false,
-"name": "MiloJumpFallStaffless",
-"speed": 15.0
-}, {
 "frames": [ SubResource( 109 ), SubResource( 110 ), SubResource( 111 ), SubResource( 112 ), SubResource( 113 ), SubResource( 114 ), SubResource( 115 ), SubResource( 116 ), SubResource( 117 ), SubResource( 118 ), SubResource( 119 ) ],
 "loop": true,
 "name": "MiloIdleStaff",
 "speed": 15.0
 }, {
-"frames": [ SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ), SubResource( 108 ) ],
+"frames": [ SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ) ],
 "loop": true,
-"name": "MiloWalkStaffless",
-"speed": 15.0
-}, {
-"frames": [ SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 60 ), SubResource( 59 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ) ],
-"loop": false,
-"name": "MiloJumpFallStaff",
-"speed": 15.0
-}, {
-"frames": [ SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ), SubResource( 81 ), SubResource( 82 ), SubResource( 83 ), SubResource( 84 ) ],
-"loop": true,
-"name": "MiloRunStaff",
+"name": "MiloIdleStaffless",
 "speed": 15.0
 }, {
 "frames": [ SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ), SubResource( 89 ), SubResource( 90 ), SubResource( 91 ), SubResource( 92 ) ],
@@ -660,9 +640,29 @@ animations = [ {
 "name": "MiloRunStaffless",
 "speed": 15.0
 }, {
+"frames": [ SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 60 ), SubResource( 59 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ) ],
+"loop": false,
+"name": "MiloJumpFallStaff",
+"speed": 15.0
+}, {
+"frames": [ SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ), SubResource( 108 ) ],
+"loop": true,
+"name": "MiloWalkStaffless",
+"speed": 15.0
+}, {
 "frames": [ SubResource( 93 ), SubResource( 94 ), SubResource( 95 ), SubResource( 96 ), SubResource( 97 ), SubResource( 98 ), SubResource( 99 ), SubResource( 100 ) ],
 "loop": true,
 "name": "MiloWalkStaff",
+"speed": 15.0
+}, {
+"frames": [ SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ), SubResource( 81 ), SubResource( 82 ), SubResource( 83 ), SubResource( 84 ) ],
+"loop": true,
+"name": "MiloRunStaff",
+"speed": 15.0
+}, {
+"frames": [ SubResource( 65 ), SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ) ],
+"loop": false,
+"name": "MiloJumpFallStaffless",
 "speed": 15.0
 } ]
 
@@ -682,14 +682,13 @@ light_mask = 2
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 148 )
 animation = "MiloIdleStafflessUNLIT"
-frame = 1
+frame = 8
 playing = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 30 )
 animation = "MiloIdleStaff"
-frame = 4
 playing = true
 
 [node name="SunStaff" parent="AnimatedSprite" instance=ExtResource( 3 )]

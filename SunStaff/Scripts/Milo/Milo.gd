@@ -184,27 +184,11 @@ func _physics_process(delta):
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
-	# Get Current Closest Altar
-	for altar in StaffAltars:
-		var distanceTo = DistanceTo(self.position, altar.position)
-		if (distanceTo < minDistanceToAltar):
-			minDistanceToAltar = distanceTo
-			currentClosestAltar = altar
+	GetCurrentClosestAltar()
 
-	# Get Current Closest Pedestal
-	for pedestal in Pedestals:
-		var distanceTo = DistanceTo(self.position, pedestal.position)
-		if (distanceTo < minDistanceToPedestal):
-			minDistanceToPedestal = distanceTo
-			currentClosestPedestal = pedestal
+	GetCurrentClosestPedestal()
 
-	# Get Current Closest Lever
-	for lever in Levers:
-		var distanceTo = DistanceTo(self.position, lever.position)
-		if (distanceTo < minDistanceToLever):
-			minDistanceToLever = distanceTo
-			currentClosestLever = lever
-			LeverObject = currentClosestLever
+	GetCurrentClosestLever()
 		
 func PlayerDeath(position):
 	self.position = position
@@ -233,6 +217,7 @@ func _on_InteractRange_area_exited(area:Area2D):
 		WithinPedestalRange = false
 
 func SunStaffPlacement():
+	GetCurrentClosestAltar()
 	if (StaffVisibility): # If Milo is holding staff
 		SunStaff.get_child(0).set_color(Color(1,1,1,0))
 		StaffVisibility = false
@@ -265,3 +250,28 @@ func DistanceTo(a,b):
 func _on_AnimatedSprite_animation_finished(): 
 	if ("MiloJumpFallStaff" in sprite.animation):
 		justJumped = true
+
+func GetCurrentClosestAltar():
+	# Get Current Closest Altar
+	for altar in StaffAltars:
+		var distanceTo = DistanceTo(self.position, altar.position)
+		if (distanceTo < minDistanceToAltar):
+			minDistanceToAltar = distanceTo
+			currentClosestAltar = altar
+
+func GetCurrentClosestLever():
+	# Get Current Closest Lever
+	for lever in Levers:
+		var distanceTo = DistanceTo(self.position, lever.position)
+		if (distanceTo < minDistanceToLever):
+			minDistanceToLever = distanceTo
+			currentClosestLever = lever
+			LeverObject = currentClosestLever
+
+func GetCurrentClosestPedestal():
+	# Get Current Closest Pedestal
+	for pedestal in Pedestals:
+		var distanceTo = DistanceTo(self.position, pedestal.position)
+		if (distanceTo < minDistanceToPedestal):
+			minDistanceToPedestal = distanceTo
+			currentClosestPedestal = pedestal

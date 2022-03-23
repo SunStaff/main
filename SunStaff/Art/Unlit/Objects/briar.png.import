@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/life_Platform_LS.png-bf3d057d0020e4e977b776e925589475.stex"
+path="res://.import/briar.png-41b2ff3b1906f742c710daaf875d54e9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Lit/life_Platform_LS.png"
-dest_files=[ "res://.import/life_Platform_LS.png-bf3d057d0020e4e977b776e925589475.stex" ]
+source_file="res://Art/Unlit/Objects/briar.png"
+dest_files=[ "res://.import/briar.png-41b2ff3b1906f742c710daaf875d54e9.stex" ]
 
 [params]
 

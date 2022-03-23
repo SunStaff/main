@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LightradiusWBlurBIG.png-db9797aefb3fd855230e2d1da29a0894.stex"
+path="res://.import/unlit_sky.png-0075866132a660368fb2c3c6543bba53.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Misc/LightradiusWBlurBIG.png"
-dest_files=[ "res://.import/LightradiusWBlurBIG.png-db9797aefb3fd855230e2d1da29a0894.stex" ]
+source_file="res://Art/Unlit/Backgrounds/unlit_sky.png"
+dest_files=[ "res://.import/unlit_sky.png-0075866132a660368fb2c3c6543bba53.stex" ]
 
 [params]
 

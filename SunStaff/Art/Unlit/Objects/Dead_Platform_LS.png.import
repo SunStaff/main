@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MiloColor2.png-f7a77e9b5aa3b78285f01d753bdcb217.stex"
+path="res://.import/Dead_Platform_LS.png-c5463c08d40de7234a89f6e2359ae1b0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Lit/Milo/MiloColor2.png"
-dest_files=[ "res://.import/MiloColor2.png-f7a77e9b5aa3b78285f01d753bdcb217.stex" ]
+source_file="res://Art/Unlit/Objects/Dead_Platform_LS.png"
+dest_files=[ "res://.import/Dead_Platform_LS.png-c5463c08d40de7234a89f6e2359ae1b0.stex" ]
 
 [params]
 

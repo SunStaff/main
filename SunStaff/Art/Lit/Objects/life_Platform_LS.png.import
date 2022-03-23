@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lit_background_without_trees.png-89987cb8dd1e1430f0e77daa9b5e7d24.stex"
+path="res://.import/life_Platform_LS.png-057a57c03248899bad3f1cdde1773b04.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Lit/Backgrounds/lit_background_without_trees.png"
-dest_files=[ "res://.import/lit_background_without_trees.png-89987cb8dd1e1430f0e77daa9b5e7d24.stex" ]
+source_file="res://Art/Lit/Objects/life_Platform_LS.png"
+dest_files=[ "res://.import/life_Platform_LS.png-057a57c03248899bad3f1cdde1773b04.stex" ]
 
 [params]
 

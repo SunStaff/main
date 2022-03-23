@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/unlit_platformmiddle.png-cfdfd243c887629607b2bad5beb84a44.stex"
+path="res://.import/unlit_groundlayer.png-3ad31aab068ae9ea158cc9474175cf6f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Unlit/unlit_platformmiddle.png"
-dest_files=[ "res://.import/unlit_platformmiddle.png-cfdfd243c887629607b2bad5beb84a44.stex" ]
+source_file="res://Art/Unlit/Backgrounds/unlit_groundlayer.png"
+dest_files=[ "res://.import/unlit_groundlayer.png-3ad31aab068ae9ea158cc9474175cf6f.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Dead_Platform_RS.png-500fb237e871406f1a039a056abee6a3.stex"
+path="res://.import/briar_transparent.png-beec935cc8e34c66185ce14f4d6a23e5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Unlit/Dead_Platform_RS.png"
-dest_files=[ "res://.import/Dead_Platform_RS.png-500fb237e871406f1a039a056abee6a3.stex" ]
+source_file="res://Art/Lit/Objects/briar_transparent.png"
+dest_files=[ "res://.import/briar_transparent.png-beec935cc8e34c66185ce14f4d6a23e5.stex" ]
 
 [params]
 

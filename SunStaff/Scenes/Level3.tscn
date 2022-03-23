@@ -1,33 +1,52 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Milo/Milo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/Briar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
-[ext_resource path="res://Art/Unlit/unlightgound_and_sky.png" type="Texture" id=4]
-[ext_resource path="res://Art/Lit/gound_and_sky.png" type="Texture" id=5]
-[ext_resource path="res://Scripts/Milo/SunStaff.gd" type="Script" id=6]
-[ext_resource path="res://Art/Misc/lightRadiuswBlur.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Main Levels/UnlitBackground.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Main Levels/LitBackground.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Objects/StaffAltar.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Objects/Platform.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Menus/GemSelectionScreen.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.8, 33.5 )
 
-[sub_resource type="CircleShape2D" id=3]
-radius = 250.0
+[node name="Level3" type="Node"]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 33, 33 )
+[node name="Backgrounds" type="Node" parent="."]
 
-[node name="Node" type="Node"]
+[node name="UnlitBackground5" parent="Backgrounds" instance=ExtResource( 4 )]
+position = Vector2( 7680, 150 )
 
-[node name="UnLitWorld" type="Sprite" parent="."]
-light_mask = 2
-scale = Vector2( 1, 0.5 )
-texture = ExtResource( 4 )
+[node name="UnlitBackground4" parent="Backgrounds" instance=ExtResource( 4 )]
+position = Vector2( 5760, 150 )
 
-[node name="LitWorld" type="Sprite" parent="."]
-scale = Vector2( 1, 0.5 )
-texture = ExtResource( 5 )
+[node name="UnlitBackground3" parent="Backgrounds" instance=ExtResource( 4 )]
+position = Vector2( 3840, 150 )
+
+[node name="UnlitBackground2" parent="Backgrounds" instance=ExtResource( 4 )]
+position = Vector2( 1920, 150 )
+
+[node name="UnlitBackground" parent="Backgrounds" instance=ExtResource( 4 )]
+position = Vector2( 0, 150 )
+
+[node name="LitBackground" parent="Backgrounds" instance=ExtResource( 5 )]
+position = Vector2( 0, 150 )
+
+[node name="LitBackground2" parent="Backgrounds" instance=ExtResource( 5 )]
+position = Vector2( 1920, 150 )
+
+[node name="LitBackground3" parent="Backgrounds" instance=ExtResource( 5 )]
+position = Vector2( 3840, 150 )
+
+[node name="LitBackground4" parent="Backgrounds" instance=ExtResource( 5 )]
+position = Vector2( 5760, 150 )
+
+[node name="Briar" parent="." instance=ExtResource( 2 )]
+position = Vector2( 335, 90 )
+
+[node name="StaffAltar" parent="." instance=ExtResource( 6 )]
 
 [node name="Platforms" type="Node" parent="."]
 
@@ -68,132 +87,85 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Node2D26"]
 shape = SubResource( 1 )
 
-[node name="Briar" parent="." instance=ExtResource( 2 )]
-position = Vector2( 335, 66 )
-
-[node name="StaffAltar" type="Area2D" parent="."]
-light_mask = 2
-position = Vector2( 590, 126 )
-collision_layer = 3
-collision_mask = 3
-script = ExtResource( 6 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="StaffAltar"]
-light_mask = 2
-texture = ExtResource( 3 )
-
-[node name="StaffInAltar" type="Node2D" parent="StaffAltar/Sprite"]
-visible = false
-
-[node name="Light2D" type="Light2D" parent="StaffAltar/Sprite/StaffInAltar"]
-texture = ExtResource( 7 )
-mode = 3
-__meta__ = {
-"_editor_description_": ""
-}
-
-[node name="Area2D" type="Area2D" parent="StaffAltar/Sprite/StaffInAltar/Light2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaffAltar/Sprite/StaffInAltar/Light2D/Area2D"]
-shape = SubResource( 3 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaffAltar"]
-light_mask = 2
-shape = SubResource( 2 )
-
-[node name="Briar2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 4000, 900 )
-scale = Vector2( 150, 1 )
-
-[node name="Platform2" parent="." instance=ExtResource( 8 )]
+[node name="Platform2" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 2305, -277 )
 
-[node name="Platform3" parent="." instance=ExtResource( 8 )]
+[node name="Platform3" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 3275, -315 )
 
-[node name="Platform4" parent="." instance=ExtResource( 8 )]
+[node name="Platform4" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 4746, -685 )
 
-[node name="Platform5" parent="." instance=ExtResource( 8 )]
+[node name="Platform5" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 1799, -395 )
 
-[node name="Platform6" parent="." instance=ExtResource( 8 )]
+[node name="Platform6" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 3842, -504 )
 
-[node name="Platform7" parent="." instance=ExtResource( 8 )]
+[node name="Platform7" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 4294, -684 )
 
-[node name="Platform8" parent="." instance=ExtResource( 8 )]
+[node name="Platform8" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 2781, -468 )
 
-[node name="Platform9" parent="." instance=ExtResource( 8 )]
+[node name="Platform9" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 5223, -686 )
 
-[node name="Platform10" parent="." instance=ExtResource( 8 )]
+[node name="Platform10" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 6182, -683 )
 
-[node name="Platform11" parent="." instance=ExtResource( 8 )]
+[node name="Platform11" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 6661, -685 )
 
-[node name="Platform12" parent="." instance=ExtResource( 8 )]
+[node name="Platform12" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 7141, -685 )
 
-[node name="Platform13" parent="." instance=ExtResource( 8 )]
+[node name="Platform13" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 5701, -684 )
 
-[node name="Platform14" parent="." instance=ExtResource( 8 )]
+[node name="Platform14" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 3822, 390 )
 
-[node name="Platform15" parent="." instance=ExtResource( 8 )]
+[node name="Platform15" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 4295, 392 )
 
-[node name="Platform16" parent="." instance=ExtResource( 8 )]
+[node name="Platform16" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 4775, 393 )
 
-[node name="Platform17" parent="." instance=ExtResource( 8 )]
+[node name="Platform17" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 5255, 393 )
 
-[node name="Platform18" parent="." instance=ExtResource( 8 )]
+[node name="Platform18" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 5732, 394 )
 
-[node name="Platform19" parent="." instance=ExtResource( 8 )]
+[node name="Platform19" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 1192, 340 )
 
-[node name="Platform20" parent="." instance=ExtResource( 8 )]
+[node name="Platform20" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 1741, 518 )
 
-[node name="Platform21" parent="." instance=ExtResource( 8 )]
+[node name="Platform21" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 7621, -684 )
 
-[node name="Platform22" parent="." instance=ExtResource( 8 )]
+[node name="Platform22" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 8102, -688 )
 
-[node name="Platform23" parent="." instance=ExtResource( 8 )]
+[node name="Platform23" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 134, 172 )
 
-[node name="Platform24" parent="." instance=ExtResource( 8 )]
+[node name="Platform24" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 614, 175 )
 
-[node name="Platform25" parent="." instance=ExtResource( 8 )]
+[node name="Platform25" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 949, -3 )
 
-[node name="Platform26" parent="." instance=ExtResource( 8 )]
+[node name="Platform26" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 1395, -196 )
 
 [node name="Milo" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 55 )
 
-[node name="Sprite" parent="Milo" index="0"]
-frame = 2
+[node name="Menus" type="CanvasLayer" parent="."]
 
-[node name="Light2D" parent="Milo/Sprite/SunStaff" index="0"]
-position = Vector2( 0, -2 )
-
-[node name="CollisionShape2D" parent="Milo/Sprite/SunStaff/LightCircle" index="0"]
-position = Vector2( 0, 48 )
-
-[editable path="Milo"]
-[editable path="Milo/Sprite/SunStaff"]
+[node name="GemSelectionScreen" parent="Menus" instance=ExtResource( 11 )]
+visible = false

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Dead_Platform_LS.png-851cc67ab6468a671d27894a9dac426c.stex"
+path="res://.import/Dead_Platform_RS.png-e50112d5075e6b00ac70d272f996abe2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Unlit/Dead_Platform_LS.png"
-dest_files=[ "res://.import/Dead_Platform_LS.png-851cc67ab6468a671d27894a9dac426c.stex" ]
+source_file="res://Art/Unlit/Objects/Dead_Platform_RS.png"
+dest_files=[ "res://.import/Dead_Platform_RS.png-e50112d5075e6b00ac70d272f996abe2.stex" ]
 
 [params]
 

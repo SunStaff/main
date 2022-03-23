@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Art/Lit/litplatformmiddle.png" type="Texture" id=1]
+[ext_resource path="res://Art/Lit/Objects/litplatformmiddle.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Platforms/Platform.gd" type="Script" id=2]
-[ext_resource path="res://Art/Unlit/unlit_platformmiddle.png" type="Texture" id=3]
+[ext_resource path="res://Art/Unlit/Objects/unlit_platformmiddle.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 33.0942, 240.531 )
