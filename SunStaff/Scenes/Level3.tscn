@@ -137,21 +137,20 @@ position = Vector2( 0, 163 )
 texture = ExtResource( 13 )
 
 [node name="Milo" parent="." instance=ExtResource( 1 )]
-visible = false
 position = Vector2( 0, 55 )
 collision_layer = 3
 collision_mask = 3
 
-[node name="AnimatedSprite" parent="Milo" index="0"]
-frame = 8
+[node name="AnimatedSprite2" parent="Milo" index="0"]
+frame = 5
 
-[node name="CollisionShape2D" parent="Milo" index="1"]
+[node name="CollisionShape2D" parent="Milo" index="2"]
 light_mask = 2
 
-[node name="Camera2D" parent="Milo" index="2"]
+[node name="Camera2D" parent="Milo" index="3"]
 light_mask = 2
 
-[node name="InteractRange" parent="Milo" index="3"]
+[node name="InteractRange" parent="Milo" index="4"]
 light_mask = 2
 
 [node name="CollisionShape2D" parent="Milo/InteractRange" index="0"]

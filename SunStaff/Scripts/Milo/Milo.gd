@@ -3,6 +3,7 @@ extends KinematicBody2D
 # Node Variables
 var playerRootNode
 var sprite
+var spriteUnlit
 
 # Sun Staff Variables
 var SunStaff
@@ -38,8 +39,10 @@ var justJumped = false
 func _ready():
 	playerRootNode = get_parent()
 	sprite = $AnimatedSprite
-	SunStaff = self.get_child(0).get_child(0) # Gets Sun Staff 
-	LightCircle = get_child(0).get_child(0).get_child(1)
+	spriteUnlit = $AnimatedSprite2
+	spriteUnlit.visible = false
+	SunStaff = self.get_child(1).get_child(0) # Gets Sun Staff 
+	LightCircle = get_child(1).get_child(0).get_child(1)
 	
 	WithinAltarRange = false
 	StaffVisibility = true
@@ -62,50 +65,70 @@ func get_input():
 				velocity.y = jump_speed
 				if (HasStaff):
 					sprite.animation = "MiloJumpFallStaff"
+					spriteUnlit.visible = false
 				else:
+					spriteUnlit.visible = true
 					sprite.animation = "MiloJumpFallStaffless"
+					spriteUnlit.animation = "MiloJumpFallUNLIT"
 		
 		elif Input.is_action_just_pressed("Right"):
 			if (!faceRight):
 				sprite.scale.x *= -1
+				spriteUnlit.scale.x *= -1
 				faceRight = true
 			if (HasStaff):
 				sprite.animation = "MiloWalkStaff"
+				spriteUnlit.visible = false
 			else:
+				spriteUnlit.visible = true
 				sprite.animation = "MiloWalkStaffless"
+				spriteUnlit.animation = "MiloWalkStafflessUNLIT"
 		
 		elif Input.is_action_just_pressed("Left"):
 			if (faceRight):
 				sprite.scale.x *= -1
+				spriteUnlit.scale.x *= -1
 				faceRight = false
 			if (HasStaff):
 				sprite.animation = "MiloWalkStaff"
+				spriteUnlit.visible = false
 			else:
+				spriteUnlit.visible = true
 				sprite.animation = "MiloWalkStaffless"
+				spriteUnlit.animation = "MiloWalkStafflessUNLIT"
 
 		if Input.is_action_pressed("Right"):
 			dir += 1
 			if (justJumped):
 				if (HasStaff):
+					spriteUnlit.visible = false
 					sprite.animation = "MiloWalkStaff"
 				else:
+					spriteUnlit.visible = true
 					sprite.animation = "MiloWalkStaffless"
+					spriteUnlit.animation = "MiloWalkStafflessUNLIT"
 				justJumped = false
 		
 		elif Input.is_action_pressed("Left"):
 			dir -= 1
 			if (justJumped):
 				if (HasStaff):
+					spriteUnlit.visible = false
 					sprite.animation = "MiloWalkStaff"
 				else:
+					spriteUnlit.visible = true
 					sprite.animation = "MiloWalkStaffless"
+					spriteUnlit.animation = "MiloWalkStafflessUNLIT"
 				justJumped = false
 
 		else:
 			if (HasStaff):
+				spriteUnlit.visible = false
 				sprite.animation = "MiloIdleStaff"
 			else:
+				spriteUnlit.visible = true
 				sprite.animation = "MiloIdleStaffless"
+				spriteUnlit.animation = "MiloIdleStafflessUNLIT"
 		
 		if dir != 0:
 			velocity.x = lerp(velocity.x, dir * speed, acceleration)
