@@ -14,21 +14,21 @@ func _ready():
 #	pass
 
 
-func _on_LightCircle_body_entered(body):
+func _on_LightCircle_body_entered(_body):
 	pass
 
 
-func _on_LightCircle_body_exited(body):
+func _on_LightCircle_body_exited(_body):
 	pass
 
 
 func _on_LightCircle_area_entered(area):
-	if (area.name == "Briar"):
+	if ("Briar" in area.name):
 		activated = true
 		area.SetObjectLightState(true)
 
 
 func _on_LightCircle_area_exited(area):
-	if (area.name == "Briar"):
+	if ("Briar" in area.name):
 		activated = false
 		area.SetObjectLightState(false)

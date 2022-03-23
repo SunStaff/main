@@ -1,39 +1,175 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Milo/Milo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/Briar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://Art/Unlit/unlightgound_and_sky.png" type="Texture" id=4]
-[ext_resource path="res://Art/Lit/gound_and_sky.png" type="Texture" id=5]
-[ext_resource path="res://Scripts/Milo/SunStaff.gd" type="Script" id=6]
-[ext_resource path="res://Art/Misc/lightRadiuswBlur.png" type="Texture" id=7]
-[ext_resource path="res://Art/Lit/Objects/litplatformmiddle.png" type="Texture" id=8]
+[ext_resource path="res://Art/Lit/Backgrounds/skybottom.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Objects/StaffAltar.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Objects/Lever.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Objects/PressurePlate.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Objects/GemPickup.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Objects/GemPedestal.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Menus/GemSelectionScreen.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Art/Lit/Backgrounds/skytop.png" type="Texture" id=12]
+[ext_resource path="res://Art/Lit/Backgrounds/lit_groundlayer.png" type="Texture" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.8, 33.5 )
 
-[sub_resource type="CircleShape2D" id=3]
-radius = 250.0
+[node name="Level3" type="Node"]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 33, 33 )
+[node name="Backgrounds" type="Node" parent="."]
 
-[node name="Node" type="Node"]
-
-[node name="UnLitWorld" type="Sprite" parent="."]
-light_mask = 2
-scale = Vector2( 1, 0.5 )
+[node name="UnlightgoundAndSky" type="Sprite" parent="Backgrounds"]
+light_mask = 0
+position = Vector2( 0, -184 )
 texture = ExtResource( 4 )
 
-[node name="LitWorld" type="Sprite" parent="."]
-scale = Vector2( 1, 0.5 )
+[node name="UnlightgoundAndSky2" type="Sprite" parent="Backgrounds"]
+light_mask = 0
+position = Vector2( 1920, -184 )
+texture = ExtResource( 4 )
+
+[node name="UnlightgoundAndSky3" type="Sprite" parent="Backgrounds"]
+light_mask = 0
+position = Vector2( 3840, -184 )
+texture = ExtResource( 4 )
+
+[node name="UnlightgoundAndSky4" type="Sprite" parent="Backgrounds"]
+light_mask = 0
+position = Vector2( 5760, -184 )
+texture = ExtResource( 4 )
+
+[node name="UnlightgoundAndSky5" type="Sprite" parent="Backgrounds"]
+light_mask = 0
+position = Vector2( 7680, -184 )
+texture = ExtResource( 4 )
+
+[node name="LitTile" type="Node2D" parent="Backgrounds"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Skytop" type="Sprite" parent="Backgrounds/LitTile"]
+position = Vector2( 0, -1569 )
+texture = ExtResource( 12 )
+
+[node name="Skybottom" type="Sprite" parent="Backgrounds/LitTile"]
+position = Vector2( 0, -531 )
 texture = ExtResource( 5 )
+
+[node name="LitGroundlayer" type="Sprite" parent="Backgrounds/LitTile"]
+light_mask = 3
+position = Vector2( 0, 163 )
+texture = ExtResource( 13 )
+
+[node name="LitTile2" type="Node2D" parent="Backgrounds"]
+position = Vector2( 1920, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Skytop" type="Sprite" parent="Backgrounds/LitTile2"]
+position = Vector2( 0, -1569 )
+texture = ExtResource( 12 )
+
+[node name="Skybottom" type="Sprite" parent="Backgrounds/LitTile2"]
+position = Vector2( 0, -531 )
+texture = ExtResource( 5 )
+
+[node name="LitGroundlayer" type="Sprite" parent="Backgrounds/LitTile2"]
+position = Vector2( 0, 163 )
+texture = ExtResource( 13 )
+
+[node name="LitTile3" type="Node2D" parent="Backgrounds"]
+position = Vector2( 3840, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Skytop" type="Sprite" parent="Backgrounds/LitTile3"]
+position = Vector2( 0, -1569 )
+texture = ExtResource( 12 )
+
+[node name="Skybottom" type="Sprite" parent="Backgrounds/LitTile3"]
+position = Vector2( 0, -531 )
+texture = ExtResource( 5 )
+
+[node name="LitGroundlayer" type="Sprite" parent="Backgrounds/LitTile3"]
+position = Vector2( 0, 163 )
+texture = ExtResource( 13 )
+
+[node name="LitTile4" type="Node2D" parent="Backgrounds"]
+position = Vector2( 5760, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Skytop" type="Sprite" parent="Backgrounds/LitTile4"]
+position = Vector2( 0, -1569 )
+texture = ExtResource( 12 )
+
+[node name="Skybottom" type="Sprite" parent="Backgrounds/LitTile4"]
+position = Vector2( 0, -531 )
+texture = ExtResource( 5 )
+
+[node name="LitGroundlayer" type="Sprite" parent="Backgrounds/LitTile4"]
+position = Vector2( 0, 163 )
+texture = ExtResource( 13 )
+
+[node name="LitTile5" type="Node2D" parent="Backgrounds"]
+position = Vector2( 7680, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Skytop" type="Sprite" parent="Backgrounds/LitTile5"]
+position = Vector2( 0, -1569 )
+texture = ExtResource( 12 )
+
+[node name="Skybottom" type="Sprite" parent="Backgrounds/LitTile5"]
+position = Vector2( 0, -531 )
+texture = ExtResource( 5 )
+
+[node name="LitGroundlayer" type="Sprite" parent="Backgrounds/LitTile5"]
+position = Vector2( 0, 163 )
+texture = ExtResource( 13 )
 
 [node name="Milo" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 55 )
+collision_layer = 3
+collision_mask = 3
 
-[node name="Sprite" parent="Milo" index="0"]
-frame = 2
+[node name="AnimatedSprite2" parent="Milo" index="0"]
+frame = 5
+
+[node name="CollisionShape2D" parent="Milo" index="2"]
+light_mask = 2
+
+[node name="Camera2D" parent="Milo" index="3"]
+light_mask = 2
+
+[node name="InteractRange" parent="Milo" index="4"]
+light_mask = 2
+
+[node name="CollisionShape2D" parent="Milo/InteractRange" index="0"]
+light_mask = 2
+
+[node name="Briar" parent="." instance=ExtResource( 2 )]
+position = Vector2( 335, 66 )
+
+[node name="FloorBriar" parent="." instance=ExtResource( 2 )]
+light_mask = 3
+position = Vector2( 4000, 900 )
+scale = Vector2( 150, 1 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="StaffAltar" parent="." instance=ExtResource( 6 )]
+position = Vector2( 591, 116 )
+
+[node name="PressurePlate1" parent="." instance=ExtResource( 8 )]
 
 [node name="Platforms" type="Node" parent="."]
 
@@ -431,49 +567,19 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Moveable16"]
 shape = SubResource( 1 )
 
-[node name="Briar" parent="." instance=ExtResource( 2 )]
-position = Vector2( 335, 66 )
+[node name="Lever" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1414, 246 )
 
-[node name="StaffAltar" type="Area2D" parent="."]
-light_mask = 2
-position = Vector2( 590, 126 )
-collision_layer = 3
-collision_mask = 3
-script = ExtResource( 6 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="GemPedestal" parent="." instance=ExtResource( 10 )]
+position = Vector2( 4754, -818 )
 
-[node name="Sprite" type="Sprite" parent="StaffAltar"]
-light_mask = 2
-texture = ExtResource( 3 )
+[node name="Blue_GemPickup" parent="." instance=ExtResource( 9 )]
+position = Vector2( 4219, -770 )
 
-[node name="StaffInAltar" type="Node2D" parent="StaffAltar/Sprite"]
+[node name="Menus" type="CanvasLayer" parent="."]
+
+[node name="GemSelectionScreen" parent="Menus" instance=ExtResource( 11 )]
 visible = false
 
-[node name="Light2D" type="Light2D" parent="StaffAltar/Sprite/StaffInAltar"]
-texture = ExtResource( 7 )
-mode = 3
-__meta__ = {
-"_editor_description_": ""
-}
-
-[node name="Area2D" type="Area2D" parent="StaffAltar/Sprite/StaffInAltar/Light2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaffAltar/Sprite/StaffInAltar/Light2D/Area2D"]
-shape = SubResource( 3 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaffAltar"]
-light_mask = 2
-shape = SubResource( 2 )
-
-[node name="Briar2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 4000, 900 )
-scale = Vector2( 150, 1 )
-
-[node name="Litplatformmiddle" type="Sprite" parent="."]
-position = Vector2( 319, -562 )
-texture = ExtResource( 8 )
-
 [editable path="Milo"]
-[editable path="Milo/Sprite/SunStaff"]
+[editable path="Milo/AnimatedSprite/SunStaff"]

@@ -4,7 +4,7 @@
 [ext_resource path="res://Art/Misc/lightRadiuswBlur.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=29]
-radius = 460.0
+radius = 506.0
 
 [node name="SunStaff" type="Node2D"]
 position = Vector2( 168, 18 )

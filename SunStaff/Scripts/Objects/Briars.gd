@@ -6,14 +6,14 @@ func _ready():
 	activated = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func HurtPlayer():
 	GameManager.SetPlayerAliveState(false)
 
 func _on_Briar_body_entered(body):
-	if (body.name == "Milo"):
+	if ("Milo" in body.name):
 		HurtPlayer()
 
 func SetObjectLightState(state): # What to do if object only appears in dark but not light
