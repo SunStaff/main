@@ -1,16 +1,18 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Milo/Milo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/Briar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://Art/Unlit/unlightgound_and_sky.png" type="Texture" id=4]
-[ext_resource path="res://Art/Lit/gound_and_sky.png" type="Texture" id=5]
+[ext_resource path="res://Art/Lit/Backgrounds/skybottom.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Objects/StaffAltar.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Objects/Lever.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Objects/PressurePlate.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Objects/GemPickup.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Objects/GemPedestal.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Menus/GemSelectionScreen.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Art/Lit/Backgrounds/skytop.png" type="Texture" id=12]
+[ext_resource path="res://Art/Lit/Backgrounds/lit_groundlayer.png" type="Texture" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.8, 33.5 )
@@ -19,71 +21,129 @@ extents = Vector2( 32.8, 33.5 )
 
 [node name="Backgrounds" type="Node" parent="."]
 
-[node name="UnLitWorld" type="Sprite" parent="Backgrounds"]
-light_mask = 2
-position = Vector2( 0, -500 )
-scale = Vector2( 1, 3 )
+[node name="UnlightgoundAndSky" type="Sprite" parent="Backgrounds"]
+light_mask = 0
+position = Vector2( 0, -184 )
 texture = ExtResource( 4 )
 
-[node name="UnLitWorld2" type="Sprite" parent="Backgrounds"]
-light_mask = 2
-position = Vector2( 1920, -500 )
-scale = Vector2( 1, 3 )
+[node name="UnlightgoundAndSky2" type="Sprite" parent="Backgrounds"]
+light_mask = 0
+position = Vector2( 1920, -184 )
 texture = ExtResource( 4 )
 
-[node name="UnLitWorld3" type="Sprite" parent="Backgrounds"]
-light_mask = 2
-position = Vector2( 3840, -500 )
-scale = Vector2( 1, 3 )
+[node name="UnlightgoundAndSky3" type="Sprite" parent="Backgrounds"]
+light_mask = 0
+position = Vector2( 3840, -184 )
 texture = ExtResource( 4 )
 
-[node name="UnLitWorld4" type="Sprite" parent="Backgrounds"]
-light_mask = 2
-position = Vector2( 5760, -500 )
-scale = Vector2( 1, 3 )
+[node name="UnlightgoundAndSky4" type="Sprite" parent="Backgrounds"]
+light_mask = 0
+position = Vector2( 5760, -184 )
 texture = ExtResource( 4 )
 
-[node name="UnLitWorld5" type="Sprite" parent="Backgrounds"]
-light_mask = 2
-position = Vector2( 7680, -500 )
-scale = Vector2( 1, 3 )
+[node name="UnlightgoundAndSky5" type="Sprite" parent="Backgrounds"]
+light_mask = 0
+position = Vector2( 7680, -184 )
 texture = ExtResource( 4 )
 
-[node name="LitWorld" type="Sprite" parent="Backgrounds"]
-position = Vector2( 0, -500 )
-scale = Vector2( 1, 3 )
+[node name="LitTile" type="Node2D" parent="Backgrounds"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Skytop" type="Sprite" parent="Backgrounds/LitTile"]
+position = Vector2( 0, -1569 )
+texture = ExtResource( 12 )
+
+[node name="Skybottom" type="Sprite" parent="Backgrounds/LitTile"]
+position = Vector2( 0, -531 )
 texture = ExtResource( 5 )
 
-[node name="LitWorld2" type="Sprite" parent="Backgrounds"]
-position = Vector2( 1920, -500 )
-scale = Vector2( 1, 3 )
+[node name="LitGroundlayer" type="Sprite" parent="Backgrounds/LitTile"]
+light_mask = 3
+position = Vector2( 0, 163 )
+texture = ExtResource( 13 )
+
+[node name="LitTile2" type="Node2D" parent="Backgrounds"]
+position = Vector2( 1920, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Skytop" type="Sprite" parent="Backgrounds/LitTile2"]
+position = Vector2( 0, -1569 )
+texture = ExtResource( 12 )
+
+[node name="Skybottom" type="Sprite" parent="Backgrounds/LitTile2"]
+position = Vector2( 0, -531 )
 texture = ExtResource( 5 )
 
-[node name="LitWorld3" type="Sprite" parent="Backgrounds"]
-position = Vector2( 3840, -500 )
-scale = Vector2( 1, 3 )
+[node name="LitGroundlayer" type="Sprite" parent="Backgrounds/LitTile2"]
+position = Vector2( 0, 163 )
+texture = ExtResource( 13 )
+
+[node name="LitTile3" type="Node2D" parent="Backgrounds"]
+position = Vector2( 3840, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Skytop" type="Sprite" parent="Backgrounds/LitTile3"]
+position = Vector2( 0, -1569 )
+texture = ExtResource( 12 )
+
+[node name="Skybottom" type="Sprite" parent="Backgrounds/LitTile3"]
+position = Vector2( 0, -531 )
 texture = ExtResource( 5 )
 
-[node name="LitWorld4" type="Sprite" parent="Backgrounds"]
-position = Vector2( 5760, -500 )
-scale = Vector2( 1, 3 )
+[node name="LitGroundlayer" type="Sprite" parent="Backgrounds/LitTile3"]
+position = Vector2( 0, 163 )
+texture = ExtResource( 13 )
+
+[node name="LitTile4" type="Node2D" parent="Backgrounds"]
+position = Vector2( 5760, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Skytop" type="Sprite" parent="Backgrounds/LitTile4"]
+position = Vector2( 0, -1569 )
+texture = ExtResource( 12 )
+
+[node name="Skybottom" type="Sprite" parent="Backgrounds/LitTile4"]
+position = Vector2( 0, -531 )
 texture = ExtResource( 5 )
 
-[node name="LitWorld5" type="Sprite" parent="Backgrounds"]
-position = Vector2( 7680, -500 )
-scale = Vector2( 1, 3 )
+[node name="LitGroundlayer" type="Sprite" parent="Backgrounds/LitTile4"]
+position = Vector2( 0, 163 )
+texture = ExtResource( 13 )
+
+[node name="LitTile5" type="Node2D" parent="Backgrounds"]
+position = Vector2( 7680, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Skytop" type="Sprite" parent="Backgrounds/LitTile5"]
+position = Vector2( 0, -1569 )
+texture = ExtResource( 12 )
+
+[node name="Skybottom" type="Sprite" parent="Backgrounds/LitTile5"]
+position = Vector2( 0, -531 )
 texture = ExtResource( 5 )
+
+[node name="LitGroundlayer" type="Sprite" parent="Backgrounds/LitTile5"]
+position = Vector2( 0, 163 )
+texture = ExtResource( 13 )
 
 [node name="Milo" parent="." instance=ExtResource( 1 )]
+visible = false
 position = Vector2( 0, 55 )
 collision_layer = 3
 collision_mask = 3
 
 [node name="AnimatedSprite" parent="Milo" index="0"]
-frame = 10
-
-[node name="Light2D" parent="Milo/AnimatedSprite/SunStaff" index="0"]
-energy = 0.0
+frame = 8
 
 [node name="CollisionShape2D" parent="Milo" index="1"]
 light_mask = 2
@@ -111,9 +171,6 @@ collision_mask = 3
 position = Vector2( 591, 116 )
 
 [node name="PressurePlate1" parent="." instance=ExtResource( 8 )]
-
-[node name="PressurePlate2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 750, -232 )
 
 [node name="Platforms" type="Node" parent="."]
 
@@ -515,10 +572,10 @@ shape = SubResource( 1 )
 position = Vector2( 1414, 246 )
 
 [node name="GemPedestal" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1678, -581 )
+position = Vector2( 4754, -818 )
 
 [node name="Blue_GemPickup" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1191, -435 )
+position = Vector2( 4219, -770 )
 
 [node name="Menus" type="CanvasLayer" parent="."]
 
