@@ -142,7 +142,10 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="AnimatedSprite2" parent="Milo" index="0"]
-frame = 5
+frame = 3
+
+[node name="AnimatedSprite" parent="Milo" index="1"]
+frame = 2
 
 [node name="CollisionShape2D" parent="Milo" index="2"]
 light_mask = 2

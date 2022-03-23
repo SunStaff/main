@@ -14,7 +14,7 @@ var StaffVisibility
 var currentClosestAltar
 var minDistanceToAltar = INF
 var HasStaff = true
-
+var sprintcheck = false
 # Lever Vairables
 var WithinLeverRange
 
@@ -60,6 +60,10 @@ func get_input():
 	if (GameManager.IsPlayerAlive and GameManager.IsGamePlaying):
 		# Movement
 		var dir = 0
+		if Input.is_action_pressed("sprint"):
+			sprintcheck = true
+		else:
+			sprintcheck = false
 		if Input.is_action_just_pressed("Jump"): 
 			if is_on_floor():
 				velocity.y = jump_speed
@@ -98,7 +102,10 @@ func get_input():
 				spriteUnlit.animation = "MiloWalkStafflessUNLIT"
 
 		if Input.is_action_pressed("Right"):
-			dir += 1
+			if sprintcheck == true:
+				dir += 2
+			else:
+				dir += 1
 			if (justJumped):
 				if (HasStaff):
 					spriteUnlit.visible = false
@@ -110,7 +117,10 @@ func get_input():
 				justJumped = false
 		
 		elif Input.is_action_pressed("Left"):
-			dir -= 1
+			if sprintcheck == true:
+				dir -= 2
+			else:
+				dir -= 1
 			if (justJumped):
 				if (HasStaff):
 					spriteUnlit.visible = false
