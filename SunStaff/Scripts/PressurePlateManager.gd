@@ -4,11 +4,11 @@ extends Node
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+var LevelManagers = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	LevelManagers = GameManager.GetLevelManagers()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -54,6 +54,6 @@ func Level3(name):
 	name = name.replacen("PressurePlate", "")
 	match(name):
 		"1":
-			pass
+			LevelManagers[0].Level3_TimerPuzzle()
 		"2":
 			pass

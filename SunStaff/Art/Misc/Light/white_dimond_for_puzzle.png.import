@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LightRadiusBlur.png-da679fd8f82d058e6e2484452eeeb39f.stex"
+path="res://.import/white_dimond_for_puzzle.png-e6ea961e723e5d22cdef3bf1b2c680d0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Misc/LightRadiusBlur.png"
-dest_files=[ "res://.import/LightRadiusBlur.png-da679fd8f82d058e6e2484452eeeb39f.stex" ]
+source_file="res://Art/Misc/Light/white_dimond_for_puzzle.png"
+dest_files=[ "res://.import/white_dimond_for_puzzle.png-e6ea961e723e5d22cdef3bf1b2c680d0.stex" ]
 
 [params]
 

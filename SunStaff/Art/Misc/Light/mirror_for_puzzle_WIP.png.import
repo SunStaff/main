@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/RED_GEM.png-f95419ac1ad07c58c88e3c0294431148.stex"
+path="res://.import/mirror_for_puzzle_WIP.png-6e04b2e82f3ebfde1acce843e3dac905.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Misc/RED_GEM.png"
-dest_files=[ "res://.import/RED_GEM.png-f95419ac1ad07c58c88e3c0294431148.stex" ]
+source_file="res://Art/Misc/Light/mirror_for_puzzle_WIP.png"
+dest_files=[ "res://.import/mirror_for_puzzle_WIP.png-6e04b2e82f3ebfde1acce843e3dac905.stex" ]
 
 [params]
 

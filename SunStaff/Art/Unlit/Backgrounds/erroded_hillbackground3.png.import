@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lightRadiuswBlur.png-50268b50bf993e0bf926341131d45b90.stex"
+path="res://.import/erroded_hillbackground3.png-f2c78b20c8304ce4306e5ce1393d8458.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Misc/lightRadiuswBlur.png"
-dest_files=[ "res://.import/lightRadiuswBlur.png-50268b50bf993e0bf926341131d45b90.stex" ]
+source_file="res://Art/Unlit/Backgrounds/erroded_hillbackground3.png"
+dest_files=[ "res://.import/erroded_hillbackground3.png-f2c78b20c8304ce4306e5ce1393d8458.stex" ]
 
 [params]
 

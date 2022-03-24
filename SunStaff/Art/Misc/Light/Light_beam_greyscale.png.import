@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BLUE_GEM.png-ceae501945903738f60b35c3283ff118.stex"
+path="res://.import/Light_beam_greyscale.png-f800d5c4d78ca9cb23822a0378093b4c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Misc/BLUE_GEM.png"
-dest_files=[ "res://.import/BLUE_GEM.png-ceae501945903738f60b35c3283ff118.stex" ]
+source_file="res://Art/Misc/Light/Light_beam_greyscale.png"
+dest_files=[ "res://.import/Light_beam_greyscale.png-f800d5c4d78ca9cb23822a0378093b4c.stex" ]
 
 [params]
 

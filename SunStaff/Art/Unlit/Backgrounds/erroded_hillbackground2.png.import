@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/magenta_GEM.png-f82ee8cc6079d66028594bb8120508bd.stex"
+path="res://.import/erroded_hillbackground2.png-c4f6146b1b6d5ffda1ecb2f0bd8edc4e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Misc/magenta_GEM.png"
-dest_files=[ "res://.import/magenta_GEM.png-f82ee8cc6079d66028594bb8120508bd.stex" ]
+source_file="res://Art/Unlit/Backgrounds/erroded_hillbackground2.png"
+dest_files=[ "res://.import/erroded_hillbackground2.png-c4f6146b1b6d5ffda1ecb2f0bd8edc4e.stex" ]
 
 [params]
 

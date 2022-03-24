@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Light_beam_greyscale.png-89dfe9919992e26eabd2df6e6346f912.stex"
+path="res://.import/orange_GEM.png-50a9748269a6f14aab55aa8d0c41d040.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Misc/Light_beam_greyscale.png"
-dest_files=[ "res://.import/Light_beam_greyscale.png-89dfe9919992e26eabd2df6e6346f912.stex" ]
+source_file="res://Art/Misc/Gems/orange_GEM.png"
+dest_files=[ "res://.import/orange_GEM.png-50a9748269a6f14aab55aa8d0c41d040.stex" ]
 
 [params]
 

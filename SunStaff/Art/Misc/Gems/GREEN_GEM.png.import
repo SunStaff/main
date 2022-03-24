@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mirror_for_puzzle_WIP.png-3c9352a6d8bce79b70af19973da24c92.stex"
+path="res://.import/GREEN_GEM.png-8ee9e096d866b0bc60764f38e7acdaea.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Misc/mirror_for_puzzle_WIP.png"
-dest_files=[ "res://.import/mirror_for_puzzle_WIP.png-3c9352a6d8bce79b70af19973da24c92.stex" ]
+source_file="res://Art/Misc/Gems/GREEN_GEM.png"
+dest_files=[ "res://.import/GREEN_GEM.png-8ee9e096d866b0bc60764f38e7acdaea.stex" ]
 
 [params]
 
