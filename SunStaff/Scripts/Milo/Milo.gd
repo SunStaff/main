@@ -21,6 +21,7 @@ var CurrentClosestLever
 var minDistanceToLever = INF
 var Levers = []
 var LeverObject
+var jumped
 
 # Pedestal Variables
 var WithinPedestalRange
@@ -62,7 +63,6 @@ func get_input():
 		
 		if Input.is_action_just_pressed("Jump"): 
 			if is_on_floor():
-				print("jumped")
 				velocity.y = jump_speed
 				if (HasStaff):
 					sprite.animation = "MiloJumpFallStaff"
@@ -71,7 +71,7 @@ func get_input():
 					spriteUnlit.visible = true
 					sprite.animation = "MiloJumpFallStaffless"
 					spriteUnlit.animation = "MiloJumpFallUNLIT"
-		
+			
 		elif Input.is_action_just_pressed("Right"):
 			if (!faceRight):
 				print("facing right")
@@ -132,25 +132,37 @@ func get_input():
 				justJumped = false
 		
 		else:
-			if (HasStaff):
+			if dir == 0 and velocity.y == 0:
+				if (HasStaff):
 				
 					spriteUnlit.visible = false
 					sprite.animation = "MiloIdleStaff"
-			else:
+				else:
 				
 					spriteUnlit.visible = true
 					sprite.animation = "MiloIdleStaffless"
 					spriteUnlit.animation = "MiloIdleStafflessUNLIT"
 		if Input.is_action_pressed("sprint"):
+			if (justJumped):
+				if (HasStaff):
+					spriteUnlit.visible = false
+					sprite.animation = "MiloRunStaff"
+				else:
+					spriteUnlit.visible = true
+					sprite.animation = "MiloRunStaffless"
+					spriteUnlit.animation = "MiloRunStafflessUNLIT"
+				justJumped = false
 			sprintcheck = true
 			print("sprint")
 			if (HasStaff):
 				spriteUnlit.visible = false
 				sprite.animation = "MiloRunStaff"
 			else:
+				
 				spriteUnlit.visible = true
 				sprite.animation = "MiloRunStaffless"
 				spriteUnlit.animation = "MiloRunStafflessUNLIT"
+			
 		else:
 			sprintcheck = false
 		if dir != 0:
