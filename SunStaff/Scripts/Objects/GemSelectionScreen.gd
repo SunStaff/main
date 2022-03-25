@@ -27,7 +27,6 @@ func _ready():
 	
 func ButtonsToBePlaced():
 	Gems = GameManager.GetGemStates().values()
-	print("Gems", Gems)
 	GreenButton.visible = false
 	BlueButton.visible = false
 	RedButton.visible = false

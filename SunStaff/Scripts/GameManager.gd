@@ -107,3 +107,5 @@ func CheckForLevelSpecificActions(from, information, optionalNode):
 			if ("Altar" in from):
 				if ("_MoveDoor" in optionalNode.get_parent().get_parent().name):
 					LevelManagers[0].Level3_MoveDoor_DueTo_StaffAltar(information)
+				elif ("_GemPuzzle" in optionalNode.get_parent().get_parent().name):
+					LevelManagers[0].ChangeAltarBeamColors(information, optionalNode)

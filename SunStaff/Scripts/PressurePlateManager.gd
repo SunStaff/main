@@ -56,4 +56,5 @@ func Level3(name):
 		"1":
 			LevelManagers[0].Level3_TimerPuzzle()
 		"2":
-			pass
+			print("PressurePlate2 Touched")
+			LevelManagers[0].Level3_OpenBottomPuzzles()

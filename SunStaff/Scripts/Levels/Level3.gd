@@ -8,6 +8,10 @@ var GemSelectionScreen
 var pedestal
 var placedGem
 var darkPressurePlateNotSteppedOn = true
+var allPlatformsUp = false
+var platform1 = false
+var platform2 = false
+var platform3 = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,14 +29,14 @@ func _ready():
 #	pass
 
 func Level3_MoveDoor_DueTo_StaffAltar(open):
-	if (open and darkPressurePlateNotSteppedOn):
+	if (open):
 		while (level3_door.position.y < 500):
 			level3_door.position.y += 50
 			timer.set_wait_time(0.1)
 			timer.set_one_shot(true)
 			timer.start()
 			yield(timer, "timeout")
-	else:
+	elif(darkPressurePlateNotSteppedOn):
 		while (level3_door.position.y > -150):
 			level3_door.position.y -= 50
 			timer.set_wait_time(0.01)
@@ -40,11 +44,45 @@ func Level3_MoveDoor_DueTo_StaffAltar(open):
 			timer.start()
 			yield(timer, "timeout")
 
+func Level3_OpenBottomPuzzles():
+	darkPressurePlateNotSteppedOn = false
+	allPlatformsUp = false
+	platform1 = false
+	platform2 = false
+	platform3 = false
+	while (level3_door.position.y < 500):
+		level3_door.position.y += 50
+		timer.set_wait_time(0.1)
+		timer.set_one_shot(true)
+		timer.start()
+		yield(timer, "timeout")
+
+	if (not timerActivated):
+		timerActivated = true
+		while (not allPlatformsUp):
+			if (not platform1):
+				timerPuzzle_Array[0].position.y -= 50
+				if (timerPuzzle_Array[0].position.y <= 320):
+					platform1 = true
+
+			if (not platform2):
+				timerPuzzle_Array[1].position.y -= 50
+				if (timerPuzzle_Array[1].position.y <= 480):
+					platform2 = true
+
+			if (not platform3):
+				timerPuzzle_Array[2].position.y -= 50
+				if (timerPuzzle_Array[2].position.y <= 310):
+					platform3 = true
+			
+			if (platform1 and platform2 and platform3):
+				allPlatformsUp = true
+			timer.set_wait_time(0.1)
+			timer.set_one_shot(true)
+			timer.start()
+			yield(timer, "timeout")
+
 func Level3_TimerPuzzle():
-	var allPlatformsUp = false
-	var platform1 = false
-	var platform2 = false
-	var platform3 = false
 	if (not timerActivated):
 		timerActivated = true
 		while (not allPlatformsUp):
@@ -74,10 +112,11 @@ func Level3_TimerPuzzle():
 		for platform in timerPuzzle_Array:
 			while(platform.position.y < 1000):
 				platform.position.y += 50
-				timer.set_wait_time(.75)
+				timer.set_wait_time(.5)
 				timer.set_one_shot(true)
 				timer.start()
 				yield(timer, "timeout")
+		timerActivated = false
 
 func OpenGemSelectionScreen(currentPedestal):
 	GemSelectionScreen.ButtonsToBePlaced()
@@ -112,9 +151,9 @@ func PlaceGem():
 			pedestalSprite.frame = 4
 		"Red":
 			pedestalSprite.frame = 5
-	ChangeBeamColors(placedGem)
+	ChangePedestalBeamColors(placedGem)
 
-func ChangeBeamColors(color):
+func ChangePedestalBeamColors(color):
 	var BeamColor = Color(0,0,0)
 	match color:
 		"Blue":
@@ -137,3 +176,24 @@ func ChangeBeamColors(color):
 		timer.start()
 		yield(timer, "timeout")
 		beam.visible = true
+
+func ChangeAltarBeamColors(toggle, altar):
+	var BeamsNode = altar.get_parent().get_parent().get_node("Beams")
+	var BeamsArray = BeamsNode.get_children()
+	if (toggle):
+		var BeamColor = Color(1,1,0)
+		for beam in BeamsArray:
+			beam.modulate = BeamColor
+			timer.set_wait_time(.5)
+			timer.set_one_shot(true)
+			timer.start()
+			yield(timer, "timeout")
+			beam.visible = true
+	else:
+		for beam in BeamsArray:
+			beam.modulate = Color(1,1,1)
+			timer.set_wait_time(.5)
+			timer.set_one_shot(true)
+			timer.start()
+			yield(timer, "timeout")
+			beam.visible = false

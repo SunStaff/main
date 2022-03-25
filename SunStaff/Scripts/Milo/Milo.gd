@@ -202,27 +202,26 @@ func _on_InteractRange_area_entered(area:Area2D):
 		WithinLeverRange = true
 		LeverObject = area
 		GetCurrentClosestLever()
+
 	if ("GemPedestal" in area.name):
 		WithinPedestalRange = true
 		GetCurrentClosestPedestal()
+
 	if ("GemPickup" in area.name):
 		GemObject = area
 
 func _on_InteractRange_area_exited(area:Area2D):
 	if ("StaffAltar" in area.name):
 		WithinAltarRange = false
-		CurrentClosestAltar = null
 		GetCurrentClosestAltar()
 
 	if ("Lever" in area.name):
 		WithinLeverRange = false
 		LeverObject = null
-		CurrentClosestLever = null
 		GetCurrentClosestLever()
 
 	if ("GemPedestal" in area.name):
 		WithinPedestalRange = false
-		CurrentClosestPedestal = null
 		GetCurrentClosestPedestal()
 
 func SunStaffPlacement():
@@ -233,19 +232,24 @@ func SunStaffPlacement():
 		HasStaff = false
 		CurrentClosestAltar.visible = true
 		GameManager.CheckForLevelSpecificActions("Altar",true,CurrentClosestAltar)
+		GameManager.CheckForLevelSpecificActions("Altar",true,CurrentClosestAltar)
+
 	else: # If the altar has the Staff
 		SunStaff.get_child(0).set_color(Color(1,1,1,1))
 		StaffVisibility = true
 		HasStaff = true
 		CurrentClosestAltar.visible = false
 		GameManager.CheckForLevelSpecificActions("Altar",false,CurrentClosestAltar)
+		GameManager.CheckForLevelSpecificActions("Altar",false,CurrentClosestAltar)
+	
 	if (CurrentClosestAltar.visible): # If the altar has the Staff, turn off LightCircle monitoring
 		LightCircle.monitoring = false
 	else:
 		LightCircle.monitoring = true
-	CurrentClosestAltar = null
+	GetCurrentClosestAltar()
 
 func GemPlacement():
+	GetCurrentClosestPedestal()
 	GameManager.OpenGemSelectionScreen(CurrentClosestPedestal)
 
 func GemPickup():
@@ -269,13 +273,13 @@ func GetCurrentClosestAltar():
 	StaffAltars.clear()
 	for altar in GameManager.GetSunStaffAltars():
 		StaffAltars.append(altar.get_child(1).get_child(0))
-		# StaffAltars.append(altar)
 	# Get Current Closest Altar
 	for altar in StaffAltars:
 		var distanceTo = DistanceTo(self.position, altar.get_parent().get_parent().position)
 		if (distanceTo < minDistanceToAltar):
 			minDistanceToAltar = distanceTo
 			CurrentClosestAltar = altar
+	minDistanceToAltar = INF
 
 func GetCurrentClosestLever():
 	Levers.clear()
@@ -288,6 +292,7 @@ func GetCurrentClosestLever():
 			minDistanceToLever = distanceTo
 			CurrentClosestLever = lever
 			LeverObject = CurrentClosestLever
+	minDistanceToLever = INF
 
 func GetCurrentClosestPedestal():
 	Pedestals.clear()
@@ -295,7 +300,8 @@ func GetCurrentClosestPedestal():
 		Pedestals.append(pedestal)
 	# Get Current Closest Pedestal
 	for pedestal in Pedestals:
-		var distanceTo = DistanceTo(self.position, pedestal.position)
+		var distanceTo = DistanceTo(pedestal.position, self.position)
 		if (distanceTo < minDistanceToPedestal):
 			minDistanceToPedestal = distanceTo
 			CurrentClosestPedestal = pedestal
+	minDistanceToPedestal = INF
