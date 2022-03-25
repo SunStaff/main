@@ -783,57 +783,62 @@ position = Vector2( 4518, 325 )
 position = Vector2( 4668, 325 )
 
 [node name="Door2" type="KinematicBody2D" parent="."]
+light_mask = 2
 position = Vector2( 5032, 252 )
 scale = Vector2( 0.7, 3.4 )
 
 [node name="Door2" type="Sprite" parent="Door2"]
+light_mask = 2
 position = Vector2( -0.000177383, 5.18911e-07 )
-scale = Vector2( 1, 1 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door2"]
+light_mask = 2
 position = Vector2( 4.28623, 0.000963477 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 3 )
 
 [node name="Door3" type="KinematicBody2D" parent="."]
+light_mask = 2
 position = Vector2( 5132, 252 )
 scale = Vector2( 0.7, 3.4 )
 
 [node name="Door3" type="Sprite" parent="Door3"]
+light_mask = 2
 position = Vector2( 3.52859e-05, -2.6226e-06 )
-scale = Vector2( 1, 1 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door3"]
+light_mask = 2
 position = Vector2( 0.000732831, -2.02656e-05 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 4 )
 
 [node name="Door4" type="KinematicBody2D" parent="."]
+light_mask = 2
 position = Vector2( 5232, 252 )
 scale = Vector2( 0.7, 3.4 )
 
 [node name="Door4" type="Sprite" parent="Door4"]
+light_mask = 2
 position = Vector2( 0.000247955, -2.6226e-06 )
-scale = Vector2( 1, 1 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door4"]
+light_mask = 2
 position = Vector2( 0.000247955, -0.146935 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 5 )
 
 [node name="Door5" type="KinematicBody2D" parent="."]
+light_mask = 2
 position = Vector2( 5332, 252 )
 scale = Vector2( 0.7, 3.4 )
 
 [node name="Door5" type="Sprite" parent="Door5"]
+light_mask = 2
 position = Vector2( -2.76566e-05, 4.88758e-06 )
-scale = Vector2( 1, 1 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door5"]
+light_mask = 2
 position = Vector2( 1.42854, -0.000129426 )
 shape = SubResource( 6 )
 
