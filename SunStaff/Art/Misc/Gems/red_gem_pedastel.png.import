@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gem_pedastel.png-10293dff1008c1a6cf1ebbf63dc8abfa.stex"
+path="res://.import/red_gem_pedastel.png-9678ce9928ca8d90c25d9d7a4806e519.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Lit/Objects/gem_pedastel.png"
-dest_files=[ "res://.import/gem_pedastel.png-10293dff1008c1a6cf1ebbf63dc8abfa.stex" ]
+source_file="res://Art/Misc/Gems/red_gem_pedastel.png"
+dest_files=[ "res://.import/red_gem_pedastel.png-9678ce9928ca8d90c25d9d7a4806e519.stex" ]
 
 [params]
 

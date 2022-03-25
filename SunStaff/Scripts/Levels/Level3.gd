@@ -4,16 +4,19 @@ var level3_door
 var timerPuzzle_Array = []
 var timer
 var timerActivated = false
+var GemSelectionScreen
+var pedestal
+var placedGem
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	level3_door = get_parent().get_node("StartingDoor")
-	print(level3_door)
-	timerPuzzle_Array.append(get_parent().get_node("TimerPlatform1"))
-	timerPuzzle_Array.append(get_parent().get_node("TimerPlatform2"))
-	timerPuzzle_Array.append(get_parent().get_node("TimerPlatform3"))
+	timerPuzzle_Array.append(get_parent().get_node("TimerPuzzle/TimerPlatform1"))
+	timerPuzzle_Array.append(get_parent().get_node("TimerPuzzle/TimerPlatform2"))
+	timerPuzzle_Array.append(get_parent().get_node("TimerPuzzle/TimerPlatform3"))
 	timer = Timer.new()
 	self.add_child(timer)
+	GemSelectionScreen = get_tree().get_nodes_in_group("GemSelectionScreen")[0]
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -74,3 +77,61 @@ func Level3_TimerPuzzle():
 				timer.set_one_shot(true)
 				timer.start()
 				yield(timer, "timeout")
+
+func OpenGemSelectionScreen(currentPedestal):
+	GemSelectionScreen.ButtonsToBePlaced()
+	GemSelectionScreen.visible = true
+	GameManager.IsGamePlaying = false
+	pedestal = currentPedestal
+	# Player will select gem
+	# GemToBePlaced will execute
+
+func GemToBePlaced(color):
+	placedGem = color
+	PlaceGem()
+
+func PlaceGem():
+	# Close Gem Selection Window
+	GemSelectionScreen.visible = false
+	# Make Game Playable
+	GameManager.IsGamePlaying = true
+	# ToggleGem will execute
+	GameManager.ToggleGem(placedGem)
+	# currentGemPedestal will sprite change to correct gem-pedestal combination
+	var pedestalSprite = pedestal.get_child(0)
+	match placedGem:
+		"Blue":
+			pedestalSprite.frame = 1
+		"Green":
+			pedestalSprite.frame = 2
+		"Magenta":
+			pedestalSprite.frame = 3
+		"Cyan":
+			pedestalSprite.frame = 4
+		"Red":
+			pedestalSprite.frame = 5
+	# ChangeBeamColors(placedGem)
+
+func ChangeBeamColors(color):
+	var BeamColor = Color(0,0,0)
+	match color:
+		"Blue":
+			BeamColor = Color(0,0,1)
+		"Green":
+			BeamColor = Color(0,1,0)
+		"Red":
+			BeamColor = Color(1,0,0)
+		"Magenta":
+			BeamColor = Color(1,0,1)
+		"Cyan":
+			BeamColor = Color (0,1,1)
+
+	var BeamsNode = pedestal.get_node("Beams")
+	var BeamsArray = BeamsNode.get_children()
+	for beam in BeamsArray:
+		beam.modulate = BeamColor
+		timer.set_wait_time(.5)
+		timer.set_one_shot(true)
+		timer.start()
+		yield(timer, "timeout")
+		beam.visible = true

@@ -4,7 +4,7 @@
 [ext_resource path="res://Art/Misc/Gems/BLUE_GEM.png" type="Texture" id=2]
 [ext_resource path="res://Art/Misc/Gems/magenta_GEM.png" type="Texture" id=3]
 [ext_resource path="res://Art/Misc/Gems/GREEN_GEM.png" type="Texture" id=4]
-[ext_resource path="res://Art/Misc/Gems/orange_GEM.png" type="Texture" id=5]
+[ext_resource path="res://Art/Misc/Gems/cyan_GEM.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/Objects/GemSelectionScreen.gd" type="Script" id=6]
 
 [node name="GemSelectionScreen" type="Control" groups=["GemSelectionScreen"]]
@@ -69,7 +69,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Orange Gem" type="Button" parent="."]
+[node name="Cyan Gem" type="Button" parent="."]
 anchor_left = 0.591
 anchor_top = 0.361
 anchor_right = 0.695
@@ -104,5 +104,5 @@ __meta__ = {
 [connection signal="pressed" from="Green Gem" to="." method="_on_Green_Gem_pressed"]
 [connection signal="pressed" from="Blue Gem" to="." method="_on_Blue_Gem_pressed"]
 [connection signal="pressed" from="Red Gem" to="." method="_on_Red_Gem_pressed"]
-[connection signal="pressed" from="Orange Gem" to="." method="_on_Cyan_Gem_pressed"]
+[connection signal="pressed" from="Cyan Gem" to="." method="_on_Cyan_Gem_pressed"]
 [connection signal="pressed" from="Magenta Gem" to="." method="_on_Magenta_Gem_pressed"]

@@ -19,7 +19,6 @@ func _ready():
 	activated = false
 	LastLivingPos = Vector2(0,55)
 	Player = get_tree().get_nodes_in_group("Player")[0]
-	GemSelectionScreen = get_tree().get_nodes_in_group("GemSelectionScreen")[0]
 	LevelManagers = get_tree().get_nodes_in_group("LevelManager")
 	SetCurrentLevel(get_tree().get_current_scene().get_name())
 
@@ -97,29 +96,9 @@ func ToggleGem(color):
 				GemsCollected.Magenta = true
 
 func OpenGemSelectionScreen(currentPedestal):
-	GemSelectionScreen.ButtonsToBePlaced()
-	GemSelectionScreen.visible = true
-	IsGamePlaying = false
-	pedestal = currentPedestal
-	# Player will select gem
-	# GemToBePlaced will execute
-
-func GemToBePlaced(color):
-	placedGem = color
-	PlaceGem()
-
-func PlaceGem():
-	# Close Gem Selection Window
-	GemSelectionScreen.visible = false
-	# Make Game Playable
-	IsGamePlaying = true
-	# ToggleGem will execute
-	ToggleGem(placedGem)
-	# currentGemPedestal will sprite change to correct gem-pedestal combination
-	var pedestalSprite = pedestal.get_child(0)
+	LevelManagers[0].OpenGemSelectionScreen(currentPedestal)
 
 func CheckForLevelSpecificActions(from, information, optionalNode):
-	print(CurrentLevel)
 	match CurrentLevel:
 		"Tutorial":
 			pass
