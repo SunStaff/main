@@ -7,6 +7,7 @@ var timerActivated = false
 var GemSelectionScreen
 var pedestal
 var placedGem
+var darkPressurePlateNotSteppedOn = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,7 +25,7 @@ func _ready():
 #	pass
 
 func Level3_MoveDoor_DueTo_StaffAltar(open):
-	if (open):
+	if (open and darkPressurePlateNotSteppedOn):
 		while (level3_door.position.y < 500):
 			level3_door.position.y += 50
 			timer.set_wait_time(0.1)
@@ -99,6 +100,7 @@ func PlaceGem():
 	GameManager.ToggleGem(placedGem)
 	# currentGemPedestal will sprite change to correct gem-pedestal combination
 	var pedestalSprite = pedestal.get_child(0)
+	print(pedestalSprite.frame)
 	match placedGem:
 		"Blue":
 			pedestalSprite.frame = 1
@@ -110,7 +112,7 @@ func PlaceGem():
 			pedestalSprite.frame = 4
 		"Red":
 			pedestalSprite.frame = 5
-	# ChangeBeamColors(placedGem)
+	ChangeBeamColors(placedGem)
 
 func ChangeBeamColors(color):
 	var BeamColor = Color(0,0,0)

@@ -4,7 +4,6 @@ export var IsPlayerAlive = true
 export var IsGamePlaying = true
 export var CurrentLevel = ""
 export var LastLivingPos = Vector2()
-export var SunStaffAltarObjects = []
 export var GemsCollected = {"Green": false, "Blue": false, "Red": false, "Cyan": false, "Magenta": false }
 var placedGem = ""
 var activated
@@ -37,7 +36,6 @@ func SetPlayerAliveState(playerState):
 	IsGamePlaying = playerState
 
 func SetCurrentLevel(newLevel):
-	SunStaffAltarObjects.clear()
 	CurrentLevel = newLevel
 
 func GetCurrentLevel():
@@ -47,8 +45,7 @@ func SetLastLivingPos(position): # Pressure Plate executes with its' position so
 	LastLivingPos = position
 
 func GetSunStaffAltars():
-	SunStaffAltarObjects = get_tree().get_nodes_in_group("StaffAltar")
-	return SunStaffAltarObjects
+	return get_tree().get_nodes_in_group("StaffAltar")
 
 func GetGemPedestals():
 	return get_tree().get_nodes_in_group("GemPedestal")

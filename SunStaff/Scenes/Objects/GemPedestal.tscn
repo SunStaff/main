@@ -25,7 +25,6 @@ scale = Vector2( 0.75, 0.75 )
 [node name="Sprite" type="AnimatedSprite" parent="."]
 light_mask = 2
 frames = SubResource( 2 )
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
