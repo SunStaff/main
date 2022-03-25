@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scenes/Milo/Milo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/PressurePlate.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Scenes/Objects/GemPedestal.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Menus/GemSelectionScreen.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Art/Misc/cliff.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/Objects/Lever.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Art/Misc/Light/mirror_for_puzzle_WIP.png" type="Texture" id=17]
 [ext_resource path="res://Art/Misc/Light/white_dimond_for_puzzle.png" type="Texture" id=18]
 [ext_resource path="res://Art/Misc/Light/Light_beam_greyscale.png" type="Texture" id=19]
@@ -22,6 +23,18 @@ extents = Vector2( 32.8, 33.5 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 35, 280 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 28.5712, 32.3525 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 28.5715, 31.7647 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 31.429, 31.9116 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 32.8572, 31.7647 )
 
 [node name="Level3" type="Node"]
 
@@ -260,7 +273,7 @@ position = Vector2( 3300, 1000 )
 visible = false
 
 [node name="Milo" parent="." instance=ExtResource( 1 )]
-position = Vector2( 4621, -837 )
+position = Vector2( 4530, -981 )
 
 [node name="StartingDoor" type="KinematicBody2D" parent="."]
 light_mask = 0
@@ -756,6 +769,73 @@ __meta__ = {
 
 [node name="GemSelectionScreen" parent="Menus" instance=ExtResource( 11 )]
 visible = false
+
+[node name="Lever2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 4218, 325 )
+
+[node name="Lever3" parent="." instance=ExtResource( 13 )]
+position = Vector2( 4368, 325 )
+
+[node name="Lever4" parent="." instance=ExtResource( 13 )]
+position = Vector2( 4518, 325 )
+
+[node name="Lever5" parent="." instance=ExtResource( 13 )]
+position = Vector2( 4668, 325 )
+
+[node name="Door2" type="KinematicBody2D" parent="."]
+position = Vector2( 5032, 252 )
+scale = Vector2( 0.7, 3.4 )
+
+[node name="Door2" type="Sprite" parent="Door2"]
+position = Vector2( -0.000177383, 5.18911e-07 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2"]
+position = Vector2( 4.28623, 0.000963477 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 3 )
+
+[node name="Door3" type="KinematicBody2D" parent="."]
+position = Vector2( 5132, 252 )
+scale = Vector2( 0.7, 3.4 )
+
+[node name="Door3" type="Sprite" parent="Door3"]
+position = Vector2( 3.52859e-05, -2.6226e-06 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door3"]
+position = Vector2( 0.000732831, -2.02656e-05 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 4 )
+
+[node name="Door4" type="KinematicBody2D" parent="."]
+position = Vector2( 5232, 252 )
+scale = Vector2( 0.7, 3.4 )
+
+[node name="Door4" type="Sprite" parent="Door4"]
+position = Vector2( 0.000247955, -2.6226e-06 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door4"]
+position = Vector2( 0.000247955, -0.146935 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 5 )
+
+[node name="Door5" type="KinematicBody2D" parent="."]
+position = Vector2( 5332, 252 )
+scale = Vector2( 0.7, 3.4 )
+
+[node name="Door5" type="Sprite" parent="Door5"]
+position = Vector2( -2.76566e-05, 4.88758e-06 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door5"]
+position = Vector2( 1.42854, -0.000129426 )
+shape = SubResource( 6 )
 
 [editable path="Platforms/Platform2"]
 [editable path="Platforms/Platform3"]
