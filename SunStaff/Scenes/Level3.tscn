@@ -81,28 +81,28 @@ position = Vector2( 5730, 343 )
 scale = Vector2( 3, 1 )
 
 [node name="Blue_GemPickup" parent="." instance=ExtResource( 20 )]
-position = Vector2( 4173, -784 )
+position = Vector2( 4173, -785 )
 
 [node name="Green_GemPickup" parent="." instance=ExtResource( 20 )]
-position = Vector2( 4476, -782 )
+position = Vector2( 4476, -785 )
 
 [node name="AnimatedSprite" parent="Green_GemPickup" index="1"]
 frame = 1
 
 [node name="Red_GemPickup" parent="." instance=ExtResource( 20 )]
-position = Vector2( 4321, -777 )
+position = Vector2( 4321, -785 )
 
 [node name="AnimatedSprite" parent="Red_GemPickup" index="1"]
 frame = 3
 
 [node name="Magenta_GemPickup" parent="." instance=ExtResource( 20 )]
-position = Vector2( 4615, -781 )
+position = Vector2( 4615, -785 )
 
 [node name="AnimatedSprite" parent="Magenta_GemPickup" index="1"]
 frame = 2
 
 [node name="Cyan_GemPickup" parent="." instance=ExtResource( 20 )]
-position = Vector2( 4767, -779 )
+position = Vector2( 4767, -785 )
 
 [node name="AnimatedSprite" parent="Cyan_GemPickup" index="1"]
 frame = 4
@@ -546,12 +546,14 @@ __meta__ = {
 }
 
 [node name="MirrorForPuzzleWip5" type="Sprite" parent="Mirrors"]
+light_mask = 2
 position = Vector2( -475, -720 )
 rotation = 0.436332
 scale = Vector2( 1, 0.5 )
 texture = ExtResource( 17 )
 
 [node name="MirrorForPuzzleWip6" type="Sprite" parent="Mirrors"]
+light_mask = 2
 position = Vector2( 475, -720 )
 rotation = -0.436332
 scale = Vector2( 1, 0.5 )
@@ -786,11 +788,6 @@ scale = Vector2( 0.75, 0.75 )
 z_index = 1
 texture = ExtResource( 18 )
 
-[node name="Menus" type="CanvasLayer" parent="."]
-
-[node name="GemSelectionScreen" parent="Menus" instance=ExtResource( 11 )]
-visible = false
-
 [node name="SavingPoint" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1190, 290 )
 scale = Vector2( 5, 1 )
@@ -898,6 +895,19 @@ texture = ExtResource( 3 )
 light_mask = 2
 position = Vector2( 1.42854, -0.000129426 )
 shape = SubResource( 6 )
+
+[node name="Menus" type="CanvasLayer" parent="."]
+
+[node name="GemSelectionScreen" parent="Menus" instance=ExtResource( 11 )]
+visible = false
+anchor_left = 0.144
+anchor_top = 0.144
+anchor_right = 0.856
+anchor_bottom = 0.856
+margin_left = 0.519989
+margin_top = 0.479996
+margin_right = -0.520142
+margin_bottom = -0.480042
 
 [editable path="Blue_GemPickup"]
 [editable path="Green_GemPickup"]

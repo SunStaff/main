@@ -165,7 +165,8 @@ func ChangePedestalBeamColors(color):
 		"Magenta":
 			BeamColor = Color(1,0,1)
 		"Cyan":
-			BeamColor = Color (0,1,1)
+			# BeamColor = Color (0,1,1)
+			BeamColor = Color (1, 0.6, 0.1)
 
 	var BeamsNode = pedestal.get_node("Beams")
 	var BeamsArray = BeamsNode.get_children()
