@@ -68,10 +68,10 @@ position = Vector2( 5730, 343 )
 scale = Vector2( 3, 1 )
 
 [node name="Blue_GemPickup" parent="." instance=ExtResource( 20 )]
-position = Vector2( 953, -123 )
+position = Vector2( 4173, -784 )
 
 [node name="Green_GemPickup" parent="." instance=ExtResource( 20 )]
-position = Vector2( 2301, -404 )
+position = Vector2( 4476, -782 )
 
 [node name="AnimatedSprite" parent="Green_GemPickup" index="1"]
 frame = 1
@@ -83,13 +83,13 @@ position = Vector2( 4321, -777 )
 frame = 3
 
 [node name="Magenta_GemPickup" parent="." instance=ExtResource( 20 )]
-position = Vector2( 1810, -502 )
+position = Vector2( 4615, -781 )
 
 [node name="AnimatedSprite" parent="Magenta_GemPickup" index="1"]
 frame = 2
 
 [node name="Cyan_GemPickup" parent="." instance=ExtResource( 20 )]
-position = Vector2( 1392, -315 )
+position = Vector2( 4767, -779 )
 
 [node name="AnimatedSprite" parent="Cyan_GemPickup" index="1"]
 frame = 4
@@ -725,7 +725,7 @@ scale = Vector2( 1.33333, 1.50675 )
 texture = ExtResource( 19 )
 
 [node name="Milo" parent="." instance=ExtResource( 1 )]
-position = Vector2( 4208, -847 )
+position = Vector2( 0, 55 )
 
 [node name="StartingDoor" type="KinematicBody2D" parent="."]
 light_mask = 0
