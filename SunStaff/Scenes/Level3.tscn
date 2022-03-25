@@ -303,13 +303,18 @@ position = Vector2( 3300, 1000 )
 [node name="Litplatformmiddle" parent="TimerPuzzle/TimerPlatform3" index="1"]
 visible = false
 
-[node name="StaffAltar1_GemPuzzle" parent="." instance=ExtResource( 6 )]
-[node name="Milo" parent="." instance=ExtResource( 1 )]
-position = Vector2( 4530, -981 )
-
-[node name="StartingDoor" type="KinematicBody2D" parent="."]
+[node name="StartingDoor" type="KinematicBody2D" parent="." groups=["Door"]]
 light_mask = 0
 position = Vector2( 420, -150 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartingDoor"]
+light_mask = 0
+shape = SubResource( 2 )
+
+[node name="Door1" type="Sprite" parent="StartingDoor"]
+light_mask = 0
+scale = Vector2( 1, 8.6875 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StartingDoor"]
 light_mask = 0
@@ -328,33 +333,6 @@ scale = Vector2( 5, 1 )
 position = Vector2( 3823, 334 )
 scale = Vector2( 5, 1 )
 
-[node name="Blue_GemPickup" parent="." instance=ExtResource( 20 )]
-position = Vector2( 953, -123 )
-
-[node name="Green_GemPickup" parent="." instance=ExtResource( 20 )]
-position = Vector2( 2301, -404 )
-
-[node name="AnimatedSprite" parent="Green_GemPickup" index="1"]
-frame = 1
-
-[node name="Red_GemPickup" parent="." instance=ExtResource( 20 )]
-position = Vector2( 4321, -777 )
-
-[node name="AnimatedSprite" parent="Red_GemPickup" index="1"]
-frame = 3
-
-[node name="Magenta_GemPickup" parent="." instance=ExtResource( 20 )]
-position = Vector2( 1810, -502 )
-
-[node name="AnimatedSprite" parent="Magenta_GemPickup" index="1"]
-frame = 2
-
-[node name="Cyan_GemPickup" parent="." instance=ExtResource( 20 )]
-position = Vector2( 1392, -315 )
-
-[node name="AnimatedSprite" parent="Cyan_GemPickup" index="1"]
-frame = 4
-
 [node name="WhiteDimondForPuzzle" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 1 )
 light_mask = 2
@@ -363,7 +341,7 @@ scale = Vector2( 0.75, 0.75 )
 z_index = 1
 texture = ExtResource( 18 )
 
-[node name="StaffAltar1" parent="." instance=ExtResource( 6 )]
+[node name="StaffAltar1_GemPuzzle" parent="." instance=ExtResource( 6 )]
 position = Vector2( 6228.75, -738.75 )
 scale = Vector2( 0.75, 0.75 )
 
@@ -800,19 +778,6 @@ texture = ExtResource( 19 )
 [node name="Milo" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 55 )
 
-[node name="StartingDoor" type="KinematicBody2D" parent="."]
-light_mask = 0
-position = Vector2( 420, -150 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StartingDoor"]
-light_mask = 0
-shape = SubResource( 2 )
-
-[node name="Door1" type="Sprite" parent="StartingDoor"]
-light_mask = 0
-scale = Vector2( 1, 8.6875 )
-texture = ExtResource( 3 )
-
 [node name="WhiteDimondForPuzzle" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 1 )
 light_mask = 2
@@ -861,6 +826,7 @@ scale = Vector2( 5, 1 )
 [node name="SavingPoint9" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2781, -525 )
 scale = Vector2( 5, 1 )
+
 [node name="Lever2" parent="." instance=ExtResource( 13 )]
 position = Vector2( 4218, 325 )
 
@@ -873,7 +839,7 @@ position = Vector2( 4518, 325 )
 [node name="Lever5" parent="." instance=ExtResource( 13 )]
 position = Vector2( 4668, 325 )
 
-[node name="Door2" type="KinematicBody2D" parent="."]
+[node name="Door2" type="KinematicBody2D" parent="." groups=["Door"]]
 light_mask = 2
 position = Vector2( 5032, 252 )
 scale = Vector2( 0.7, 3.4 )
@@ -888,7 +854,7 @@ light_mask = 2
 position = Vector2( 4.28623, 0.000963477 )
 shape = SubResource( 3 )
 
-[node name="Door3" type="KinematicBody2D" parent="."]
+[node name="Door3" type="KinematicBody2D" parent="." groups=["Door"]]
 light_mask = 2
 position = Vector2( 5132, 252 )
 scale = Vector2( 0.7, 3.4 )
@@ -903,7 +869,7 @@ light_mask = 2
 position = Vector2( 0.000732831, -2.02656e-05 )
 shape = SubResource( 4 )
 
-[node name="Door4" type="KinematicBody2D" parent="."]
+[node name="Door4" type="KinematicBody2D" parent="." groups=["Door"]]
 light_mask = 2
 position = Vector2( 5232, 252 )
 scale = Vector2( 0.7, 3.4 )
@@ -918,7 +884,7 @@ light_mask = 2
 position = Vector2( 0.000247955, -0.146935 )
 shape = SubResource( 5 )
 
-[node name="Door5" type="KinematicBody2D" parent="."]
+[node name="Door5" type="KinematicBody2D" parent="." groups=["Door"]]
 light_mask = 2
 position = Vector2( 5332, 252 )
 scale = Vector2( 0.7, 3.4 )
@@ -932,7 +898,6 @@ texture = ExtResource( 3 )
 light_mask = 2
 position = Vector2( 1.42854, -0.000129426 )
 shape = SubResource( 6 )
-
 
 [editable path="Blue_GemPickup"]
 [editable path="Green_GemPickup"]

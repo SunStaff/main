@@ -258,6 +258,7 @@ func GemPickup():
 	GemObject.visible = false
 
 func FlipLever():
+	print("FlipLever Executed")
 	LeverObject._change_lever_state()
 
 func DistanceTo(a,b):
