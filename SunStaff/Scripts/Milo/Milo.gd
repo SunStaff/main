@@ -62,6 +62,7 @@ func get_input():
 		
 		if Input.is_action_just_pressed("Jump"): 
 			if is_on_floor():
+				print("jumped")
 				velocity.y = jump_speed
 				if (HasStaff):
 					sprite.animation = "MiloJumpFallStaff"
@@ -73,6 +74,7 @@ func get_input():
 		
 		elif Input.is_action_just_pressed("Right"):
 			if (!faceRight):
+				print("facing right")
 				sprite.scale.x *= -1
 				spriteUnlit.scale.x *= -1
 				faceRight = true
@@ -86,6 +88,7 @@ func get_input():
 		
 		elif Input.is_action_just_pressed("Left"):
 			if (faceRight):
+				print("facing left")
 				sprite.scale.x *= -1
 				spriteUnlit.scale.x *= -1
 				faceRight = false
@@ -140,6 +143,7 @@ func get_input():
 					spriteUnlit.animation = "MiloIdleStafflessUNLIT"
 		if Input.is_action_pressed("sprint"):
 			sprintcheck = true
+			print("sprint")
 			if (HasStaff):
 				spriteUnlit.visible = false
 				sprite.animation = "MiloRunStaff"
@@ -157,25 +161,30 @@ func get_input():
 		# Sun Staff Placement
 		if (WithinAltarRange):
 			if (Input.is_action_just_pressed("Interact")):
+				print("interaction with altar")
 				SunStaffPlacement()
 
 		# Gem Pedestal Placement
 		elif (WithinPedestalRange):
 			if (Input.is_action_just_pressed("Interact")):
+				print("interaction with pedestal")
 				GemPlacement()
 		
 		# Gem Pickup
 		elif (GemObject != null):
 			if (Input.is_action_just_pressed("Interact")):
+				print("interaction with gem")
 				GemPickup()
 		
 		# Lever Toggling
 		elif (WithinLeverRange):
 			if (Input.is_action_just_pressed("Interact")):
+				print("interaction with lever")
 				FlipLever()
 
 		# If Player is Falling Passed Border
 		if (self.position.y > 900):
+			print("out of bounds")
 			GameManager.SetPlayerAliveState(false)
 	else:
 		velocity = Vector2.ZERO
