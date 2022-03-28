@@ -1,17 +1,17 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Art/Misc/RED_GEM.png" type="Texture" id=1]
-[ext_resource path="res://Art/Misc/BLUE_GEM.png" type="Texture" id=2]
-[ext_resource path="res://Art/Misc/GREEN_GEM.png" type="Texture" id=3]
-[ext_resource path="res://Art/Misc/cyan_GEM.png" type="Texture" id=4]
-[ext_resource path="res://Art/Misc/magenta_GEM.png" type="Texture" id=5]
+[ext_resource path="res://Art/Misc/Gems/RED_GEM.png" type="Texture" id=1]
+[ext_resource path="res://Art/Misc/Gems/BLUE_GEM.png" type="Texture" id=2]
+[ext_resource path="res://Art/Misc/Gems/GREEN_GEM.png" type="Texture" id=3]
+[ext_resource path="res://Art/Misc/Gems/orange_GEM.png" type="Texture" id=4]
+[ext_resource path="res://Art/Misc/Gems/magenta_GEM.png" type="Texture" id=5]
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 77.0
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 1 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0

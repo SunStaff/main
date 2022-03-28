@@ -8,6 +8,7 @@ var GreenButton
 var RedButton
 var CyanButton
 var MagentaButton
+var LevelManagers
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,6 +18,7 @@ func _ready():
 	RedButton = get_child(3)
 	CyanButton = get_child(4)
 	MagentaButton = get_child(5)
+	LevelManagers = GameManager.GetLevelManagers()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,7 +27,6 @@ func _ready():
 	
 func ButtonsToBePlaced():
 	Gems = GameManager.GetGemStates().values()
-	print("Gems", Gems)
 	GreenButton.visible = false
 	BlueButton.visible = false
 	RedButton.visible = false
@@ -81,20 +82,20 @@ func MakeButtonsVisible(length):
 
 
 func _on_Green_Gem_pressed():
-	GameManager.GemToBePlaced("Green")
+	LevelManagers[0].GemToBePlaced("Green")
 
 
 func _on_Blue_Gem_pressed():
-	GameManager.GemToBePlaced("Blue")
+	LevelManagers[0].GemToBePlaced("Blue")
 
 
 func _on_Red_Gem_pressed():
-	GameManager.GemToBePlaced("Red")
-
-
-func _on_Cyan_Gem_pressed():
-	GameManager.GemToBePlaced("Cyan")
+	LevelManagers[0].GemToBePlaced("Red")
 
 
 func _on_Magenta_Gem_pressed():
-	GameManager.GemToBePlaced("Magenta")
+	LevelManagers[0].GemToBePlaced("Magenta")
+
+
+func _on_Cyan_Gem_pressed():
+	LevelManagers[0].GemToBePlaced("Cyan")
