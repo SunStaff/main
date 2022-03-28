@@ -9,3 +9,7 @@ visible = false
 
 [node name="Sprite" parent="." index="1"]
 visible = false
+
+[node name="CollisionShape2D2" parent="." index="3"]
+visible = false
+disabled = true

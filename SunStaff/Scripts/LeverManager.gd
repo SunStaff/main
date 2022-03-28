@@ -4,13 +4,20 @@ extends Node
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+var Levers = []
 var Doors = []
 var door1
 var door2
 var door3
 var door4
+
+# Distance Variables:
+var minDistanceToLever = INF
+var CurrentClosestLever = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Levers = GameManager.GetLevers()
 	Doors = get_tree().get_nodes_in_group("Door")
 	door1 = Doors[1]
 	door2 = Doors[2]
@@ -100,3 +107,18 @@ func Level3(lever, turnedOn):
 				door3.position.y = 252
 				door4.position.y = 252
 			pass
+
+func GetCurrentClosestLever():
+	Levers.clear()
+	CurrentClosestLever = null
+	for lever in GameManager.GetLevers():
+		print(lever)
+		Levers.append(lever)
+	# Get Current Closest Lever
+	for lever in Levers:
+		var distanceTo =  GameManager.DistanceTo(GameManager.GetPlayer().position, lever.position)
+		if (distanceTo < minDistanceToLever):
+			minDistanceToLever = distanceTo
+			CurrentClosestLever = lever
+	minDistanceToLever = INF
+	return CurrentClosestLever

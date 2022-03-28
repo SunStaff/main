@@ -28,6 +28,9 @@ func _process(_delta):
 		activated = true
 		TeleportPlayer()
 
+func GetPlayer():
+	return Player
+
 func GetPlayerAliveState():
 	return IsPlayerAlive
 
@@ -46,6 +49,9 @@ func SetLastLivingPos(position): # Pressure Plate executes with its' position so
 
 func GetSunStaffAltars():
 	return get_tree().get_nodes_in_group("StaffAltar")
+
+func GetSunStaff():
+	return Player.get_child(1).get_child(0)
 
 func GetGemPedestals():
 	return get_tree().get_nodes_in_group("GemPedestal")
@@ -105,7 +111,12 @@ func CheckForLevelSpecificActions(from, information, optionalNode):
 			pass
 		"Level3":
 			if ("Altar" in from):
-				if ("_MoveDoor" in optionalNode.get_parent().get_parent().name):
+				if ("_MoveDoor" in optionalNode.name):
 					LevelManagers[0].Level3_MoveDoor_DueTo_StaffAltar(information)
-				elif ("_GemPuzzle" in optionalNode.get_parent().get_parent().name):
+				elif ("_GemPuzzle" in optionalNode.name):
 					LevelManagers[0].ChangeAltarBeamColors(information, optionalNode)
+
+func DistanceTo(a,b):
+	var x = a.x - b.x
+	var y = a.y - b.y
+	return sqrt(pow(x,2) + pow(y,2))

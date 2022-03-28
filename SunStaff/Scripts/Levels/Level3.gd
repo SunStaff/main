@@ -62,17 +62,17 @@ func Level3_OpenBottomPuzzles():
 		while (not allPlatformsUp):
 			if (not platform1):
 				timerPuzzle_Array[0].position.y -= 50
-				if (timerPuzzle_Array[0].position.y <= 320):
+				if (timerPuzzle_Array[0].position.y <= 415):
 					platform1 = true
 
 			if (not platform2):
 				timerPuzzle_Array[1].position.y -= 50
-				if (timerPuzzle_Array[1].position.y <= 480):
+				if (timerPuzzle_Array[1].position.y <= 550):
 					platform2 = true
 
 			if (not platform3):
 				timerPuzzle_Array[2].position.y -= 50
-				if (timerPuzzle_Array[2].position.y <= 310):
+				if (timerPuzzle_Array[2].position.y <= 660):
 					platform3 = true
 			
 			if (platform1 and platform2 and platform3):
@@ -88,17 +88,17 @@ func Level3_TimerPuzzle():
 		while (not allPlatformsUp):
 			if (not platform1):
 				timerPuzzle_Array[0].position.y -= 50
-				if (timerPuzzle_Array[0].position.y <= 320):
+				if (timerPuzzle_Array[0].position.y <= 415):
 					platform1 = true
 
 			if (not platform2):
 				timerPuzzle_Array[1].position.y -= 50
-				if (timerPuzzle_Array[1].position.y <= 480):
+				if (timerPuzzle_Array[1].position.y <= 550):
 					platform2 = true
 
 			if (not platform3):
 				timerPuzzle_Array[2].position.y -= 50
-				if (timerPuzzle_Array[2].position.y <= 310):
+				if (timerPuzzle_Array[2].position.y <= 660):
 					platform3 = true
 			
 			if (platform1 and platform2 and platform3):

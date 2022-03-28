@@ -3,7 +3,6 @@
 [ext_resource path="res://Scripts/Milo/SunStaff.gd" type="Script" id=1]
 [ext_resource path="res://Art/Misc/Light/LightRadiusBlur.png" type="Texture" id=2]
 
-
 [sub_resource type="CircleShape2D" id=29]
 radius = 460.0
 
@@ -24,5 +23,3 @@ shape = SubResource( 29 )
 
 [connection signal="area_entered" from="LightCircle" to="LightCircle" method="_on_LightCircle_area_entered"]
 [connection signal="area_exited" from="LightCircle" to="LightCircle" method="_on_LightCircle_area_exited"]
-[connection signal="body_entered" from="LightCircle" to="LightCircle" method="_on_LightCircle_body_entered"]
-[connection signal="body_exited" from="LightCircle" to="LightCircle" method="_on_LightCircle_body_exited"]

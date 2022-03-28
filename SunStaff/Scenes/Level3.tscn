@@ -1,10 +1,9 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scenes/Milo/Milo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/PressurePlate.tscn" type="PackedScene" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/Main Levels/UnlitBackground.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Main Levels/LitBackground.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Art/Unlit/Backgrounds/LV_3_unlit_BACKGROUND_TEST.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Objects/StaffAltar.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Objects/SavingPoint.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Objects/Platform.tscn" type="PackedScene" id=8]
@@ -41,68 +40,41 @@ extents = Vector2( 32.8572, 31.7647 )
 [node name="Level3Manager" type="Node" parent="." groups=["LevelManager"]]
 script = ExtResource( 9 )
 
-[node name="Backgrounds" type="Node" parent="."]
-
-[node name="UnlitBackground5" parent="Backgrounds" instance=ExtResource( 4 )]
-position = Vector2( 7680, 150 )
-
-[node name="UnlitBackground4" parent="Backgrounds" instance=ExtResource( 4 )]
-position = Vector2( 5760, 150 )
-
-[node name="UnlitBackground3" parent="Backgrounds" instance=ExtResource( 4 )]
-position = Vector2( 3840, 150 )
-
-[node name="UnlitBackground2" parent="Backgrounds" instance=ExtResource( 4 )]
-position = Vector2( 1920, 150 )
-
-[node name="UnlitBackground" parent="Backgrounds" instance=ExtResource( 4 )]
-position = Vector2( 0, 150 )
-
-[node name="LitBackground" parent="Backgrounds" instance=ExtResource( 5 )]
-position = Vector2( 0, 150 )
-
-[node name="LitBackground2" parent="Backgrounds" instance=ExtResource( 5 )]
-position = Vector2( 1920, 150 )
-
-[node name="LitBackground3" parent="Backgrounds" instance=ExtResource( 5 )]
-position = Vector2( 3840, 150 )
-
-[node name="LitBackground4" parent="Backgrounds" instance=ExtResource( 5 )]
-position = Vector2( 5760, 150 )
-
-[node name="LitBackground5" parent="Backgrounds" instance=ExtResource( 5 )]
-position = Vector2( 7680, 150 )
+[node name="Lv3UnlitBackgroundTest" type="Sprite" parent="."]
+visible = false
+position = Vector2( 3600, -328 )
+texture = ExtResource( 4 )
 
 [node name="StaffAltar1_MoveDoor" parent="." instance=ExtResource( 6 )]
 position = Vector2( 153, 111 )
 
 [node name="PressurePlate2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 5730, 343 )
+position = Vector2( 5730, 735 )
 scale = Vector2( 3, 1 )
 
 [node name="Blue_GemPickup" parent="." instance=ExtResource( 20 )]
-position = Vector2( 4173, -785 )
+position = Vector2( 4917, -785 )
 
 [node name="Green_GemPickup" parent="." instance=ExtResource( 20 )]
-position = Vector2( 4476, -785 )
+position = Vector2( 5220, -785 )
 
 [node name="AnimatedSprite" parent="Green_GemPickup" index="1"]
 frame = 1
 
 [node name="Red_GemPickup" parent="." instance=ExtResource( 20 )]
-position = Vector2( 4321, -785 )
+position = Vector2( 5065, -785 )
 
 [node name="AnimatedSprite" parent="Red_GemPickup" index="1"]
 frame = 3
 
 [node name="Magenta_GemPickup" parent="." instance=ExtResource( 20 )]
-position = Vector2( 4615, -785 )
+position = Vector2( 5359, -785 )
 
 [node name="AnimatedSprite" parent="Magenta_GemPickup" index="1"]
 frame = 2
 
 [node name="Cyan_GemPickup" parent="." instance=ExtResource( 20 )]
-position = Vector2( 4767, -785 )
+position = Vector2( 5511, -785 )
 
 [node name="AnimatedSprite" parent="Cyan_GemPickup" index="1"]
 frame = 4
@@ -172,7 +144,7 @@ position = Vector2( 3275, -315 )
 visible = false
 
 [node name="Platform4" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 4746, -685 )
+position = Vector2( 4746, -581 )
 
 [node name="Platform5" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 1799, -395 )
@@ -211,31 +183,31 @@ position = Vector2( 7141, -685 )
 position = Vector2( 5700, -684 )
 
 [node name="Platform14" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 3822, 390 )
+position = Vector2( 3822, 782 )
 
 [node name="Litplatformmiddle" parent="Platforms/Platform14" index="1"]
 visible = false
 
 [node name="Platform15" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 4295, 392 )
+position = Vector2( 4295, 784 )
 
 [node name="Litplatformmiddle" parent="Platforms/Platform15" index="1"]
 visible = false
 
 [node name="Platform16" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 4775, 393 )
+position = Vector2( 4775, 785 )
 
 [node name="Litplatformmiddle" parent="Platforms/Platform16" index="1"]
 visible = false
 
 [node name="Platform17" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 5255, 393 )
+position = Vector2( 5255, 785 )
 
 [node name="Litplatformmiddle" parent="Platforms/Platform17" index="1"]
 visible = false
 
 [node name="Platform18" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 5732, 394 )
+position = Vector2( 5732, 786 )
 
 [node name="Litplatformmiddle" parent="Platforms/Platform18" index="1"]
 visible = false
@@ -286,7 +258,7 @@ position = Vector2( 1796, 465 )
 scale = Vector2( 2, 1 )
 
 [node name="TimerPlatform1" parent="TimerPuzzle" instance=ExtResource( 8 )]
-position = Vector2( 2200, 1000 )
+position = Vector2( 2243, 1000 )
 
 [node name="Litplatformmiddle" parent="TimerPuzzle/TimerPlatform1" index="1"]
 visible = false
@@ -330,25 +302,16 @@ position = Vector2( 1190, 290 )
 scale = Vector2( 5, 1 )
 
 [node name="SavingPoint2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 3823, 334 )
+position = Vector2( 3823, 726 )
 scale = Vector2( 5, 1 )
 
-[node name="WhiteDimondForPuzzle" type="Sprite" parent="."]
-modulate = Color( 0, 0, 0, 1 )
-light_mask = 2
-position = Vector2( 5700, -1342.5 )
-scale = Vector2( 0.75, 0.75 )
-z_index = 1
-texture = ExtResource( 18 )
-
 [node name="StaffAltar1_GemPuzzle" parent="." instance=ExtResource( 6 )]
-position = Vector2( 6228.75, -738.75 )
-scale = Vector2( 0.75, 0.75 )
+position = Vector2( 6601, -738.75 )
+scale = Vector2( 0.45, 0.45 )
 
 [node name="Beams" type="Node2D" parent="StaffAltar1_GemPuzzle"]
 
 [node name="LightBeamGreyscale" type="Sprite" parent="StaffAltar1_GemPuzzle/Beams"]
-visible = false
 modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
 light_mask = 2
 position = Vector2( -0.333, -401.583 )
@@ -359,7 +322,6 @@ __meta__ = {
 }
 
 [node name="LightBeamGreyscale2" type="Sprite" parent="StaffAltar1_GemPuzzle/Beams"]
-visible = false
 modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
 light_mask = 2
 position = Vector2( -48.168, -482.839 )
@@ -368,7 +330,6 @@ scale = Vector2( 1, 0.842448 )
 texture = ExtResource( 19 )
 
 [node name="LightBeamGreyscale3" type="Sprite" parent="StaffAltar1_GemPuzzle/Beams"]
-visible = false
 modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
 light_mask = 2
 position = Vector2( 10.5674, -280.333 )
@@ -377,7 +338,6 @@ scale = Vector2( 1, 0.432048 )
 texture = ExtResource( 19 )
 
 [node name="LightBeamGreyscale4" type="Sprite" parent="StaffAltar1_GemPuzzle/Beams"]
-visible = false
 modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
 light_mask = 2
 position = Vector2( 62.5686, -486.018 )
@@ -386,13 +346,12 @@ scale = Vector2( 1, 0.819109 )
 texture = ExtResource( 19 )
 
 [node name="StaffAltar2_GemPuzzle" parent="." instance=ExtResource( 6 )]
-position = Vector2( 5883.75, -732.75 )
-scale = Vector2( 0.75, 0.75 )
+position = Vector2( 6331, -732.75 )
+scale = Vector2( 0.45, 0.45 )
 
 [node name="Beams" type="Node2D" parent="StaffAltar2_GemPuzzle"]
 
 [node name="LightBeamGreyscale" type="Sprite" parent="StaffAltar2_GemPuzzle/Beams"]
-visible = false
 modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
 light_mask = 2
 position = Vector2( -0.333, -236.25 )
@@ -403,7 +362,6 @@ __meta__ = {
 }
 
 [node name="LightBeamGreyscale2" type="Sprite" parent="StaffAltar2_GemPuzzle/Beams"]
-visible = false
 modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
 light_mask = 2
 position = Vector2( -74.8136, -269.559 )
@@ -412,7 +370,6 @@ scale = Vector2( 1, 0.429973 )
 texture = ExtResource( 19 )
 
 [node name="LightBeamGreyscale3" type="Sprite" parent="StaffAltar2_GemPuzzle/Beams"]
-visible = false
 modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
 light_mask = 2
 position = Vector2( -23.3569, -403.989 )
@@ -421,31 +378,28 @@ scale = Vector2( 1, 0.950912 )
 texture = ExtResource( 19 )
 
 [node name="LightBeamGreyscale4" type="Sprite" parent="StaffAltar2_GemPuzzle/Beams"]
-visible = false
 modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
 light_mask = 2
-position = Vector2( -20.2924, -674.709 )
-rotation = -1.0821
-scale = Vector2( 1, 0.545837 )
+position = Vector2( -20, -751.667 )
+rotation = -0.753982
+scale = Vector2( 1, 0.722032 )
 texture = ExtResource( 19 )
 
 [node name="LightBeamGreyscale5" type="Sprite" parent="StaffAltar2_GemPuzzle/Beams"]
-visible = false
 modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
 light_mask = 2
-position = Vector2( 913.698, -739 )
-rotation = 1.5708
-scale = Vector2( 1, 4.11466 )
+position = Vector2( 1146.27, -1492.54 )
+rotation = 1.13272
+scale = Vector2( 1, 5.51415 )
 texture = ExtResource( 19 )
 
 [node name="StaffAltar3_GemPuzzle" parent="." instance=ExtResource( 6 )]
-position = Vector2( 5516.25, -728.25 )
-scale = Vector2( 0.75, 0.75 )
+position = Vector2( 6061, -730 )
+scale = Vector2( 0.45, 0.45 )
 
 [node name="Beams" type="Node2D" parent="StaffAltar3_GemPuzzle"]
 
 [node name="LightBeamGreyscale" type="Sprite" parent="StaffAltar3_GemPuzzle/Beams"]
-visible = false
 modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
 light_mask = 2
 position = Vector2( -0.333, -261.917 )
@@ -453,7 +407,6 @@ scale = Vector2( 1, 0.557593 )
 texture = ExtResource( 19 )
 
 [node name="LightBeamGreyscale2" type="Sprite" parent="StaffAltar3_GemPuzzle/Beams"]
-visible = false
 modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
 light_mask = 2
 position = Vector2( 80.1314, -313.888 )
@@ -462,31 +415,29 @@ scale = Vector2( 1, 0.49823 )
 texture = ExtResource( 19 )
 
 [node name="LightBeamGreyscale3" type="Sprite" parent="StaffAltar3_GemPuzzle/Beams"]
-visible = false
 modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
 light_mask = 2
-position = Vector2( 93, -467.667 )
+position = Vector2( 66.1883, -567.73 )
 rotation = -0.261799
+scale = Vector2( 1, 1.39997 )
 texture = ExtResource( 19 )
 
 [node name="LightBeamGreyscale4" type="Sprite" parent="StaffAltar3_GemPuzzle/Beams"]
-visible = false
 modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
 light_mask = 2
-position = Vector2( 123.041, -735.657 )
+position = Vector2( 115.077, -939.909 )
 rotation = 1.39626
-scale = Vector2( 1, 0.406848 )
+scale = Vector2( 1, 0.553084 )
 texture = ExtResource( 19 )
 
 [node name="StaffAltar4_GemPuzzle" parent="." instance=ExtResource( 6 )]
-position = Vector2( 5159.25, -742.695 )
+position = Vector2( 5791, -742.695 )
 rotation = 0.0100749
-scale = Vector2( 0.75, 0.75 )
+scale = Vector2( 0.45, 0.45 )
 
 [node name="Beams" type="Node2D" parent="StaffAltar4_GemPuzzle"]
 
 [node name="LightBeamGreyscale" type="Sprite" parent="StaffAltar4_GemPuzzle/Beams"]
-visible = false
 modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
 light_mask = 2
 position = Vector2( -2.333, -231 )
@@ -495,22 +446,21 @@ scale = Vector2( 1, 0.394466 )
 texture = ExtResource( 19 )
 
 [node name="LightBeamGreyscale2" type="Sprite" parent="StaffAltar4_GemPuzzle/Beams"]
-visible = false
 modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
 light_mask = 2
-position = Vector2( -101.808, -279.199 )
+position = Vector2( -138.029, -257.344 )
 rotation = 1.03712
-scale = Vector2( 1, 0.435237 )
+scale = Vector2( 0.95657, 0.598564 )
 texture = ExtResource( 19 )
 
 [node name="Mirrors" type="Node2D" parent="."]
 light_mask = 2
-position = Vector2( 5700, -825 )
-scale = Vector2( 0.75, 0.75 )
+position = Vector2( 6196, -825 )
+scale = Vector2( 0.5, 0.5 )
 
 [node name="MirrorForPuzzleWip" type="Sprite" parent="Mirrors"]
 light_mask = 2
-position = Vector2( -950, -575.06 )
+position = Vector2( -1080, -570 )
 rotation = 0.610865
 scale = Vector2( 1, 0.5 )
 texture = ExtResource( 17 )
@@ -537,7 +487,7 @@ __meta__ = {
 
 [node name="MirrorForPuzzleWip4" type="Sprite" parent="Mirrors"]
 light_mask = 2
-position = Vector2( 950, -575.06 )
+position = Vector2( 1080, -570 )
 rotation = -0.610865
 scale = Vector2( 1, 0.5 )
 texture = ExtResource( 17 )
@@ -547,14 +497,14 @@ __meta__ = {
 
 [node name="MirrorForPuzzleWip5" type="Sprite" parent="Mirrors"]
 light_mask = 2
-position = Vector2( -475, -720 )
+position = Vector2( -544, -730 )
 rotation = 0.436332
 scale = Vector2( 1, 0.5 )
 texture = ExtResource( 17 )
 
 [node name="MirrorForPuzzleWip6" type="Sprite" parent="Mirrors"]
 light_mask = 2
-position = Vector2( 475, -720 )
+position = Vector2( 544, -730 )
 rotation = -0.436332
 scale = Vector2( 1, 0.5 )
 texture = ExtResource( 17 )
@@ -564,102 +514,100 @@ __meta__ = {
 
 [node name="MirrorForPuzzleWip7" type="Sprite" parent="Mirrors"]
 light_mask = 2
-position = Vector2( -721, -230 )
+position = Vector2( -808, -136 )
 rotation = -0.872665
 scale = Vector2( 1, 0.5 )
 texture = ExtResource( 17 )
 
 [node name="MirrorForPuzzleWip8" type="Sprite" parent="Mirrors"]
 light_mask = 2
-position = Vector2( -245, -288 )
+position = Vector2( -272, -182 )
 rotation = 0.785398
 scale = Vector2( 1, 0.5 )
 texture = ExtResource( 17 )
 
 [node name="MirrorForPuzzleWip9" type="Sprite" parent="Mirrors"]
 light_mask = 2
-position = Vector2( -85, -85 )
+position = Vector2( -126, -6 )
 rotation = 1.22173
 scale = Vector2( 1, 0.5 )
 texture = ExtResource( 17 )
 
 [node name="MirrorForPuzzleWip10" type="Sprite" parent="Mirrors"]
 light_mask = 2
-position = Vector2( -224, -593.333 )
+position = Vector2( -300, -632 )
 rotation = 0.174533
 scale = Vector2( 1, 0.5 )
 texture = ExtResource( 17 )
 
 [node name="MirrorForPuzzleWip11" type="Sprite" parent="Mirrors"]
 light_mask = 2
-position = Vector2( 245, -230 )
+position = Vector2( 272, -126 )
 rotation = -0.610865
 scale = Vector2( 1, 0.5 )
 texture = ExtResource( 17 )
 
 [node name="MirrorForPuzzleWip12" type="Sprite" parent="Mirrors"]
 light_mask = 2
-position = Vector2( 94.667, -66.6667 )
+position = Vector2( 140, 10 )
 rotation = -0.959931
 scale = Vector2( 1, 0.5 )
 texture = ExtResource( 17 )
 
 [node name="MirrorForPuzzleWip13" type="Sprite" parent="Mirrors"]
 light_mask = 2
-position = Vector2( 349.333, -496 )
+position = Vector2( 366, -368 )
 rotation = -0.174533
 scale = Vector2( 1, 0.5 )
 texture = ExtResource( 17 )
 
 [node name="MirrorForPuzzleWip14" type="Sprite" parent="Mirrors"]
 light_mask = 2
-position = Vector2( 96, -622.667 )
+position = Vector2( 136, -618 )
 rotation = 0.436332
 scale = Vector2( 1, 0.5 )
 texture = ExtResource( 17 )
 
 [node name="MirrorForPuzzleWip15" type="Sprite" parent="Mirrors"]
 light_mask = 2
-position = Vector2( 705, -577.333 )
+position = Vector2( 806, -446 )
 rotation = 1.74882
 scale = Vector2( 1, 0.5 )
 texture = ExtResource( 17 )
 
 [node name="MirrorForPuzzleWip16" type="Sprite" parent="Mirrors"]
 light_mask = 2
-position = Vector2( 604, -165.333 )
+position = Vector2( 720, -80 )
 rotation = -0.174533
 scale = Vector2( 1, 0.5 )
 texture = ExtResource( 17 )
 
 [node name="MirrorForPuzzleWip17" type="Sprite" parent="Mirrors"]
 light_mask = 2
-position = Vector2( 836, -170.667 )
+position = Vector2( 922, -82.002 )
 rotation = 0.959931
 scale = Vector2( 1, 0.5 )
 texture = ExtResource( 17 )
 
 [node name="GemPedestal3" parent="." instance=ExtResource( 10 )]
 light_mask = 2
-position = Vector2( 6412.5, -825 )
-scale = Vector2( 0.5625, 0.5625 )
+position = Vector2( 6736, -800 )
+scale = Vector2( 0.45, 0.45 )
 
 [node name="Beams" type="Node2D" parent="GemPedestal3"]
 light_mask = 2
 
 [node name="LightBeamGreyscale5" type="Sprite" parent="GemPedestal3/Beams"]
-visible = false
 light_mask = 2
-position = Vector2( 0, -480 )
-scale = Vector2( 1.33333, 1.06667 )
+position = Vector2( 0, -445.199 )
+scale = Vector2( 1.33333, 0.932305 )
 texture = ExtResource( 19 )
 
 [node name="LightBeamGreyscale9" type="Sprite" parent="GemPedestal3/Beams"]
-visible = false
 light_mask = 2
-position = Vector2( -308, -522.667 )
+position = Vector2( -281.225, -455.753 )
 rotation = 0.872665
-scale = Vector2( 1.33333, 1.50675 )
+scale = Vector2( 1.33333, 1.41212 )
 texture = ExtResource( 19 )
 __meta__ = {
 "_editor_description_": ""
@@ -667,28 +615,26 @@ __meta__ = {
 
 [node name="GemPedestal1" parent="." instance=ExtResource( 10 )]
 light_mask = 2
-position = Vector2( 6056.25, -840 )
-scale = Vector2( 0.6375, 0.7125 )
+position = Vector2( 6466, -800 )
+scale = Vector2( 0.45, 0.45 )
 
 [node name="Beams" type="Node2D" parent="GemPedestal1"]
 light_mask = 2
 
 [node name="LightBeamGreyscale4" type="Sprite" parent="GemPedestal1/Beams"]
-visible = false
 light_mask = 2
-position = Vector2( 0, -452.632 )
-scale = Vector2( 1.17647, 1.05263 )
+position = Vector2( 0, -523.334 )
+scale = Vector2( 1.17647, 1.32561 )
 texture = ExtResource( 19 )
 __meta__ = {
 "_editor_description_": ""
 }
 
 [node name="LightBeamGreyscale10" type="Sprite" parent="GemPedestal1/Beams"]
-visible = false
 light_mask = 2
-position = Vector2( -258.824, -726.316 )
+position = Vector2( -262.357, -871.111 )
 rotation = 1.5708
-scale = Vector2( 1.05263, 1.00082 )
+scale = Vector2( 1.05263, 1.0185 )
 texture = ExtResource( 19 )
 __meta__ = {
 "_editor_description_": ""
@@ -696,36 +642,33 @@ __meta__ = {
 
 [node name="GemPedestal2" parent="." instance=ExtResource( 10 )]
 light_mask = 2
-position = Vector2( 5700, -825 )
-scale = Vector2( 0.5625, 0.5625 )
+position = Vector2( 6196, -800 )
+scale = Vector2( 0.45, 0.45 )
 
 [node name="Beams" type="Node2D" parent="GemPedestal2"]
 light_mask = 2
 
 [node name="LightBeamGreyscale" type="Sprite" parent="GemPedestal2/Beams"]
-visible = false
 light_mask = 2
-position = Vector2( 0, -483.333 )
-scale = Vector2( 1.33333, 1.06821 )
+position = Vector2( 0, -442.222 )
+scale = Vector2( 1.33333, 0.909481 )
 texture = ExtResource( 19 )
 
 [node name="LightBeamGreyscale8" type="Sprite" parent="GemPedestal2/Beams"]
-visible = false
 light_mask = 2
-position = Vector2( -319.485, -515.65 )
+position = Vector2( -293.333, -455.556 )
 rotation = 0.872665
-scale = Vector2( 1.33333, 1.46363 )
+scale = Vector2( 1.33333, 1.40819 )
 texture = ExtResource( 19 )
 __meta__ = {
 "_editor_description_": ""
 }
 
 [node name="LightBeamGreyscale6" type="Sprite" parent="GemPedestal2/Beams"]
-visible = false
 light_mask = 2
-position = Vector2( 319.485, -515.649 )
+position = Vector2( 298.526, -455.004 )
 rotation = -0.872665
-scale = Vector2( 1.33333, 1.46363 )
+scale = Vector2( 1.33333, 1.4002 )
 texture = ExtResource( 19 )
 __meta__ = {
 "_editor_description_": ""
@@ -733,57 +676,54 @@ __meta__ = {
 
 [node name="GemPedestal4" parent="." instance=ExtResource( 10 )]
 light_mask = 2
-position = Vector2( 5343.75, -840 )
-scale = Vector2( 0.6375, 0.7125 )
+position = Vector2( 5926, -800 )
+scale = Vector2( 0.45, 0.45 )
 
 [node name="Beams" type="Node2D" parent="GemPedestal4"]
 light_mask = 2
 
 [node name="LightBeamGreyscale3" type="Sprite" parent="GemPedestal4/Beams"]
-visible = false
 light_mask = 2
-position = Vector2( 0, -452.632 )
-scale = Vector2( 1.17647, 1.05263 )
+position = Vector2( 0, -524.445 )
+scale = Vector2( 1.17647, 1.3299 )
 texture = ExtResource( 19 )
 
 [node name="LightBeamGreyscale7" type="Sprite" parent="GemPedestal4/Beams"]
-visible = false
 light_mask = 2
-position = Vector2( 258.823, -726.316 )
+position = Vector2( 257.078, -868.89 )
 rotation = 1.5708
-scale = Vector2( 1.05263, 1.00082 )
+scale = Vector2( 1.05263, 1.02514 )
 texture = ExtResource( 19 )
 
 [node name="GemPedestal5" parent="." instance=ExtResource( 10 )]
 light_mask = 2
-position = Vector2( 4987.5, -825 )
-scale = Vector2( 0.5625, 0.5625 )
+position = Vector2( 5656, -800 )
+scale = Vector2( 0.45, 0.45 )
 
 [node name="Beams" type="Node2D" parent="GemPedestal5"]
 light_mask = 2
 
 [node name="LightBeamGreyscale1" type="Sprite" parent="GemPedestal5/Beams"]
-visible = false
 light_mask = 2
-position = Vector2( 0, -480 )
-scale = Vector2( 1.33333, 1.06667 )
+position = Vector2( 0, -442.977 )
+scale = Vector2( 1.33333, 0.923725 )
 texture = ExtResource( 19 )
 
 [node name="LightBeamGreyscale2" type="Sprite" parent="GemPedestal5/Beams"]
-visible = false
 light_mask = 2
-position = Vector2( 308, -522.667 )
+position = Vector2( 287.027, -453.312 )
 rotation = -0.872665
-scale = Vector2( 1.33333, 1.50675 )
+scale = Vector2( 1.33333, 1.42653 )
 texture = ExtResource( 19 )
 
 [node name="Milo" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 55 )
+visible = false
+position = Vector2( 14, 22 )
 
 [node name="WhiteDimondForPuzzle" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 1 )
 light_mask = 2
-position = Vector2( 5700, -1342.5 )
+position = Vector2( 6196, -1200 )
 scale = Vector2( 0.75, 0.75 )
 z_index = 1
 texture = ExtResource( 18 )
@@ -793,7 +733,7 @@ position = Vector2( 1190, 290 )
 scale = Vector2( 5, 1 )
 
 [node name="SavingPoint2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 3823, 334 )
+position = Vector2( 3823, 726 )
 scale = Vector2( 5, 1 )
 
 [node name="SavingPoint3" parent="." instance=ExtResource( 7 )]
@@ -809,7 +749,7 @@ position = Vector2( 1802, -453 )
 scale = Vector2( 5, 1 )
 
 [node name="SavingPoint6" parent="." instance=ExtResource( 7 )]
-position = Vector2( 4263, -744 )
+position = Vector2( 5234, -748 )
 scale = Vector2( 5, 1 )
 
 [node name="SavingPoint7" parent="." instance=ExtResource( 7 )]
@@ -825,20 +765,20 @@ position = Vector2( 2781, -525 )
 scale = Vector2( 5, 1 )
 
 [node name="Lever2" parent="." instance=ExtResource( 13 )]
-position = Vector2( 4218, 325 )
+position = Vector2( 4218, 717 )
 
 [node name="Lever3" parent="." instance=ExtResource( 13 )]
-position = Vector2( 4368, 325 )
+position = Vector2( 4368, 717 )
 
 [node name="Lever4" parent="." instance=ExtResource( 13 )]
-position = Vector2( 4518, 325 )
+position = Vector2( 4518, 717 )
 
 [node name="Lever5" parent="." instance=ExtResource( 13 )]
-position = Vector2( 4668, 325 )
+position = Vector2( 4668, 717 )
 
 [node name="Door2" type="KinematicBody2D" parent="." groups=["Door"]]
 light_mask = 2
-position = Vector2( 5032, 252 )
+position = Vector2( 5032, 644 )
 scale = Vector2( 0.7, 3.4 )
 
 [node name="Door2" type="Sprite" parent="Door2"]
@@ -853,7 +793,7 @@ shape = SubResource( 3 )
 
 [node name="Door3" type="KinematicBody2D" parent="." groups=["Door"]]
 light_mask = 2
-position = Vector2( 5132, 252 )
+position = Vector2( 5132, 644 )
 scale = Vector2( 0.7, 3.4 )
 
 [node name="Door3" type="Sprite" parent="Door3"]
@@ -868,7 +808,7 @@ shape = SubResource( 4 )
 
 [node name="Door4" type="KinematicBody2D" parent="." groups=["Door"]]
 light_mask = 2
-position = Vector2( 5232, 252 )
+position = Vector2( 5232, 644 )
 scale = Vector2( 0.7, 3.4 )
 
 [node name="Door4" type="Sprite" parent="Door4"]
@@ -883,7 +823,7 @@ shape = SubResource( 5 )
 
 [node name="Door5" type="KinematicBody2D" parent="." groups=["Door"]]
 light_mask = 2
-position = Vector2( 5332, 252 )
+position = Vector2( 5332, 644 )
 scale = Vector2( 0.7, 3.4 )
 
 [node name="Door5" type="Sprite" parent="Door5"]

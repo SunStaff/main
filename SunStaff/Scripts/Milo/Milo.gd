@@ -4,23 +4,7 @@ extends KinematicBody2D
 var playerRootNode
 var sprite
 var spriteUnlit
-
-# Sun Staff Variables
-var SunStaff
-var LightCircle
-var WithinAltarRange
-var StaffAltars = []
-var StaffVisibility
-var CurrentClosestAltar
-var minDistanceToAltar = INF
-var HasStaff = true
 var sprintcheck = false
-# Lever Vairables
-var WithinLeverRange
-var CurrentClosestLever
-var minDistanceToLever = INF
-var Levers = []
-var LeverObject
 var jumped
 
 # Pedestal Variables
@@ -30,6 +14,9 @@ var minDistanceToPedestal = INF
 var Pedestals = []
 var PedestalName = ""
 var GemObject
+
+# SunStaff Variables
+var HasStaff = true
 
 # Movement Variables
 var faceRight = true
@@ -47,14 +34,8 @@ func _ready():
 	sprite = $AnimatedSprite
 	spriteUnlit = $AnimatedSprite2
 	spriteUnlit.visible = false
-	SunStaff = self.get_child(1).get_child(0) # Gets Sun Staff 
-	LightCircle = get_child(1).get_child(0).get_child(1)
-	
-	WithinAltarRange = false
-	StaffVisibility = true
 	
 	WithinPedestalRange = false
-	WithinLeverRange = false
 
 func get_input():
 	if (GameManager.IsPlayerAlive and GameManager.IsGamePlaying):
@@ -170,14 +151,8 @@ func get_input():
 		else:
 			velocity.x = lerp(velocity.x, 0, friction)
 
-		# Sun Staff Placement
-		if (WithinAltarRange):
-			if (Input.is_action_just_pressed("Interact")):
-				print("interaction with altar")
-				SunStaffPlacement()
-
 		# Gem Pedestal Placement
-		elif (WithinPedestalRange):
+		if (WithinPedestalRange):
 			if (Input.is_action_just_pressed("Interact")):
 				print("interaction with pedestal")
 				GemPlacement()
@@ -187,12 +162,6 @@ func get_input():
 			if (Input.is_action_just_pressed("Interact")):
 				print("interaction with gem")
 				GemPickup()
-		
-		# Lever Toggling
-		elif (WithinLeverRange):
-			if (Input.is_action_just_pressed("Interact")):
-				print("interaction with lever")
-				FlipLever()
 
 		# If Player is Falling Passed Border
 		if (self.position.y > 900):
@@ -210,19 +179,12 @@ func PlayerDeath(position):
 	self.position = position
 	velocity.x = 0
 	velocity.y = 0
-	WithinAltarRange = false
-	WithinLeverRange = false
 	WithinPedestalRange = false
 
-func _on_InteractRange_area_entered(area:Area2D):
-	if ("StaffAltar" in area.name):
-		WithinAltarRange = true
-		GetCurrentClosestAltar()
+func ChangeHasStaffState(state):
+	HasStaff = state
 
-	if ("Lever" in area.name):
-		WithinLeverRange = true
-		LeverObject = area
-		GetCurrentClosestLever()
+func _on_InteractRange_area_entered(area:Area2D):
 
 	if ("GemPedestal" in area.name):
 		WithinPedestalRange = true
@@ -232,42 +194,10 @@ func _on_InteractRange_area_entered(area:Area2D):
 		GemObject = area
 
 func _on_InteractRange_area_exited(area:Area2D):
-	if ("StaffAltar" in area.name):
-		WithinAltarRange = false
-		GetCurrentClosestAltar()
-
-	if ("Lever" in area.name):
-		WithinLeverRange = false
-		LeverObject = null
-		GetCurrentClosestLever()
 
 	if ("GemPedestal" in area.name):
 		WithinPedestalRange = false
 		GetCurrentClosestPedestal()
-
-func SunStaffPlacement():
-	GetCurrentClosestAltar()
-	if (StaffVisibility): # If Milo is holding staff
-		SunStaff.get_child(0).set_color(Color(1,1,1,0))
-		StaffVisibility = false
-		HasStaff = false
-		CurrentClosestAltar.visible = true
-		GameManager.CheckForLevelSpecificActions("Altar",true,CurrentClosestAltar)
-		GameManager.CheckForLevelSpecificActions("Altar",true,CurrentClosestAltar)
-
-	else: # If the altar has the Staff
-		SunStaff.get_child(0).set_color(Color(1,1,1,1))
-		StaffVisibility = true
-		HasStaff = true
-		CurrentClosestAltar.visible = false
-		GameManager.CheckForLevelSpecificActions("Altar",false,CurrentClosestAltar)
-		GameManager.CheckForLevelSpecificActions("Altar",false,CurrentClosestAltar)
-	
-	if (CurrentClosestAltar.visible): # If the altar has the Staff, turn off LightCircle monitoring
-		LightCircle.monitoring = false
-	else:
-		LightCircle.monitoring = true
-	GetCurrentClosestAltar()
 
 func GemPlacement():
 	GetCurrentClosestPedestal()
@@ -277,44 +207,10 @@ func GemPickup():
 	var color = GemObject.name.replacen("_GemPickup", "")
 	GameManager.ToggleGem(color)
 	GemObject.visible = false
-
-func FlipLever():
-	print("FlipLever Executed")
-	LeverObject._change_lever_state()
-
-func DistanceTo(a,b):
-	var x = a.x - b.x
-	var y = a.y - b.y
-	return sqrt(pow(x,2) + pow(y,2))
 	
 func _on_AnimatedSprite_animation_finished(): 
 	if ("MiloJumpFallStaff" in sprite.animation):
 		justJumped = true
-
-func GetCurrentClosestAltar():
-	StaffAltars.clear()
-	for altar in GameManager.GetSunStaffAltars():
-		StaffAltars.append(altar.get_child(1).get_child(0))
-	# Get Current Closest Altar
-	for altar in StaffAltars:
-		var distanceTo = DistanceTo(self.position, altar.get_parent().get_parent().position)
-		if (distanceTo < minDistanceToAltar):
-			minDistanceToAltar = distanceTo
-			CurrentClosestAltar = altar
-	minDistanceToAltar = INF
-
-func GetCurrentClosestLever():
-	Levers.clear()
-	for lever in GameManager.GetLevers():
-		Levers.append(lever)
-	# Get Current Closest Lever
-	for lever in Levers:
-		var distanceTo = DistanceTo(self.position, lever.position)
-		if (distanceTo < minDistanceToLever):
-			minDistanceToLever = distanceTo
-			CurrentClosestLever = lever
-			LeverObject = CurrentClosestLever
-	minDistanceToLever = INF
 
 func GetCurrentClosestPedestal():
 	Pedestals.clear()
@@ -322,7 +218,7 @@ func GetCurrentClosestPedestal():
 		Pedestals.append(pedestal)
 	# Get Current Closest Pedestal
 	for pedestal in Pedestals:
-		var distanceTo = DistanceTo(pedestal.position, self.position)
+		var distanceTo = GameManager.DistanceTo(pedestal.position, self.position)
 		if (distanceTo < minDistanceToPedestal):
 			minDistanceToPedestal = distanceTo
 			CurrentClosestPedestal = pedestal
