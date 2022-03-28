@@ -13,10 +13,10 @@
 [ext_resource path="res://Scenes/Menus/GemSelectionScreen.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Art/Misc/cliff.png" type="Texture" id=12]
 [ext_resource path="res://Scenes/Objects/Lever.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Main Levels/GroundTiles.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Art/Misc/Light/mirror_for_puzzle_WIP.png" type="Texture" id=17]
 [ext_resource path="res://Art/Misc/Light/white_dimond_for_puzzle.png" type="Texture" id=18]
 [ext_resource path="res://Art/Misc/Light/Light_beam_greyscale.png" type="Texture" id=19]
-[ext_resource path="res://Scenes/Objects/GemPickup.tscn" type="PackedScene" id=20]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.8, 33.5 )
@@ -128,87 +128,6 @@ offset = Vector2( 750, 0 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Node2D26"]
 shape = SubResource( 1 )
 
-[node name="Platform2" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 2305, -277 )
-
-[node name="UnlitPlatformmiddle" parent="Platforms/Platform2" index="0"]
-visible = false
-
-[node name="Platform3" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 3275, -315 )
-
-[node name="UnlitPlatformmiddle" parent="Platforms/Platform3" index="0"]
-visible = false
-
-[node name="Platform4" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 4746, -685 )
-
-[node name="Platform5" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 1799, -395 )
-
-[node name="UnlitPlatformmiddle" parent="Platforms/Platform5" index="0"]
-visible = false
-
-[node name="Platform6" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 3842, -504 )
-
-[node name="UnlitPlatformmiddle" parent="Platforms/Platform6" index="0"]
-visible = false
-
-[node name="Platform7" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 4294, -684 )
-
-[node name="Platform8" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 2781, -468 )
-
-[node name="UnlitPlatformmiddle" parent="Platforms/Platform8" index="0"]
-visible = false
-
-[node name="Platform9" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 5223, -686 )
-
-[node name="Platform10" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 6182, -683 )
-
-[node name="Platform11" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 6661, -685 )
-
-[node name="Platform12" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 7141, -685 )
-
-[node name="Platform13" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 5700, -684 )
-
-[node name="Platform14" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 3822, 390 )
-
-[node name="Litplatformmiddle" parent="Platforms/Platform14" index="1"]
-visible = false
-
-[node name="Platform15" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 4295, 392 )
-
-[node name="Litplatformmiddle" parent="Platforms/Platform15" index="1"]
-visible = false
-
-[node name="Platform16" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 4775, 393 )
-
-[node name="Litplatformmiddle" parent="Platforms/Platform16" index="1"]
-visible = false
-
-[node name="Platform17" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 5255, 393 )
-
-[node name="Litplatformmiddle" parent="Platforms/Platform17" index="1"]
-visible = false
-
-[node name="Platform18" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 5732, 394 )
-
-[node name="Litplatformmiddle" parent="Platforms/Platform18" index="1"]
-visible = false
-
 [node name="Platform19" parent="Platforms" instance=ExtResource( 8 )]
 position = Vector2( 1192, 340 )
 
@@ -221,32 +140,27 @@ position = Vector2( 1741, 518 )
 [node name="Litplatformmiddle" parent="Platforms/Platform20" index="1"]
 visible = false
 
-[node name="Platform21" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 7621, -684 )
+[node name="GroundLayerTiles1" parent="Platforms" instance=ExtResource( 14 )]
+position = Vector2( 7444, -621 )
 
-[node name="Platform22" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 8102, -688 )
+[node name="GroundLayerTiles2" parent="Platforms" instance=ExtResource( 14 )]
+position = Vector2( 5523, -621 )
 
-[node name="Platform23" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 134, 172 )
+[node name="GroundLayerTiles3" parent="Platforms" instance=ExtResource( 14 )]
+position = Vector2( 3601, -622 )
 
-[node name="Platform" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( -346, 172 )
+[node name="GroundLayerTiles4" parent="Platforms" instance=ExtResource( 14 )]
+position = Vector2( 21, 180 )
+scale = Vector2( 0.8, 0.5 )
 
-[node name="Platform24" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 614, 172 )
+[node name="GroundLayerTiles" parent="Platforms" instance=ExtResource( 14 )]
+position = Vector2( 1567, -700 )
+rotation = -0.349066
+scale = Vector2( 1.25, 0.5 )
 
-[node name="Platform25" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 949, -3 )
-
-[node name="UnlitPlatformmiddle" parent="Platforms/Platform25" index="0"]
-visible = false
-
-[node name="Platform26" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 1395, -196 )
-
-[node name="UnlitPlatformmiddle" parent="Platforms/Platform26" index="0"]
-visible = false
+[node name="GroundLayerTiles5" parent="Platforms" instance=ExtResource( 14 )]
+position = Vector2( 4835, 422 )
+scale = Vector2( 1.25, 0.5 )
 
 [node name="TimerPuzzle" type="Node" parent="."]
 
@@ -273,7 +187,8 @@ position = Vector2( 3300, 1000 )
 visible = false
 
 [node name="Milo" parent="." instance=ExtResource( 1 )]
-position = Vector2( 4530, -981 )
+visible = false
+position = Vector2( 3787, 165 )
 
 [node name="StartingDoor" type="KinematicBody2D" parent="."]
 light_mask = 0
@@ -296,33 +211,6 @@ scale = Vector2( 5, 1 )
 position = Vector2( 3823, 334 )
 scale = Vector2( 5, 1 )
 
-[node name="Blue_GemPickup" parent="." instance=ExtResource( 20 )]
-position = Vector2( 953, -123 )
-
-[node name="Green_GemPickup" parent="." instance=ExtResource( 20 )]
-position = Vector2( 2301, -404 )
-
-[node name="AnimatedSprite" parent="Green_GemPickup" index="1"]
-frame = 1
-
-[node name="Red_GemPickup" parent="." instance=ExtResource( 20 )]
-position = Vector2( 4321, -777 )
-
-[node name="AnimatedSprite" parent="Red_GemPickup" index="1"]
-frame = 3
-
-[node name="Magenta_GemPickup" parent="." instance=ExtResource( 20 )]
-position = Vector2( 1810, -502 )
-
-[node name="AnimatedSprite" parent="Magenta_GemPickup" index="1"]
-frame = 2
-
-[node name="Cyan_GemPickup" parent="." instance=ExtResource( 20 )]
-position = Vector2( 1392, -315 )
-
-[node name="AnimatedSprite" parent="Cyan_GemPickup" index="1"]
-frame = 4
-
 [node name="WhiteDimondForPuzzle" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 1 )
 light_mask = 2
@@ -332,7 +220,7 @@ z_index = 1
 texture = ExtResource( 18 )
 
 [node name="StaffAltar1" parent="." instance=ExtResource( 6 )]
-position = Vector2( 6228.75, -738.75 )
+position = Vector2( 6233, -695 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="Beams" type="Node2D" parent="StaffAltar1"]
@@ -376,7 +264,7 @@ scale = Vector2( 1, 0.819109 )
 texture = ExtResource( 19 )
 
 [node name="StaffAltar2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 5883.75, -732.75 )
+position = Vector2( 5888, -701 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="Beams" type="Node2D" parent="StaffAltar2"]
@@ -429,7 +317,7 @@ scale = Vector2( 1, 4.11466 )
 texture = ExtResource( 19 )
 
 [node name="StaffAltar3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 5516.25, -728.25 )
+position = Vector2( 5520, -704 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="Beams" type="Node2D" parent="StaffAltar3"]
@@ -469,7 +357,7 @@ scale = Vector2( 1, 0.406848 )
 texture = ExtResource( 19 )
 
 [node name="StaffAltar4" parent="." instance=ExtResource( 6 )]
-position = Vector2( 5159.25, -742.695 )
+position = Vector2( 5159, -703 )
 rotation = 0.0100749
 scale = Vector2( 0.75, 0.75 )
 
@@ -629,11 +517,12 @@ texture = ExtResource( 17 )
 
 [node name="GemPedestal3" parent="." instance=ExtResource( 10 )]
 light_mask = 2
-position = Vector2( 6412.5, -825 )
+position = Vector2( 6411, -791 )
 scale = Vector2( 0.5625, 0.5625 )
 
 [node name="Beams" type="Node2D" parent="GemPedestal3"]
 light_mask = 2
+position = Vector2( 3.55556, 39.1111 )
 
 [node name="LightBeamGreyscale5" type="Sprite" parent="GemPedestal3/Beams"]
 visible = false
@@ -655,7 +544,7 @@ __meta__ = {
 
 [node name="GemPedestal5" parent="." instance=ExtResource( 10 )]
 light_mask = 2
-position = Vector2( 4987.5, -825 )
+position = Vector2( 4988, -781 )
 scale = Vector2( 0.5625, 0.5625 )
 
 [node name="Beams" type="Node2D" parent="GemPedestal5"]
@@ -678,7 +567,7 @@ texture = ExtResource( 19 )
 
 [node name="GemPedestal2" parent="." instance=ExtResource( 10 )]
 light_mask = 2
-position = Vector2( 5700, -825 )
+position = Vector2( 5702, -783 )
 scale = Vector2( 0.5625, 0.5625 )
 
 [node name="Beams" type="Node2D" parent="GemPedestal2"]
@@ -715,7 +604,7 @@ __meta__ = {
 
 [node name="GemPedestal4" parent="." instance=ExtResource( 10 )]
 light_mask = 2
-position = Vector2( 5343.75, -840 )
+position = Vector2( 5344, -806 )
 scale = Vector2( 0.6375, 0.7125 )
 
 [node name="Beams" type="Node2D" parent="GemPedestal4"]
@@ -738,7 +627,7 @@ texture = ExtResource( 19 )
 
 [node name="GemPedestal" parent="." instance=ExtResource( 10 )]
 light_mask = 2
-position = Vector2( 6056.25, -840 )
+position = Vector2( 6064, -814 )
 scale = Vector2( 0.6375, 0.7125 )
 
 [node name="Beams" type="Node2D" parent="GemPedestal"]
@@ -771,20 +660,20 @@ __meta__ = {
 visible = false
 
 [node name="Lever2" parent="." instance=ExtResource( 13 )]
-position = Vector2( 4218, 325 )
+position = Vector2( 4211, 309 )
 
 [node name="Lever3" parent="." instance=ExtResource( 13 )]
-position = Vector2( 4368, 325 )
+position = Vector2( 4370, 309 )
 
 [node name="Lever4" parent="." instance=ExtResource( 13 )]
-position = Vector2( 4518, 325 )
+position = Vector2( 4516, 309 )
 
 [node name="Lever5" parent="." instance=ExtResource( 13 )]
-position = Vector2( 4668, 325 )
+position = Vector2( 4670, 309 )
 
 [node name="Door2" type="KinematicBody2D" parent="."]
 light_mask = 2
-position = Vector2( 5032, 252 )
+position = Vector2( 5032, 238 )
 scale = Vector2( 0.7, 3.4 )
 
 [node name="Door2" type="Sprite" parent="Door2"]
@@ -794,12 +683,12 @@ texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door2"]
 light_mask = 2
-position = Vector2( 4.28623, 0.000963477 )
+position = Vector2( 4.28623, 2.35391 )
 shape = SubResource( 3 )
 
 [node name="Door3" type="KinematicBody2D" parent="."]
 light_mask = 2
-position = Vector2( 5132, 252 )
+position = Vector2( 5132, 238 )
 scale = Vector2( 0.7, 3.4 )
 
 [node name="Door3" type="Sprite" parent="Door3"]
@@ -814,7 +703,7 @@ shape = SubResource( 4 )
 
 [node name="Door4" type="KinematicBody2D" parent="."]
 light_mask = 2
-position = Vector2( 5232, 252 )
+position = Vector2( 5232, 238 )
 scale = Vector2( 0.7, 3.4 )
 
 [node name="Door4" type="Sprite" parent="Door4"]
@@ -829,7 +718,7 @@ shape = SubResource( 5 )
 
 [node name="Door5" type="KinematicBody2D" parent="."]
 light_mask = 2
-position = Vector2( 5332, 252 )
+position = Vector2( 5332, 238 )
 scale = Vector2( 0.7, 3.4 )
 
 [node name="Door5" type="Sprite" parent="Door5"]
@@ -842,25 +731,8 @@ light_mask = 2
 position = Vector2( 1.42854, -0.000129426 )
 shape = SubResource( 6 )
 
-[editable path="Platforms/Platform2"]
-[editable path="Platforms/Platform3"]
-[editable path="Platforms/Platform5"]
-[editable path="Platforms/Platform6"]
-[editable path="Platforms/Platform8"]
-[editable path="Platforms/Platform14"]
-[editable path="Platforms/Platform15"]
-[editable path="Platforms/Platform16"]
-[editable path="Platforms/Platform17"]
-[editable path="Platforms/Platform18"]
 [editable path="Platforms/Platform19"]
 [editable path="Platforms/Platform20"]
-[editable path="Platforms/Platform25"]
-[editable path="Platforms/Platform26"]
 [editable path="TimerPuzzle/TimerPlatform1"]
 [editable path="TimerPuzzle/TimerPlatform2"]
 [editable path="TimerPuzzle/TimerPlatform3"]
-[editable path="Blue_GemPickup"]
-[editable path="Green_GemPickup"]
-[editable path="Red_GemPickup"]
-[editable path="Magenta_GemPickup"]
-[editable path="Cyan_GemPickup"]
