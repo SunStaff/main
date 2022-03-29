@@ -1,13 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Art/Misc/Gems/RED_GEM.png" type="Texture" id=1]
 [ext_resource path="res://Art/Misc/Gems/BLUE_GEM.png" type="Texture" id=2]
 [ext_resource path="res://Art/Misc/Gems/GREEN_GEM.png" type="Texture" id=3]
-[ext_resource path="res://Art/Misc/Gems/orange_GEM.png" type="Texture" id=4]
+[ext_resource path="res://Art/Misc/Gems/cyan_GEM.png" type="Texture" id=4]
 [ext_resource path="res://Art/Misc/Gems/magenta_GEM.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/Objects/GemPickup.gd" type="Script" id=6]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 77.0
+radius = 100.0
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -19,6 +20,7 @@ animations = [ {
 
 [node name="GemPickup" type="Area2D"]
 scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
@@ -26,3 +28,6 @@ shape = SubResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 light_mask = 2
 frames = SubResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="_on_GemPickup_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_GemPickup_body_exited"]

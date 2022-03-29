@@ -1,0 +1,434 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/Objects/StaffAltar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Objects/GemPedestal.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Objects/GemPedestal.gd" type="Script" id=3]
+[ext_resource path="res://Art/Misc/Light/mirror_for_puzzle_WIP.png" type="Texture" id=5]
+[ext_resource path="res://Art/Misc/Light/white_dimond_for_puzzle.png" type="Texture" id=6]
+[ext_resource path="res://Art/Misc/Light/Light_beam_greyscale.png" type="Texture" id=7]
+
+[node name="GemPuzzle" type="Node2D"]
+
+[node name="StaffAltar4_GemPuzzle" parent="." instance=ExtResource( 1 )]
+position = Vector2( 5791, -742.695 )
+rotation = 0.0100749
+scale = Vector2( 0.45, 0.45 )
+
+[node name="Beams" type="Node2D" parent="StaffAltar4_GemPuzzle"]
+
+[node name="LightBeamGreyscale" type="Sprite" parent="StaffAltar4_GemPuzzle/Beams"]
+modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
+light_mask = 2
+position = Vector2( -2.333, -231 )
+rotation = -0.0100749
+scale = Vector2( 1, 0.394466 )
+texture = ExtResource( 7 )
+
+[node name="LightBeamGreyscale2" type="Sprite" parent="StaffAltar4_GemPuzzle/Beams"]
+modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
+light_mask = 2
+position = Vector2( -138.029, -257.344 )
+rotation = 1.03712
+scale = Vector2( 0.95657, 0.598564 )
+texture = ExtResource( 7 )
+
+[node name="StaffAltar3_GemPuzzle" parent="." instance=ExtResource( 1 )]
+position = Vector2( 6061, -730 )
+scale = Vector2( 0.45, 0.45 )
+
+[node name="Beams" type="Node2D" parent="StaffAltar3_GemPuzzle"]
+
+[node name="LightBeamGreyscale" type="Sprite" parent="StaffAltar3_GemPuzzle/Beams"]
+modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
+light_mask = 2
+position = Vector2( -0.333, -261.917 )
+scale = Vector2( 1, 0.557593 )
+texture = ExtResource( 7 )
+
+[node name="LightBeamGreyscale2" type="Sprite" parent="StaffAltar3_GemPuzzle/Beams"]
+modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
+light_mask = 2
+position = Vector2( 80.1314, -313.888 )
+rotation = -0.610865
+scale = Vector2( 1, 0.49823 )
+texture = ExtResource( 7 )
+
+[node name="LightBeamGreyscale3" type="Sprite" parent="StaffAltar3_GemPuzzle/Beams"]
+modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
+light_mask = 2
+position = Vector2( 66.1883, -567.73 )
+rotation = -0.261799
+scale = Vector2( 1, 1.39997 )
+texture = ExtResource( 7 )
+
+[node name="LightBeamGreyscale4" type="Sprite" parent="StaffAltar3_GemPuzzle/Beams"]
+modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
+light_mask = 2
+position = Vector2( 115.077, -939.909 )
+rotation = 1.39626
+scale = Vector2( 1, 0.553084 )
+texture = ExtResource( 7 )
+
+[node name="StaffAltar2_GemPuzzle" parent="." instance=ExtResource( 1 )]
+position = Vector2( 6331, -732.75 )
+scale = Vector2( 0.45, 0.45 )
+
+[node name="Beams" type="Node2D" parent="StaffAltar2_GemPuzzle"]
+
+[node name="LightBeamGreyscale" type="Sprite" parent="StaffAltar2_GemPuzzle/Beams"]
+modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
+light_mask = 2
+position = Vector2( -0.333, -236.25 )
+scale = Vector2( 1, 0.458494 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="LightBeamGreyscale2" type="Sprite" parent="StaffAltar2_GemPuzzle/Beams"]
+modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
+light_mask = 2
+position = Vector2( -74.8136, -269.559 )
+rotation = 0.764454
+scale = Vector2( 1, 0.429973 )
+texture = ExtResource( 7 )
+
+[node name="LightBeamGreyscale3" type="Sprite" parent="StaffAltar2_GemPuzzle/Beams"]
+modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
+light_mask = 2
+position = Vector2( -23.3569, -403.989 )
+rotation = 0.523599
+scale = Vector2( 1, 0.950912 )
+texture = ExtResource( 7 )
+
+[node name="LightBeamGreyscale4" type="Sprite" parent="StaffAltar2_GemPuzzle/Beams"]
+modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
+light_mask = 2
+position = Vector2( -20, -751.667 )
+rotation = -0.753982
+scale = Vector2( 1, 0.722032 )
+texture = ExtResource( 7 )
+
+[node name="LightBeamGreyscale5" type="Sprite" parent="StaffAltar2_GemPuzzle/Beams"]
+modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
+light_mask = 2
+position = Vector2( 1146.27, -1492.54 )
+rotation = 1.13272
+scale = Vector2( 1, 5.51415 )
+texture = ExtResource( 7 )
+
+[node name="StaffAltar1_GemPuzzle" parent="." instance=ExtResource( 1 )]
+position = Vector2( 6601, -738.75 )
+scale = Vector2( 0.45, 0.45 )
+
+[node name="Beams" type="Node2D" parent="StaffAltar1_GemPuzzle"]
+
+[node name="LightBeamGreyscale" type="Sprite" parent="StaffAltar1_GemPuzzle/Beams"]
+modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
+light_mask = 2
+position = Vector2( -0.333, -401.583 )
+scale = Vector2( 1, 1.09685 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="LightBeamGreyscale2" type="Sprite" parent="StaffAltar1_GemPuzzle/Beams"]
+modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
+light_mask = 2
+position = Vector2( -48.168, -482.839 )
+rotation = 0.218166
+scale = Vector2( 1, 0.842448 )
+texture = ExtResource( 7 )
+
+[node name="LightBeamGreyscale3" type="Sprite" parent="StaffAltar1_GemPuzzle/Beams"]
+modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
+light_mask = 2
+position = Vector2( 10.5674, -280.333 )
+rotation = 1.5708
+scale = Vector2( 1, 0.432048 )
+texture = ExtResource( 7 )
+
+[node name="LightBeamGreyscale4" type="Sprite" parent="StaffAltar1_GemPuzzle/Beams"]
+modulate = Color( 0.882353, 0.862745, 0.196078, 1 )
+light_mask = 2
+position = Vector2( 62.5686, -486.018 )
+rotation = -0.328122
+scale = Vector2( 1, 0.819109 )
+texture = ExtResource( 7 )
+
+[node name="Mirrors" type="Node2D" parent="."]
+light_mask = 2
+position = Vector2( 6196, -825 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="MirrorForPuzzleWip" type="Sprite" parent="Mirrors"]
+light_mask = 2
+position = Vector2( -1080, -570 )
+rotation = 0.610865
+scale = Vector2( 1, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="MirrorForPuzzleWip2" type="Sprite" parent="Mirrors"]
+light_mask = 2
+position = Vector2( -14, -573 )
+rotation = -0.785398
+scale = Vector2( 1, 0.5 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="MirrorForPuzzleWip3" type="Sprite" parent="Mirrors"]
+light_mask = 2
+position = Vector2( 14, -573 )
+rotation = 0.785398
+scale = Vector2( 1, 0.5 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="MirrorForPuzzleWip4" type="Sprite" parent="Mirrors"]
+light_mask = 2
+position = Vector2( 1080, -570 )
+rotation = -0.610865
+scale = Vector2( 1, 0.5 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="MirrorForPuzzleWip5" type="Sprite" parent="Mirrors"]
+light_mask = 2
+position = Vector2( -544, -730 )
+rotation = 0.436332
+scale = Vector2( 1, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="MirrorForPuzzleWip6" type="Sprite" parent="Mirrors"]
+light_mask = 2
+position = Vector2( 544, -730 )
+rotation = -0.436332
+scale = Vector2( 1, 0.5 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="MirrorForPuzzleWip7" type="Sprite" parent="Mirrors"]
+light_mask = 2
+position = Vector2( -808, -136 )
+rotation = -0.872665
+scale = Vector2( 1, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="MirrorForPuzzleWip8" type="Sprite" parent="Mirrors"]
+light_mask = 2
+position = Vector2( -272, -182 )
+rotation = 0.785398
+scale = Vector2( 1, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="MirrorForPuzzleWip9" type="Sprite" parent="Mirrors"]
+light_mask = 2
+position = Vector2( -126, -6 )
+rotation = 1.22173
+scale = Vector2( 1, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="MirrorForPuzzleWip10" type="Sprite" parent="Mirrors"]
+light_mask = 2
+position = Vector2( -300, -632 )
+rotation = 0.174533
+scale = Vector2( 1, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="MirrorForPuzzleWip11" type="Sprite" parent="Mirrors"]
+light_mask = 2
+position = Vector2( 272, -126 )
+rotation = -0.610865
+scale = Vector2( 1, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="MirrorForPuzzleWip12" type="Sprite" parent="Mirrors"]
+light_mask = 2
+position = Vector2( 140, 10 )
+rotation = -0.959931
+scale = Vector2( 1, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="MirrorForPuzzleWip13" type="Sprite" parent="Mirrors"]
+light_mask = 2
+position = Vector2( 366, -368 )
+rotation = -0.174533
+scale = Vector2( 1, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="MirrorForPuzzleWip14" type="Sprite" parent="Mirrors"]
+light_mask = 2
+position = Vector2( 136, -618 )
+rotation = 0.436332
+scale = Vector2( 1, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="MirrorForPuzzleWip15" type="Sprite" parent="Mirrors"]
+light_mask = 2
+position = Vector2( 806, -446 )
+rotation = 1.74882
+scale = Vector2( 1, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="MirrorForPuzzleWip16" type="Sprite" parent="Mirrors"]
+light_mask = 2
+position = Vector2( 720, -80 )
+rotation = -0.174533
+scale = Vector2( 1, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="MirrorForPuzzleWip17" type="Sprite" parent="Mirrors"]
+light_mask = 2
+position = Vector2( 922, -82.002 )
+rotation = 0.959931
+scale = Vector2( 1, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="GemPedestal5" parent="." instance=ExtResource( 2 )]
+light_mask = 2
+position = Vector2( 5656, -800 )
+scale = Vector2( 0.45, 0.45 )
+script = ExtResource( 3 )
+
+[node name="Beams" type="Node2D" parent="GemPedestal5"]
+light_mask = 2
+
+[node name="LightBeamGreyscale1" type="Sprite" parent="GemPedestal5/Beams"]
+light_mask = 2
+position = Vector2( 0, -442.977 )
+scale = Vector2( 1.33333, 0.923725 )
+texture = ExtResource( 7 )
+
+[node name="LightBeamGreyscale2" type="Sprite" parent="GemPedestal5/Beams"]
+light_mask = 2
+position = Vector2( 287.027, -453.312 )
+rotation = -0.872665
+scale = Vector2( 1.33333, 1.42653 )
+texture = ExtResource( 7 )
+
+[node name="GemPedestal4" parent="." instance=ExtResource( 2 )]
+light_mask = 2
+position = Vector2( 5926, -800 )
+scale = Vector2( 0.45, 0.45 )
+script = ExtResource( 3 )
+
+[node name="Beams" type="Node2D" parent="GemPedestal4"]
+light_mask = 2
+
+[node name="LightBeamGreyscale3" type="Sprite" parent="GemPedestal4/Beams"]
+light_mask = 2
+position = Vector2( 0, -524.445 )
+scale = Vector2( 1.17647, 1.3299 )
+texture = ExtResource( 7 )
+
+[node name="LightBeamGreyscale7" type="Sprite" parent="GemPedestal4/Beams"]
+light_mask = 2
+position = Vector2( 257.078, -868.89 )
+rotation = 1.5708
+scale = Vector2( 1.05263, 1.02514 )
+texture = ExtResource( 7 )
+
+[node name="GemPedestal2" parent="." instance=ExtResource( 2 )]
+light_mask = 2
+position = Vector2( 6196, -800 )
+scale = Vector2( 0.45, 0.45 )
+script = ExtResource( 3 )
+
+[node name="Beams" type="Node2D" parent="GemPedestal2"]
+light_mask = 2
+
+[node name="LightBeamGreyscale" type="Sprite" parent="GemPedestal2/Beams"]
+light_mask = 2
+position = Vector2( 0, -442.222 )
+scale = Vector2( 1.33333, 0.909481 )
+texture = ExtResource( 7 )
+
+[node name="LightBeamGreyscale8" type="Sprite" parent="GemPedestal2/Beams"]
+light_mask = 2
+position = Vector2( -293.333, -455.556 )
+rotation = 0.872665
+scale = Vector2( 1.33333, 1.40819 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="LightBeamGreyscale6" type="Sprite" parent="GemPedestal2/Beams"]
+light_mask = 2
+position = Vector2( 298.526, -455.004 )
+rotation = -0.872665
+scale = Vector2( 1.33333, 1.4002 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="GemPedestal1" parent="." instance=ExtResource( 2 )]
+light_mask = 2
+position = Vector2( 6466, -800 )
+scale = Vector2( 0.45, 0.45 )
+script = ExtResource( 3 )
+
+[node name="Beams" type="Node2D" parent="GemPedestal1"]
+light_mask = 2
+
+[node name="LightBeamGreyscale4" type="Sprite" parent="GemPedestal1/Beams"]
+light_mask = 2
+position = Vector2( 0, -523.334 )
+scale = Vector2( 1.17647, 1.32561 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="LightBeamGreyscale10" type="Sprite" parent="GemPedestal1/Beams"]
+light_mask = 2
+position = Vector2( -262.357, -871.111 )
+rotation = 1.5708
+scale = Vector2( 1.05263, 1.0185 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="GemPedestal3" parent="." instance=ExtResource( 2 )]
+light_mask = 2
+position = Vector2( 6736, -800 )
+scale = Vector2( 0.45, 0.45 )
+script = ExtResource( 3 )
+
+[node name="Beams" type="Node2D" parent="GemPedestal3"]
+light_mask = 2
+
+[node name="LightBeamGreyscale5" type="Sprite" parent="GemPedestal3/Beams"]
+light_mask = 2
+position = Vector2( 0, -445.199 )
+scale = Vector2( 1.33333, 0.932305 )
+texture = ExtResource( 7 )
+
+[node name="LightBeamGreyscale9" type="Sprite" parent="GemPedestal3/Beams"]
+light_mask = 2
+position = Vector2( -281.225, -455.753 )
+rotation = 0.872665
+scale = Vector2( 1.33333, 1.41212 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="WhiteDimondForPuzzle" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+light_mask = 2
+position = Vector2( 6196, -1200 )
+scale = Vector2( 0.75, 0.75 )
+z_index = 1
+texture = ExtResource( 6 )

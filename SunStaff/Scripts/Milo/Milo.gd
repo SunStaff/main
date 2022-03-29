@@ -7,14 +7,6 @@ var spriteUnlit
 var sprintcheck = false
 var jumped
 
-# Pedestal Variables
-var WithinPedestalRange
-var CurrentClosestPedestal
-var minDistanceToPedestal = INF
-var Pedestals = []
-var PedestalName = ""
-var GemObject
-
 # SunStaff Variables
 var HasStaff = true
 
@@ -28,14 +20,11 @@ export (float, 0, 1.0) var acceleration = 0.25
 var velocity = Vector2.ZERO
 var justJumped = false
 
-
 func _ready():
 	playerRootNode = get_parent()
 	sprite = $AnimatedSprite
 	spriteUnlit = $AnimatedSprite2
 	spriteUnlit.visible = false
-	
-	WithinPedestalRange = false
 
 func get_input():
 	if (GameManager.IsPlayerAlive and GameManager.IsGamePlaying):
@@ -134,7 +123,7 @@ func get_input():
 					spriteUnlit.animation = "MiloRunStafflessUNLIT"
 				justJumped = false
 			sprintcheck = true
-			print("sprint")
+			#print("sprint")
 			if (HasStaff):
 				spriteUnlit.visible = false
 				sprite.animation = "MiloRunStaff"
@@ -150,18 +139,6 @@ func get_input():
 			velocity.x = lerp(velocity.x, dir * speed, acceleration)
 		else:
 			velocity.x = lerp(velocity.x, 0, friction)
-
-		# Gem Pedestal Placement
-		if (WithinPedestalRange):
-			if (Input.is_action_just_pressed("Interact")):
-				print("interaction with pedestal")
-				GemPlacement()
-		
-		# Gem Pickup
-		elif (GemObject != null):
-			if (Input.is_action_just_pressed("Interact")):
-				print("interaction with gem")
-				GemPickup()
 
 		# If Player is Falling Passed Border
 		if (self.position.y > 900):
@@ -179,47 +156,10 @@ func PlayerDeath(position):
 	self.position = position
 	velocity.x = 0
 	velocity.y = 0
-	WithinPedestalRange = false
 
 func ChangeHasStaffState(state):
 	HasStaff = state
-
-func _on_InteractRange_area_entered(area:Area2D):
-
-	if ("GemPedestal" in area.name):
-		WithinPedestalRange = true
-		GetCurrentClosestPedestal()
-
-	if ("GemPickup" in area.name):
-		GemObject = area
-
-func _on_InteractRange_area_exited(area:Area2D):
-
-	if ("GemPedestal" in area.name):
-		WithinPedestalRange = false
-		GetCurrentClosestPedestal()
-
-func GemPlacement():
-	GetCurrentClosestPedestal()
-	GameManager.OpenGemSelectionScreen(CurrentClosestPedestal)
-
-func GemPickup():
-	var color = GemObject.name.replacen("_GemPickup", "")
-	GameManager.ToggleGem(color)
-	GemObject.visible = false
 	
 func _on_AnimatedSprite_animation_finished(): 
 	if ("MiloJumpFallStaff" in sprite.animation):
 		justJumped = true
-
-func GetCurrentClosestPedestal():
-	Pedestals.clear()
-	for pedestal in GameManager.GetGemPedestals():
-		Pedestals.append(pedestal)
-	# Get Current Closest Pedestal
-	for pedestal in Pedestals:
-		var distanceTo = GameManager.DistanceTo(pedestal.position, self.position)
-		if (distanceTo < minDistanceToPedestal):
-			minDistanceToPedestal = distanceTo
-			CurrentClosestPedestal = pedestal
-	minDistanceToPedestal = INF

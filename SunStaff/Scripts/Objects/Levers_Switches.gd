@@ -31,7 +31,6 @@ func SetPosition(x, y):
 func _process(_delta):
 	if (PlayerWithinRange):
 		if (Input.is_action_just_pressed("Interact")):
-			print(LeverManager.GetCurrentClosestLever(), self)
 			if (LeverManager.GetCurrentClosestLever() == self):
 				ChangeLeverState()
 

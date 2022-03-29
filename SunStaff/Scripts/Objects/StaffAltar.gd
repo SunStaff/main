@@ -48,12 +48,12 @@ func SunStaffPlacement():
 	GetCurrentClosestAltar()
 	if (StaffVisibility): # If Milo is holding staff
 		SunStaff.get_child(0).set_color(Color(1,1,1,0))
-		print(SunStaff.get_child(0))
 		StaffVisibility = false
 		GameManager.GetPlayer().ChangeHasStaffState(false)
 		CurrentClosestAltar.get_child(1).get_child(0).visible = true
 		GameManager.CheckForLevelSpecificActions("Altar",true,CurrentClosestAltar)
 		GameManager.CheckForLevelSpecificActions("Altar",true,CurrentClosestAltar)
+		activated = true
 
 	else: # If the altar has the Staff
 		SunStaff.get_child(0).set_color(Color(1,1,1,1))
@@ -62,6 +62,7 @@ func SunStaffPlacement():
 		CurrentClosestAltar.get_child(1).get_child(0).visible = false
 		GameManager.CheckForLevelSpecificActions("Altar",false,CurrentClosestAltar)
 		GameManager.CheckForLevelSpecificActions("Altar",false,CurrentClosestAltar)
+		activated = false
 	
 	if (CurrentClosestAltar.visible): # If the altar has the Staff, turn off LightCircle monitoring
 		LightCircle.ChangeLightCircleMonitoring(false)

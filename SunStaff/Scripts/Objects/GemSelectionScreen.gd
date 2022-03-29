@@ -99,3 +99,7 @@ func _on_Magenta_Gem_pressed():
 
 func _on_Cyan_Gem_pressed():
 	LevelManagers[0].GemToBePlaced("Cyan")
+
+
+func _on_Button_pressed():
+	self.visible = false

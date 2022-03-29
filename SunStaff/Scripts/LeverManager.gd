@@ -40,7 +40,7 @@ func LeverFlipped(level, lever, turnedOn):
 		"Level3":
 			Level3(lever, turnedOn)
 
-func Tutorial(lever, turnedOn):
+func Tutorial(lever, _turnedOn):
 	var name = lever.name.replacen("Lever", "")
 	match(name):
 		"1":
@@ -48,7 +48,7 @@ func Tutorial(lever, turnedOn):
 		"2":
 			pass
 
-func Level1(lever, turnedOn):
+func Level1(lever, _turnedOn):
 	var name = lever.name.replacen("Lever", "")
 	match(name):
 		"1":
@@ -56,7 +56,7 @@ func Level1(lever, turnedOn):
 		"2":
 			pass
 
-func Level2(lever, turnedOn):
+func Level2(lever, _turnedOn):
 	var name = lever.name.replacen("Lever", "")
 	match(name):
 		"1":
@@ -69,50 +69,49 @@ func Level3(lever, turnedOn):
 	match(name):
 		"1":
 			lever.visible = false
-		#Lever 1 of Door Puzzle [Lever Down y = 252, lever up y = 110S]
+		#Lever 1 of Door Puzzle [Lever Down y = 420, lever up y = 644S]
 		#Doors for puzzle are offset by 1 -- Door2 is first puzzle door
 		"2":
 			if(turnedOn):
-				door1.position.y = 110
-				door2.position.y = 110
-				door4.position.y = 252			
+				door1.position.y = 644
+				door2.position.y = 644
+				door4.position.y = 420			
 			elif(!turnedOn):
-				door1.position.y = 252
-				door2.position.y = 252
+				door1.position.y = 420
+				door2.position.y = 420
 			pass
 		#Lever 2 of Door Puzzle
 		"3":
 			if(turnedOn):
-				door2.position.y = 110
-				door4.position.y = 110			
+				door2.position.y = 644
+				door4.position.y = 644			
 			elif(!turnedOn):
-				door2.position.y = 252
-				door4.position.y = 252
+				door2.position.y = 420
+				door4.position.y = 420
 			pass
 		#Lever 3 of Door Puzzle
 		"4":
 			if(turnedOn):
-				door1.position.y = 110
-				door3.position.y = 252			
+				door1.position.y = 644
+				door3.position.y = 420			
 			elif(!turnedOn):
-				door1.position.y = 110
+				door1.position.y = 644
 			pass
 		#Lever 4 of Door Puzzle
 		"5":
 			if(turnedOn):
-				door2.position.y = 110
-				door3.position.y = 110
-				door4.position.y = 252			
+				door2.position.y = 644
+				door3.position.y = 644
+				door4.position.y = 420			
 			elif(!turnedOn):
-				door3.position.y = 252
-				door4.position.y = 252
+				door3.position.y = 420
+				door4.position.y = 420
 			pass
 
 func GetCurrentClosestLever():
 	Levers.clear()
 	CurrentClosestLever = null
 	for lever in GameManager.GetLevers():
-		print(lever)
 		Levers.append(lever)
 	# Get Current Closest Lever
 	for lever in Levers:

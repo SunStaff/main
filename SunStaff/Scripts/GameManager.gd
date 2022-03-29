@@ -12,7 +12,6 @@ var GemSelectionScreen
 var LevelManagers = []
 var pedestal
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	activated = false
@@ -20,7 +19,6 @@ func _ready():
 	Player = get_tree().get_nodes_in_group("Player")[0]
 	LevelManagers = get_tree().get_nodes_in_group("LevelManager")
 	SetCurrentLevel(get_tree().get_current_scene().get_name())
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -97,9 +95,6 @@ func ToggleGem(color):
 				GemsCollected.Magenta = false
 			else:
 				GemsCollected.Magenta = true
-
-func OpenGemSelectionScreen(currentPedestal):
-	LevelManagers[0].OpenGemSelectionScreen(currentPedestal)
 
 func CheckForLevelSpecificActions(from, information, optionalNode):
 	match CurrentLevel:
