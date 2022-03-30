@@ -11,6 +11,7 @@ var Player
 var GemSelectionScreen
 var LevelManagers = []
 var pedestal
+var autoTester
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,6 +20,8 @@ func _ready():
 	Player = get_tree().get_nodes_in_group("Player")[0]
 	LevelManagers = get_tree().get_nodes_in_group("LevelManager")
 	SetCurrentLevel(get_tree().get_current_scene().get_name())
+	autoTester = AutoTester.new()
+	autoTester.Execute()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -73,28 +76,41 @@ func ToggleGem(color):
 		"Green":
 			if (GemsCollected.get("Green")):
 				GemsCollected.Green = false
+				return ["Green", false]
 			else:
 				GemsCollected.Green = true
+				return ["Green", true]
 		"Red":
 			if (GemsCollected.get("Red")):
 				GemsCollected.Red = false
+				return ["Red", false]
 			else:
 				GemsCollected.Red = true
+				return ["Red", true]
 		"Blue":
 			if (GemsCollected.get("Blue")):
 				GemsCollected.Blue = false
+				return ["Blue", false]
 			else:
 				GemsCollected.Blue = true
+				return ["Blue", true]
 		"Cyan":
 			if (GemsCollected.get("Cyan")):
 				GemsCollected.Cyan = false
+				return ["Cyan", false]
 			else:
 				GemsCollected.Cyan = true
+				return ["Cyan", true]
 		"Magenta":
 			if (GemsCollected.get("Magenta")):
 				GemsCollected.Magenta = false
+				return ["Magenta", false]
 			else:
 				GemsCollected.Magenta = true
+				return ["Magenta", true]
+		_:
+			print("Not Valid Gem Color for ToggleGem()")
+			return ["Not Valid Gem Color for ToggleGem()", null]
 
 func CheckForLevelSpecificActions(from, information, optionalNode):
 	match CurrentLevel:

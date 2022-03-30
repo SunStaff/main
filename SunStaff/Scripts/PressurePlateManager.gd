@@ -19,12 +19,19 @@ func PlateTouched(level, name):
 	match(level):
 		"Tutorial":
 			Tutorial(name)
+			return "Tutorial"
 		"Level1":
 			Level1(name)
+			return "Level1"
 		"Level2":
 			Level2(name)
+			return "Level2"
 		"Level3":
 			Level3(name)
+			return "Level3"
+		_:
+			print("Not Valid Level Name for PlateTouched()")
+			return "Not Valid Level Name for PlateTouched()"
 
 func Tutorial(name):
 	name = name.replacen("PressurePlate", "")

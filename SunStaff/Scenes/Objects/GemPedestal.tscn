@@ -17,8 +17,8 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 165.333
-height = 128.0
+radius = 114.0
+height = 300.0
 
 [node name="GemPedestal" type="Area2D" groups=["GemPedestal"]]
 light_mask = 3

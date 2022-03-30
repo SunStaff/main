@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "AutoTester",
+"language": "GDScript",
+"path": "res://Scripts/Auto_Tester.gd"
+} ]
+_global_script_class_icons={
+"AutoTester": ""
+}
+
 [application]
 
 config/name="SunStaff"

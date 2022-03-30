@@ -33,12 +33,19 @@ func LeverFlipped(level, lever, turnedOn):
 	match(level):
 		"Tutorial":
 			Tutorial(lever, turnedOn)
+			return "Tutorial"
 		"Level1":
 			Level1(lever, turnedOn)
+			return "Level1"
 		"Level2":
 			Level2(lever, turnedOn)
+			return "Level2"
 		"Level3":
 			Level3(lever, turnedOn)
+			return "Level3"
+		_:
+			print("Not Valid Level Name for LeverFlipped()")
+			return "Not Valid Level Name for LeverFlipped()"
 
 func Tutorial(lever, _turnedOn):
 	var name = lever.name.replacen("Lever", "")
@@ -108,14 +115,14 @@ func Level3(lever, turnedOn):
 				door4.position.y = 420
 			pass
 
-func GetCurrentClosestLever():
+func GetCurrentClosestLever(levers, player):
 	Levers.clear()
 	CurrentClosestLever = null
-	for lever in GameManager.GetLevers():
+	for lever in levers:
 		Levers.append(lever)
 	# Get Current Closest Lever
 	for lever in Levers:
-		var distanceTo =  GameManager.DistanceTo(GameManager.GetPlayer().position, lever.position)
+		var distanceTo =  GameManager.DistanceTo(player.position, lever.position)
 		if (distanceTo < minDistanceToLever):
 			minDistanceToLever = distanceTo
 			CurrentClosestLever = lever
