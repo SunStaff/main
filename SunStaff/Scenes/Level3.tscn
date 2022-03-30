@@ -153,11 +153,6 @@ position = Vector2( 3601, -622 )
 position = Vector2( 21, 180 )
 scale = Vector2( 0.8, 0.5 )
 
-[node name="GroundLayerTiles" parent="Platforms" instance=ExtResource( 14 )]
-position = Vector2( 1567, -700 )
-rotation = -0.349066
-scale = Vector2( 1.25, 0.5 )
-
 [node name="GroundLayerTiles5" parent="Platforms" instance=ExtResource( 14 )]
 position = Vector2( 4835, 422 )
 scale = Vector2( 1.25, 0.5 )

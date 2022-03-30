@@ -1,0 +1,140 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Objects/PressurePlate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Objects/Platform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Objects/Lever.tscn" type="PackedScene" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="Level2" type="Node"]
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="StartingPlatform" parent="Platforms" instance=ExtResource( 2 )]
+
+[node name="StartingPlatform2" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( 470, 0 )
+
+[node name="StartingPlatform3" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( 940, 0 )
+
+[node name="PressurePlatePuzzle" type="Node" parent="."]
+
+[node name="PressurePlate" parent="PressurePlatePuzzle" instance=ExtResource( 1 )]
+position = Vector2( 1068, -54 )
+
+[node name="TimerPlatform" parent="PressurePlatePuzzle" instance=ExtResource( 2 )]
+position = Vector2( 1520, 460 )
+
+[node name="TimerPlatform2" parent="PressurePlatePuzzle" instance=ExtResource( 2 )]
+position = Vector2( 2070, 460 )
+
+[node name="TimerPlatform3" parent="PressurePlatePuzzle" instance=ExtResource( 2 )]
+position = Vector2( 2620, 460 )
+
+[node name="TimerPlatform4" parent="PressurePlatePuzzle" instance=ExtResource( 2 )]
+position = Vector2( 3170, 460 )
+
+[node name="Puzzle1" type="Node" parent="."]
+
+[node name="Platform" parent="Puzzle1" instance=ExtResource( 2 )]
+position = Vector2( 3820, -720 )
+
+[node name="Platform2" parent="Puzzle1" instance=ExtResource( 2 )]
+position = Vector2( 4295, -720 )
+
+[node name="Platform3" parent="Puzzle1" instance=ExtResource( 2 )]
+position = Vector2( 4770, -720 )
+
+[node name="Lever" parent="Puzzle1" instance=ExtResource( 4 )]
+position = Vector2( 4000, -790 )
+
+[node name="Lever2" parent="Puzzle1" instance=ExtResource( 4 )]
+position = Vector2( 4250, -790 )
+
+[node name="Lever3" parent="Puzzle1" instance=ExtResource( 4 )]
+position = Vector2( 4500, -790 )
+
+[node name="PuzzleDoor" type="KinematicBody2D" parent="Puzzle1"]
+
+[node name="Door" type="Sprite" parent="Puzzle1/PuzzleDoor"]
+position = Vector2( 4975, -929 )
+scale = Vector2( 1, 5.46875 )
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puzzle1/PuzzleDoor"]
+shape = SubResource( 1 )
+
+[node name="Platform" parent="." instance=ExtResource( 2 )]
+position = Vector2( 5400, -450 )
+
+[node name="Platform2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 6050, -580 )
+
+[node name="Platform3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 6700, -250 )
+
+[node name="Platform4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 7175, -250 )
+
+[node name="Platform5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 8000, -350 )
+
+[node name="Platform6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 8575, -350 )
+
+[node name="PressurePlate" parent="." instance=ExtResource( 1 )]
+position = Vector2( 8285, -100 )
+
+[node name="PressurePlate2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 9000, 0 )
+scale = Vector2( 4, 1 )
+
+[node name="Platform7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 9450, -350 )
+
+[node name="Icon" type="Sprite" parent="Platform7"]
+position = Vector2( 1, -394 )
+scale = Vector2( 1.59375, 1.48438 )
+texture = ExtResource( 5 )
+
+[node name="Icon" type="Sprite" parent="Platform7/Icon"]
+position = Vector2( 429.804, 82.1895 )
+scale = Vector2( 0.529419, 4.83684 )
+texture = ExtResource( 5 )
+
+[node name="Icon2" type="Sprite" parent="Platform7"]
+position = Vector2( -8, -335 )
+scale = Vector2( 10.4687, 0.320312 )
+texture = ExtResource( 5 )
+
+[node name="Platform8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 10150, -350 )
+
+[node name="Platform9" parent="." instance=ExtResource( 2 )]
+position = Vector2( 10750, -500 )
+
+[node name="Platform10" parent="." instance=ExtResource( 2 )]
+position = Vector2( 11225, -500 )
+
+[node name="Platform11" parent="." instance=ExtResource( 2 )]
+position = Vector2( 11700, -500 )
+
+[node name="Platform12" parent="." instance=ExtResource( 2 )]
+position = Vector2( 12175, -500 )
+
+[node name="Icon" type="Sprite" parent="."]
+position = Vector2( 8737.75, -449.25 )
+scale = Vector2( 2.21093, 1.52344 )
+texture = ExtResource( 5 )
+
+[node name="Icon2" type="Sprite" parent="."]
+position = Vector2( 8286.5, -357 )
+scale = Vector2( 1.20313, 1 )
+texture = ExtResource( 5 )
+
+[node name="Icon3" type="Sprite" parent="."]
+position = Vector2( 8525, -448.75 )
+scale = Vector2( 0.416725, 1.57031 )
+texture = ExtResource( 5 )
