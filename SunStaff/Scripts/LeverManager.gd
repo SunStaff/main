@@ -4,11 +4,18 @@ extends Node
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
-
+var Doors = []
+var door1
+var door2
+var door3
+var door4
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	Doors = get_tree().get_nodes_in_group("Door")
+	door1 = Doors[1]
+	door2 = Doors[2]
+	door3 = Doors[3]
+	door4 = Doors[4]
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -58,9 +65,6 @@ func Level3(lever, turnedOn):
 		#Lever 1 of Door Puzzle [Lever Down y = 252, lever up y = 110S]
 		#Doors for puzzle are offset by 1 -- Door2 is first puzzle door
 		"2":
-			var door1 = get_parent().get_node("Door2")
-			var door2 = get_parent().get_node("Door3")
-			var door4 = get_parent().get_node("Door5")
 			if(turnedOn):
 				door1.position.y = 110
 				door2.position.y = 110
@@ -71,8 +75,6 @@ func Level3(lever, turnedOn):
 			pass
 		#Lever 2 of Door Puzzle
 		"3":
-			var door2 = get_parent().get_node("Door3")
-			var door4 = get_parent().get_node("Door5")
 			if(turnedOn):
 				door2.position.y = 110
 				door4.position.y = 110			
@@ -82,8 +84,6 @@ func Level3(lever, turnedOn):
 			pass
 		#Lever 3 of Door Puzzle
 		"4":
-			var door1 = get_parent().get_node("Door2")
-			var door3 = get_parent().get_node("Door4")
 			if(turnedOn):
 				door1.position.y = 110
 				door3.position.y = 252			
@@ -92,9 +92,6 @@ func Level3(lever, turnedOn):
 			pass
 		#Lever 4 of Door Puzzle
 		"5":
-			var door2 = get_parent().get_node("Door3")
-			var door3 = get_parent().get_node("Door4")
-			var door4 = get_parent().get_node("Door5")
 			if(turnedOn):
 				door2.position.y = 110
 				door3.position.y = 110

@@ -4,7 +4,7 @@
 [ext_resource path="res://Art/Misc/Gems/BLUE_GEM.png" type="Texture" id=2]
 [ext_resource path="res://Art/Misc/Gems/magenta_GEM.png" type="Texture" id=3]
 [ext_resource path="res://Art/Misc/Gems/GREEN_GEM.png" type="Texture" id=4]
-[ext_resource path="res://Art/Misc/Gems/cyan_GEM.png" type="Texture" id=5]
+[ext_resource path="res://Art/Misc/Gems/orange_GEM.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/Objects/GemSelectionScreen.gd" type="Script" id=6]
 
 [node name="GemSelectionScreen" type="Control" groups=["GemSelectionScreen"]]

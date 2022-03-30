@@ -5,6 +5,14 @@ var playerRootNode
 var sprite
 var spriteUnlit
 
+#animation varibles
+var jumped
+var sprinted
+var facingleft
+var facingright
+var idling
+var direction = 0
+
 # Sun Staff Variables
 var SunStaff
 var LightCircle
@@ -35,7 +43,7 @@ var faceRight = true
 export (int) var speed = 300
 export (int) var jump_speed = -1100
 export (int) var gravity = 3000
-export (float, 0, 1.0) var friction = 0.5
+export (float, 0, 1.0) var friction = 1
 export (float, 0, 1.0) var acceleration = 0.25
 var velocity = Vector2.ZERO
 var justJumped = false
@@ -52,13 +60,33 @@ func _ready():
 	WithinAltarRange = false
 	StaffVisibility = true
 	
+
+	
 	WithinPedestalRange = false
 	WithinLeverRange = false
 
 func get_input():
 	if (GameManager.IsPlayerAlive and GameManager.IsGamePlaying):
 		# Movement
+		
+		
 		var dir = 0
+		direction = dir
+		if velocity.x > 0:
+			print("going right")
+			facingright = true
+		elif velocity.x < 0:
+			print("going  left")
+			facingright = false
+		else:
+			print("idle")
+			facingright = false
+		
+		if !is_on_floor():
+			print("not on ground")
+			jumped = true
+		else:
+			jumped = false
 		
 		if Input.is_action_just_pressed("Jump"): 
 			if is_on_floor():
@@ -70,34 +98,45 @@ func get_input():
 					spriteUnlit.visible = true
 					sprite.animation = "MiloJumpFallStaffless"
 					spriteUnlit.animation = "MiloJumpFallUNLIT"
-		
+		elif Input.is_action_pressed("sprint"):
+			
+			if (HasStaff and jumped == false):
+				spriteUnlit.visible = false
+				sprite.animation = "MiloRunStaff"
+			
+			elif(!HasStaff and jumped == false):
+				spriteUnlit.visible = true
+				sprite.animation = "MiloRunStaffless"
+				spriteUnlit.animation = "MiloRunStafflessUNLIT"
+			
+			sprintcheck = true
+			print("sprint")
+			
+			
 		elif Input.is_action_just_pressed("Right"):
-			if (!faceRight):
-				sprite.scale.x *= -1
-				spriteUnlit.scale.x *= -1
-				faceRight = true
 			if (HasStaff):
 				sprite.animation = "MiloWalkStaff"
 				spriteUnlit.visible = false
-			else:
+			elif(!HasStaff):
 				spriteUnlit.visible = true
 				sprite.animation = "MiloWalkStaffless"
 				spriteUnlit.animation = "MiloWalkStafflessUNLIT"
 		
 		elif Input.is_action_just_pressed("Left"):
-			if (faceRight):
-				sprite.scale.x *= -1
-				spriteUnlit.scale.x *= -1
-				faceRight = false
 			if (HasStaff):
 				sprite.animation = "MiloWalkStaff"
 				spriteUnlit.visible = false
-			else:
+			elif(!HasStaff):
 				spriteUnlit.visible = true
 				sprite.animation = "MiloWalkStaffless"
 				spriteUnlit.animation = "MiloWalkStafflessUNLIT"
 
 		if Input.is_action_pressed("Right"):
+			if (!faceRight and facingright):
+				print("facing right")
+				sprite.scale.x *= -1
+				spriteUnlit.scale.x *= -1
+				faceRight = true
 			if sprintcheck == true:
 				dir += 2
 			else:
@@ -114,6 +153,11 @@ func get_input():
 				justJumped = false
 		
 		elif Input.is_action_pressed("Left"):
+			if (faceRight):
+				print("facing left")
+				sprite.scale.x *= -1
+				spriteUnlit.scale.x *= -1
+				faceRight = false
 			if sprintcheck == true:
 				dir -= 2
 			else:
@@ -128,27 +172,22 @@ func get_input():
 					spriteUnlit.animation = "MiloWalkStafflessUNLIT"
 				justJumped = false
 		
+		
+			
 		else:
-			if (HasStaff):
+			sprintcheck = false
+			if dir == 0 and velocity.y == 0:
+				if (HasStaff and jumped == false):
 				
 					spriteUnlit.visible = false
 					sprite.animation = "MiloIdleStaff"
-			else:
+				elif(!HasStaff and jumped == false):
 				
 					spriteUnlit.visible = true
 					sprite.animation = "MiloIdleStaffless"
 					spriteUnlit.animation = "MiloIdleStafflessUNLIT"
-		if Input.is_action_pressed("sprint"):
-			sprintcheck = true
-			if (HasStaff):
-				spriteUnlit.visible = false
-				sprite.animation = "MiloRunStaff"
-			else:
-				spriteUnlit.visible = true
-				sprite.animation = "MiloRunStaffless"
-				spriteUnlit.animation = "MiloRunStafflessUNLIT"
-		else:
-			sprintcheck = false
+		
+		
 		if dir != 0:
 			velocity.x = lerp(velocity.x, dir * speed, acceleration)
 		else:
@@ -157,25 +196,30 @@ func get_input():
 		# Sun Staff Placement
 		if (WithinAltarRange):
 			if (Input.is_action_just_pressed("Interact")):
+				print("interaction with altar")
 				SunStaffPlacement()
 
 		# Gem Pedestal Placement
 		elif (WithinPedestalRange):
 			if (Input.is_action_just_pressed("Interact")):
+				print("interaction with pedestal")
 				GemPlacement()
 		
 		# Gem Pickup
 		elif (GemObject != null):
 			if (Input.is_action_just_pressed("Interact")):
+				print("interaction with gem")
 				GemPickup()
 		
 		# Lever Toggling
 		elif (WithinLeverRange):
 			if (Input.is_action_just_pressed("Interact")):
+				print("interaction with lever")
 				FlipLever()
 
 		# If Player is Falling Passed Border
 		if (self.position.y > 900):
+			print("out of bounds")
 			GameManager.SetPlayerAliveState(false)
 	else:
 		velocity = Vector2.ZERO
@@ -202,27 +246,26 @@ func _on_InteractRange_area_entered(area:Area2D):
 		WithinLeverRange = true
 		LeverObject = area
 		GetCurrentClosestLever()
+
 	if ("GemPedestal" in area.name):
 		WithinPedestalRange = true
 		GetCurrentClosestPedestal()
+
 	if ("GemPickup" in area.name):
 		GemObject = area
 
 func _on_InteractRange_area_exited(area:Area2D):
 	if ("StaffAltar" in area.name):
 		WithinAltarRange = false
-		CurrentClosestAltar = null
 		GetCurrentClosestAltar()
 
 	if ("Lever" in area.name):
 		WithinLeverRange = false
 		LeverObject = null
-		CurrentClosestLever = null
 		GetCurrentClosestLever()
 
 	if ("GemPedestal" in area.name):
 		WithinPedestalRange = false
-		CurrentClosestPedestal = null
 		GetCurrentClosestPedestal()
 
 func SunStaffPlacement():
@@ -233,19 +276,24 @@ func SunStaffPlacement():
 		HasStaff = false
 		CurrentClosestAltar.visible = true
 		GameManager.CheckForLevelSpecificActions("Altar",true,CurrentClosestAltar)
+		GameManager.CheckForLevelSpecificActions("Altar",true,CurrentClosestAltar)
+
 	else: # If the altar has the Staff
 		SunStaff.get_child(0).set_color(Color(1,1,1,1))
 		StaffVisibility = true
 		HasStaff = true
 		CurrentClosestAltar.visible = false
 		GameManager.CheckForLevelSpecificActions("Altar",false,CurrentClosestAltar)
+		GameManager.CheckForLevelSpecificActions("Altar",false,CurrentClosestAltar)
+	
 	if (CurrentClosestAltar.visible): # If the altar has the Staff, turn off LightCircle monitoring
 		LightCircle.monitoring = false
 	else:
 		LightCircle.monitoring = true
-	CurrentClosestAltar = null
+	GetCurrentClosestAltar()
 
 func GemPlacement():
+	GetCurrentClosestPedestal()
 	GameManager.OpenGemSelectionScreen(CurrentClosestPedestal)
 
 func GemPickup():
@@ -254,6 +302,7 @@ func GemPickup():
 	GemObject.visible = false
 
 func FlipLever():
+	print("FlipLever Executed")
 	LeverObject._change_lever_state()
 
 func DistanceTo(a,b):
@@ -269,13 +318,13 @@ func GetCurrentClosestAltar():
 	StaffAltars.clear()
 	for altar in GameManager.GetSunStaffAltars():
 		StaffAltars.append(altar.get_child(1).get_child(0))
-		# StaffAltars.append(altar)
 	# Get Current Closest Altar
 	for altar in StaffAltars:
 		var distanceTo = DistanceTo(self.position, altar.get_parent().get_parent().position)
 		if (distanceTo < minDistanceToAltar):
 			minDistanceToAltar = distanceTo
 			CurrentClosestAltar = altar
+	minDistanceToAltar = INF
 
 func GetCurrentClosestLever():
 	Levers.clear()
@@ -288,6 +337,7 @@ func GetCurrentClosestLever():
 			minDistanceToLever = distanceTo
 			CurrentClosestLever = lever
 			LeverObject = CurrentClosestLever
+	minDistanceToLever = INF
 
 func GetCurrentClosestPedestal():
 	Pedestals.clear()
@@ -295,7 +345,8 @@ func GetCurrentClosestPedestal():
 		Pedestals.append(pedestal)
 	# Get Current Closest Pedestal
 	for pedestal in Pedestals:
-		var distanceTo = DistanceTo(self.position, pedestal.position)
+		var distanceTo = DistanceTo(pedestal.position, self.position)
 		if (distanceTo < minDistanceToPedestal):
 			minDistanceToPedestal = distanceTo
 			CurrentClosestPedestal = pedestal
+	minDistanceToPedestal = INF

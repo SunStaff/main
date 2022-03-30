@@ -4,7 +4,7 @@
 [ext_resource path="res://Scripts/Objects/Levers_Switches.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 45.5, 40.5 )
+extents = Vector2( 38.5, 30.5 )
 
 [node name="Lever" type="Area2D"]
 light_mask = 2
