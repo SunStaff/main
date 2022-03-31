@@ -15,7 +15,7 @@ var faceRight = true
 export (int) var speed = 300
 export (int) var jump_speed = -1100
 export (int) var gravity = 3000
-export (float, 0, 1.0) var friction = 0.5
+export (float, 0, 1.0) var friction = 1
 export (float, 0, 1.0) var acceleration = 0.25
 var velocity = Vector2.ZERO
 var justJumped = false
@@ -29,7 +29,25 @@ func _ready():
 func get_input():
 	if (GameManager.IsPlayerAlive and GameManager.IsGamePlaying):
 		# Movement
+		
+		
 		var dir = 0
+		direction = dir
+		if velocity.x > 0:
+			print("going right")
+			facingright = true
+		elif velocity.x < 0:
+			print("going  left")
+			facingright = false
+		else:
+			print("idle")
+			facingright = false
+		
+		if !is_on_floor():
+			print("not on ground")
+			jumped = true
+		else:
+			jumped = false
 		
 		if Input.is_action_just_pressed("Jump"): 
 			if is_on_floor():
@@ -41,36 +59,45 @@ func get_input():
 					spriteUnlit.visible = true
 					sprite.animation = "MiloJumpFallStaffless"
 					spriteUnlit.animation = "MiloJumpFallUNLIT"
+		elif Input.is_action_pressed("sprint"):
+			
+			if (HasStaff and jumped == false):
+				spriteUnlit.visible = false
+				sprite.animation = "MiloRunStaff"
+			
+			elif(!HasStaff and jumped == false):
+				spriteUnlit.visible = true
+				sprite.animation = "MiloRunStaffless"
+				spriteUnlit.animation = "MiloRunStafflessUNLIT"
+			
+			sprintcheck = true
+			print("sprint")
+			
 			
 		elif Input.is_action_just_pressed("Right"):
-			if (!faceRight):
-				print("facing right")
-				sprite.scale.x *= -1
-				spriteUnlit.scale.x *= -1
-				faceRight = true
 			if (HasStaff):
 				sprite.animation = "MiloWalkStaff"
 				spriteUnlit.visible = false
-			else:
+			elif(!HasStaff):
 				spriteUnlit.visible = true
 				sprite.animation = "MiloWalkStaffless"
 				spriteUnlit.animation = "MiloWalkStafflessUNLIT"
 		
 		elif Input.is_action_just_pressed("Left"):
-			if (faceRight):
-				print("facing left")
-				sprite.scale.x *= -1
-				spriteUnlit.scale.x *= -1
-				faceRight = false
 			if (HasStaff):
 				sprite.animation = "MiloWalkStaff"
 				spriteUnlit.visible = false
-			else:
+			elif(!HasStaff):
 				spriteUnlit.visible = true
 				sprite.animation = "MiloWalkStaffless"
 				spriteUnlit.animation = "MiloWalkStafflessUNLIT"
 
 		if Input.is_action_pressed("Right"):
+			if (!faceRight and facingright):
+				print("facing right")
+				sprite.scale.x *= -1
+				spriteUnlit.scale.x *= -1
+				faceRight = true
 			if sprintcheck == true:
 				dir += 2
 			else:
@@ -87,6 +114,11 @@ func get_input():
 				justJumped = false
 		
 		elif Input.is_action_pressed("Left"):
+			if (faceRight):
+				print("facing left")
+				sprite.scale.x *= -1
+				spriteUnlit.scale.x *= -1
+				faceRight = false
 			if sprintcheck == true:
 				dir -= 2
 			else:
@@ -101,40 +133,21 @@ func get_input():
 					spriteUnlit.animation = "MiloWalkStafflessUNLIT"
 				justJumped = false
 		
+		
+			
 		else:
+			sprintcheck = false
 			if dir == 0 and velocity.y == 0:
-				if (HasStaff):
+				if (HasStaff and jumped == false):
 				
 					spriteUnlit.visible = false
 					sprite.animation = "MiloIdleStaff"
-				else:
+				elif(!HasStaff and jumped == false):
 				
 					spriteUnlit.visible = true
 					sprite.animation = "MiloIdleStaffless"
 					spriteUnlit.animation = "MiloIdleStafflessUNLIT"
-		if Input.is_action_pressed("sprint"):
-			if (justJumped):
-				if (HasStaff):
-					spriteUnlit.visible = false
-					sprite.animation = "MiloRunStaff"
-				else:
-					spriteUnlit.visible = true
-					sprite.animation = "MiloRunStaffless"
-					spriteUnlit.animation = "MiloRunStafflessUNLIT"
-				justJumped = false
-			sprintcheck = true
-			#print("sprint")
-			if (HasStaff):
-				spriteUnlit.visible = false
-				sprite.animation = "MiloRunStaff"
-			else:
-				
-				spriteUnlit.visible = true
-				sprite.animation = "MiloRunStaffless"
-				spriteUnlit.animation = "MiloRunStafflessUNLIT"
-			
-		else:
-			sprintcheck = false
+		
 		if dir != 0:
 			velocity.x = lerp(velocity.x, dir * speed, acceleration)
 		else:
