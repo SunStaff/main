@@ -6,6 +6,8 @@ var sprite
 var spriteUnlit
 var sprintcheck = false
 var jumped
+var direction
+var facingright
 
 # SunStaff Variables
 var HasStaff = true
@@ -29,7 +31,6 @@ func _ready():
 func get_input():
 	if (GameManager.IsPlayerAlive and GameManager.IsGamePlaying):
 		# Movement
-		
 		
 		var dir = 0
 		direction = dir
@@ -72,7 +73,6 @@ func get_input():
 			
 			sprintcheck = true
 			print("sprint")
-			
 			
 		elif Input.is_action_just_pressed("Right"):
 			if (HasStaff):
@@ -132,8 +132,6 @@ func get_input():
 					sprite.animation = "MiloWalkStaffless"
 					spriteUnlit.animation = "MiloWalkStafflessUNLIT"
 				justJumped = false
-		
-		
 			
 		else:
 			sprintcheck = false
