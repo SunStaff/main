@@ -20,8 +20,10 @@ func _ready():
 	Player = get_tree().get_nodes_in_group("Player")[0]
 	LevelManagers = get_tree().get_nodes_in_group("LevelManager")
 	SetCurrentLevel(get_tree().get_current_scene().get_name())
-	autoTester = AutoTester.new()
-	autoTester.Execute()
+	autoTester = load("res://Scripts/Auto_Tester.gd").new()
+	if (!autoTester.Execute()):
+		IsGamePlaying = false
+		print("Testing Failed!! Please check tests!!")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -128,6 +130,9 @@ func CheckForLevelSpecificActions(from, information, optionalNode):
 					LevelManagers[0].ChangeAltarBeamColors(information, optionalNode)
 
 func DistanceTo(a,b):
-	var x = a.x - b.x
-	var y = a.y - b.y
-	return sqrt(pow(x,2) + pow(y,2))
+	if (a == null or b == null):
+		return -1
+	else:
+		var x = b.x - a.x
+		var y = b.y - a.y
+		return sqrt(pow(x,2) + pow(y,2))

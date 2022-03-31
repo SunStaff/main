@@ -1,22 +1,21 @@
 extends Node
 
-class_name AutoTester
-
 var Milo
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Milo = GameManager.GetPlayer()
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
 func Execute():
+	Milo = GameManager.GetPlayer()
 	var results = []
 	results.append(Test_LeverManager_Distance_Normal())
 	results.append(Test_LeverManager_Distance_AllLeversSamePosition())
+
 	results.append(Test_LeverManager_LeverFlipped_Tutorial())
 	results.append(Test_LeverManager_LeverFlipped_Level1())
 	results.append(Test_LeverManager_LeverFlipped_Level2())
@@ -41,11 +40,21 @@ func Execute():
 	results.append(Test_GameManager_ToggleGem_MagentaToggleOff())
 	results.append(Test_GameManager_ToggleGem_IncorrectColor())
 
+	results.append(Test_GameManager_DistanceTo_Normal())
+	results.append(Test_GameManager_DistanceTo_SameValue())
+	results.append(Test_GameManager_DistanceTo_NullValues())
+
+	results.append(Test_Milo_PlayerDeath_Normal())
+	results.append(Test_Milo_PlayerDeath_NullValues())
+
 	for result in results:
-		if (!result):
+		if (!result[0]):
 			print(result[1] + " Failed")
+			return false
 		else:
 			print(result[1] + " Successful")
+	return true
+	
 
 
 # LevelManager Tests
@@ -102,7 +111,7 @@ func Test_LeverManager_LeverFlipped_Level1():
 	lever.name = "Lever"
 	var turnedOn = false
 
-	var expected = "Tutorial"
+	var expected = "Level1"
 	var result = LeverManager.LeverFlipped(level, lever, turnedOn)
 	if (result == expected):
 		return [true, "LeverManager_LeverFlipped_Level1"]
@@ -115,7 +124,7 @@ func Test_LeverManager_LeverFlipped_Level2():
 	lever.name = "Lever"
 	var turnedOn = false
 
-	var expected = "Tutorial"
+	var expected = "Level2"
 	var result = LeverManager.LeverFlipped(level, lever, turnedOn)
 	if (result == expected):
 		return [true, "LeverManager_LeverFlipped_Level2"]
@@ -128,7 +137,7 @@ func Test_LeverManager_LeverFlipped_Level3():
 	lever.name = "Lever"
 	var turnedOn = false
 
-	var expected = "Tutorial"
+	var expected = "Level3"
 	var result = LeverManager.LeverFlipped(level, lever, turnedOn)
 	if (result == expected):
 		return [true, "LeverManager_LeverFlipped_Level3"]
@@ -314,3 +323,59 @@ func Test_GameManager_ToggleGem_IncorrectColor():
 		return [true, "GameManager_ToggleGem_IncorrectColor"]
 	else:
 		return [false, "GameManager_ToggleGem_IncorrectColor"]
+
+func Test_GameManager_DistanceTo_Normal():
+	var a = Vector2(0,0)
+	var b = Vector2(10,10)
+
+	var expected = 14.142136
+	var result = GameManager.DistanceTo(a,b)
+
+	if (abs(result - expected) <= 0.00001):
+		return [true, "GameManager_DistanceTo_Normal"]
+	else:
+		return [false, "GameManager_DistanceTo_Normal"]
+
+func Test_GameManager_DistanceTo_SameValue():
+	var a = Vector2(0,0)
+	var b = Vector2(0,0)
+
+	var expected = 0
+	var result = GameManager.DistanceTo(a,b)
+	if (abs(result - expected) <= 0.00001):
+		return [true, "GameManager_DistanceTo_SameValue"]
+	else:
+		return [false, "GameManager_DistanceTo_SameValue"]
+
+func Test_GameManager_DistanceTo_NullValues():
+	var a = null
+	var b = null
+
+	var expected = -1
+	var result = GameManager.DistanceTo(a,b)
+	if (abs(result - expected) <= 0.00001):
+		return [true, "GameManager_DistanceTo_NullValues"]
+	else:
+		return [false, "GameManager_DistanceTo_NullValues"]
+
+# Milo Tests
+func Test_Milo_PlayerDeath_Normal():
+	var position = Vector2(100,100)
+	
+	var expected = Vector2(100,100)
+	var result = Milo.PlayerDeath(position)
+	if (result == expected):
+		return [true, "Milo_PlayerDeath_Normal"]
+	else:
+		return [false, "Milo_PlayerDeath_Normal"]
+
+func Test_Milo_PlayerDeath_NullValues():
+	var position = null
+	
+	var expected = "null"
+	var result = Milo.PlayerDeath(position)
+
+	if (result == expected):
+		return [true, "Milo_PlayerDeath_NullValues"]
+	else:
+		return [false, "Milo_PlayerDeath_NullValues"]

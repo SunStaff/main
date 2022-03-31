@@ -153,9 +153,13 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector2.UP)
 		
 func PlayerDeath(position):
+	if (position == null):
+		print("Null Value given to PlayerDeath")
+		return "null"
 	self.position = position
 	velocity.x = 0
 	velocity.y = 0
+	return self.position
 
 func ChangeHasStaffState(state):
 	HasStaff = state

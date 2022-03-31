@@ -47,24 +47,28 @@ extents = Vector2( 200, 200 )
 [node name="Level3Manager" type="Node" parent="." groups=["LevelManager"]]
 script = ExtResource( 9 )
 
-[node name="Lv3UnlitBackground" type="Sprite" parent="."]
+[node name="Backgrounds" type="Node" parent="."]
+
+[node name="Unlit" type="Node" parent="Backgrounds"]
+
+[node name="Lv3UnlitBackground" type="Sprite" parent="Backgrounds/Unlit"]
 position = Vector2( 3559, 3068 )
 texture = ExtResource( 16 )
 
-[node name="Lv3UnlitWorldGroundlayer" type="Sprite" parent="Lv3UnlitBackground"]
-position = Vector2( 8, -7 )
+[node name="Lv3UnlitWorldGroundlayer" type="Sprite" parent="Backgrounds/Unlit"]
+position = Vector2( 3567, 3061 )
 texture = ExtResource( 14 )
 
-[node name="Lv3UnlitWorldGrass" type="Sprite" parent="Lv3UnlitBackground"]
-position = Vector2( 1, 1 )
+[node name="Lv3UnlitWorldGrass" type="Sprite" parent="Backgrounds/Unlit"]
+position = Vector2( 3560, 3069 )
 texture = ExtResource( 10 )
 
-[node name="Lv3UnlitWorldDarkgrass" type="Sprite" parent="Lv3UnlitBackground"]
-position = Vector2( -2, -1 )
+[node name="Lv3UnlitWorldDarkgrass" type="Sprite" parent="Backgrounds/Unlit"]
+position = Vector2( 3557, 3067 )
 texture = ExtResource( 15 )
 
-[node name="Lv3UnlitWorldForground" type="Sprite" parent="Lv3UnlitBackground"]
-position = Vector2( -1, -8 )
+[node name="Lv3UnlitWorldForground" type="Sprite" parent="Backgrounds/Unlit"]
+position = Vector2( 3558, 3060 )
 texture = ExtResource( 4 )
 
 [node name="StaffAltar1_MoveDoor" parent="." instance=ExtResource( 6 )]
