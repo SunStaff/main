@@ -1,0 +1,108 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Art/Unlit/Backgrounds/LV_3_unlit_world_forground.png" type="Texture" id=1]
+[ext_resource path="res://Art/Unlit/Backgrounds/LV_3_unlit_world_grass.png" type="Texture" id=2]
+[ext_resource path="res://Art/Unlit/Backgrounds/LV_3_unlit_world_darkgrass.png" type="Texture" id=3]
+[ext_resource path="res://Art/Lit/Backgrounds/LV_3lit_background_pt1.png" type="Texture" id=4]
+[ext_resource path="res://Art/Unlit/Backgrounds/LV_3_unlit_world_groundlayer.png" type="Texture" id=5]
+[ext_resource path="res://Art/Lit/Backgrounds/LV_3lit_darkgrass.png" type="Texture" id=6]
+[ext_resource path="res://Art/Lit/Backgrounds/LV_3lit_background_pt2.png" type="Texture" id=7]
+[ext_resource path="res://Art/Lit/Backgrounds/LV_3lit_ground.png" type="Texture" id=8]
+[ext_resource path="res://Art/Lit/Backgrounds/LV_3lit_grass.png" type="Texture" id=9]
+[ext_resource path="res://Art/Unlit/Backgrounds/LV_3unlit_background.png" type="Texture" id=10]
+
+[node name="Level3Background" type="Node"]
+
+[node name="Unlit" type="Node2D" parent="."]
+light_mask = 2
+position = Vector2( 3576, 0 )
+
+[node name="Lv3UnlitBackground" type="Sprite" parent="Unlit"]
+light_mask = 2
+position = Vector2( -41, -132 )
+texture = ExtResource( 10 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Unlit"]
+
+[node name="Lv3UnlitWorldGroundlayer" type="Sprite" parent="Unlit/StaticBody2D"]
+light_mask = 2
+position = Vector2( -41, -139 )
+texture = ExtResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Unlit/StaticBody2D"]
+position = Vector2( 0, 264.016 )
+scale = Vector2( 1, 0.859446 )
+polygon = PoolVector2Array( -4826, 165, -3846, 180, -3023, 194, -2695, 218, -2129, 284, -1810, 484, -1572, 650, -1377, 788, -1096, 1140, -1087, 1483, -4826, 1464 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Unlit/StaticBody2D"]
+polygon = PoolVector2Array( -1096, 1155, -854, 1283, 849, 1312, 2457, 1236, 3741, 1221, 4748, 1266, 4755, 1482, -1087, 1463 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Unlit/StaticBody2D"]
+position = Vector2( 0, -29.6901 )
+scale = Vector2( 1, 0.729351 )
+polygon = PoolVector2Array( -528, -614, -369, -696, 513, -671, 2164, -601, 2977, -576, 3123, -646, 4310, -607, 4628, -690, 4755, -690, 4755, -296, 2304, -341, 1364, -245, -204, -385, -528, -493 )
+
+[node name="Lv3UnlitWorldGrass" type="Sprite" parent="Unlit"]
+light_mask = 2
+position = Vector2( -40, -131 )
+texture = ExtResource( 2 )
+
+[node name="Lv3UnlitWorldDarkgrass" type="Sprite" parent="Unlit"]
+light_mask = 2
+position = Vector2( -43, -133 )
+texture = ExtResource( 3 )
+
+[node name="Lv3UnlitWorldForground" type="Sprite" parent="Unlit"]
+light_mask = 2
+position = Vector2( -42, -140 )
+texture = ExtResource( 1 )
+
+[node name="Lit" type="Node2D" parent="."]
+position = Vector2( 3528, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Lv3LitBackgroundPt1" type="Sprite" parent="Lit"]
+position = Vector2( -2400, -132 )
+texture = ExtResource( 4 )
+
+[node name="Lv3LitBackgroundPt2" type="Sprite" parent="Lit"]
+position = Vector2( 2400, -132 )
+texture = ExtResource( 7 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Lit"]
+
+[node name="Lv3LitGround" type="Sprite" parent="Lit/StaticBody2D"]
+position = Vector2( -1, -139 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Lit/StaticBody2D"]
+position = Vector2( 0, 108.005 )
+scale = Vector2( 1, 0.856434 )
+polygon = PoolVector2Array( -4814, 179, -3004, 201, -2664, 224, -2048, 292, -1544, 609, -2099, 620, -3258, 450, -3564, 507, -4797, 518 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Lit/StaticBody2D"]
+polygon = PoolVector2Array( -181, 1276, 187, 1276, 1211, 1321, 2449, 1225, 3202, 1259, 3796, 1180, 4797, 1265, 4803, 1491, -255, 1485 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Lit/StaticBody2D"]
+position = Vector2( 0, -25.1049 )
+scale = Vector2( 1, 0.768832 )
+polygon = PoolVector2Array( -503, -596, -345, -693, 537, -693, 990, -642, 1352, -681, 2257, -579, 2970, -591, 3145, -664, 3705, -619, 4333, -608, 4412, -659, 4667, -704, 4791, -693, 4797, -285, 4576, -280, 3903, -274, 3032, -285, 1822, -246, 747, -268, -164, -347, -402, -466, -503, -512 )
+
+[node name="Lv3LitGrass" type="Sprite" parent="Lit"]
+position = Vector2( 0, -131 )
+texture = ExtResource( 9 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Lv3LitDarkgrass" type="Sprite" parent="Lit"]
+position = Vector2( -3, -133 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_editor_description_": ""
+}
