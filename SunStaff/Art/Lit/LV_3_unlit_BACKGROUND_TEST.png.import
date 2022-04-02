@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LV_3_unlit_BACKGROUND_TEST.png-2722bcb0f5263c80654f83ad86f9aded.stex"
+path="res://.import/LV_3_unlit_BACKGROUND_TEST.png-05338be0c21c45473408991ab51ff343.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Unlit/Backgrounds/LV_3_unlit_BACKGROUND_TEST.png"
-dest_files=[ "res://.import/LV_3_unlit_BACKGROUND_TEST.png-2722bcb0f5263c80654f83ad86f9aded.stex" ]
+source_file="res://Art/Lit/LV_3_unlit_BACKGROUND_TEST.png"
+dest_files=[ "res://.import/LV_3_unlit_BACKGROUND_TEST.png-05338be0c21c45473408991ab51ff343.stex" ]
 
 [params]
 

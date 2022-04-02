@@ -18,6 +18,7 @@ light_mask = 2
 position = Vector2( 3576, 0 )
 
 [node name="Lv3UnlitBackground" type="Sprite" parent="Unlit"]
+visible = false
 light_mask = 2
 position = Vector2( -41, -132 )
 texture = ExtResource( 10 )
@@ -30,8 +31,8 @@ position = Vector2( -41, -139 )
 texture = ExtResource( 5 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Unlit/StaticBody2D"]
-position = Vector2( 0, 264.016 )
-scale = Vector2( 1, 0.859446 )
+position = Vector2( 0, 50.8843 )
+scale = Vector2( 1, 0.950019 )
 polygon = PoolVector2Array( -4826, 165, -3846, 180, -3023, 194, -2695, 218, -2129, 284, -1810, 484, -1572, 650, -1377, 788, -1096, 1140, -1087, 1483, -4826, 1464 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Unlit/StaticBody2D"]
@@ -64,10 +65,12 @@ __meta__ = {
 }
 
 [node name="Lv3LitBackgroundPt1" type="Sprite" parent="Lit"]
+visible = false
 position = Vector2( -2400, -132 )
 texture = ExtResource( 4 )
 
 [node name="Lv3LitBackgroundPt2" type="Sprite" parent="Lit"]
+visible = false
 position = Vector2( 2400, -132 )
 texture = ExtResource( 7 )
 
@@ -81,9 +84,9 @@ __meta__ = {
 }
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Lit/StaticBody2D"]
-position = Vector2( 0, 108.005 )
+position = Vector2( 0, 51.005 )
 scale = Vector2( 1, 0.856434 )
-polygon = PoolVector2Array( -4814, 179, -3004, 201, -2664, 224, -2048, 292, -1544, 609, -2099, 620, -3258, 450, -3564, 507, -4797, 518 )
+polygon = PoolVector2Array( -4814, 179, -3789.57, 191.452, -3004, 201, -2664, 224, -2048, 292, -1544, 609, -2099, 620, -3258, 450, -3564, 507, -4797, 518 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Lit/StaticBody2D"]
 polygon = PoolVector2Array( -181, 1276, 187, 1276, 1211, 1321, 2449, 1225, 3202, 1259, 3796, 1180, 4797, 1265, 4803, 1491, -255, 1485 )
