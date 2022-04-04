@@ -117,7 +117,6 @@ visible = false
 
 [node name="Milo" parent="." instance=ExtResource( 1 )]
 position = Vector2( -1000, 55 )
-TurnLightOff = true
 
 [node name="StartingDoor" type="KinematicBody2D" parent="." groups=["Door"]]
 light_mask = 0
