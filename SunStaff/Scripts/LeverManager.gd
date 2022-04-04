@@ -1,10 +1,5 @@
 extends Node
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-var Levers = []
 var Doors = []
 var door1
 var door2
@@ -17,7 +12,6 @@ var CurrentClosestLever = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Levers = GameManager.GetLevers()
 	Doors = get_tree().get_nodes_in_group("Door")
 	door1 = Doors[1]
 	door2 = Doors[2]
@@ -76,52 +70,49 @@ func Level3(lever, turnedOn):
 	match(name):
 		"1":
 			lever.visible = false
-		#Lever 1 of Door Puzzle [Lever Down y = 420, lever up y = 644S]
+		#Lever 1 of Door Puzzle [Lever Down y = -200, lever up y = 430S]
 		#Doors for puzzle are offset by 1 -- Door2 is first puzzle door
 		"2":
 			if(turnedOn):
-				door1.position.y = 644
-				door2.position.y = 644
-				door4.position.y = 420			
+				door1.position.y = 430
+				door2.position.y = 430
+				door4.position.y = -200			
 			elif(!turnedOn):
-				door1.position.y = 420
-				door2.position.y = 420
+				door1.position.y = -200
+				door2.position.y = -200
 			pass
 		#Lever 2 of Door Puzzle
 		"3":
 			if(turnedOn):
-				door2.position.y = 644
-				door4.position.y = 644			
+				door2.position.y = 430
+				door4.position.y = 430			
 			elif(!turnedOn):
-				door2.position.y = 420
-				door4.position.y = 420
+				door2.position.y = -200
+				door4.position.y = -200
 			pass
 		#Lever 3 of Door Puzzle
 		"4":
 			if(turnedOn):
-				door1.position.y = 644
-				door3.position.y = 420			
+				door1.position.y = 430
+				door3.position.y = -200			
 			elif(!turnedOn):
-				door1.position.y = 644
+				door1.position.y = 430
 			pass
 		#Lever 4 of Door Puzzle
 		"5":
 			if(turnedOn):
-				door2.position.y = 644
-				door3.position.y = 644
-				door4.position.y = 420			
+				door2.position.y = 430
+				door3.position.y = 430
+				door4.position.y = -200			
 			elif(!turnedOn):
-				door3.position.y = 420
-				door4.position.y = 420
+				door3.position.y = -200
+				door4.position.y = -200
 			pass
 
 func GetCurrentClosestLever(levers, player):
-	Levers.clear()
 	CurrentClosestLever = null
-	for lever in levers:
-		Levers.append(lever)
 	# Get Current Closest Lever
-	for lever in Levers:
+	for lever in levers:
 		var distanceTo =  GameManager.DistanceTo(player.position, lever.position)
 		if (distanceTo < minDistanceToLever):
 			minDistanceToLever = distanceTo

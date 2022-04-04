@@ -10,7 +10,7 @@ radius = 260.805
 
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 49.0
-height = 145.0
+height = 231.0
 
 [node name="StaffAltar" type="Area2D" groups=["StaffAltar"]]
 light_mask = 3
@@ -21,16 +21,19 @@ script = ExtResource( 2 )
 
 [node name="Sprite2" type="Sprite" parent="."]
 light_mask = 2
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 4 )
 
 [node name="StaffInAltar" type="Node2D" parent="Sprite"]
 visible = false
+scale = Vector2( 1.5, 1.5 )
 
 [node name="Light2D" type="Light2D" parent="Sprite/StaffInAltar"]
-scale = Vector2( 1.25, 1.25 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 mode = 3
 __meta__ = {
@@ -44,7 +47,6 @@ shape = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 2
-position = Vector2( 2.5, -7 )
 rotation = 1.5708
 shape = SubResource( 4 )
 

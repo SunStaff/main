@@ -7,7 +7,6 @@ var WithinAltarRange = false
 # Sun Staff Variables
 var SunStaff
 var LightCircle
-var StaffAltars = []
 var StaffVisibility
 var CurrentClosestAltar
 var minDistanceToAltar = INF
@@ -25,7 +24,7 @@ func _ready():
 func _process(_delta):
 	if (WithinAltarRange):
 		if (Input.is_action_just_pressed("Interact")):
-			if (GetCurrentClosestAltar() == self):
+			if (GetCurrentClosestAltar(GameManager.GetSunStaffAltars(), GameManager.GetPlayer()) == self):
 				SunStaffPlacement()
 
 func _on_StaffAltar_body_entered(body):
@@ -45,7 +44,7 @@ func _on_LightCircle_area_exited(area):
 		area.SetObjectLightState(false)
 
 func SunStaffPlacement():
-	GetCurrentClosestAltar()
+	GetCurrentClosestAltar(GameManager.GetSunStaffAltars(), GameManager.GetPlayer())
 	if (StaffVisibility): # If Milo is holding staff
 		SunStaff.get_child(0).set_color(Color(1,1,1,0))
 		StaffVisibility = false
@@ -69,13 +68,11 @@ func SunStaffPlacement():
 	else:
 		LightCircle.ChangeLightCircleMonitoring(true)
 
-func GetCurrentClosestAltar():
-	StaffAltars.clear()
-	for altar in GameManager.GetSunStaffAltars():
-		StaffAltars.append(altar)
+func GetCurrentClosestAltar(altars, player):
+	CurrentClosestAltar = null
 	# Get Current Closest Altar
-	for altar in StaffAltars:
-		var distanceTo = GameManager.DistanceTo(GameManager.GetPlayer().position, altar.position)
+	for altar in altars:
+		var distanceTo = GameManager.DistanceTo(player.position, altar.global_position)
 		if (distanceTo < minDistanceToAltar):
 			minDistanceToAltar = distanceTo
 			CurrentClosestAltar = altar

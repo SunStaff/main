@@ -103,3 +103,4 @@ func _on_Cyan_Gem_pressed():
 
 func _on_Button_pressed():
 	self.visible = false
+	GameManager.IsGamePlaying = true

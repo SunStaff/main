@@ -122,6 +122,9 @@ margin_right = 0.539917
 margin_bottom = 0.239929
 custom_fonts/font = SubResource( 1 )
 text = "Cancel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="pressed" from="Green Gem" to="." method="_on_Green_Gem_pressed"]
 [connection signal="pressed" from="Blue Gem" to="." method="_on_Blue_Gem_pressed"]

@@ -23,3 +23,5 @@ shape = SubResource( 29 )
 
 [connection signal="area_entered" from="LightCircle" to="LightCircle" method="_on_LightCircle_area_entered"]
 [connection signal="area_exited" from="LightCircle" to="LightCircle" method="_on_LightCircle_area_exited"]
+[connection signal="body_entered" from="LightCircle" to="LightCircle" method="_on_LightCircle_body_entered"]
+[connection signal="body_exited" from="LightCircle" to="LightCircle" method="_on_LightCircle_body_exited"]

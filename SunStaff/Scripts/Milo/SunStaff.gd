@@ -11,10 +11,16 @@ func _process(_delta):
 func _on_LightCircle_area_entered(area):
 	if ("Briar" in area.name):
 		area.SetObjectLightState(true)
-
+	
 func _on_LightCircle_area_exited(area):
 	if ("Briar" in area.name):
 		area.SetObjectLightState(false)
 
 func ChangeLightCircleMonitoring(state):
 	self.monitoring = state
+
+func _on_LightCircle_body_entered(_body):
+	pass
+
+func _on_LightCircle_body_exited(_body):
+	pass

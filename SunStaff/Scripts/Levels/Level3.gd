@@ -18,13 +18,20 @@ var Level3Complete = false
 var Diamond 
 var EndDoor 
 var EndLevel
+var RockSlide
+export (bool) var DebugMode = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if (DebugMode):
+		darkPressurePlateNotSteppedOn = false
+	else:
+		darkPressurePlateNotSteppedOn = true
+	
 	level3_door = get_parent().get_node("StartingDoor")
-	Diamond = self.get_parent().get_node("WhiteDimondForPuzzle")
-	EndDoor = self.get_parent().get_node("EndDoor")
-	EndLevel = self.get_parent().get_node("EndLevel")
+	Diamond = self.get_parent().get_node("GemPuzzle/WhiteDimondForPuzzle")
+	EndDoor = self.get_parent().get_node("GemPuzzle/EndDoor")
+	EndLevel = self.get_parent().get_node("GemPuzzle/EndLevel")
 	EndLevel.visible = false
 	EndLevel.monitoring = false
 	timerPuzzle_Array.append(get_parent().get_node("TimerPuzzle/TimerPlatform1"))
@@ -33,13 +40,18 @@ func _ready():
 	timer = Timer.new()
 	self.add_child(timer)
 	GemSelectionScreen = get_tree().get_nodes_in_group("GemSelectionScreen")[0]
-	darkPressurePlateNotSteppedOn = false
 	Pedestals = GameManager.GetGemPedestals()
 	StaffAltars = GameManager.GetSunStaffAltars()
+	RockSlide = self.get_parent().get_node("RockSlide")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if (GameManager.GetPlayer().HasStaff and darkPressurePlateNotSteppedOn):
+		RockSlide.visible = false
+	else:
+		RockSlide.visible = true
+
 	if (not Level3Complete):
 		if (Pedestals[0].get_child(0).frame == 5):
 			if (Pedestals[1].get_child(0).frame == 3):
@@ -53,7 +65,7 @@ func _process(_delta):
 
 func Level3_MoveDoor_DueTo_StaffAltar(open):
 	if (open):
-		while (level3_door.position.y < 500):
+		while (level3_door.position.y < 1000):
 			level3_door.position.y += 50
 			timer.set_wait_time(0.1)
 			timer.set_one_shot(true)
@@ -85,17 +97,17 @@ func Level3_OpenBottomPuzzles():
 		while (not allPlatformsUp):
 			if (not platform1):
 				timerPuzzle_Array[0].position.y -= 50
-				if (timerPuzzle_Array[0].position.y <= 415):
+				if (timerPuzzle_Array[0].position.y <= 400):
 					platform1 = true
 
 			if (not platform2):
 				timerPuzzle_Array[1].position.y -= 50
-				if (timerPuzzle_Array[1].position.y <= 550):
+				if (timerPuzzle_Array[1].position.y <= 600):
 					platform2 = true
 
 			if (not platform3):
 				timerPuzzle_Array[2].position.y -= 50
-				if (timerPuzzle_Array[2].position.y <= 660):
+				if (timerPuzzle_Array[2].position.y <= 800):
 					platform3 = true
 			
 			if (platform1 and platform2 and platform3):
@@ -111,17 +123,17 @@ func Level3_TimerPuzzle():
 		while (not allPlatformsUp):
 			if (not platform1):
 				timerPuzzle_Array[0].position.y -= 50
-				if (timerPuzzle_Array[0].position.y <= 415):
+				if (timerPuzzle_Array[0].position.y <= 400):
 					platform1 = true
 
 			if (not platform2):
 				timerPuzzle_Array[1].position.y -= 50
-				if (timerPuzzle_Array[1].position.y <= 550):
+				if (timerPuzzle_Array[1].position.y <= 600):
 					platform2 = true
 
 			if (not platform3):
 				timerPuzzle_Array[2].position.y -= 50
-				if (timerPuzzle_Array[2].position.y <= 660):
+				if (timerPuzzle_Array[2].position.y <= 800):
 					platform3 = true
 			
 			if (platform1 and platform2 and platform3):
@@ -133,7 +145,7 @@ func Level3_TimerPuzzle():
 			yield(timer, "timeout")
 
 		for platform in timerPuzzle_Array:
-			while(platform.position.y < 1000):
+			while(platform.position.y < 1500):
 				platform.position.y += 50
 				timer.set_wait_time(.5)
 				timer.set_one_shot(true)

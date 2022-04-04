@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Art/Unlit/Backgrounds/LV_3_unlit_world_forground.png" type="Texture" id=1]
 [ext_resource path="res://Art/Unlit/Backgrounds/LV_3_unlit_world_grass.png" type="Texture" id=2]
@@ -10,6 +10,17 @@
 [ext_resource path="res://Art/Lit/Backgrounds/LV_3lit_ground.png" type="Texture" id=8]
 [ext_resource path="res://Art/Lit/Backgrounds/LV_3lit_grass.png" type="Texture" id=9]
 [ext_resource path="res://Art/Unlit/Backgrounds/LV_3unlit_background.png" type="Texture" id=10]
+[ext_resource path="res://Art/Unlit/Backgrounds/erroded_hillbackground3.png" type="Texture" id=11]
+[ext_resource path="res://Art/Unlit/Backgrounds/unlit_sky.png" type="Texture" id=12]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 2615.5, 77 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 1342.5, 148 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 347.5, 103 )
 
 [node name="Level3Background" type="Node"]
 
@@ -22,25 +33,10 @@ light_mask = 2
 position = Vector2( -41, -132 )
 texture = ExtResource( 10 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Unlit"]
-
-[node name="Lv3UnlitWorldGroundlayer" type="Sprite" parent="Unlit/StaticBody2D"]
+[node name="Lv3UnlitWorldGroundlayer" type="Sprite" parent="Unlit"]
 light_mask = 2
 position = Vector2( -41, -139 )
 texture = ExtResource( 5 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Unlit/StaticBody2D"]
-position = Vector2( 0, 264.016 )
-scale = Vector2( 1, 0.859446 )
-polygon = PoolVector2Array( -4826, 165, -3846, 180, -3023, 194, -2695, 218, -2129, 284, -1810, 484, -1572, 650, -1377, 788, -1096, 1140, -1087, 1483, -4826, 1464 )
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Unlit/StaticBody2D"]
-polygon = PoolVector2Array( -1096, 1155, -854, 1283, 849, 1312, 2457, 1236, 3741, 1221, 4748, 1266, 4755, 1482, -1087, 1463 )
-
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Unlit/StaticBody2D"]
-position = Vector2( 0, -29.6901 )
-scale = Vector2( 1, 0.729351 )
-polygon = PoolVector2Array( -528, -614, -369, -696, 513, -671, 2164, -601, 2977, -576, 3123, -646, 4310, -607, 4628, -690, 4755, -690, 4755, -296, 2304, -341, 1364, -245, -204, -385, -528, -493 )
 
 [node name="Lv3UnlitWorldGrass" type="Sprite" parent="Unlit"]
 light_mask = 2
@@ -57,6 +53,76 @@ light_mask = 2
 position = Vector2( -42, -140 )
 texture = ExtResource( 1 )
 
+[node name="ErrodedHillbackground3" type="Sprite" parent="Unlit"]
+light_mask = 2
+position = Vector2( -3881, 2028 )
+texture = ExtResource( 11 )
+
+[node name="ErrodedHillbackground4" type="Sprite" parent="Unlit"]
+light_mask = 2
+position = Vector2( -1961, 2028 )
+texture = ExtResource( 11 )
+
+[node name="ErrodedHillbackground5" type="Sprite" parent="Unlit"]
+light_mask = 2
+position = Vector2( -41, 2028 )
+texture = ExtResource( 11 )
+
+[node name="ErrodedHillbackground6" type="Sprite" parent="Unlit"]
+light_mask = 2
+position = Vector2( 1879, 2028 )
+texture = ExtResource( 11 )
+
+[node name="ErrodedHillbackground7" type="Sprite" parent="Unlit"]
+light_mask = 2
+position = Vector2( 3799, 2028 )
+texture = ExtResource( 11 )
+
+[node name="ErrodedHillbackground8" type="Sprite" parent="Unlit"]
+light_mask = 2
+position = Vector2( 5719, 2028 )
+texture = ExtResource( 11 )
+
+[node name="ErrodedHillbackground9" type="Sprite" parent="Unlit"]
+light_mask = 2
+position = Vector2( 5719, 948 )
+texture = ExtResource( 11 )
+
+[node name="ErrodedHillbackground12" type="Sprite" parent="Unlit"]
+light_mask = 2
+position = Vector2( 5719, 220 )
+texture = ExtResource( 11 )
+
+[node name="ErrodedHillbackground10" type="Sprite" parent="Unlit"]
+light_mask = 2
+position = Vector2( -5800, 2028 )
+texture = ExtResource( 11 )
+
+[node name="ErrodedHillbackground11" type="Sprite" parent="Unlit"]
+light_mask = 2
+position = Vector2( -5800, 948 )
+texture = ExtResource( 11 )
+
+[node name="UnlitSky" type="Sprite" parent="Unlit"]
+light_mask = 2
+position = Vector2( -5800, -130 )
+texture = ExtResource( 12 )
+
+[node name="UnlitSky2" type="Sprite" parent="Unlit"]
+light_mask = 2
+position = Vector2( -5800, -1210 )
+texture = ExtResource( 12 )
+
+[node name="UnlitSky3" type="Sprite" parent="Unlit"]
+light_mask = 2
+position = Vector2( 5719, -858 )
+texture = ExtResource( 12 )
+
+[node name="UnlitSky4" type="Sprite" parent="Unlit"]
+light_mask = 2
+position = Vector2( 5719, -1210 )
+texture = ExtResource( 12 )
+
 [node name="Lit" type="Node2D" parent="."]
 position = Vector2( 3528, 0 )
 __meta__ = {
@@ -68,30 +134,30 @@ position = Vector2( -2400, -132 )
 texture = ExtResource( 4 )
 
 [node name="Lv3LitBackgroundPt2" type="Sprite" parent="Lit"]
-position = Vector2( 2400, -132 )
+position = Vector2( 2400, -113 )
 texture = ExtResource( 7 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Lit"]
+[node name="LitGround" type="StaticBody2D" parent="Lit"]
 
-[node name="Lv3LitGround" type="Sprite" parent="Lit/StaticBody2D"]
+[node name="Lv3LitGround" type="Sprite" parent="Lit/LitGround"]
 position = Vector2( -1, -139 )
 texture = ExtResource( 8 )
 __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Lit/StaticBody2D"]
-position = Vector2( 0, 108.005 )
-scale = Vector2( 1, 0.856434 )
-polygon = PoolVector2Array( -4814, 179, -3004, 201, -2664, 224, -2048, 292, -1544, 609, -2099, 620, -3258, 450, -3564, 507, -4797, 518 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lit/LitGround"]
+position = Vector2( 2189.5, -483 )
+shape = SubResource( 1 )
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Lit/StaticBody2D"]
-polygon = PoolVector2Array( -181, 1276, 187, 1276, 1211, 1321, 2449, 1225, 3202, 1259, 3796, 1180, 4797, 1265, 4803, 1491, -255, 1485 )
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Lit/LitGround"]
+position = Vector2( -3465.5, 410 )
+shape = SubResource( 2 )
 
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Lit/StaticBody2D"]
-position = Vector2( 0, -25.1049 )
-scale = Vector2( 1, 0.768832 )
-polygon = PoolVector2Array( -503, -596, -345, -693, 537, -693, 990, -642, 1352, -681, 2257, -579, 2970, -591, 3145, -664, 3705, -619, 4333, -608, 4412, -659, 4667, -704, 4791, -693, 4797, -285, 4576, -280, 3903, -274, 3032, -285, 1822, -246, 747, -268, -164, -347, -402, -466, -503, -512 )
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Lit/LitGround"]
+position = Vector2( -1878.5, 533 )
+rotation = 0.546288
+shape = SubResource( 3 )
 
 [node name="Lv3LitGrass" type="Sprite" parent="Lit"]
 position = Vector2( 0, -131 )

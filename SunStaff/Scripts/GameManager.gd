@@ -16,7 +16,7 @@ var autoTester
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	activated = false
-	LastLivingPos = Vector2(0,55)
+	LastLivingPos = Vector2(-1000,55)
 	Player = get_tree().get_nodes_in_group("Player")[0]
 	LevelManagers = get_tree().get_nodes_in_group("LevelManager")
 	SetCurrentLevel(get_tree().get_current_scene().get_name())
@@ -24,6 +24,7 @@ func _ready():
 	if (!autoTester.Execute()):
 		IsGamePlaying = false
 		print("Testing Failed!! Please check tests!!")
+	GemsCollected = {"Green": false, "Blue": false, "Red": false, "Cyan": false, "Magenta": false }
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

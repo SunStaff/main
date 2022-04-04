@@ -15,8 +15,11 @@ func _ready():
 func _process(_delta):
 	if (WithinPedestalRange):
 		if (Input.is_action_just_pressed("Interact")):
+			print()
 			print("interaction with pedestal")
-			if (GetCurrentClosestPedestal() == self):
+			print(GetCurrentClosestPedestal(GameManager.GetGemPedestals(), GameManager.GetPlayer()).name)
+			print(self.name)
+			if (GetCurrentClosestPedestal(GameManager.GetGemPedestals(), GameManager.GetPlayer()) == self):
 				if (self.get_child(0).frame != 0):
 					match self.get_child(0).frame:
 						1:
@@ -51,14 +54,12 @@ func _on_GemPedestal_body_exited(body):
 	if ("Milo" in body.name):
 		WithinPedestalRange = false
 
-func GetCurrentClosestPedestal():
-	Pedestals.clear()
-	for pedestal in GameManager.GetGemPedestals():
-		Pedestals.append(pedestal)
+func GetCurrentClosestPedestal(pedestals, player):
+	CurrentClosestPedestal = null
 	# Get Current Closest Pedestal
-	for pedestal in Pedestals:
-		var distanceTo = GameManager.DistanceTo(pedestal.position, GameManager.GetPlayer().position)
-		if (distanceTo < minDistanceToPedestal):
+	for pedestal in pedestals:
+		var distanceTo = GameManager.DistanceTo(player.position, pedestal.global_position)
+		if (distanceTo <= minDistanceToPedestal):
 			minDistanceToPedestal = distanceTo
 			CurrentClosestPedestal = pedestal
 	minDistanceToPedestal = INF
