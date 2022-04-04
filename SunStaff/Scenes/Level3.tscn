@@ -182,10 +182,9 @@ position = Vector2( 3300, 1000 )
 visible = false
 
 [node name="Milo" parent="." instance=ExtResource( 1 )]
-visible = false
-position = Vector2( 3787, 165 )
+position = Vector2( 1236, 159 )
 
-[node name="StartingDoor" type="KinematicBody2D" parent="."]
+[node name="StartingDoor" type="KinematicBody2D" parent="." groups=["Door"]]
 light_mask = 0
 position = Vector2( 420, -150 )
 
@@ -655,21 +654,24 @@ __meta__ = {
 visible = false
 
 [node name="Lever2" parent="." instance=ExtResource( 13 )]
-position = Vector2( 4211, 309 )
+position = Vector2( 4100, 309 )
 
 [node name="Lever3" parent="." instance=ExtResource( 13 )]
-position = Vector2( 4370, 309 )
+position = Vector2( 4380, 306 )
 
 [node name="Lever4" parent="." instance=ExtResource( 13 )]
-position = Vector2( 4516, 309 )
+position = Vector2( 4660, 309 )
 
 [node name="Lever5" parent="." instance=ExtResource( 13 )]
-position = Vector2( 4670, 309 )
+position = Vector2( 4940, 309 )
 
-[node name="Door2" type="KinematicBody2D" parent="."]
+[node name="Door2" type="KinematicBody2D" parent="." groups=["Door"]]
 light_mask = 2
-position = Vector2( 5032, 238 )
+position = Vector2( 5182, 238 )
 scale = Vector2( 0.7, 3.4 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Door2" type="Sprite" parent="Door2"]
 light_mask = 2
@@ -678,13 +680,15 @@ texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door2"]
 light_mask = 2
-position = Vector2( 4.28623, 2.35391 )
 shape = SubResource( 3 )
 
-[node name="Door3" type="KinematicBody2D" parent="."]
+[node name="Door3" type="KinematicBody2D" parent="." groups=["Door"]]
 light_mask = 2
-position = Vector2( 5132, 238 )
+position = Vector2( 5282, 238 )
 scale = Vector2( 0.7, 3.4 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Door3" type="Sprite" parent="Door3"]
 light_mask = 2
@@ -696,10 +700,13 @@ light_mask = 2
 position = Vector2( 0.000732831, -2.02656e-05 )
 shape = SubResource( 4 )
 
-[node name="Door4" type="KinematicBody2D" parent="."]
+[node name="Door4" type="KinematicBody2D" parent="." groups=["Door"]]
 light_mask = 2
-position = Vector2( 5232, 238 )
+position = Vector2( 5382, 238 )
 scale = Vector2( 0.7, 3.4 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Door4" type="Sprite" parent="Door4"]
 light_mask = 2
@@ -711,10 +718,13 @@ light_mask = 2
 position = Vector2( 0.000247955, -0.146935 )
 shape = SubResource( 5 )
 
-[node name="Door5" type="KinematicBody2D" parent="."]
+[node name="Door5" type="KinematicBody2D" parent="." groups=["Door"]]
 light_mask = 2
-position = Vector2( 5332, 238 )
+position = Vector2( 5482, 238 )
 scale = Vector2( 0.7, 3.4 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Door5" type="Sprite" parent="Door5"]
 light_mask = 2

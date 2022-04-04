@@ -16,7 +16,7 @@ func _ready():
 
 #When the switch is interacted with, change lever state from ON to OFF, or OFF to ON.
 func _change_lever_state():
-	isTurnedOn = !isTurnedOn
+	isTurnedOn = not isTurnedOn
 	LeverManager.LeverFlipped(GameManager.GetCurrentLevel(), self, isTurnedOn)
 
 #Get lever's position

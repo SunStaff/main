@@ -45,10 +45,23 @@ func Level1(name):
 func Level2(name):
 	name = name.replacen("PressurePlate", "")
 	match(name):
+		#Sets off timer puzzle
 		"1":
-			pass
+			LevelManagers[0].Level2_TimerPuzzle()
+		#Pressure Plate for LargeBlock
 		"2":
-			pass
+			print("Removing Skinny Block Barrier")
+			LevelManagers[0].Destroy_SkinnyBlockBlocker()
+
+		#Pressure Plate for SkinnyBlock
+		"3":
+			print("Small Block Dropping")
+			LevelManagers[0].Destroy_SmallBlockBlocker()
+
+		#Pressure Plate for SmallBlock
+		"4":
+			print("Final Door opened")
+			LevelManagers[0].Open_FinalDoor()
 
 func Level3(name):
 	name = name.replacen("PressurePlate", "")

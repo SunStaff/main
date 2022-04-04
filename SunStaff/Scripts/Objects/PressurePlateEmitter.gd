@@ -19,3 +19,7 @@ func _on_PressurePlate_body_entered(body):
 	if ("Milo" in body.name):
 		PressurePlateManager.PlateTouched(GameManager.GetCurrentLevel(), self.name)
 		GameManager.SetLastLivingPos(self.position)
+
+	#Sends signal for blocks pushed onto pressure plates in Level 2 Box Puzzle
+	if("SkinnyBlock" in body.name) || ("SmallBlock" in body.name) || ("LargeBlock" in body.name):
+		PressurePlateManager.PlateTouched(GameManager.GetCurrentLevel(), self.name)

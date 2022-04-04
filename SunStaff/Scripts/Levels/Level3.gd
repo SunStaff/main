@@ -110,7 +110,7 @@ func Level3_TimerPuzzle():
 			yield(timer, "timeout")
 
 		for platform in timerPuzzle_Array:
-			while(platform.position.y < 1000):
+			while(platform.position.y < 460):
 				platform.position.y += 50
 				timer.set_wait_time(.5)
 				timer.set_one_shot(true)
