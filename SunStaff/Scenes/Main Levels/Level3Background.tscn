@@ -138,6 +138,8 @@ position = Vector2( 2400, -113 )
 texture = ExtResource( 7 )
 
 [node name="LitGround" type="StaticBody2D" parent="Lit"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="Lv3LitGround" type="Sprite" parent="Lit/LitGround"]
 position = Vector2( -1, -139 )

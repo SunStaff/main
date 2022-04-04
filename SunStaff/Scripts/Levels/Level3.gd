@@ -7,7 +7,7 @@ var timerActivated = false
 var GemSelectionScreen
 var pedestal
 var placedGem
-var darkPressurePlateNotSteppedOn = true
+var BottomPuzzlesComplete = false
 var allPlatformsUp = false
 var platform1 = false
 var platform2 = false
@@ -19,14 +19,15 @@ var Diamond
 var EndDoor 
 var EndLevel
 var RockSlide
+var stopTimerPuzzle = false
 export (bool) var DebugMode = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if (DebugMode):
-		darkPressurePlateNotSteppedOn = false
+		BottomPuzzlesComplete = true
 	else:
-		darkPressurePlateNotSteppedOn = true
+		BottomPuzzlesComplete = false
 	
 	level3_door = get_parent().get_node("StartingDoor")
 	Diamond = self.get_parent().get_node("GemPuzzle/WhiteDimondForPuzzle")
@@ -43,14 +44,15 @@ func _ready():
 	Pedestals = GameManager.GetGemPedestals()
 	StaffAltars = GameManager.GetSunStaffAltars()
 	RockSlide = self.get_parent().get_node("RockSlide")
+	ChangeRockSlideState(false)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if (GameManager.GetPlayer().HasStaff and darkPressurePlateNotSteppedOn):
-		RockSlide.visible = false
+	if (GameManager.GetPlayer().HasStaff and BottomPuzzlesComplete):
+		ChangeRockSlideState(false)
 	else:
-		RockSlide.visible = true
+		ChangeRockSlideState(true)
 
 	if (not Level3Complete):
 		if (Pedestals[0].get_child(0).frame == 5):
@@ -71,7 +73,7 @@ func Level3_MoveDoor_DueTo_StaffAltar(open):
 			timer.set_one_shot(true)
 			timer.start()
 			yield(timer, "timeout")
-	elif(darkPressurePlateNotSteppedOn):
+	elif(!BottomPuzzlesComplete):
 		while (level3_door.position.y > -150):
 			level3_door.position.y -= 50
 			timer.set_wait_time(0.01)
@@ -80,11 +82,13 @@ func Level3_MoveDoor_DueTo_StaffAltar(open):
 			yield(timer, "timeout")
 
 func Level3_OpenBottomPuzzles():
-	darkPressurePlateNotSteppedOn = false
+	BottomPuzzlesComplete = true
+	stopTimerPuzzle = true
 	allPlatformsUp = false
 	platform1 = false
 	platform2 = false
 	platform3 = false
+
 	while (level3_door.position.y < 500):
 		level3_door.position.y += 50
 		timer.set_wait_time(0.1)
@@ -94,6 +98,9 @@ func Level3_OpenBottomPuzzles():
 
 	if (not timerActivated):
 		timerActivated = true
+		for platform in timerPuzzle_Array:
+			platform.position.y = 1500
+			
 		while (not allPlatformsUp):
 			if (not platform1):
 				timerPuzzle_Array[0].position.y -= 50
@@ -146,11 +153,12 @@ func Level3_TimerPuzzle():
 
 		for platform in timerPuzzle_Array:
 			while(platform.position.y < 1500):
-				platform.position.y += 50
-				timer.set_wait_time(.5)
-				timer.set_one_shot(true)
-				timer.start()
-				yield(timer, "timeout")
+				if (not stopTimerPuzzle):
+					platform.position.y += 50
+					timer.set_wait_time(.5)
+					timer.set_one_shot(true)
+					timer.start()
+					yield(timer, "timeout")
 		timerActivated = false
 
 func OpenTheEnd():
@@ -255,3 +263,8 @@ func ChangeAltarBeamColors(toggle, altar):
 func _on_EndLevel_body_entered(body):
 	if ("Milo" in body.name):
 		Level3End()
+
+func ChangeRockSlideState(state):
+	RockSlide.get_child(1).set_deferred("disabled", state)
+	RockSlide.get_child(2).set_deferred("disabled", state)
+	RockSlide.get_child(3).set_deferred("disabled", state)

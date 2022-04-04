@@ -86,7 +86,7 @@ position = Vector2( 7252, 733 )
 visible = false
 
 [node name="Platform5" parent="Platforms" instance=ExtResource( 8 )]
-position = Vector2( 2318, -151 )
+position = Vector2( 2574, -151 )
 
 [node name="UnlitPlatformmiddle" parent="Platforms/Platform5" index="0"]
 visible = false
@@ -219,8 +219,6 @@ scale = Vector2( 3, 1 )
 [node name="RockSlide" type="StaticBody2D" parent="."]
 light_mask = 3
 position = Vector2( 2421, -7 )
-collision_layer = 3
-collision_mask = 3
 
 [node name="Lv3LitRockslide" type="Sprite" parent="RockSlide"]
 position = Vector2( -63, 82 )
