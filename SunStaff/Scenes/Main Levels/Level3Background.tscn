@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Art/Unlit/Backgrounds/LV_3_unlit_world_forground.png" type="Texture" id=1]
 [ext_resource path="res://Art/Unlit/Backgrounds/LV_3_unlit_world_grass.png" type="Texture" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Art/Unlit/Backgrounds/LV_3unlit_background.png" type="Texture" id=10]
 [ext_resource path="res://Art/Unlit/Backgrounds/erroded_hillbackground3.png" type="Texture" id=11]
 [ext_resource path="res://Art/Unlit/Backgrounds/unlit_sky.png" type="Texture" id=12]
+[ext_resource path="res://Art/Lit/Backgrounds/SKY.png" type="Texture" id=13]
+[ext_resource path="res://Art/Lit/Backgrounds/lit_erroded_hillbackground.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2615.5, 77 )
@@ -27,6 +29,9 @@ extents = Vector2( 347.5, 103 )
 [node name="Unlit" type="Node2D" parent="."]
 light_mask = 2
 position = Vector2( 3576, 0 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Lv3UnlitBackground" type="Sprite" parent="Unlit"]
 light_mask = 2
@@ -125,9 +130,6 @@ texture = ExtResource( 12 )
 
 [node name="Lit" type="Node2D" parent="."]
 position = Vector2( 3528, 0 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Lv3LitBackgroundPt1" type="Sprite" parent="Lit"]
 position = Vector2( -2400, -132 )
@@ -174,3 +176,51 @@ texture = ExtResource( 6 )
 __meta__ = {
 "_editor_description_": ""
 }
+
+[node name="Sky" type="Sprite" parent="Lit"]
+position = Vector2( -6728, -670 )
+texture = ExtResource( 13 )
+
+[node name="Sky2" type="Sprite" parent="Lit"]
+position = Vector2( 6728, -673 )
+texture = ExtResource( 13 )
+
+[node name="LitErrodedHillbackground" type="Sprite" parent="Lit"]
+position = Vector2( -5760, 948 )
+texture = ExtResource( 14 )
+
+[node name="LitErrodedHillbackground2" type="Sprite" parent="Lit"]
+position = Vector2( -5760, 2028 )
+texture = ExtResource( 14 )
+
+[node name="LitErrodedHillbackground3" type="Sprite" parent="Lit"]
+position = Vector2( -3840, 2028 )
+texture = ExtResource( 14 )
+
+[node name="LitErrodedHillbackground4" type="Sprite" parent="Lit"]
+position = Vector2( -1920, 2028 )
+texture = ExtResource( 14 )
+
+[node name="LitErrodedHillbackground5" type="Sprite" parent="Lit"]
+position = Vector2( 0, 2028 )
+texture = ExtResource( 14 )
+
+[node name="LitErrodedHillbackground6" type="Sprite" parent="Lit"]
+position = Vector2( 1920, 2028 )
+texture = ExtResource( 14 )
+
+[node name="LitErrodedHillbackground7" type="Sprite" parent="Lit"]
+position = Vector2( 3840, 2028 )
+texture = ExtResource( 14 )
+
+[node name="LitErrodedHillbackground8" type="Sprite" parent="Lit"]
+position = Vector2( 5760, 2028 )
+texture = ExtResource( 14 )
+
+[node name="LitErrodedHillbackground9" type="Sprite" parent="Lit"]
+position = Vector2( 5760, 948 )
+texture = ExtResource( 14 )
+
+[node name="LitErrodedHillbackground10" type="Sprite" parent="Lit"]
+position = Vector2( 5760, -132 )
+texture = ExtResource( 14 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=2]
+[gd_scene load_steps=143 format=2]
 
 [ext_resource path="res://Scripts/Milo/Milo.gd" type="Script" id=1]
 [ext_resource path="res://Art/DEMO/MiloRunStaffDEMO.png" type="Texture" id=2]
@@ -14,6 +14,86 @@
 [ext_resource path="res://Art/DEMO/MiloWalkStafflessUNLITDEMO.png" type="Texture" id=12]
 [ext_resource path="res://Art/DEMO/MiloJumpFallStafflessUNLITDEMO.png" type="Texture" id=13]
 [ext_resource path="res://Art/DEMO/MiloRunStafflessUNLITDEMO.png" type="Texture" id=14]
+
+[sub_resource type="AtlasTexture" id=132]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=133]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 500, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=134]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 1000, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=135]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 1500, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=136]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 0, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=137]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 500, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=138]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 1000, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=139]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 1500, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=140]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=141]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 500, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=142]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 1000, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=143]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 1500, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=144]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=145]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 500, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=146]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 1000, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=147]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 1500, 500, 500, 500 )
 
 [sub_resource type="AtlasTexture" id=120]
 flags = 4
@@ -75,46 +155,6 @@ flags = 4
 atlas = ExtResource( 13 )
 region = Rect2( 2500, 500, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=140]
-flags = 4
-atlas = ExtResource( 12 )
-region = Rect2( 0, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=141]
-flags = 4
-atlas = ExtResource( 12 )
-region = Rect2( 500, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=142]
-flags = 4
-atlas = ExtResource( 12 )
-region = Rect2( 1000, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=143]
-flags = 4
-atlas = ExtResource( 12 )
-region = Rect2( 1500, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=144]
-flags = 4
-atlas = ExtResource( 12 )
-region = Rect2( 0, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=145]
-flags = 4
-atlas = ExtResource( 12 )
-region = Rect2( 500, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=146]
-flags = 4
-atlas = ExtResource( 12 )
-region = Rect2( 1000, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=147]
-flags = 4
-atlas = ExtResource( 12 )
-region = Rect2( 1500, 500, 500, 500 )
-
 [sub_resource type="AtlasTexture" id=149]
 flags = 4
 atlas = ExtResource( 11 )
@@ -170,51 +210,11 @@ flags = 4
 atlas = ExtResource( 11 )
 region = Rect2( 2000, 500, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=132]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 0, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=133]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 500, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=134]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 1000, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=135]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 1500, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=136]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 0, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=137]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 500, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=138]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 1000, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=139]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 1500, 500, 500, 500 )
-
 [sub_resource type="SpriteFrames" id=148]
 animations = [ {
-"frames": [ SubResource( 120 ), SubResource( 121 ), SubResource( 122 ), SubResource( 123 ), SubResource( 124 ), SubResource( 125 ), SubResource( 126 ), SubResource( 127 ), SubResource( 128 ), SubResource( 129 ), SubResource( 130 ), SubResource( 131 ) ],
+"frames": [ SubResource( 132 ), SubResource( 133 ), SubResource( 134 ), SubResource( 135 ), SubResource( 136 ), SubResource( 137 ), SubResource( 138 ), SubResource( 139 ) ],
 "loop": true,
-"name": "MiloJumpFallUNLIT",
+"name": "MiloRunStafflessUNLIT",
 "speed": 15.0
 }, {
 "frames": [ SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 146 ), SubResource( 147 ) ],
@@ -222,14 +222,14 @@ animations = [ {
 "name": "MiloWalkStafflessUNLIT",
 "speed": 15.0
 }, {
+"frames": [ SubResource( 120 ), SubResource( 121 ), SubResource( 122 ), SubResource( 123 ), SubResource( 124 ), SubResource( 125 ), SubResource( 126 ), SubResource( 127 ), SubResource( 128 ), SubResource( 129 ), SubResource( 130 ), SubResource( 131 ) ],
+"loop": true,
+"name": "MiloJumpFallUNLIT",
+"speed": 15.0
+}, {
 "frames": [ SubResource( 149 ), SubResource( 150 ), SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ), SubResource( 155 ), SubResource( 156 ), SubResource( 157 ), SubResource( 158 ), SubResource( 159 ) ],
 "loop": true,
 "name": "MiloIdleStafflessUNLIT",
-"speed": 15.0
-}, {
-"frames": [ SubResource( 132 ), SubResource( 133 ), SubResource( 134 ), SubResource( 135 ), SubResource( 136 ), SubResource( 137 ), SubResource( 138 ), SubResource( 139 ) ],
-"loop": true,
-"name": "MiloRunStafflessUNLIT",
 "speed": 15.0
 } ]
 
@@ -328,105 +328,45 @@ flags = 4
 atlas = ExtResource( 9 )
 region = Rect2( 1500, 500, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=77]
+[sub_resource type="AtlasTexture" id=85]
 flags = 4
-atlas = ExtResource( 2 )
+atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=78]
+[sub_resource type="AtlasTexture" id=86]
 flags = 4
-atlas = ExtResource( 2 )
+atlas = ExtResource( 4 )
 region = Rect2( 500, 0, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=79]
+[sub_resource type="AtlasTexture" id=87]
 flags = 4
-atlas = ExtResource( 2 )
+atlas = ExtResource( 4 )
 region = Rect2( 1000, 0, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=80]
+[sub_resource type="AtlasTexture" id=88]
 flags = 4
-atlas = ExtResource( 2 )
+atlas = ExtResource( 4 )
 region = Rect2( 1500, 0, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=81]
+[sub_resource type="AtlasTexture" id=89]
 flags = 4
-atlas = ExtResource( 2 )
+atlas = ExtResource( 4 )
 region = Rect2( 0, 500, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=82]
+[sub_resource type="AtlasTexture" id=90]
 flags = 4
-atlas = ExtResource( 2 )
+atlas = ExtResource( 4 )
 region = Rect2( 500, 500, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=83]
+[sub_resource type="AtlasTexture" id=91]
 flags = 4
-atlas = ExtResource( 2 )
+atlas = ExtResource( 4 )
 region = Rect2( 1000, 500, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=84]
+[sub_resource type="AtlasTexture" id=92]
 flags = 4
-atlas = ExtResource( 2 )
+atlas = ExtResource( 4 )
 region = Rect2( 1500, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=65]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 0, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=66]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 500, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=67]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 1000, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=68]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 1500, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=69]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 2000, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=70]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 2500, 0, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=71]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 0, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=72]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 500, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=73]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 1000, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=74]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 1500, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=75]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 2000, 500, 500, 500 )
-
-[sub_resource type="AtlasTexture" id=76]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 2500, 500, 500, 500 )
 
 [sub_resource type="AtlasTexture" id=101]
 flags = 4
@@ -583,44 +523,104 @@ flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 2000, 500, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=85]
+[sub_resource type="AtlasTexture" id=65]
 flags = 4
-atlas = ExtResource( 4 )
+atlas = ExtResource( 10 )
 region = Rect2( 0, 0, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=86]
+[sub_resource type="AtlasTexture" id=66]
 flags = 4
-atlas = ExtResource( 4 )
+atlas = ExtResource( 10 )
 region = Rect2( 500, 0, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=87]
+[sub_resource type="AtlasTexture" id=67]
 flags = 4
-atlas = ExtResource( 4 )
+atlas = ExtResource( 10 )
 region = Rect2( 1000, 0, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=88]
+[sub_resource type="AtlasTexture" id=68]
 flags = 4
-atlas = ExtResource( 4 )
+atlas = ExtResource( 10 )
 region = Rect2( 1500, 0, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=89]
+[sub_resource type="AtlasTexture" id=69]
 flags = 4
-atlas = ExtResource( 4 )
+atlas = ExtResource( 10 )
+region = Rect2( 2000, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=70]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 2500, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=71]
+flags = 4
+atlas = ExtResource( 10 )
 region = Rect2( 0, 500, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=90]
+[sub_resource type="AtlasTexture" id=72]
 flags = 4
-atlas = ExtResource( 4 )
+atlas = ExtResource( 10 )
 region = Rect2( 500, 500, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=91]
+[sub_resource type="AtlasTexture" id=73]
 flags = 4
-atlas = ExtResource( 4 )
+atlas = ExtResource( 10 )
 region = Rect2( 1000, 500, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=92]
+[sub_resource type="AtlasTexture" id=74]
 flags = 4
-atlas = ExtResource( 4 )
+atlas = ExtResource( 10 )
+region = Rect2( 1500, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=75]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 2000, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=76]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 2500, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=77]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=78]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 500, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=79]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 1000, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=80]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 1500, 0, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=81]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=82]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 500, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=83]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 1000, 500, 500, 500 )
+
+[sub_resource type="AtlasTexture" id=84]
+flags = 4
+atlas = ExtResource( 2 )
 region = Rect2( 1500, 500, 500, 500 )
 
 [sub_resource type="SpriteFrames" id=30]
@@ -635,14 +635,9 @@ animations = [ {
 "name": "MiloWalkStaff",
 "speed": 15.0
 }, {
-"frames": [ SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ), SubResource( 81 ), SubResource( 82 ), SubResource( 83 ), SubResource( 84 ) ],
+"frames": [ SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ), SubResource( 89 ), SubResource( 90 ), SubResource( 91 ), SubResource( 92 ) ],
 "loop": true,
-"name": "MiloRunStaff",
-"speed": 15.0
-}, {
-"frames": [ SubResource( 65 ), SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ) ],
-"loop": false,
-"name": "MiloJumpFallStaffless",
+"name": "MiloRunStaffless",
 "speed": 15.0
 }, {
 "frames": [ SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ), SubResource( 108 ) ],
@@ -660,9 +655,14 @@ animations = [ {
 "name": "MiloIdleStaffless",
 "speed": 15.0
 }, {
-"frames": [ SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ), SubResource( 89 ), SubResource( 90 ), SubResource( 91 ), SubResource( 92 ) ],
+"frames": [ SubResource( 65 ), SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ) ],
+"loop": false,
+"name": "MiloJumpFallStaffless",
+"speed": 15.0
+}, {
+"frames": [ SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ), SubResource( 81 ), SubResource( 82 ), SubResource( 83 ), SubResource( 84 ) ],
 "loop": true,
-"name": "MiloRunStaffless",
+"name": "MiloRunStaff",
 "speed": 15.0
 } ]
 
@@ -670,8 +670,218 @@ animations = [ {
 radius = 81.0
 height = 249.0
 
+[sub_resource type="Animation" id=161]
+resource_name = "Idle_Staff"
+length = 0.66
+loop = true
+step = 0.06
+tracks/0/type = "value"
+tracks/0/path = NodePath("Lit:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48, 0.54, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Unlit:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48, 0.54, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+
 [sub_resource type="Animation" id=160]
-resource_name = "Idle"
+resource_name = "Idle_Staffless"
+length = 0.66
+loop = true
+step = 0.06
+tracks/0/type = "value"
+tracks/0/path = NodePath("Lit:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48, 0.54, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Unlit:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48, 0.54, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+
+[sub_resource type="Animation" id=162]
+resource_name = "Jump_Staff"
+length = 0.66
+loop = true
+step = 0.06
+tracks/0/type = "value"
+tracks/0/path = NodePath("Lit:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48, 0.54, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Unlit:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48, 0.54, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+
+[sub_resource type="Animation" id=163]
+resource_name = "Jump_Staffless"
+length = 0.66
+loop = true
+step = 0.06
+tracks/0/type = "value"
+tracks/0/path = NodePath("Lit:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48, 0.54, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Unlit:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48, 0.54, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+
+[sub_resource type="Animation" id=164]
+resource_name = "Run_Staff"
+length = 0.66
+loop = true
+step = 0.06
+tracks/0/type = "value"
+tracks/0/path = NodePath("Lit:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48, 0.54, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Unlit:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48, 0.54, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+
+[sub_resource type="Animation" id=165]
+resource_name = "Run_Staffless"
+length = 0.66
+loop = true
+step = 0.06
+tracks/0/type = "value"
+tracks/0/path = NodePath("Lit:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48, 0.54, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Unlit:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48, 0.54, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+
+[sub_resource type="Animation" id=166]
+resource_name = "Walk_Staff"
+length = 0.66
+loop = true
+step = 0.06
+tracks/0/type = "value"
+tracks/0/path = NodePath("Lit:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48, 0.54, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Unlit:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48, 0.54, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+
+[sub_resource type="Animation" id=167]
+resource_name = "Walk_Staffless"
 length = 0.66
 loop = true
 step = 0.06
@@ -711,14 +921,14 @@ visible = false
 light_mask = 2
 frames = SubResource( 148 )
 animation = "MiloIdleStafflessUNLIT"
-frame = 5
+frame = 7
 playing = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 visible = false
 frames = SubResource( 30 )
 animation = "MiloIdleStaff"
-frame = 8
+frame = 10
 playing = true
 
 [node name="SunStaff" parent="AnimatedSprite" instance=ExtResource( 3 )]
@@ -747,7 +957,14 @@ hframes = 6
 vframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Idle = SubResource( 160 )
+anims/Idle_Staff = SubResource( 161 )
+anims/Idle_Staffless = SubResource( 160 )
+anims/Jump_Staff = SubResource( 162 )
+anims/Jump_Staffless = SubResource( 163 )
+anims/Run_Staff = SubResource( 164 )
+anims/Run_Staffless = SubResource( 165 )
+anims/Walk_Staff = SubResource( 166 )
+anims/Walk_Staffless = SubResource( 167 )
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 
