@@ -11,6 +11,8 @@ var smallBlockBlocker
 var smallBlock
 var finalDoor
 var finalDoorOpened = false
+var leverDoor
+var leverDoorOpened = false
 
 var timerPuzzle_Array = []
 var timer
@@ -26,6 +28,7 @@ var platform4 = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	finalDoor = get_parent().get_node("BlockPuzzle/FinalDoor")
+	leverDoor = get_parent().get_node("LeverPuzzle/PuzzleDoor")
 	#Block Puzzle elements initialized (Last puzzle)
 	skinnyBlockBlocker = get_parent().get_node("BlockPuzzle/SkinnyBlockFloorBlocker")
 	skinnyBlock = get_parent().get_node("BlockPuzzle/SkinnyBlock")
