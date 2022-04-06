@@ -9,8 +9,14 @@ var door1
 var door2
 var door3
 var door4
+#lever flipped count
+var leverFlippedCount = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if(get_tree().get_current_scene().get_name() == "Level2"):
+		Doors = get_tree().get_nodes_in_group("Door")
+		door1 = Doors[0]
 	#Added if-statement, so the doors are only obtained for level 3
 	if(get_tree().get_current_scene().get_name() == "Level3"):
 		Doors = get_tree().get_nodes_in_group("Door")
@@ -55,9 +61,28 @@ func Level2(lever, turnedOn):
 	var name = lever.name.replacen("Lever", "")
 	match(name):
 		"1":
-			pass
+			if(turnedOn):
+				leverFlippedCount += 1
+				print("LeverFlippedCount up 1")
+			elif(!turnedOn):
+				leverFlippedCount -= 1
+				print("LeverFlippedCount down 1")
 		"2":
-			pass
+			if(turnedOn):
+				leverFlippedCount += 1
+			elif(!turnedOn):
+				leverFlippedCount -= 1
+		"3":
+			if(turnedOn):
+				leverFlippedCount += 1
+			elif(!turnedOn):
+				leverFlippedCount -= 1
+	print("LeverFlippedCount: ", leverFlippedCount)
+	if(leverFlippedCount >= 3):
+		door1.position.y = -500
+	elif(leverFlippedCount < 3):
+		door1.position.y = -933
+
 
 func Level3(lever, turnedOn):
 	var name = lever.name.replacen("Lever", "")

@@ -29,16 +29,15 @@ func _set_position(x, y):
 
 func SetObjectLightState(state): # What to do if object only appears in dark but not light
 	IsInLight = state
-	if (IsInLight && !activated):
-		activated = true
-		get_node("LitLever").visible = false #TODO: Change "Sprite" to "UnlitLever"
-		get_node("LitLeverHandle").visible = false
-		self.set_deferred("monitoring", false)
-	else:
-		get_node("LitLever").visible = true #TODO: Change "Sprite" to "UnlitLever"
-		get_node("LitLeverHandle").visible = true
-		activated = false
-		self.set_deferred("monitoring", true)
+
+	if(self.name == "Lever3"):
+		get_child(0).visible = state
+		get_child(1).visible = state
+	elif(self.name == "Lever2"):
+		get_child(2).visible = state
+		get_child(3).visible = state
+
+	self.set_deferred("disabled", state)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

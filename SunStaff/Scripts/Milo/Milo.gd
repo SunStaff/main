@@ -73,17 +73,17 @@ func get_input():
 		var dir = 0
 		direction = dir
 		if velocity.x > 0:
-			print("going right")
+			#print("going right")
 			facingright = true
 		elif velocity.x < 0:
-			print("going  left")
+			#print("going  left")
 			facingright = false
 		else:
-			print("idle")
+			#print("idle")
 			facingright = false
 		
 		if !is_on_floor():
-			print("not on ground")
+			#print("not on ground")
 			jumped = true
 		else:
 			jumped = false
