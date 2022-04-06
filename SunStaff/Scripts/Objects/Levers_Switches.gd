@@ -1,4 +1,4 @@
-extends Area2D
+extends "res://Scripts/Objects/Interactable.gd"
 
 
 # Declare member variables here. Examples:
@@ -26,6 +26,19 @@ func _get_position():
 #Set lever's position
 func _set_position(x, y):
 	position = Vector2(x, y)
+
+func SetObjectLightState(state): # What to do if object only appears in dark but not light
+	IsInLight = state
+	if (IsInLight && !activated):
+		activated = true
+		get_node("LitLever").visible = false #TODO: Change "Sprite" to "UnlitLever"
+		get_node("LitLeverHandle").visible = false
+		self.set_deferred("monitoring", false)
+	else:
+		get_node("LitLever").visible = true #TODO: Change "Sprite" to "UnlitLever"
+		get_node("LitLeverHandle").visible = true
+		activated = false
+		self.set_deferred("monitoring", true)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

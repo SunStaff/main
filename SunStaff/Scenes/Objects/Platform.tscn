@@ -8,6 +8,7 @@
 extents = Vector2( 33, 241.5 )
 
 [node name="Platform" type="StaticBody2D"]
+scale = Vector2( 1.5, 1 )
 script = ExtResource( 2 )
 
 [node name="UnlitPlatformmiddle" type="Sprite" parent="."]

@@ -99,6 +99,9 @@ func Destroy_SmallBlockBlocker():
 	#Destroy smallBlockBlocker node from the scene
 	smallBlockBlocker.queue_free()
 
+	#Force allows the block to fall after the block is removed
+	smallBlock.apply_impulse(Vector2(), Vector2(0, 5))
+
 func Open_FinalDoor():
 	#Final door motions downward
 	while(not finalDoorOpened):

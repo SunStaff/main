@@ -11,6 +11,7 @@ var door3
 var door4
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#Added if-statement, so the doors are only obtained for level 3
 	if(get_tree().get_current_scene().get_name() == "Level3"):
 		Doors = get_tree().get_nodes_in_group("Door")
 		door1 = Doors[1]
