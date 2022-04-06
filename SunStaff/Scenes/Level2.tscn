@@ -77,6 +77,12 @@ position = Vector2( 4798, -793 )
 light_mask = 1
 position = Vector2( 5211, -789 )
 
+[node name="UnlitLeverHandle" parent="LeverPuzzle/Lever2" index="0"]
+visible = false
+
+[node name="UnlitLever" parent="LeverPuzzle/Lever2" index="1"]
+visible = false
+
 [node name="Lever3" parent="LeverPuzzle" instance=ExtResource( 4 )]
 position = Vector2( 5621, -787 )
 
@@ -207,3 +213,5 @@ position = Vector2( 11081, -103 )
 
 [node name="StaffAltar" parent="BlockPuzzle" instance=ExtResource( 8 )]
 position = Vector2( 4320, -778 )
+
+[editable path="LeverPuzzle/Lever2"]
