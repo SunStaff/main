@@ -11,6 +11,8 @@ var smallBlockBlocker
 var smallBlock
 var finalDoor
 var finalDoorOpened = false
+var leverDoor
+var leverDoorOpened = false
 
 var timerPuzzle_Array = []
 var timer
@@ -26,6 +28,7 @@ var platform4 = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	finalDoor = get_parent().get_node("BlockPuzzle/FinalDoor")
+	leverDoor = get_parent().get_node("LeverPuzzle/PuzzleDoor")
 	#Block Puzzle elements initialized (Last puzzle)
 	skinnyBlockBlocker = get_parent().get_node("BlockPuzzle/SkinnyBlockFloorBlocker")
 	skinnyBlock = get_parent().get_node("BlockPuzzle/SkinnyBlock")
@@ -98,6 +101,9 @@ func Destroy_SkinnyBlockBlocker():
 func Destroy_SmallBlockBlocker():
 	#Destroy smallBlockBlocker node from the scene
 	smallBlockBlocker.queue_free()
+
+	#Force allows the block to fall after the block is removed
+	smallBlock.apply_impulse(Vector2(), Vector2(0, 5))
 
 func Open_FinalDoor():
 	#Final door motions downward

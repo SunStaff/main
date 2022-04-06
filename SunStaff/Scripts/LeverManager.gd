@@ -12,11 +12,13 @@ var CurrentClosestLever = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Doors = get_tree().get_nodes_in_group("Door")
-	door1 = Doors[1]
-	door2 = Doors[2]
-	door3 = Doors[3]
-	door4 = Doors[4]
+	#Added if-statement, so the doors are only obtained for level 3
+	if(get_tree().get_current_scene().get_name() == "Level3"):
+		Doors = get_tree().get_nodes_in_group("Door")
+		door1 = Doors[1]
+		door2 = Doors[2]
+		door3 = Doors[3]
+		door4 = Doors[4]
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
