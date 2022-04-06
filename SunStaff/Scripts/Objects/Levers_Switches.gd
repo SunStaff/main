@@ -17,6 +17,12 @@ func _ready():
 #When the switch is interacted with, change lever state from ON to OFF, or OFF to ON.
 func _change_lever_state():
 	isTurnedOn = not isTurnedOn
+	if(isTurnedOn == true):
+		get_child(0).rotation = 45
+		get_child(2).rotation = 45
+	elif(!isTurnedOn):
+			get_child(0).rotation = -45
+			get_child(2).rotation = -45
 	LeverManager.LeverFlipped(GameManager.GetCurrentLevel(), self, isTurnedOn)
 
 #Get lever's position
