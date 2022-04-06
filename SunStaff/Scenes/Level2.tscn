@@ -9,9 +9,6 @@
 [ext_resource path="res://Scenes/Milo/Milo.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Objects/StaffAltar.tscn" type="PackedScene" id=8]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 30, 177.5 )
-
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 334.5, 10 )
 
@@ -21,13 +18,16 @@ extents = Vector2( 38.5, 32 )
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 25.5, 231 )
 
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 30, 177.5 )
+
 [node name="Level2" type="Node"]
 
 [node name="Level2Manager" type="Node" parent="." groups=["LevelManager"]]
 script = ExtResource( 3 )
 
 [node name="Milo" parent="." instance=ExtResource( 7 )]
-position = Vector2( 4368, -877 )
+position = Vector2( 4441, -878 )
 
 [node name="Platforms" type="Node" parent="."]
 
@@ -69,12 +69,10 @@ position = Vector2( 5300, -720 )
 [node name="Platform3" parent="LeverPuzzle" instance=ExtResource( 2 )]
 position = Vector2( 6020, -720 )
 
-[node name="Lever" parent="LeverPuzzle" instance=ExtResource( 4 )]
-light_mask = 1
+[node name="Lever1" parent="LeverPuzzle" instance=ExtResource( 4 )]
 position = Vector2( 4798, -793 )
 
 [node name="Lever2" parent="LeverPuzzle" instance=ExtResource( 4 )]
-light_mask = 1
 position = Vector2( 5211, -789 )
 
 [node name="UnlitLeverHandle" parent="LeverPuzzle/Lever2" index="0"]
@@ -86,19 +84,11 @@ visible = false
 [node name="Lever3" parent="LeverPuzzle" instance=ExtResource( 4 )]
 position = Vector2( 5621, -787 )
 
-[node name="PuzzleDoor" type="KinematicBody2D" parent="LeverPuzzle"]
-position = Vector2( 6000, -933 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="LitLeverHandle" parent="LeverPuzzle/Lever3" index="2"]
+visible = false
 
-[node name="Door" type="Sprite" parent="LeverPuzzle/PuzzleDoor"]
-scale = Vector2( 1, 5.46875 )
-texture = ExtResource( 5 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeverPuzzle/PuzzleDoor"]
-position = Vector2( 3, -0.5 )
-shape = SubResource( 1 )
+[node name="LitLever" parent="LeverPuzzle/Lever3" index="3"]
+visible = false
 
 [node name="Platform" parent="." instance=ExtResource( 2 )]
 position = Vector2( 6900, -450 )
@@ -214,4 +204,19 @@ position = Vector2( 11081, -103 )
 [node name="StaffAltar" parent="BlockPuzzle" instance=ExtResource( 8 )]
 position = Vector2( 4320, -778 )
 
+[node name="PuzzleDoor" type="KinematicBody2D" parent="BlockPuzzle" groups=["Door"]]
+position = Vector2( 6000, -933 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Door" type="Sprite" parent="BlockPuzzle/PuzzleDoor"]
+scale = Vector2( 1, 5.46875 )
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlockPuzzle/PuzzleDoor"]
+position = Vector2( 3, -0.5 )
+shape = SubResource( 1 )
+
 [editable path="LeverPuzzle/Lever2"]
+[editable path="LeverPuzzle/Lever3"]

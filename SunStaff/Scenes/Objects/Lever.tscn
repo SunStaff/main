@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Objects/Levers_Switches.gd" type="Script" id=2]
 [ext_resource path="res://Art/Unlit/Objects/lever_unlit_front.png" type="Texture" id=3]
 [ext_resource path="res://Art/Unlit/Objects/lever_unlit_handel.png" type="Texture" id=4]
@@ -34,13 +33,6 @@ texture = ExtResource( 6 )
 [node name="LitLever" type="Sprite" parent="."]
 position = Vector2( 3, -65 )
 texture = ExtResource( 5 )
-
-[node name="UnlitLeverSprite" type="Sprite" parent="."]
-visible = false
-modulate = Color( 0.878431, 0, 0, 1 )
-light_mask = 2
-position = Vector2( 0, 2 )
-texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 2

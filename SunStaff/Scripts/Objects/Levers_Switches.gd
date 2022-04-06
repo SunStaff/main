@@ -15,8 +15,14 @@ func _ready():
 	LeverManager = get_node("/root/LeverManager")
 
 #When the switch is interacted with, change lever state from ON to OFF, or OFF to ON.
-func ChangeLeverState():
-	isTurnedOn = !isTurnedOn
+func _change_lever_state():
+	isTurnedOn = not isTurnedOn
+	if(isTurnedOn == true):
+		get_child(0).rotation = 45
+		get_child(2).rotation = 45
+	elif(!isTurnedOn):
+			get_child(0).rotation = -45
+			get_child(2).rotation = -45
 	LeverManager.LeverFlipped(GameManager.GetCurrentLevel(), self, isTurnedOn)
 
 #Get lever's position
@@ -29,16 +35,15 @@ func SetPosition(x, y):
 
 func SetObjectLightState(state): # What to do if object only appears in dark but not light
 	IsInLight = state
-	if (IsInLight && !activated):
-		activated = true
-		get_node("LitLever").visible = false #TODO: Change "Sprite" to "UnlitLever"
-		get_node("LitLeverHandle").visible = false
-		self.set_deferred("monitoring", false)
-	else:
-		get_node("LitLever").visible = true #TODO: Change "Sprite" to "UnlitLever"
-		get_node("LitLeverHandle").visible = true
-		activated = false
-		self.set_deferred("monitoring", true)
+
+	if(self.name == "Lever3"):
+		get_child(0).visible = state
+		get_child(1).visible = state
+	elif(self.name == "Lever2"):
+		get_child(2).visible = state
+		get_child(3).visible = state
+
+	self.set_deferred("disabled", state)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
