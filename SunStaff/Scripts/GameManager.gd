@@ -17,7 +17,7 @@ var autoTester
 func _ready():
 	activated = false
 	LastLivingPos = Vector2(0,55)
-	Player = get_tree().get_nodes_in_group("Player")[0]
+	#Player = get_tree().get_nodes_in_group("Player")[0]
 	LevelManagers = get_tree().get_nodes_in_group("LevelManager")
 	SetCurrentLevel(get_tree().get_current_scene().get_name())
 	autoTester = load("res://Scripts/Auto_Tester.gd").new()

@@ -104,7 +104,7 @@ visible = false
 
 [node name="Milo" parent="." instance=ExtResource( 1 )]
 visible = false
-position = Vector2( 3787, 165 )
+position = Vector2( 3772, 163 )
 
 [node name="StartingDoor" type="KinematicBody2D" parent="." groups=["Door"]]
 light_mask = 0
