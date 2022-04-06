@@ -13,6 +13,9 @@ var facingright
 var HasStaff = true
 export (bool) var TurnLightOff = false
 
+#Animation Variables
+var AnimationManager
+
 # Movement Variables
 var faceRight = true
 export (int) var speed = 300
@@ -30,6 +33,7 @@ func _ready():
 	sprite = $AnimatedSprite
 	spriteUnlit = $AnimatedSprite2
 	spriteUnlit.visible = false
+	AnimationManager = load("res://Scripts/Milo/MiloAnimationManager.gd")
 
 func get_input():
 	if (GameManager.IsPlayerAlive and GameManager.IsGamePlaying):

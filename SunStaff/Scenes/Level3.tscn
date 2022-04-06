@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/Milo/Milo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/PressurePlate.tscn" type="PackedScene" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Art/Misc/door_rough.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Main Levels/Level3Background.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Art/Lit/Backgrounds/lv_3lit_rockslide.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Objects/StaffAltar.tscn" type="PackedScene" id=6]
@@ -129,7 +129,7 @@ shape = SubResource( 2 )
 
 [node name="Door1" type="Sprite" parent="StartingDoor"]
 light_mask = 0
-scale = Vector2( 1, 8.6875 )
+scale = Vector2( 1, 1.5 )
 texture = ExtResource( 3 )
 
 [node name="SavingPoint" parent="." instance=ExtResource( 7 )]
@@ -159,7 +159,7 @@ scale = Vector2( 2, 2 )
 [node name="Door2" type="KinematicBody2D" parent="." groups=["Door"]]
 light_mask = 2
 position = Vector2( 7136, 430 )
-scale = Vector2( 1.5, 8 )
+scale = Vector2( 1, 1.5 )
 
 [node name="Door2" type="Sprite" parent="Door2"]
 light_mask = 2
@@ -172,8 +172,8 @@ shape = SubResource( 3 )
 
 [node name="Door3" type="KinematicBody2D" parent="." groups=["Door"]]
 light_mask = 2
-position = Vector2( 7252, 430 )
-scale = Vector2( 1.5, 8 )
+position = Vector2( 7340, 430 )
+scale = Vector2( 1, 1.5 )
 
 [node name="Door3" type="Sprite" parent="Door3"]
 light_mask = 2
@@ -186,8 +186,8 @@ shape = SubResource( 4 )
 
 [node name="Door4" type="KinematicBody2D" parent="." groups=["Door"]]
 light_mask = 2
-position = Vector2( 7368, 430 )
-scale = Vector2( 1.5, 8 )
+position = Vector2( 7544, 430 )
+scale = Vector2( 1, 1.5 )
 
 [node name="Door4" type="Sprite" parent="Door4"]
 light_mask = 2
@@ -200,8 +200,8 @@ shape = SubResource( 5 )
 
 [node name="Door5" type="KinematicBody2D" parent="." groups=["Door"]]
 light_mask = 2
-position = Vector2( 7484, 430 )
-scale = Vector2( 1.5, 8 )
+position = Vector2( 7748, 430 )
+scale = Vector2( 1, 1.5 )
 
 [node name="Door5" type="Sprite" parent="Door5"]
 light_mask = 2
