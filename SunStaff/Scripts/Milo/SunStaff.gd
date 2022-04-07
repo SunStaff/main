@@ -9,6 +9,9 @@ func _ready():
 func _process(_delta):
 	pass
 
+func ChangeLightCircleMonitoring(state):
+	self.monitoring = state
+
 func _on_LightCircle_area_entered(area):
 	if ("Briar" in area.name):
 		area.SetObjectLightState(true)
@@ -17,7 +20,6 @@ func _on_LightCircle_area_entered(area):
 	if("Lever3" in area.name):
 		area.SetObjectLightState(false)
 
-
 func _on_LightCircle_area_exited(area):
 	if ("Briar" in area.name):
 		area.SetObjectLightState(false)
@@ -25,3 +27,9 @@ func _on_LightCircle_area_exited(area):
 		area.SetObjectLightState(false)	
 	if("Lever3" in area.name):
 		area.SetObjectLightState(true)
+
+func _on_LightCircle_body_entered(_body):
+	pass
+
+func _on_LightCircle_body_exited(_body):
+	pass

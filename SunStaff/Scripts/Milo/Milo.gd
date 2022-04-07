@@ -4,10 +4,7 @@ extends KinematicBody2D
 var playerRootNode
 var sprite
 var spriteUnlit
-var sprintCheck = false
-var jumped
-var direction
-var facingright
+const MARGIN_OF_ERROR = 0.008
 
 # SunStaff Variables
 var HasStaff = true
@@ -15,162 +12,75 @@ export (bool) var TurnLightOff = false
 
 #Animation Variables
 var AnimationManager
+var StateMachine
+var playLeftOrRight = false
 
 # Movement Variables
 var faceRight = true
-export (int) var speed = 300
-export (int) var jump_speed = -1100
-export (int) var gravity = 3000
-export (float, 0, 1.0) var friction = 1
-export (float, 0, 1.0) var acceleration = 0.25
+export (float) var speed = 600.0
 var velocity = Vector2.ZERO
+var direction
+
+# Jump Variables
 var justJumped = false
+export (float) var jump_speed = -1600
+export (float) var gravity = 3000
 
 func _ready():
 	if (TurnLightOff):
 		GameManager.GetSunStaff().visible = false
 	playerRootNode = get_parent()
-	sprite = $AnimatedSprite
-	spriteUnlit = $AnimatedSprite2
+	sprite = $Lit
+	spriteUnlit = $Unlit
 	spriteUnlit.visible = false
-	AnimationManager = load("res://Scripts/Milo/MiloAnimationManager.gd")
+	AnimationManager = load("res://Scripts/Milo/MiloAnimationManager.gd").new()
+	StateMachine = $AnimationTree.get("parameters/playback")
 
 func get_input():
-	if (GameManager.IsPlayerAlive and GameManager.IsGamePlaying):
-		# Movement
-		
-		var dir = 0
-		direction = dir
-		if velocity.x > 0:
-			# print("going right")
-			facingright = true
-		elif velocity.x < 0:
-			# print("going  left")
-			facingright = false
-		else:
-			# print("idle")
-			facingright = false
-		
-		if !is_on_floor():
-			# print("not on ground")
-			jumped = true
-		else:
-			jumped = false
-		
-		if (Input.is_action_pressed("sprint")):
-			sprintCheck = true
-		else:
-			sprintCheck = false
+	velocity.x = 0.0
 
-		if Input.is_action_just_pressed("Jump"): 
-			if is_on_floor():
-				velocity.y = jump_speed
-				if (HasStaff):
-					sprite.animation = "MiloJumpFallStaff"
-					spriteUnlit.visible = false
-				else:
-					spriteUnlit.visible = true
-					sprite.animation = "MiloJumpFallStaffless"
-					spriteUnlit.animation = "MiloJumpFallUNLIT"		
-			
-		elif Input.is_action_just_pressed("Right"):
-			if (HasStaff):
-				sprite.animation = "MiloWalkStaff"
-				spriteUnlit.visible = false
-			elif(!HasStaff):
-				spriteUnlit.visible = true
-				sprite.animation = "MiloWalkStaffless"
-				spriteUnlit.animation = "MiloWalkStafflessUNLIT"
-		
-		elif Input.is_action_just_pressed("Left"):
-			if (HasStaff):
-				sprite.animation = "MiloWalkStaff"
-				spriteUnlit.visible = false
-			elif(!HasStaff):
-				spriteUnlit.visible = true
-				sprite.animation = "MiloWalkStaffless"
-				spriteUnlit.animation = "MiloWalkStafflessUNLIT"
+	if (is_on_floor()):
+		playLeftOrRight = true
 
-		if sprintCheck:
-			if (HasStaff and jumped == false):
-				spriteUnlit.visible = false
-				sprite.animation = "MiloRunStaff"
-			
-			elif(!HasStaff and jumped == false):
-				spriteUnlit.visible = true
-				sprite.animation = "MiloRunStaffless"
-				spriteUnlit.animation = "MiloRunStafflessUNLIT"
+	if Input.is_action_pressed("Right"):
+		velocity.x += speed
+		sprite.scale.x = 1
+		spriteUnlit.scale.x = 1
+		direction = 1
+	
+	elif Input.is_action_pressed("Left"):
+		velocity.x -= speed
+		sprite.scale.x = -1
+		spriteUnlit.scale.x = -1
+		direction = -1
 
-		if Input.is_action_pressed("Right"):
-			if (!faceRight and facingright):
-				# print("facing right")
-				sprite.scale.x *= -1
-				spriteUnlit.scale.x *= -1
-				faceRight = true
-			if sprintCheck == true:
-				dir += 2
-			else:
-				dir += 1
-				
-			if (justJumped):
-				if (HasStaff):
-					spriteUnlit.visible = false
-					sprite.animation = "MiloWalkStaff"
-				else:
-					spriteUnlit.visible = true
-					sprite.animation = "MiloWalkStaffless"
-					spriteUnlit.animation = "MiloWalkStafflessUNLIT"
-				justJumped = false
-		
-		elif Input.is_action_pressed("Left"):
-			if (faceRight):
-				# print("facing left")
-				sprite.scale.x *= -1
-				spriteUnlit.scale.x *= -1
-				faceRight = false
-			if sprintCheck == true:
-				dir -= 2
-			else:
-				dir -= 1
-			if (justJumped):
-				if (HasStaff):
-					spriteUnlit.visible = false
-					sprite.animation = "MiloWalkStaff"
-				else:
-					spriteUnlit.visible = true
-					sprite.animation = "MiloWalkStaffless"
-					spriteUnlit.animation = "MiloWalkStafflessUNLIT"
-				justJumped = false
-			
-		else:
-			sprintCheck = false
-			if dir == 0 and velocity.y == 0:
-				if (HasStaff and jumped == false):
-				
-					spriteUnlit.visible = false
-					sprite.animation = "MiloIdleStaff"
-				elif(!HasStaff and jumped == false):
-				
-					spriteUnlit.visible = true
-					sprite.animation = "MiloIdleStaffless"
-					spriteUnlit.animation = "MiloIdleStafflessUNLIT"
-		
-		if dir != 0:
-			velocity.x = lerp(velocity.x, dir * speed, acceleration)
-		else:
-			velocity.x = lerp(velocity.x, 0, friction)
+	if Input.is_action_pressed("Jump"):
+		playLeftOrRight = false
 
-		# If Player is Falling Passed Border
-		if (self.position.y > 1500):
-			print("out of bounds")
-			GameManager.SetPlayerAliveState(false)
-	else:
-		velocity = Vector2.ZERO
+	if (abs(velocity.y) - MARGIN_OF_ERROR < 0 and justJumped):
+		justJumped = false
+		playLeftOrRight = false
+		AnimationManager.FallAnimation()
+
+	if Input.is_action_pressed("Sprint") and (Input.is_action_pressed("Left") or Input.is_action_pressed("Right")):
+		if is_on_floor():
+			velocity.x += speed * 2 * direction
+	
+	AnimationManager.UpdateAnimations(StateMachine, HasStaff, velocity, playLeftOrRight)
 	
 func _physics_process(delta):
 	get_input()
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
+	if Input.is_action_just_pressed("Jump"):
+		if is_on_floor():
+			AnimationManager.JumpAnimation()
+			velocity.y = jump_speed
+			playLeftOrRight = false
+			justJumped = true
+	
+	if (self.position.y > 1500):
+		GameManager.TeleportPlayer()
 		
 func PlayerDeath(position):
 	if (position == null):
@@ -183,7 +93,3 @@ func PlayerDeath(position):
 
 func ChangeHasStaffState(state):
 	HasStaff = state
-	
-func _on_AnimatedSprite_animation_finished(): 
-	if ("MiloJumpFallStaff" in sprite.animation):
-		justJumped = true

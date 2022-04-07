@@ -21,7 +21,7 @@ func _ready():
 	LevelManagers = get_tree().get_nodes_in_group("LevelManager")
 	SetCurrentLevel(get_tree().get_current_scene().get_name())
 	autoTester = load("res://Scripts/Auto_Tester.gd").new()
-	if (!autoTester.Execute()):
+	if (!autoTester.Execute(get_node("/root/LeverManager"))):
 		IsGamePlaying = false
 		print("Testing Failed!! Please check tests!!")
 	GemsCollected = {"Green": false, "Blue": false, "Red": false, "Cyan": false, "Magenta": false }

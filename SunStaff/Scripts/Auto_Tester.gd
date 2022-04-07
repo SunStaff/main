@@ -1,6 +1,7 @@
 extends Node
 
 var Milo
+var ManagerLever
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,8 +11,9 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func Execute():
+func Execute(leverManager):
 	Milo = GameManager.GetPlayer()
+	ManagerLever = leverManager
 	var results = []
 	results.append(Test_LeverManager_Distance_Normal())
 	results.append(Test_LeverManager_Distance_AllLeversSamePosition())
@@ -69,7 +71,7 @@ func Test_LeverManager_Distance_Normal():
 	player.position = Vector2(0,0)
 	
 	var expected = levers[0]
-	var result = LeverManager.GetCurrentClosestLever(levers, player)
+	var result = ManagerLever.GetCurrentClosestLever(levers, player)
 	if (result == expected):
 		return [true, "LeverManager_Distance_Normal"]
 	else:
@@ -86,7 +88,7 @@ func Test_LeverManager_Distance_AllLeversSamePosition():
 	player.position = Vector2(0,0)
 	
 	var expected = levers[0]
-	var result = LeverManager.GetCurrentClosestLever(levers, player)
+	var result = ManagerLever.GetCurrentClosestLever(levers, player)
 	if (result == expected):
 		return [true, "LeverManager_Distance_AllLeversSamePosition"]
 	else:
@@ -99,7 +101,7 @@ func Test_LeverManager_LeverFlipped_Tutorial():
 	var turnedOn = false
 
 	var expected = "Tutorial"
-	var result = LeverManager.LeverFlipped(level, lever, turnedOn)
+	var result = ManagerLever.LeverFlipped(level, lever, turnedOn)
 	if (result == expected):
 		return [true, "LeverManager_LeverFlipped_Tutorial"]
 	else:
@@ -112,7 +114,7 @@ func Test_LeverManager_LeverFlipped_Level1():
 	var turnedOn = false
 
 	var expected = "Level1"
-	var result = LeverManager.LeverFlipped(level, lever, turnedOn)
+	var result = ManagerLever.LeverFlipped(level, lever, turnedOn)
 	if (result == expected):
 		return [true, "LeverManager_LeverFlipped_Level1"]
 	else:
@@ -125,7 +127,7 @@ func Test_LeverManager_LeverFlipped_Level2():
 	var turnedOn = false
 
 	var expected = "Level2"
-	var result = LeverManager.LeverFlipped(level, lever, turnedOn)
+	var result = ManagerLever.LeverFlipped(level, lever, turnedOn)
 	if (result == expected):
 		return [true, "LeverManager_LeverFlipped_Level2"]
 	else:
@@ -138,7 +140,7 @@ func Test_LeverManager_LeverFlipped_Level3():
 	var turnedOn = false
 
 	var expected = "Level3"
-	var result = LeverManager.LeverFlipped(level, lever, turnedOn)
+	var result = ManagerLever.LeverFlipped(level, lever, turnedOn)
 	if (result == expected):
 		return [true, "LeverManager_LeverFlipped_Level3"]
 	else:
@@ -151,7 +153,7 @@ func Test_LeverManager_LeverFlipped_NotCorrectLevel():
 	var turnedOn = false
 
 	var expected = "Not Valid Level Name for LeverFlipped()"
-	var result = LeverManager.LeverFlipped(level, lever, turnedOn)
+	var result = ManagerLever.LeverFlipped(level, lever, turnedOn)
 	if (result == expected):
 		return [true, "LeverManager_LeverFlipped_NotCorrectLevel"]
 	else:

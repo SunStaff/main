@@ -1,9 +1,7 @@
 extends Node
 
 var MiloHasStaff
-var LitSprite
-var UnlitSprite
-var MiloSprinting
+var StateMachine
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -18,6 +16,34 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func UpdateAnimations(hasStaff, sprint):
+func UpdateAnimations(stateMachine, hasStaff, velocity, playLeftOrRight):
+	StateMachine = stateMachine
 	MiloHasStaff = hasStaff
-	MiloSprinting = sprint
+	if (velocity.length() == 0):
+		if (MiloHasStaff):
+			StateMachine.travel("Idle_Staff")
+		else:
+			StateMachine.travel("Idle_Staffless")
+	if (playLeftOrRight and (velocity.x > 0 or velocity.x < 0)):
+		if (MiloHasStaff):
+			if (velocity.x > 600 or velocity.x < -600):
+				StateMachine.travel("Run_Staff")
+			else:
+				StateMachine.travel("Walk_Staff")
+		else:
+			if (velocity.x > 600 or velocity.x < -600):
+				StateMachine.travel("Run_Staffless")
+			else:
+				StateMachine.travel("Walk_Staffless")
+
+func JumpAnimation():
+	if (MiloHasStaff):
+		StateMachine.travel("Jump_Staff")
+	else:
+		StateMachine.travel("Jump_Staffless")
+
+func FallAnimation():
+	if (MiloHasStaff):
+		StateMachine.travel("Fall_Staff")
+	else:
+		StateMachine.travel("Fall_Staffless")

@@ -50,7 +50,7 @@ func _process(_delta):
 	if (PlayerWithinRange):
 		if (Input.is_action_just_pressed("Interact")):
 			if (LeverManager.GetCurrentClosestLever(GameManager.GetLevers(), GameManager.GetPlayer()) == self):
-				ChangeLeverState()
+				_change_lever_state()
 
 func _on_Lever_body_entered(body):
 	if ("Milo" in body.name):

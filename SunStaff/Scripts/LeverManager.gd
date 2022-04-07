@@ -6,6 +6,9 @@ var door2
 var door3
 var door4
 
+# Testing Variables
+var leverNameValid = false
+
 # Distance Variables:
 var minDistanceToLever = INF
 var CurrentClosestLever = null
@@ -64,31 +67,36 @@ func Level1(lever, _turnedOn):
 		"2":
 			pass
 
-func Level2(lever, _turnedOn):
+func Level2(lever, turnedOn):
 	var name = lever.name.replacen("Lever", "")
 	match(name):
 		"1":
-			if(turnedOn):
+			leverNameValid = true
+			if (turnedOn):
 				leverFlippedCount += 1
 				print("LeverFlippedCount up 1")
 			elif(!turnedOn):
 				leverFlippedCount -= 1
 				print("LeverFlippedCount down 1")
 		"2":
+			leverNameValid = true
 			if(turnedOn):
 				leverFlippedCount += 1
 			elif(!turnedOn):
 				leverFlippedCount -= 1
 		"3":
+			leverNameValid = true
 			if(turnedOn):
 				leverFlippedCount += 1
 			elif(!turnedOn):
 				leverFlippedCount -= 1
 	print("LeverFlippedCount: ", leverFlippedCount)
-	if(leverFlippedCount >= 3):
-		door1.position.y = -500
-	elif(leverFlippedCount < 3):
-		door1.position.y = -933
+	if (leverNameValid):
+		leverNameValid = false
+		if(leverFlippedCount >= 3):
+			door1.position.y = -500
+		elif(leverFlippedCount < 3):
+			door1.position.y = -933
 
 
 func Level3(lever, turnedOn):
