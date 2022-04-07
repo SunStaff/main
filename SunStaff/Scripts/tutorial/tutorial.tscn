@@ -1,0 +1,172 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/Objects/Platform.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Objects/Briar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Objects/SavingPoint.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Objects/Lever.tscn" type="PackedScene" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Objects/StaffAltar.tscn" type="PackedScene" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 35, 280 )
+
+[node name="tutorial" type="Node"]
+
+[node name="start to first jump" type="Node" parent="."]
+
+[node name="starting platform1" parent="start to first jump" instance=ExtResource( 1 )]
+
+[node name="starting platform 2" parent="start to first jump" instance=ExtResource( 1 )]
+position = Vector2( 480, 0 )
+
+[node name="first jump" parent="start to first jump" instance=ExtResource( 1 )]
+position = Vector2( 959, -68 )
+
+[node name="first save" parent="start to first jump" instance=ExtResource( 3 )]
+position = Vector2( 762, -125 )
+
+[node name="block off the end" parent="start to first jump" instance=ExtResource( 1 )]
+position = Vector2( 2101, 136 )
+rotation = 1.5708
+
+[node name="lever and briar section" type="Node" parent="."]
+
+[node name="briar and lever platform" parent="lever and briar section" instance=ExtResource( 1 )]
+position = Vector2( 1436, -68 )
+
+[node name="Briar" parent="lever and briar section" instance=ExtResource( 2 )]
+position = Vector2( 1189, -136 )
+
+[node name="Lever" parent="lever and briar section" instance=ExtResource( 4 )]
+position = Vector2( 1462, -141 )
+
+[node name="door platform" parent="lever and briar section" instance=ExtResource( 1 )]
+position = Vector2( 1910, -68 )
+
+[node name="StartingDoor" type="KinematicBody2D" parent="lever and briar section" groups=["Door"]]
+light_mask = 0
+position = Vector2( 1800, -380 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lever and briar section/StartingDoor"]
+light_mask = 0
+shape = SubResource( 1 )
+
+[node name="Door1" type="Sprite" parent="lever and briar section/StartingDoor"]
+light_mask = 0
+scale = Vector2( 1, 8.6875 )
+texture = ExtResource( 5 )
+
+[node name="second save" parent="lever and briar section" instance=ExtResource( 3 )]
+position = Vector2( 2006, -132 )
+
+[node name="sun staff resting place" type="Node" parent="."]
+
+[node name="wall 1(i know it is a platform)" parent="sun staff resting place" instance=ExtResource( 1 )]
+position = Vector2( -272, -277 )
+rotation = 1.5708
+
+[node name="resting platform1" parent="sun staff resting place" instance=ExtResource( 1 )]
+position = Vector2( 2381, 413 )
+
+[node name="resting platform2" parent="sun staff resting place" instance=ExtResource( 1 )]
+position = Vector2( 2860, 413 )
+
+[node name="StaffAltar resting place" parent="sun staff resting place" instance=ExtResource( 6 )]
+position = Vector2( 2626, 360 )
+
+[node name="out of the altar room" parent="sun staff resting place" instance=ExtResource( 1 )]
+position = Vector2( 3339, -71 )
+
+[node name="wall 2(i know it is a platform)" parent="sun staff resting place" instance=ExtResource( 1 )]
+position = Vector2( 3134, 131 )
+rotation = -1.5708
+
+[node name="jump up platform" parent="sun staff resting place" instance=ExtResource( 1 )]
+position = Vector2( 3121, 257 )
+
+[node name="third save" parent="sun staff resting place" instance=ExtResource( 3 )]
+position = Vector2( 2815, 357 )
+
+[node name="jump up platform2" parent="sun staff resting place" instance=ExtResource( 1 )]
+position = Vector2( 3244, 85 )
+
+[node name="to next pedestal" type="Node" parent="."]
+
+[node name="to next area platform" parent="to next pedestal" instance=ExtResource( 1 )]
+position = Vector2( 3817, -71 )
+
+[node name="briar platform" parent="to next pedestal" instance=ExtResource( 1 )]
+position = Vector2( 4287, -71 )
+
+[node name="fourth save save" parent="to next pedestal" instance=ExtResource( 3 )]
+position = Vector2( 3210, -118 )
+
+[node name="briar wall" type="Node" parent="to next pedestal"]
+
+[node name="Briarwall1" parent="to next pedestal/briar wall" instance=ExtResource( 2 )]
+position = Vector2( 3933, -140 )
+
+[node name="Briarwall2" parent="to next pedestal/briar wall" instance=ExtResource( 2 )]
+position = Vector2( 3933, -204 )
+
+[node name="Briarwall3" parent="to next pedestal/briar wall" instance=ExtResource( 2 )]
+position = Vector2( 3933, -268 )
+
+[node name="Briarwall4" parent="to next pedestal/briar wall" instance=ExtResource( 2 )]
+position = Vector2( 3933, -325 )
+
+[node name="Briarwall5" parent="to next pedestal/briar wall" instance=ExtResource( 2 )]
+position = Vector2( 3933, -389 )
+
+[node name="next pedestal to end" type="Node" parent="."]
+
+[node name="dipped platform" parent="next pedestal to end" instance=ExtResource( 1 )]
+position = Vector2( 4771, -19 )
+
+[node name="dipped platform2" parent="next pedestal to end" instance=ExtResource( 1 )]
+position = Vector2( 5252, -19 )
+
+[node name="staff tutorial" parent="next pedestal to end" instance=ExtResource( 6 )]
+position = Vector2( 4848, -74 )
+
+[node name="ending door" type="KinematicBody2D" parent="next pedestal to end" groups=["Door"]]
+light_mask = 0
+position = Vector2( 6000, -380 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="next pedestal to end/ending door"]
+light_mask = 0
+shape = SubResource( 1 )
+
+[node name="Door1" type="Sprite" parent="next pedestal to end/ending door"]
+light_mask = 0
+scale = Vector2( 1, 8.6875 )
+texture = ExtResource( 5 )
+
+[node name="ending platform 1" parent="next pedestal to end" instance=ExtResource( 1 )]
+position = Vector2( 5733, -64 )
+
+[node name="ending platform 2" parent="next pedestal to end" instance=ExtResource( 1 )]
+position = Vector2( 6211, -64 )
+
+[node name="ending platform 3" parent="next pedestal to end" instance=ExtResource( 1 )]
+position = Vector2( 6689, -64 )
+
+[node name="Lever" parent="next pedestal to end" instance=ExtResource( 4 )]
+position = Vector2( 6324, -145 )
+
+[node name="ending briar wall" type="Node" parent="next pedestal to end"]
+
+[node name="Briarwall1" parent="next pedestal to end/ending briar wall" instance=ExtResource( 2 )]
+position = Vector2( 6893, -133 )
+
+[node name="Briarwall2" parent="next pedestal to end/ending briar wall" instance=ExtResource( 2 )]
+position = Vector2( 6893, -197 )
+
+[node name="Briarwall3" parent="next pedestal to end/ending briar wall" instance=ExtResource( 2 )]
+position = Vector2( 6893, -261 )
+
+[node name="Briarwall4" parent="next pedestal to end/ending briar wall" instance=ExtResource( 2 )]
+position = Vector2( 6893, -318 )
+
+[node name="Briarwall5" parent="next pedestal to end/ending briar wall" instance=ExtResource( 2 )]
+position = Vector2( 6893, -382 )

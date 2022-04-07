@@ -103,7 +103,7 @@ func Level2_TimerPuzzle():
 
 func Destroy_SkinnyBlockBlocker():
 	#Destroy skinnyBlockBlocker node from the scene
- a	skinnyBlockBlocker.queue_free()
+	skinnyBlockBlocker.queue_free()
 
 func Destroy_SmallBlockBlocker():
 	#Destroy smallBlockBlocker node from the scene

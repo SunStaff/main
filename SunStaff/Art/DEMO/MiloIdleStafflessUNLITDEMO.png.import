@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/MiloIdleStafflessUNLITDEMO.png-4a9c30c070eca9f823e2bfd54a3ed056.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Art/DEMO/MiloIdleStafflessUNLITDEMO.png"
+dest_files=[ "res://.import/MiloIdleStafflessUNLITDEMO.png-4a9c30c070eca9f823e2bfd54a3ed056.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
