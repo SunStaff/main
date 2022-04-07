@@ -151,14 +151,15 @@ func Level3_TimerPuzzle():
 			timer.start()
 			yield(timer, "timeout")
 
-		for platform in timerPuzzle_Array:
-			while(platform.position.y < 1500):
-				if (not stopTimerPuzzle):
-					platform.position.y += 50
-					timer.set_wait_time(.5)
-					timer.set_one_shot(true)
-					timer.start()
-					yield(timer, "timeout")
+		while (timerPuzzle_Array[0].position.y < 1600 or
+			timerPuzzle_Array[1].position.y < 1600 or
+			timerPuzzle_Array[2].position.y < 1600):
+			for platform in timerPuzzle_Array:
+				platform.position.y += 50
+				timer.set_wait_time(0.5)
+				timer.set_one_shot(true)
+				timer.start()
+				yield(timer, "timeout")
 		timerActivated = false
 
 func OpenTheEnd():

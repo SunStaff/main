@@ -94,9 +94,9 @@ func Level2(lever, turnedOn):
 	if (leverNameValid):
 		leverNameValid = false
 		if(leverFlippedCount >= 3):
-			door1.position.y = -500
+			door1.position.y = 150
 		elif(leverFlippedCount < 3):
-			door1.position.y = -933
+			door1.position.y = -850
 
 
 func Level3(lever, turnedOn):
@@ -144,10 +144,25 @@ func Level3(lever, turnedOn):
 			pass
 
 func GetCurrentClosestLever(levers, player):
+	var childOfRoot = true
+	var test = false
+	for lever in levers:
+		if (lever.get_parent() == null):
+			test = true
+
+	if (!test):
+		if ("Level" in levers[0].get_parent().name or "Tutorial" in levers[0].get_parent().name):
+			childOfRoot = true
+		else:
+			childOfRoot = false
 	CurrentClosestLever = null
 	# Get Current Closest Lever
 	for lever in levers:
-		var distanceTo =  GameManager.DistanceTo(player.position, lever.position)
+		var distanceTo = 0
+		if (childOfRoot):
+			distanceTo = GameManager.DistanceTo(player.position, lever.position)
+		else:
+			distanceTo = GameManager.DistanceTo(player.position, lever.global_position)
 		if (distanceTo < minDistanceToLever):
 			minDistanceToLever = distanceTo
 			CurrentClosestLever = lever

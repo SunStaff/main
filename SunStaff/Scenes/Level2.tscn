@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Objects/PressurePlate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/Platform.tscn" type="PackedScene" id=2]
@@ -8,72 +8,96 @@
 [ext_resource path="res://Scenes/Objects/Block.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Milo/Milo.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Objects/StaffAltar.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Main Levels/Level2Background.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Art/Misc/gate.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/Objects/SavingPoint.tscn" type="PackedScene" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 52.5, 189 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 334.5, 10 )
+extents = Vector2( 334.5, 46.5 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 38.5, 32 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 25.5, 231 )
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 30, 177.5 )
+extents = Vector2( 51.25, 209.5 )
 
 [node name="Level2" type="Node"]
 
 [node name="Level2Manager" type="Node" parent="." groups=["LevelManager"]]
 script = ExtResource( 3 )
+DebugMode = true
+MiloSpawnLocation = Vector2( 9800, -270 )
+
+[node name="Level2Background" parent="." instance=ExtResource( 9 )]
 
 [node name="Milo" parent="." instance=ExtResource( 7 )]
-position = Vector2( 4441, -878 )
+position = Vector2( 9800, -270 )
 
 [node name="Platforms" type="Node" parent="."]
 
-[node name="StartingPlatform" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( -800, 0 )
+[node name="Platform" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( 5886, -380 )
 
-[node name="StartingPlatform2" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( -80, 0 )
+[node name="Platform2" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( 6604, -380 )
 
-[node name="StartingPlatform3" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 640, 0 )
+[node name="Platform3" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( 7322, -380 )
+
+[node name="Platform4" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( 8128, -209 )
+
+[node name="Platform5" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( 8988, -71 )
 
 [node name="TimerPuzzle" type="Node" parent="."]
 
 [node name="PressurePlate1" parent="TimerPuzzle" instance=ExtResource( 1 )]
-position = Vector2( 956, -54 )
+position = Vector2( 2043, 86 )
+scale = Vector2( 4, 2 )
 
 [node name="TimerPlatform1" parent="TimerPuzzle" instance=ExtResource( 2 )]
-position = Vector2( 1520, 460 )
+position = Vector2( 2680, 1600 )
 
 [node name="TimerPlatform2" parent="TimerPuzzle" instance=ExtResource( 2 )]
-position = Vector2( 2240, 460 )
+position = Vector2( 3456, 1600 )
 
 [node name="TimerPlatform3" parent="TimerPuzzle" instance=ExtResource( 2 )]
-position = Vector2( 2960, 460 )
+position = Vector2( 4232, 1600 )
 
 [node name="TimerPlatform4" parent="TimerPuzzle" instance=ExtResource( 2 )]
-position = Vector2( 3680, 460 )
+position = Vector2( 5040, 1600 )
 
 [node name="LeverPuzzle" type="Node" parent="."]
 
-[node name="Platform" parent="LeverPuzzle" instance=ExtResource( 2 )]
+[node name="StaffAltar" parent="LeverPuzzle" instance=ExtResource( 8 )]
+position = Vector2( 5956, -468 )
+
+[node name="PuzzleDoor" type="KinematicBody2D" parent="LeverPuzzle" groups=["Door"]]
 light_mask = 2
-position = Vector2( 4580, -720 )
+position = Vector2( 7334, -850 )
+scale = Vector2( 1.5, 2.5 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Platform2" parent="LeverPuzzle" instance=ExtResource( 2 )]
-position = Vector2( 5300, -720 )
+[node name="Door" type="Sprite" parent="LeverPuzzle/PuzzleDoor"]
+light_mask = 2
+texture = ExtResource( 10 )
 
-[node name="Platform3" parent="LeverPuzzle" instance=ExtResource( 2 )]
-position = Vector2( 6020, -720 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeverPuzzle/PuzzleDoor"]
+light_mask = 2
+position = Vector2( -19.5, 11 )
+shape = SubResource( 1 )
 
 [node name="Lever1" parent="LeverPuzzle" instance=ExtResource( 4 )]
-position = Vector2( 4798, -793 )
+position = Vector2( 6300, -440 )
 
 [node name="Lever2" parent="LeverPuzzle" instance=ExtResource( 4 )]
-position = Vector2( 5211, -789 )
+position = Vector2( 6700, -440 )
 
 [node name="UnlitLeverHandle" parent="LeverPuzzle/Lever2" index="0"]
 visible = false
@@ -81,8 +105,11 @@ visible = false
 [node name="UnlitLever" parent="LeverPuzzle/Lever2" index="1"]
 visible = false
 
+[node name="CollisionShape2D" parent="LeverPuzzle/Lever2" index="4"]
+position = Vector2( 0, 0 )
+
 [node name="Lever3" parent="LeverPuzzle" instance=ExtResource( 4 )]
-position = Vector2( 5621, -787 )
+position = Vector2( 7100, -440 )
 
 [node name="LitLeverHandle" parent="LeverPuzzle/Lever3" index="2"]
 visible = false
@@ -90,62 +117,45 @@ visible = false
 [node name="LitLever" parent="LeverPuzzle/Lever3" index="3"]
 visible = false
 
-[node name="Platform" parent="." instance=ExtResource( 2 )]
-position = Vector2( 6900, -450 )
-
-[node name="Platform2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 7750, -580 )
-
-[node name="Platform3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 8687, -278 )
-
-[node name="Platform4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 9569, -278 )
-
-[node name="Platform5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 10565, -278 )
-
-[node name="Platform6" parent="." instance=ExtResource( 2 )]
-position = Vector2( 11635, -278 )
-
-[node name="Platform7" parent="." instance=ExtResource( 2 )]
-position = Vector2( 12355, -278 )
-
-[node name="Platform8" parent="." instance=ExtResource( 2 )]
-position = Vector2( 13075, -278 )
-
-[node name="Platform9" parent="." instance=ExtResource( 2 )]
-position = Vector2( 13769, -380 )
-
-[node name="Platform10" parent="." instance=ExtResource( 2 )]
-position = Vector2( 14519, -380 )
-
-[node name="Platform11" parent="." instance=ExtResource( 2 )]
-position = Vector2( 15194, -380 )
-
 [node name="BlockPuzzle" type="Node" parent="."]
 
 [node name="SmallBlockBlocker" type="KinematicBody2D" parent="BlockPuzzle"]
-position = Vector2( 10563, -687 )
+position = Vector2( 11723, -767 )
 
 [node name="SmallBlockBlocker" type="Sprite" parent="BlockPuzzle/SmallBlockBlocker"]
-scale = Vector2( 10.4687, 0.320312 )
-texture = ExtResource( 5 )
+position = Vector2( -1.68115, -7.34854e-08 )
+rotation = 1.5708
+scale = Vector2( 1, 1.53476 )
+texture = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BlockPuzzle/SmallBlockBlocker"]
-position = Vector2( 0.5, 0 )
+light_mask = 3
+position = Vector2( 0.5, 36.5 )
 shape = SubResource( 2 )
 
 [node name="LargeBlock" parent="BlockPuzzle" instance=ExtResource( 6 )]
-position = Vector2( 9819, -412 )
-scale = Vector2( 3, 3 )
+position = Vector2( 10961, -395 )
+mass = 100.0
+angular_damp = 100.0
+
+[node name="Node2D" parent="BlockPuzzle/LargeBlock" index="0"]
+scale = Vector2( 0.55, 2 )
+
+[node name="CollisionShape2D" parent="BlockPuzzle/LargeBlock" index="1"]
+scale = Vector2( 1.3, 5 )
 
 [node name="SmallBlock" parent="BlockPuzzle" instance=ExtResource( 6 )]
-position = Vector2( 10564, -744 )
-scale = Vector2( 1.5, 1.5 )
+position = Vector2( 11725, -898 )
+
+[node name="Node2D" parent="BlockPuzzle/SmallBlock" index="0"]
+scale = Vector2( 0.5, 0.5 )
+
+[node name="CollisionShape2D" parent="BlockPuzzle/SmallBlock" index="1"]
+scale = Vector2( 1.25, 1.25 )
 
 [node name="SkinnyBlockFloorBlocker" type="KinematicBody2D" parent="BlockPuzzle"]
-position = Vector2( 9125, -278 )
+light_mask = 3
+position = Vector2( 10285, 114 )
 scale = Vector2( 2, 1 )
 __meta__ = {
 "_edit_group_": true
@@ -163,60 +173,72 @@ __meta__ = {
 }
 
 [node name="SkinnyBlock" parent="BlockPuzzle" instance=ExtResource( 6 )]
-position = Vector2( 9389, -379 )
-scale = Vector2( 0.6, 1.5 )
+position = Vector2( 10426, -96 )
+mass = 10.0
+
+[node name="Node2D" parent="BlockPuzzle/SkinnyBlock" index="0"]
+scale = Vector2( 0.3, 0.75 )
+
+[node name="CollisionShape2D" parent="BlockPuzzle/SkinnyBlock" index="1"]
+position = Vector2( 0.996094, 3.39584 )
+scale = Vector2( 0.8, 2 )
 
 [node name="FinalDoor" type="KinematicBody2D" parent="BlockPuzzle"]
-position = Vector2( 12775, -553 )
-
-[node name="FinalDoor" type="Sprite" parent="BlockPuzzle/FinalDoor"]
-scale = Vector2( 0.843762, 7.17971 )
-texture = ExtResource( 5 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BlockPuzzle/FinalDoor"]
-position = Vector2( 1.5, 7 )
-shape = SubResource( 4 )
-
-[node name="PressurePlate2" parent="BlockPuzzle" instance=ExtResource( 1 )]
-position = Vector2( 10050, -173 )
-scale = Vector2( 3, 1 )
-
-[node name="PressurePlate3" parent="BlockPuzzle" instance=ExtResource( 1 )]
-position = Vector2( 9125, -156 )
-scale = Vector2( 2, 1 )
-
-[node name="PressurePlate4" parent="BlockPuzzle" instance=ExtResource( 1 )]
-position = Vector2( 11084, -167 )
-scale = Vector2( 3, 1 )
-
-[node name="PlatformSkinnyBlock" parent="BlockPuzzle" instance=ExtResource( 2 )]
-visible = false
-position = Vector2( 9152, -92 )
-
-[node name="PlatformLargeBlock" parent="BlockPuzzle" instance=ExtResource( 2 )]
-visible = false
-position = Vector2( 10036, -108 )
-
-[node name="PlatformSmallBlock" parent="BlockPuzzle" instance=ExtResource( 2 )]
-visible = false
-position = Vector2( 11081, -103 )
-
-[node name="StaffAltar" parent="BlockPuzzle" instance=ExtResource( 8 )]
-position = Vector2( 4320, -778 )
-
-[node name="PuzzleDoor" type="KinematicBody2D" parent="BlockPuzzle" groups=["Door"]]
-position = Vector2( 6000, -933 )
+light_mask = 2
+position = Vector2( 13134, -353 )
+scale = Vector2( 1.5, 2.5 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Door" type="Sprite" parent="BlockPuzzle/PuzzleDoor"]
-scale = Vector2( 1, 5.46875 )
-texture = ExtResource( 5 )
+[node name="FinalDoor" type="Sprite" parent="BlockPuzzle/FinalDoor"]
+light_mask = 2
+texture = ExtResource( 10 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BlockPuzzle/PuzzleDoor"]
-position = Vector2( 3, -0.5 )
-shape = SubResource( 1 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlockPuzzle/FinalDoor"]
+light_mask = 2
+position = Vector2( -25.75, 0 )
+shape = SubResource( 4 )
+
+[node name="PressurePlate2" parent="BlockPuzzle" instance=ExtResource( 1 )]
+position = Vector2( 11208, 982 )
+scale = Vector2( 3, 1 )
+
+[node name="PressurePlate3" parent="BlockPuzzle" instance=ExtResource( 1 )]
+position = Vector2( 10279, 588 )
+scale = Vector2( 2, 1 )
+
+[node name="PressurePlate4" parent="BlockPuzzle" instance=ExtResource( 1 )]
+position = Vector2( 12241, 306 )
+scale = Vector2( 3, 1 )
+
+[node name="PlatformSkinnyBlock" parent="BlockPuzzle" instance=ExtResource( 2 )]
+position = Vector2( 10269, 650 )
+
+[node name="PlatformLargeBlock" parent="BlockPuzzle" instance=ExtResource( 2 )]
+position = Vector2( 11200, 1048 )
+
+[node name="PlatformSmallBlock" parent="BlockPuzzle" instance=ExtResource( 2 )]
+position = Vector2( 12232, 367 )
+
+[node name="SavingPoint" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1643, 88 )
+scale = Vector2( 5, 1.5 )
+
+[node name="SavingPoint2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 5699, -439 )
+scale = Vector2( 4, 1.5 )
+
+[node name="SavingPoint3" parent="." instance=ExtResource( 11 )]
+position = Vector2( 7556, -442 )
+scale = Vector2( 4, 1.5 )
+
+[node name="SavingPoint4" parent="." instance=ExtResource( 11 )]
+position = Vector2( 9765, 54 )
+scale = Vector2( 5, 1.5 )
 
 [editable path="LeverPuzzle/Lever2"]
 [editable path="LeverPuzzle/Lever3"]
+[editable path="BlockPuzzle/LargeBlock"]
+[editable path="BlockPuzzle/SmallBlock"]
+[editable path="BlockPuzzle/SkinnyBlock"]

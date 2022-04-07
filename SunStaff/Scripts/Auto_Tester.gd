@@ -80,7 +80,7 @@ func Test_LeverManager_Distance_Normal():
 func Test_LeverManager_Distance_AllLeversSamePosition():
 	# Distance Testing
 	var levers = []
-	for i in range(5):
+	for _i in range(5):
 		var lever = Area2D.new()
 		lever.position = Vector2(10,0)
 		levers.append(lever)

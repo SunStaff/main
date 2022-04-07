@@ -1,9 +1,8 @@
 extends Node
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+export (bool) var DebugMode = false
+export (Vector2) var MiloSpawnLocation = Vector2(0,0)
 var skinnyBlock
 var skinnyBlockBlocker
 var largeBlock
@@ -27,6 +26,9 @@ var platform4 = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if (DebugMode):
+		GameManager.SetLastLivingPos(MiloSpawnLocation)
+		GameManager.TeleportPlayer()
 	finalDoor = get_parent().get_node("BlockPuzzle/FinalDoor")
 	leverDoor = get_parent().get_node("LeverPuzzle/PuzzleDoor")
 	#Block Puzzle elements initialized (Last puzzle)
@@ -48,8 +50,10 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(_delta):
+	skinnyBlock.rotation = 0
+	largeBlock.rotation = 0
+	smallBlock.rotation = 0
 
 #Similar code to Level3_TimerPuzzle, coordinate values are modified and 4th platform added
 func Level2_TimerPuzzle():
@@ -58,22 +62,22 @@ func Level2_TimerPuzzle():
 		while (not allPlatformsUp):
 			if (not platform1):
 				timerPuzzle_Array[0].position.y -= 50
-				if (timerPuzzle_Array[0].position.y <= -175):
+				if (timerPuzzle_Array[0].position.y <= -30):
 					platform1 = true
 
 			if (not platform2):
 				timerPuzzle_Array[1].position.y -= 50
-				if (timerPuzzle_Array[1].position.y <= -350):
+				if (timerPuzzle_Array[1].position.y <= -275):
 					platform2 = true
 
 			if (not platform3):
 				timerPuzzle_Array[2].position.y -= 50
-				if (timerPuzzle_Array[2].position.y <= -525):
+				if (timerPuzzle_Array[2].position.y <= 45):
 					platform3 = true
 			
 			if (not platform4):
 				timerPuzzle_Array[3].position.y -= 50
-				if (timerPuzzle_Array[3].position.y <= -700):
+				if (timerPuzzle_Array[3].position.y <= -200):
 					platform4 = true			
 			
 			if (platform1 and platform2 and platform3 and platform4):
@@ -84,10 +88,13 @@ func Level2_TimerPuzzle():
 			timer.start()
 			yield(timer, "timeout")
 
-		for platform in timerPuzzle_Array:
-			while(platform.position.y < 1000):
+		while (timerPuzzle_Array[0].position.y < 1600 or
+			timerPuzzle_Array[1].position.y < 1600 or
+			timerPuzzle_Array[2].position.y < 1600 or 
+			timerPuzzle_Array[3].position.y < 1600):
+			for platform in timerPuzzle_Array:
 				platform.position.y += 50
-				timer.set_wait_time(.5)
+				timer.set_wait_time(0.5)
 				timer.set_one_shot(true)
 				timer.start()
 				yield(timer, "timeout")

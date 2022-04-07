@@ -5,7 +5,6 @@ extends "res://Scripts/Objects/Interactable.gd"
 # var a = 2
 # var b = "text"
 var isTurnedOn = false
-export (bool) var isInLight = true
 var LeverManager
 var PlayerWithinRange = false
 
@@ -36,14 +35,10 @@ func SetPosition(x, y):
 func SetObjectLightState(state): # What to do if object only appears in dark but not light
 	IsInLight = state
 
-	if(self.name == "Lever3"):
-		get_child(0).visible = state
-		get_child(1).visible = state
-	elif(self.name == "Lever2"):
-		get_child(2).visible = state
-		get_child(3).visible = state
-
-	self.set_deferred("disabled", state)
+	if("Lever3" in self.name):
+		get_child(0).visible = !state
+		get_child(1).visible = !state
+		self.set_deferred("monitoring", !state)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
