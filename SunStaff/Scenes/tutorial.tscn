@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Objects/Platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/Briar.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Objects/Lever.tscn" type="PackedScene" id=4]
 [ext_resource path="res://icon.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Objects/StaffAltar.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Milo/Milo.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 35, 280 )
@@ -15,38 +16,38 @@ extents = Vector2( 35, 280 )
 [node name="start to first jump" type="Node" parent="."]
 
 [node name="starting platform1" parent="start to first jump" instance=ExtResource( 1 )]
-position = Vector2( -883, -7 )
+position = Vector2( 14, 623 )
 
 [node name="starting platform 2" parent="start to first jump" instance=ExtResource( 1 )]
-position = Vector2( -168, -7 )
+position = Vector2( 729, 623 )
 
 [node name="first jump" parent="start to first jump" instance=ExtResource( 1 )]
-position = Vector2( 483, -71 )
+position = Vector2( 1380, 559 )
 
 [node name="first save" parent="start to first jump" instance=ExtResource( 3 )]
-position = Vector2( 216, -135 )
+position = Vector2( 1113, 495 )
 
 [node name="block off the end" parent="start to first jump" instance=ExtResource( 1 )]
-position = Vector2( 2229, 253 )
+position = Vector2( 3126, 883 )
 rotation = 1.5708
 
 [node name="lever and briar section" type="Node" parent="."]
 
 [node name="briar and lever platform" parent="lever and briar section" instance=ExtResource( 1 )]
-position = Vector2( 1195, -71 )
+position = Vector2( 2092, 559 )
 
 [node name="Briar" parent="lever and briar section" instance=ExtResource( 2 )]
-position = Vector2( 710, -136 )
+position = Vector2( 1607, 494 )
 
 [node name="Lever" parent="lever and briar section" instance=ExtResource( 4 )]
-position = Vector2( 1160, -157 )
+position = Vector2( 2057, 473 )
 
 [node name="door platform" parent="lever and briar section" instance=ExtResource( 1 )]
-position = Vector2( 1910, -68 )
+position = Vector2( 2807, 562 )
 
 [node name="StartingDoor" type="KinematicBody2D" parent="lever and briar section" groups=["Door"]]
 light_mask = 0
-position = Vector2( 1800, -380 )
+position = Vector2( 2697, 250 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lever and briar section/StartingDoor"]
 light_mask = 0
@@ -58,81 +59,81 @@ scale = Vector2( 1, 8.6875 )
 texture = ExtResource( 5 )
 
 [node name="second save" parent="lever and briar section" instance=ExtResource( 3 )]
-position = Vector2( 2143, -129 )
+position = Vector2( 3040, 501 )
 
 [node name="sun staff resting place" type="Node" parent="."]
 
 [node name="wall 1(i know it is a platform)" parent="sun staff resting place" instance=ExtResource( 1 )]
-position = Vector2( -1216, -339 )
+position = Vector2( -319, 291 )
 rotation = 1.5708
 
 [node name="resting platform1" parent="sun staff resting place" instance=ExtResource( 1 )]
-position = Vector2( 2629, 579 )
+position = Vector2( 3526, 1209 )
 
 [node name="resting platform2" parent="sun staff resting place" instance=ExtResource( 1 )]
-position = Vector2( 3351, 579 )
+position = Vector2( 4248, 1209 )
 
 [node name="StaffAltar resting place" parent="sun staff resting place" instance=ExtResource( 6 )]
-position = Vector2( 2989, 523 )
+position = Vector2( 3886, 1153 )
 
 [node name="out of the altar room" parent="sun staff resting place" instance=ExtResource( 1 )]
-position = Vector2( 4114, -81 )
+position = Vector2( 5011, 549 )
 
 [node name="wall 2(i know it is a platform)" parent="sun staff resting place" instance=ExtResource( 1 )]
-position = Vector2( 3756, 246 )
+position = Vector2( 4653, 876 )
 rotation = -1.5708
 
 [node name="jump up platform" parent="sun staff resting place" instance=ExtResource( 1 )]
-position = Vector2( 3738, 390 )
+position = Vector2( 4635, 1020 )
 
 [node name="third save" parent="sun staff resting place" instance=ExtResource( 3 )]
-position = Vector2( 3250, 525 )
+position = Vector2( 4147, 1155 )
 
 [node name="jump up platform2" parent="sun staff resting place" instance=ExtResource( 1 )]
-position = Vector2( 3882, 176 )
+position = Vector2( 4779, 806 )
 
 [node name="to next pedestal" type="Node" parent="."]
 
 [node name="to next area platform" parent="to next pedestal" instance=ExtResource( 1 )]
-position = Vector2( 4827, -81 )
+position = Vector2( 5724, 549 )
 
 [node name="briar platform" parent="to next pedestal" instance=ExtResource( 1 )]
-position = Vector2( 5548, -81 )
+position = Vector2( 6445, 549 )
 
 [node name="fourth save save" parent="to next pedestal" instance=ExtResource( 3 )]
-position = Vector2( 3985, -128 )
+position = Vector2( 4882, 502 )
 
 [node name="briar wall" type="Node" parent="to next pedestal"]
 
 [node name="Briarwall1" parent="to next pedestal/briar wall" instance=ExtResource( 2 )]
-position = Vector2( 4708, -150 )
+position = Vector2( 5605, 480 )
 
 [node name="Briarwall2" parent="to next pedestal/briar wall" instance=ExtResource( 2 )]
-position = Vector2( 4708, -214 )
+position = Vector2( 5605, 416 )
 
 [node name="Briarwall3" parent="to next pedestal/briar wall" instance=ExtResource( 2 )]
-position = Vector2( 4708, -278 )
+position = Vector2( 5605, 352 )
 
 [node name="Briarwall4" parent="to next pedestal/briar wall" instance=ExtResource( 2 )]
-position = Vector2( 4708, -335 )
+position = Vector2( 5605, 295 )
 
 [node name="Briarwall5" parent="to next pedestal/briar wall" instance=ExtResource( 2 )]
-position = Vector2( 4708, -399 )
+position = Vector2( 5605, 231 )
 
 [node name="next pedestal to end" type="Node" parent="."]
 
 [node name="dipped platform" parent="next pedestal to end" instance=ExtResource( 1 )]
-position = Vector2( 6260, -29 )
+position = Vector2( 7157, 601 )
 
 [node name="dipped platform2" parent="next pedestal to end" instance=ExtResource( 1 )]
-position = Vector2( 6973, -26 )
+position = Vector2( 7870, 604 )
 
 [node name="staff tutorial" parent="next pedestal to end" instance=ExtResource( 6 )]
-position = Vector2( 6233, -84 )
+position = Vector2( 7130, 546 )
 
 [node name="ending door" type="KinematicBody2D" parent="next pedestal to end" groups=["Door"]]
 light_mask = 0
-position = Vector2( 6775, -350 )
+position = Vector2( 7672, 280 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="next pedestal to end/ending door"]
 light_mask = 0
@@ -144,30 +145,32 @@ scale = Vector2( 1, 8.6875 )
 texture = ExtResource( 5 )
 
 [node name="ending platform 1" parent="next pedestal to end" instance=ExtResource( 1 )]
-position = Vector2( 7670, -84 )
+position = Vector2( 8567, 546 )
 
 [node name="ending platform 2" parent="next pedestal to end" instance=ExtResource( 1 )]
-position = Vector2( 8392, -84 )
+position = Vector2( 9289, 546 )
 
 [node name="ending platform 3" parent="next pedestal to end" instance=ExtResource( 1 )]
-position = Vector2( 9115, -84 )
+position = Vector2( 10012, 546 )
 
 [node name="Lever" parent="next pedestal to end" instance=ExtResource( 4 )]
-position = Vector2( 7502, -177 )
+position = Vector2( 8399, 453 )
 
 [node name="ending briar wall" type="Node" parent="next pedestal to end"]
 
 [node name="Briarwall1" parent="next pedestal to end/ending briar wall" instance=ExtResource( 2 )]
-position = Vector2( 9392, -146 )
+position = Vector2( 10289, 484 )
 
 [node name="Briarwall2" parent="next pedestal to end/ending briar wall" instance=ExtResource( 2 )]
-position = Vector2( 9392, -210 )
+position = Vector2( 10289, 420 )
 
 [node name="Briarwall3" parent="next pedestal to end/ending briar wall" instance=ExtResource( 2 )]
-position = Vector2( 9392, -274 )
+position = Vector2( 10289, 356 )
 
 [node name="Briarwall4" parent="next pedestal to end/ending briar wall" instance=ExtResource( 2 )]
-position = Vector2( 9392, -331 )
+position = Vector2( 10289, 299 )
 
 [node name="Briarwall5" parent="next pedestal to end/ending briar wall" instance=ExtResource( 2 )]
-position = Vector2( 9392, -395 )
+position = Vector2( 10289, 235 )
+
+[node name="Milo" parent="." instance=ExtResource( 7 )]
