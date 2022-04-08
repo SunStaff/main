@@ -108,7 +108,6 @@ position = Vector2( 5012, 1500 )
 visible = false
 
 [node name="Milo" parent="." instance=ExtResource( 1 )]
-visible = false
 position = Vector2( -1000, 55 )
 
 [node name="StartingDoor" type="KinematicBody2D" parent="." groups=["Door"]]
