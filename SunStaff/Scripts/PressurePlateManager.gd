@@ -16,6 +16,8 @@ func _ready():
 #	pass
 
 func PlateTouched(level, name):
+	LevelManagers.clear()
+	LevelManagers = GameManager.GetLevelManagers()
 	match(level):
 		"Tutorial":
 			Tutorial(name)

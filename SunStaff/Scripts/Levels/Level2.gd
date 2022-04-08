@@ -3,6 +3,7 @@ extends Node
 
 export (bool) var DebugMode = false
 export (Vector2) var MiloSpawnLocation = Vector2(0,0)
+var allowSkinnyBlockMovement = false
 var skinnyBlock
 var skinnyBlockBlocker
 var largeBlock
@@ -29,6 +30,7 @@ func _ready():
 	if (DebugMode):
 		GameManager.SetLastLivingPos(MiloSpawnLocation)
 		GameManager.TeleportPlayer()
+		
 	finalDoor = get_parent().get_node("BlockPuzzle/FinalDoor")
 	leverDoor = get_parent().get_node("LeverPuzzle/PuzzleDoor")
 	#Block Puzzle elements initialized (Last puzzle)
@@ -51,9 +53,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	skinnyBlock.rotation = 0
-	largeBlock.rotation = 0
-	smallBlock.rotation = 0
+	pass
 
 #Similar code to Level3_TimerPuzzle, coordinate values are modified and 4th platform added
 func Level2_TimerPuzzle():
@@ -104,17 +104,19 @@ func Level2_TimerPuzzle():
 func Destroy_SkinnyBlockBlocker():
 	#Destroy skinnyBlockBlocker node from the scene
 	skinnyBlockBlocker.queue_free()
+	allowSkinnyBlockMovement = true
 
 func Destroy_SmallBlockBlocker():
 	#Destroy smallBlockBlocker node from the scene
 	smallBlockBlocker.queue_free()
 
-	#Force allows the block to fall after the block is removed
-	smallBlock.apply_impulse(Vector2(), Vector2(0, 5))
-
 func Open_FinalDoor():
 	#Final door motions downward
 	while(not finalDoorOpened):
 		finalDoor.position.y += 25
-		if(finalDoor.position.y >= -100):
+		if(finalDoor.position.y >= 600):
 			finalDoorOpened = true
+
+func _on_EndLevel2_body_entered(body):
+	if ("Milo" in body.name):
+		GameManager.ChangeScene()

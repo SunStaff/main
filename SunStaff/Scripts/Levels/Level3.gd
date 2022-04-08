@@ -61,6 +61,7 @@ func _process(_delta):
 					if (Pedestals[3].get_child(0).frame == 4):
 						if (Pedestals[4].get_child(0).frame == 2):
 							if (StaffAltars[2].activated):
+								Diamond.set_deferred("modulate", Color(255,255,255,255))
 								Level3Complete = true
 								OpenTheEnd()
 
