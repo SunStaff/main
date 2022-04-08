@@ -108,6 +108,7 @@ position = Vector2( 5012, 1500 )
 visible = false
 
 [node name="Milo" parent="." instance=ExtResource( 1 )]
+visible = false
 position = Vector2( -1000, 55 )
 
 [node name="StartingDoor" type="KinematicBody2D" parent="." groups=["Door"]]
@@ -228,6 +229,17 @@ shape = SubResource( 11 )
 position = Vector2( -10408, 1234 )
 scale = Vector2( 2.5, 2.5 )
 
+[node name="Sprite" parent="GemPuzzle/GemPedestal4" index="0"]
+frame = 4
+
+[node name="LightBeamGreyscale4" parent="GemPuzzle/GemPedestal4/Beams" index="0"]
+visible = true
+modulate = Color( 0, 1, 1, 1 )
+
+[node name="LightBeamGreyscale10" parent="GemPuzzle/GemPedestal4/Beams" index="1"]
+visible = true
+modulate = Color( 0, 1, 1, 1 )
+
 [node name="Sprite" parent="GemPuzzle/GemPedestal2" index="0"]
 frame = 3
 
@@ -239,18 +251,26 @@ modulate = Color( 1, 0, 1, 1 )
 visible = true
 modulate = Color( 1, 0, 1, 1 )
 
-[node name="WhiteDimondForPuzzle" parent="GemPuzzle" index="10"]
-modulate = Color( 0.176471, 0.176471, 0.176471, 1 )
+[node name="Sprite" parent="GemPuzzle/GemPedestal1" index="0"]
+frame = 5
 
-[node name="Menus" type="CanvasLayer" parent="."]
+[node name="LightBeamGreyscale1" parent="GemPuzzle/GemPedestal1/Beams" index="0"]
+visible = true
+modulate = Color( 1, 0, 0, 1 )
 
-[node name="GemSelectionScreen" parent="Menus" instance=ExtResource( 11 )]
+[node name="LightBeamGreyscale2" parent="GemPuzzle/GemPedestal1/Beams" index="1"]
+visible = true
+modulate = Color( 1, 0, 0, 1 )
+
+[node name="GemSelection" type="CanvasLayer" parent="."]
+
+[node name="GemSelectionScreen" parent="GemSelection" instance=ExtResource( 11 )]
 visible = false
 
-[node name="GemPickup" parent="." instance=ExtResource( 3 )]
+[node name="Green_GemPickup" parent="." instance=ExtResource( 3 )]
 position = Vector2( 8044, 463 )
 
-[node name="AnimatedSprite" parent="GemPickup" index="1"]
+[node name="AnimatedSprite" parent="Green_GemPickup" index="1"]
 frame = 1
 
 [editable path="Platforms/Platform19"]
@@ -264,5 +284,7 @@ frame = 1
 [editable path="TimerPuzzle/TimerPlatform2"]
 [editable path="TimerPuzzle/TimerPlatform3"]
 [editable path="GemPuzzle"]
+[editable path="GemPuzzle/GemPedestal4"]
 [editable path="GemPuzzle/GemPedestal2"]
-[editable path="GemPickup"]
+[editable path="GemPuzzle/GemPedestal1"]
+[editable path="Green_GemPickup"]

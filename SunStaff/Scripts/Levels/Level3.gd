@@ -164,15 +164,13 @@ func Level3_TimerPuzzle():
 		timerActivated = false
 
 func OpenTheEnd():
-	print(Diamond, EndDoor, EndLevel)
-	Diamond.modulate = Color(1,1,1)
 	EndDoor.position.y = -1060
 	EndLevel.visible = true
 	EndLevel.monitoring = true
 
 func Level3End():
 	print("End of Level 3")
-	pass
+	GameManager.ChangeScene()
 
 func OpenGemSelectionScreen(currentPedestal):
 	GemSelectionScreen.ButtonsToBePlaced()

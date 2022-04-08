@@ -18,18 +18,18 @@ func _ready():
 	SceneTransition = preload("res://Scenes/Menus/SceneTransitionRect.tscn").instance()
 	self.add_child(SceneTransition)
 	SceneTransition = SceneTransition.get_child(0)
-
-	AutoTester = preload("res://Scripts/Auto_Tester.gd").new()
-	if (!AutoTester.Execute(get_node("/root/LeverManager"))):
-		IsGamePlaying = false
-		print("Testing Failed!! Please check tests!!")
-	
-	Player = GetPlayer()
-	LevelManagers = GetLevelManagers()
-	GemsCollected = {"Green": false, "Blue": false, "Red": false, "Cyan": false, "Magenta": false }
-	
-	SetSpawnLocation()
 	SetCurrentLevel(get_tree().get_current_scene().get_name())
+
+	if (not ("MainMenu" in get_tree().get_current_scene().get_name())):
+		AutoTester = preload("res://Scripts/Auto_Tester.gd").new()
+		if (!AutoTester.Execute(get_node("/root/LeverManager"))):
+			IsGamePlaying = false
+			print("Testing Failed!! Please check tests!!")
+		Player = GetPlayer()
+		LevelManagers = GetLevelManagers()
+		GemsCollected = {"Green": false, "Blue": false, "Red": false, "Cyan": false, "Magenta": false }
+		
+		SetSpawnLocation()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -162,8 +162,8 @@ func ChangeScene():
 	IsGamePlaying = false
 	match CurrentLevel:
 		"MainMenu":
-			SceneTransition.transition_to("")
-			SetCurrentLevel("Tutorial")
+			SceneTransition.transition_to("res://Scenes/Level2.tscn") # TODO: CHANGE ONCE TUTORIAL AND LEVEL 1 ARE COMPLETE
+			SetCurrentLevel("Level2")
 		"Tutorial":
 			SceneTransition.transition_to("res://Scenes/Level1.tscn")
 			SetCurrentLevel("Level1")
@@ -174,8 +174,8 @@ func ChangeScene():
 			SceneTransition.transition_to("res://Scenes/Level3.tscn")
 			SetCurrentLevel("Level3")
 		"Level3":
-			SceneTransition.transition_to("")
-			SetCurrentLevel("EndLevel")
+			SceneTransition.transition_to("res://Scenes/Menus/MainMenu.tscn")
+			SetCurrentLevel("MainMenu")
 	ClearVariables()
 	ChangeSceneCalled = true
 	print("Change Scene Called")
@@ -191,3 +191,8 @@ func GetNewInstancesOfVariables():
 	activated = false
 	SetSpawnLocation()
 	IsGamePlaying = true
+	if (not ("MainMenu" in get_tree().get_current_scene().get_name())):
+		AutoTester = preload("res://Scripts/Auto_Tester.gd").new()
+		if (!AutoTester.Execute(get_node("/root/LeverManager"))):
+			IsGamePlaying = false
+			print("Testing Failed!! Please check tests!!")

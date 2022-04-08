@@ -29,8 +29,9 @@ var platform4 = false
 func _ready():
 	if (DebugMode):
 		GameManager.SetLastLivingPos(MiloSpawnLocation)
-		GameManager.TeleportPlayer()
-		
+		# GameManager.TeleportPlayer()
+		GameManager.GetPlayer().position = MiloSpawnLocation
+	
 	finalDoor = get_parent().get_node("BlockPuzzle/FinalDoor")
 	leverDoor = get_parent().get_node("LeverPuzzle/PuzzleDoor")
 	#Block Puzzle elements initialized (Last puzzle)

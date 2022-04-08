@@ -343,7 +343,7 @@ light_mask = 2
 position = Vector2( 384, 0 )
 shape = SubResource( 5 )
 
-[node name="GemPickup" parent="." instance=ExtResource( 12 )]
+[node name="Blue_GemPickup" parent="." instance=ExtResource( 12 )]
 position = Vector2( 13674, -126 )
 
 [connection signal="body_entered" from="EndLevel2" to="Level2Manager" method="_on_EndLevel2_body_entered"]
