@@ -148,7 +148,7 @@ func DistanceTo(a,b):
 func SetSpawnLocation():
 	match CurrentLevel:
 		"Tutorial":
-			pass
+			LastLivingPos = Vector2(0, -400)
 		"Level1":
 			pass
 		"Level2":

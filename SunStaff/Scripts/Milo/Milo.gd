@@ -30,6 +30,8 @@ func _ready():
 	if (GameManager.ChangeSceneCalled):
 		GameManager.GetNewInstancesOfVariables()
 		GameManager.ChangeSceneCalled = false
+		GameManager.SetSpawnLocation()
+
 	if (TurnLightOff):
 		GameManager.GetSunStaff().visible = false
 	playerRootNode = get_parent()
