@@ -63,11 +63,9 @@ func tutorial(lever, turnedOn):
 			leverNameValid = true
 			if (turnedOn):
 				leverFlippedCount += 1
-				door1.position.y -= 150
 				print("LeverFlippedCount up 1")
 			elif(!turnedOn):
 				leverFlippedCount -= 1
-				door1.position.y += 150
 				print("LeverFlippedCount down 1")
 			
 		"2":

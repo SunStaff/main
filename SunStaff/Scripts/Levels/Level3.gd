@@ -1,4 +1,4 @@
-extends Node
+		extends Node
 
 var level3_door
 var timerPuzzle_Array = []
