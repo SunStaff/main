@@ -12,7 +12,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 35, 280 )
 
-[node name="tutorial" type="Node"]
+[node name="Tutorial" type="Node"]
 
 [node name="tutorial manager" type="Node" parent="."]
 script = ExtResource( 8 )

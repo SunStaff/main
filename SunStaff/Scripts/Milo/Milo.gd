@@ -27,6 +27,9 @@ export (float) var jump_speed = -1600
 export (float) var gravity = 3000
 
 func _ready():
+	if (GameManager.ChangeSceneCalled):
+		GameManager.GetNewInstancesOfVariables()
+		GameManager.ChangeSceneCalled = false
 	if (TurnLightOff):
 		GameManager.GetSunStaff().visible = false
 	playerRootNode = get_parent()
@@ -69,18 +72,19 @@ func get_input():
 	AnimationManager.UpdateAnimations(StateMachine, HasStaff, velocity, playLeftOrRight)
 	
 func _physics_process(delta):
-	get_input()
-	velocity.y += gravity * delta
-	velocity = move_and_slide(velocity, Vector2.UP)
-	if Input.is_action_just_pressed("Jump"):
-		if is_on_floor():
-			AnimationManager.JumpAnimation()
-			velocity.y = jump_speed
-			playLeftOrRight = false
-			justJumped = true
-	
-	if (self.position.y > 1500):
-		GameManager.TeleportPlayer()
+	if (GameManager.IsGamePlaying and GameManager.IsPlayerAlive):
+		get_input()
+		velocity.y += gravity * delta
+		velocity = move_and_slide(velocity, Vector2.UP)
+		if Input.is_action_just_pressed("Jump"):
+			if is_on_floor():
+				AnimationManager.JumpAnimation()
+				velocity.y = jump_speed
+				playLeftOrRight = false
+				justJumped = true
+		
+		if (self.position.y > 1500):
+			GameManager.TeleportPlayer()
 		
 func PlayerDeath(position):
 	if (position == null):

@@ -95,12 +95,12 @@ func Test_LeverManager_Distance_AllLeversSamePosition():
 		return [false, "LeverManager_Distance_AllLeversSamePosition"]
 		
 func Test_LeverManager_LeverFlipped_Tutorial():
-	var level = "tutorial"
+	var level = "Tutorial"
 	var lever = Area2D.new()
 	lever.name = "Lever"
 	var turnedOn = false
 
-	var expected = "tutorial"
+	var expected = "Tutorial"
 	var result = ManagerLever.LeverFlipped(level, lever, turnedOn)
 	if (result == expected):
 		return [true, "LeverManager_LeverFlipped_Tutorial"]

@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
+[ext_resource path="res://Scripts/Objects/Block.gd" type="Script" id=1]
 [ext_resource path="res://Art/Unlit/Objects/box_unlit.png" type="Texture" id=2]
 [ext_resource path="res://Art/Lit/box_lit.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 88.5, 87.6354 )
+extents = Vector2( 115, 90.6 )
 
-[node name="PushableBlock" type="RigidBody2D"]
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 215, 227.5 )
+
+[node name="PushableBlock" type="KinematicBody2D"]
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -21,7 +25,17 @@ position = Vector2( -2, -20 )
 scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1, 12.625 )
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 4, 9.5 )
 scale = Vector2( 2.5, 2.5 )
 shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1, 10.5 )
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_Area2D_body_exited"]

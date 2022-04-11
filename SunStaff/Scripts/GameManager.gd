@@ -5,26 +5,31 @@ export var IsGamePlaying = true
 export var CurrentLevel = ""
 export var LastLivingPos = Vector2()
 export var GemsCollected = {"Green": false, "Blue": false, "Red": false, "Cyan": false, "Magenta": false }
-var placedGem = ""
-var activated
+var activated = false
 var Player
 var GemSelectionScreen
+var SceneTransition
+var ChangeSceneCalled = false
 var LevelManagers = []
-var pedestal
-var autoTester
+var AutoTester
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	activated = false
-	Player = get_tree().get_nodes_in_group("Player")[0]
-	LevelManagers = get_tree().get_nodes_in_group("LevelManager")
+	SceneTransition = preload("res://Scenes/Menus/SceneTransitionRect.tscn").instance()
+	self.add_child(SceneTransition)
+	SceneTransition = SceneTransition.get_child(0)
 	SetCurrentLevel(get_tree().get_current_scene().get_name())
-	autoTester = load("res://Scripts/Auto_Tester.gd").new()
-	if (!autoTester.Execute(get_node("/root/LeverManager"))):
-		IsGamePlaying = false
-		print("Testing Failed!! Please check tests!!")
-	GemsCollected = {"Green": false, "Blue": false, "Red": false, "Cyan": false, "Magenta": false }
-	SetSpawnLocation()
+
+	if (not ("MainMenu" in get_tree().get_current_scene().get_name())):
+		AutoTester = preload("res://Scripts/Auto_Tester.gd").new()
+		if (!AutoTester.Execute(get_node("/root/LeverManager"))):
+			IsGamePlaying = false
+			print("Testing Failed!! Please check tests!!")
+		Player = GetPlayer()
+		LevelManagers = GetLevelManagers()
+		GemsCollected = {"Green": false, "Blue": false, "Red": false, "Cyan": false, "Magenta": false }
+		
+		SetSpawnLocation()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -33,7 +38,7 @@ func _process(_delta):
 		TeleportPlayer()
 
 func GetPlayer():
-	return Player
+	return get_tree().get_nodes_in_group("Player")[0]
 
 func GetPlayerAliveState():
 	return IsPlayerAlive
@@ -55,7 +60,7 @@ func GetSunStaffAltars():
 	return get_tree().get_nodes_in_group("StaffAltar")
 
 func GetSunStaff():
-	return Player.get_child(1).get_child(0)
+	return GetPlayer().get_child(1).get_child(0)
 
 func GetGemPedestals():
 	return get_tree().get_nodes_in_group("GemPedestal")
@@ -67,7 +72,7 @@ func GetGemStates():
 	return GemsCollected
 
 func GetLevelManagers():
-	return LevelManagers
+	return get_tree().get_nodes_in_group("LevelManager")
 
 func TeleportPlayer():
 	Player.PlayerDeath(LastLivingPos) 
@@ -116,6 +121,8 @@ func ToggleGem(color):
 			return ["Not Valid Gem Color for ToggleGem()", null]
 
 func CheckForLevelSpecificActions(from, information, optionalNode):
+	LevelManagers.clear()
+	LevelManagers = GetLevelManagers()
 	match CurrentLevel:
 		"Tutorial":
 			pass
@@ -147,6 +154,45 @@ func SetSpawnLocation():
 		"Level2":
 			LastLivingPos = Vector2(500,-250)
 		"Level3":
-			LastLivingPos = Vector2(1000,-55)
+			LastLivingPos = Vector2(-1000,-55)
 
 	TeleportPlayer()
+
+func ChangeScene():
+	IsGamePlaying = false
+	match CurrentLevel:
+		"MainMenu":
+			SceneTransition.transition_to("res://Scenes/Level2.tscn") # TODO: CHANGE ONCE TUTORIAL AND LEVEL 1 ARE COMPLETE
+			SetCurrentLevel("Level2")
+		"Tutorial":
+			SceneTransition.transition_to("res://Scenes/Level1.tscn")
+			SetCurrentLevel("Level1")
+		"Level1":
+			SceneTransition.transition_to("res://Scenes/Level2.tscn")
+			SetCurrentLevel("Level2")
+		"Level2":
+			SceneTransition.transition_to("res://Scenes/Level3.tscn")
+			SetCurrentLevel("Level3")
+		"Level3":
+			SceneTransition.transition_to("res://Scenes/Menus/MainMenu.tscn")
+			SetCurrentLevel("MainMenu")
+	ClearVariables()
+	ChangeSceneCalled = true
+	print("Change Scene Called")
+
+func ClearVariables():
+	Player = null
+	LevelManagers.clear()
+	activated = null
+
+func GetNewInstancesOfVariables():
+	Player = GetPlayer()
+	LevelManagers = GetLevelManagers()
+	activated = false
+	SetSpawnLocation()
+	IsGamePlaying = true
+	if (not ("MainMenu" in get_tree().get_current_scene().get_name())):
+		AutoTester = preload("res://Scripts/Auto_Tester.gd").new()
+		if (!AutoTester.Execute(get_node("/root/LeverManager"))):
+			IsGamePlaying = false
+			print("Testing Failed!! Please check tests!!")

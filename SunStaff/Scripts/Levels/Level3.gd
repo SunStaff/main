@@ -1,4 +1,4 @@
-		extends Node
+extends Node
 
 var level3_door
 var timerPuzzle_Array = []
@@ -61,6 +61,7 @@ func _process(_delta):
 					if (Pedestals[3].get_child(0).frame == 4):
 						if (Pedestals[4].get_child(0).frame == 2):
 							if (StaffAltars[2].activated):
+								Diamond.set_deferred("modulate", Color(255,255,255,255))
 								Level3Complete = true
 								OpenTheEnd()
 
@@ -163,15 +164,13 @@ func Level3_TimerPuzzle():
 		timerActivated = false
 
 func OpenTheEnd():
-	print(Diamond, EndDoor, EndLevel)
-	Diamond.modulate = Color(1,1,1)
 	EndDoor.position.y = -1060
 	EndLevel.visible = true
 	EndLevel.monitoring = true
 
 func Level3End():
 	print("End of Level 3")
-	pass
+	GameManager.ChangeScene()
 
 func OpenGemSelectionScreen(currentPedestal):
 	GemSelectionScreen.ButtonsToBePlaced()

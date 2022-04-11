@@ -17,21 +17,7 @@ var leverFlippedCount = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if(get_tree().get_current_scene().get_name() == "Level2"):
-		Doors = get_tree().get_nodes_in_group("Door")
-		door1 = Doors[0]
-	#Added if-statement, so the doors are only obtained for level 3
-	if(get_tree().get_current_scene().get_name() == "Level3"):
-		Doors = get_tree().get_nodes_in_group("Door")
-		door1 = Doors[1]
-		door2 = Doors[2]
-		door3 = Doors[3]
-		door4 = Doors[4]
-	if(get_tree().get_current_scene().get_name() == "tutorial"):
-		Doors = get_tree().get_nodes_in_group("Door")
-		door1 = Doors[0]
-		door2 = Doors[1]
-		
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -39,10 +25,11 @@ func _ready():
 #	pass
 
 func LeverFlipped(level, lever, turnedOn):
+	GetDoors()
 	match(level):
-		"tutorial":
-			tutorial(lever, turnedOn)
-			return "tutorial"
+		"Tutorial":
+			Tutorial(lever, turnedOn)
+			return "Tutorial"
 		"Level1":
 			Level1(lever, turnedOn)
 			return "Level1"
@@ -56,25 +43,13 @@ func LeverFlipped(level, lever, turnedOn):
 			print("Not Valid Level Name for LeverFlipped()")
 			return "Not Valid Level Name for LeverFlipped()"
 
-func tutorial(lever, turnedOn):
+func Tutorial(lever, _turnedOn):
 	var name = lever.name.replacen("Lever", "")
 	match(name):
 		"1":
-			leverNameValid = true
-			if (turnedOn):
-				leverFlippedCount += 1
-				print("LeverFlippedCount up 1")
-			elif(!turnedOn):
-				leverFlippedCount -= 1
-				print("LeverFlippedCount down 1")
-			
+			pass
 		"2":
-			leverNameValid = true
-			if(turnedOn):
-				leverFlippedCount += 1
-			elif(!turnedOn):
-				leverFlippedCount -= 1
-	print("LeverFlippedCount: ", leverFlippedCount)
+			pass
 
 func Level1(lever, _turnedOn):
 	var name = lever.name.replacen("Lever", "")
@@ -91,11 +66,9 @@ func Level2(lever, turnedOn):
 			leverNameValid = true
 			if (turnedOn):
 				leverFlippedCount += 1
-				
 				print("LeverFlippedCount up 1")
 			elif(!turnedOn):
 				leverFlippedCount -= 1
-				
 				print("LeverFlippedCount down 1")
 		"2":
 			leverNameValid = true
@@ -110,7 +83,12 @@ func Level2(lever, turnedOn):
 			elif(!turnedOn):
 				leverFlippedCount -= 1
 	print("LeverFlippedCount: ", leverFlippedCount)
-	
+	if (leverNameValid):
+		leverNameValid = false
+		if(leverFlippedCount >= 3):
+			door1.position.y = 150
+		elif(leverFlippedCount < 3):
+			door1.position.y = -850
 
 
 func Level3(lever, turnedOn):
@@ -165,7 +143,7 @@ func GetCurrentClosestLever(levers, player):
 			test = true
 
 	if (!test):
-		if ("Level" in levers[0].get_parent().name or "tutorial" in levers[0].get_parent().name):
+		if ("Level" in levers[0].get_parent().name or "Tutorial" in levers[0].get_parent().name):
 			childOfRoot = true
 		else:
 			childOfRoot = false
@@ -182,3 +160,16 @@ func GetCurrentClosestLever(levers, player):
 			CurrentClosestLever = lever
 	minDistanceToLever = INF
 	return CurrentClosestLever
+
+func GetDoors():
+	Doors.clear()
+	if(get_tree().get_current_scene().get_name() == "Level2"):
+		Doors = get_tree().get_nodes_in_group("Door")
+		door1 = Doors[0]
+	#Added if-statement, so the doors are only obtained for level 3
+	if(get_tree().get_current_scene().get_name() == "Level3"):
+		Doors = get_tree().get_nodes_in_group("Door")
+		door1 = Doors[1]
+		door2 = Doors[2]
+		door3 = Doors[3]
+		door4 = Doors[4]

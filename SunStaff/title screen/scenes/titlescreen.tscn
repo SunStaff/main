@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://title screen/art/logo.png" type="Texture" id=1]
 [ext_resource path="res://title screen/scenes/Startbutton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://title screen/scenes/Exitbutton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://title screen/scenes/options.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Art/Lit/MiloColor3.png" type="Texture" id=5]
 [ext_resource path="res://title screen/scripts/titlescreen.gd" type="Script" id=6]
 
 [sub_resource type="GDScript" id=1]
@@ -79,8 +78,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="milo" type="TextureRect" parent="menu/centerrow/CenterContainer"]
-margin_left = 169.0
-margin_top = 8.0
-margin_right = 669.0
-margin_bottom = 508.0
-texture = ExtResource( 5 )
+margin_left = 419.0
+margin_top = 258.0
+margin_right = 419.0
+margin_bottom = 258.0

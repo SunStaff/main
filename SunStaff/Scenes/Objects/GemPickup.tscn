@@ -19,7 +19,6 @@ animations = [ {
 } ]
 
 [node name="GemPickup" type="Area2D"]
-scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

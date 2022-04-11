@@ -8,7 +8,7 @@ var LevelManagers = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	LevelManagers = GameManager.GetLevelManagers()
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,6 +16,8 @@ func _ready():
 #	pass
 
 func PlateTouched(level, name):
+	LevelManagers.clear()
+	LevelManagers = GameManager.GetLevelManagers()
 	match(level):
 		"Tutorial":
 			Tutorial(name)
