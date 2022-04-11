@@ -7,7 +7,6 @@ var WithinAltarRange = false
 # Sun Staff Variables
 var SunStaff
 var LightCircle
-var StaffVisibility
 var CurrentClosestAltar
 var minDistanceToAltar = INF
 var HasStaff = true
@@ -17,8 +16,6 @@ func _ready():
 	playerRootNode = get_parent()
 	SunStaff = GameManager.GetSunStaff()
 	LightCircle = SunStaff.get_child(1)
-	StaffVisibility = true
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -48,10 +45,11 @@ func _on_LightCircle_area_exited(area):
 		area.SetObjectLightState(false)
 
 func SunStaffPlacement():
+	SunStaff = GameManager.GetSunStaff()
+	LightCircle = SunStaff.get_child(1)
 	GetCurrentClosestAltar(GameManager.GetSunStaffAltars(), GameManager.GetPlayer())
-	if (StaffVisibility): # If Milo is holding staff
+	if (GameManager.GetPlayer().GetHasStaffState() and !activated): # If Milo is holding staff
 		SunStaff.get_child(0).set_color(Color(1,1,1,0))
-		StaffVisibility = false
 		GameManager.GetPlayer().ChangeHasStaffState(false)
 		CurrentClosestAltar.get_child(1).get_child(0).visible = true
 		GameManager.CheckForLevelSpecificActions("Altar",true,CurrentClosestAltar)
@@ -60,17 +58,17 @@ func SunStaffPlacement():
 
 	else: # If the altar has the Staff
 		SunStaff.get_child(0).set_color(Color(1,1,1,1))
-		StaffVisibility = true
 		GameManager.GetPlayer().ChangeHasStaffState(true)
 		CurrentClosestAltar.get_child(1).get_child(0).visible = false
-		GameManager.CheckForLevelSpecificActions("Altar",false,CurrentClosestAltar)
-		GameManager.CheckForLevelSpecificActions("Altar",false,CurrentClosestAltar)
+		CheckForAltarMethodsOnLevels()
 		activated = false
 	
-	if (CurrentClosestAltar.visible): # If the altar has the Staff, turn off LightCircle monitoring
+	if (CurrentClosestAltar.get_child(1).get_child(0).visible): # If the altar has the Staff, turn off LightCircle monitoring
 		LightCircle.ChangeLightCircleMonitoring(false)
+		print("Light Circle Monitoring: ", LightCircle.monitoring)
 	else:
 		LightCircle.ChangeLightCircleMonitoring(true)
+		print("Light Circle Monitoring: ", LightCircle.monitoring)
 
 func GetCurrentClosestAltar(altars, player):
 	CurrentClosestAltar = null
@@ -82,3 +80,7 @@ func GetCurrentClosestAltar(altars, player):
 			CurrentClosestAltar = altar
 	minDistanceToAltar = INF
 	return CurrentClosestAltar
+
+func CheckForAltarMethodsOnLevels():
+	GameManager.CheckForLevelSpecificActions("Altar",false,CurrentClosestAltar)
+	GameManager.CheckForLevelSpecificActions("Altar",false,CurrentClosestAltar)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/Objects/PressurePlate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/Platform.tscn" type="PackedScene" id=2]
@@ -12,7 +12,6 @@
 [ext_resource path="res://Art/Misc/gate.png" type="Texture" id=10]
 [ext_resource path="res://Scenes/Objects/SavingPoint.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Objects/GemPickup.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Art/Lit/Backgrounds/Level2/LV_2_unlit_design_foreground.png" type="Texture" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 52.5, 189 )
@@ -33,32 +32,37 @@ extents = Vector2( 116, 400 )
 
 [node name="Level2Manager" type="Node" parent="." groups=["LevelManager"]]
 script = ExtResource( 3 )
-MiloSpawnLocation = Vector2( 8239, -549 )
+DebugMode = true
+MiloSpawnLocation = Vector2( 5800, -720 )
 
 [node name="Level2Background" parent="." instance=ExtResource( 9 )]
 
 [node name="Milo" parent="." instance=ExtResource( 7 )]
-position = Vector2( 8239, -549 )
+position = Vector2( 5800, -720 )
 
-[node name="Platforms" type="Node" parent="."]
+[node name="PlatformFall" type="Node" parent="."]
 
-[node name="TimerPuzzle" type="Node" parent="."]
+[node name="PressurePlate1" parent="PlatformFall" instance=ExtResource( 1 )]
+position = Vector2( 2679, -192 )
+scale = Vector2( 7, 2 )
 
-[node name="PressurePlate1" parent="TimerPuzzle" instance=ExtResource( 1 )]
-position = Vector2( 2043, 86 )
-scale = Vector2( 4, 2 )
+[node name="Sprite2" parent="PlatformFall/PressurePlate1" index="0"]
+visible = false
 
-[node name="TimerPlatform1" parent="TimerPuzzle" instance=ExtResource( 2 )]
-position = Vector2( 2680, 1600 )
+[node name="Sprite" parent="PlatformFall/PressurePlate1" index="1"]
+visible = false
 
-[node name="TimerPlatform2" parent="TimerPuzzle" instance=ExtResource( 2 )]
-position = Vector2( 3456, 1600 )
+[node name="FallPlatform1" parent="PlatformFall" instance=ExtResource( 2 )]
+position = Vector2( 2680, -120 )
 
-[node name="TimerPlatform3" parent="TimerPuzzle" instance=ExtResource( 2 )]
-position = Vector2( 4232, 1600 )
+[node name="FallPlatform2" parent="PlatformFall" instance=ExtResource( 2 )]
+position = Vector2( 3456, 160 )
 
-[node name="TimerPlatform4" parent="TimerPuzzle" instance=ExtResource( 2 )]
-position = Vector2( 5040, 1600 )
+[node name="FallPlatform3" parent="PlatformFall" instance=ExtResource( 2 )]
+position = Vector2( 4232, -72 )
+
+[node name="FallPlatform4" parent="PlatformFall" instance=ExtResource( 2 )]
+position = Vector2( 5040, -344 )
 
 [node name="LeverPuzzle" type="Node" parent="."]
 
@@ -126,7 +130,7 @@ shape = SubResource( 2 )
 
 [node name="SkinnyBlockGate" type="KinematicBody2D" parent="BlockPuzzle"]
 light_mask = 0
-position = Vector2( 10946, 133 )
+position = Vector2( 10946, 165 )
 scale = Vector2( 5, 1 )
 __meta__ = {
 "_edit_group_": true
@@ -228,8 +232,11 @@ visible = false
 [node name="Litplatformmiddle" parent="BlockPuzzle/Platform9" index="1"]
 visible = false
 
+[node name="CollisionShape2D" parent="BlockPuzzle/Platform9" index="2"]
+position = Vector2( -2, 32.9224 )
+
 [node name="Platform10" parent="BlockPuzzle" instance=ExtResource( 2 )]
-position = Vector2( 10953, 139 )
+position = Vector2( 10953, 171 )
 scale = Vector2( 1, 1 )
 collision_layer = 4
 collision_mask = 4
@@ -252,6 +259,9 @@ visible = false
 [node name="Litplatformmiddle" parent="BlockPuzzle/Platform11" index="1"]
 visible = false
 
+[node name="CollisionShape2D" parent="BlockPuzzle/Platform11" index="2"]
+position = Vector2( -2, 28.9229 )
+
 [node name="SavingPoint" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1643, 88 )
 scale = Vector2( 5, 1.5 )
@@ -265,7 +275,7 @@ position = Vector2( 7556, -298 )
 scale = Vector2( 4, 1.5 )
 
 [node name="SavingPoint4" parent="." instance=ExtResource( 11 )]
-position = Vector2( 9536, 71 )
+position = Vector2( 9536, 111 )
 scale = Vector2( 5, 1.5 )
 
 [node name="EndLevel2" type="Area2D" parent="."]
@@ -283,14 +293,9 @@ shape = SubResource( 5 )
 [node name="Blue_GemPickup" parent="." instance=ExtResource( 12 )]
 position = Vector2( 13674, -126 )
 
-[node name="Lv2UnlitDesignForeground" type="Sprite" parent="."]
-light_mask = 0
-position = Vector2( 7196, -593 )
-scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 13 )
-
 [connection signal="body_entered" from="EndLevel2" to="Level2Manager" method="_on_EndLevel2_body_entered"]
 
+[editable path="PlatformFall/PressurePlate1"]
 [editable path="LeverPuzzle/Lever2"]
 [editable path="LeverPuzzle/Lever3"]
 [editable path="BlockPuzzle/PlatformSkinnyBlock"]

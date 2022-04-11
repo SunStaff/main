@@ -83,7 +83,7 @@ func _physics_process(delta):
 				playLeftOrRight = false
 				justJumped = true
 		
-		if (self.position.y > 1500):
+		if (self.position.y > 1900):
 			GameManager.TeleportPlayer()
 		
 func PlayerDeath(position):
@@ -97,3 +97,6 @@ func PlayerDeath(position):
 
 func ChangeHasStaffState(state):
 	HasStaff = state
+
+func GetHasStaffState():
+	return HasStaff
