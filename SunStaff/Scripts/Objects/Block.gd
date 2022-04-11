@@ -2,6 +2,7 @@ extends "res://Scripts/Objects/Interactable.gd"
 
 var WithinBlockRange
 var velocity = Vector2()
+export (float) var blockGravity = 9.8
 var blockBody
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,7 +11,7 @@ func _ready():
 
 func _process(delta):
 	velocity.x = 0.0
-	velocity.y += gravity * delta
+	velocity.y += blockGravity * delta
 	if (WithinBlockRange):
 		var direction = (blockBody.global_transform.origin - GameManager.GetPlayer().global_transform.origin).normalized()
 		if ("Skinny" in blockBody.name and GameManager.GetLevelManagers()[0].allowSkinnyBlockMovement):

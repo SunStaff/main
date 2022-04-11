@@ -4,8 +4,9 @@ extends Node
 export (bool) var DebugMode = false
 export (Vector2) var MiloSpawnLocation = Vector2(0,0)
 var allowSkinnyBlockMovement = false
+var smallBlockFall = false
 var skinnyBlock
-var skinnyBlockBlocker
+var skinnyBlockGate
 var largeBlock
 var smallBlockBlocker
 var smallBlock
@@ -35,8 +36,9 @@ func _ready():
 	finalDoor = get_parent().get_node("BlockPuzzle/FinalDoor")
 	leverDoor = get_parent().get_node("LeverPuzzle/PuzzleDoor")
 	#Block Puzzle elements initialized (Last puzzle)
-	skinnyBlockBlocker = get_parent().get_node("BlockPuzzle/SkinnyBlockFloorBlocker")
 	skinnyBlock = get_parent().get_node("BlockPuzzle/SkinnyBlock")
+	skinnyBlockGate = get_parent().get_node("BlockPuzzle/SkinnyBlockGate")
+	print(skinnyBlockGate)
 	largeBlock = get_parent().get_node("BlockPuzzle/LargeBlock")
 	smallBlockBlocker = get_parent().get_node("BlockPuzzle/SmallBlockBlocker")
 	smallBlock = get_parent().get_node("BlockPuzzle/SmallBlock")
@@ -102,14 +104,17 @@ func Level2_TimerPuzzle():
 		timerActivated = false
 
 
-func Destroy_SkinnyBlockBlocker():
-	#Destroy skinnyBlockBlocker node from the scene
-	skinnyBlockBlocker.queue_free()
-	allowSkinnyBlockMovement = true
+func Destroy_SkinnyBlockGate():
+	if (!allowSkinnyBlockMovement):
+		#Destroy skinnyBlockGate node from the scene
+		skinnyBlockGate.queue_free()
+		allowSkinnyBlockMovement = true
 
 func Destroy_SmallBlockBlocker():
-	#Destroy smallBlockBlocker node from the scene
-	smallBlockBlocker.queue_free()
+	if (!smallBlockFall):
+		#Destroy smallBlockBlocker node from the scene
+		smallBlockBlocker.queue_free()
+		smallBlockFall = true
 
 func Open_FinalDoor():
 	#Final door motions downward

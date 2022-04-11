@@ -11,6 +11,9 @@ extents = Vector2( 115, 90.6 )
 extents = Vector2( 215, 227.5 )
 
 [node name="PushableBlock" type="KinematicBody2D"]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Node2D" type="Node2D" parent="."]
 

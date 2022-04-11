@@ -10,6 +10,9 @@ extents = Vector2( 33, 240 )
 [node name="Platform" type="StaticBody2D"]
 scale = Vector2( 1.5, 1 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="UnlitPlatformmiddle" type="Sprite" parent="."]
 light_mask = 2
