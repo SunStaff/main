@@ -60,7 +60,7 @@ func Level2(name):
 		#Pressure Plate for LargeBlock
 		"2":
 			print("Removing Skinny Block Barrier")
-			LevelManagers[0].Destroy_SkinnyBlockBlocker()
+			LevelManagers[0].Destroy_SkinnyBlockGate()
 
 		#Pressure Plate for SkinnyBlock
 		"3":
