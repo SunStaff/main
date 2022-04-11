@@ -17,7 +17,7 @@ extents = Vector2( 18, 211.5 )
 script = ExtResource( 6 )
 
 [node name="Milo" parent="." instance=ExtResource( 4 )]
-position = Vector2( 114, -579 )
+position = Vector2( 5, -313 )
 
 [node name="Platforms" type="Node" parent="."]
 
@@ -99,7 +99,8 @@ position = Vector2( 8362, -592 )
 position = Vector2( 361, -98 )
 
 [node name="DrawBridge" type="KinematicBody2D" parent="."]
-position = Vector2( 1039, -29 )
+light_mask = 3
+position = Vector2( 1040, -29 )
 scale = Vector2( 1, 2 )
 __meta__ = {
 "_edit_group_": true
@@ -112,3 +113,6 @@ texture = ExtResource( 7 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DrawBridge"]
 position = Vector2( 36, -178 )
 shape = SubResource( 1 )
+
+[node name="Lever7" parent="." instance=ExtResource( 3 )]
+position = Vector2( 5176, -390 )
