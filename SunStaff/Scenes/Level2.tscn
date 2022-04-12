@@ -32,13 +32,12 @@ extents = Vector2( 116, 400 )
 
 [node name="Level2Manager" type="Node" parent="." groups=["LevelManager"]]
 script = ExtResource( 3 )
-DebugMode = true
 MiloSpawnLocation = Vector2( 5800, -720 )
 
 [node name="Level2Background" parent="." instance=ExtResource( 9 )]
 
 [node name="Milo" parent="." instance=ExtResource( 7 )]
-position = Vector2( 5800, -720 )
+position = Vector2( 1654, -339 )
 
 [node name="PlatformFall" type="Node" parent="."]
 
@@ -67,11 +66,11 @@ position = Vector2( 5040, -344 )
 [node name="LeverPuzzle" type="Node" parent="."]
 
 [node name="StaffAltar" parent="LeverPuzzle" instance=ExtResource( 8 )]
-position = Vector2( 5956, -324 )
+position = Vector2( 5956, -472 )
 
 [node name="PuzzleDoor" type="KinematicBody2D" parent="LeverPuzzle" groups=["Door"]]
 light_mask = 2
-position = Vector2( 7334, -706 )
+position = Vector2( 7334, -906 )
 scale = Vector2( 1.5, 2.5 )
 __meta__ = {
 "_edit_group_": true
@@ -87,10 +86,10 @@ position = Vector2( -19.5, 11 )
 shape = SubResource( 1 )
 
 [node name="Lever1" parent="LeverPuzzle" instance=ExtResource( 4 )]
-position = Vector2( 6300, -296 )
+position = Vector2( 6300, -496 )
 
 [node name="Lever2" parent="LeverPuzzle" instance=ExtResource( 4 )]
-position = Vector2( 6700, -296 )
+position = Vector2( 6700, -496 )
 
 [node name="UnlitLeverHandle" parent="LeverPuzzle/Lever2" index="0"]
 visible = false
@@ -101,14 +100,136 @@ visible = false
 [node name="CollisionShape2D" parent="LeverPuzzle/Lever2" index="4"]
 position = Vector2( 0, 0 )
 
-[node name="Lever3" parent="LeverPuzzle" instance=ExtResource( 4 )]
-position = Vector2( 7100, -296 )
+[node name="Lever3" parent="LeverPuzzle" groups=["UnlitOnly"] instance=ExtResource( 4 )]
+position = Vector2( 7100, -496 )
 
 [node name="LitLeverHandle" parent="LeverPuzzle/Lever3" index="2"]
 visible = false
 
 [node name="LitLever" parent="LeverPuzzle/Lever3" index="3"]
 visible = false
+
+[node name="CollisionShape2D" parent="LeverPuzzle/Lever3" index="4"]
+position = Vector2( 0, 0 )
+
+[node name="RavinePuzzle" type="Node" parent="."]
+
+[node name="StaffAltar" parent="RavinePuzzle" instance=ExtResource( 8 )]
+position = Vector2( 2422, 1718 )
+
+[node name="Lever4" parent="RavinePuzzle" instance=ExtResource( 4 )]
+position = Vector2( 3248, 1696 )
+
+[node name="UnlitLeverHandle" parent="RavinePuzzle/Lever4" index="0"]
+visible = false
+
+[node name="UnlitLever" parent="RavinePuzzle/Lever4" index="1"]
+visible = false
+
+[node name="Lever5" parent="RavinePuzzle" groups=["UnlitOnly"] instance=ExtResource( 4 )]
+position = Vector2( 5224, 871 )
+
+[node name="UnlitLeverHandle" parent="RavinePuzzle/Lever5" index="0"]
+visible = false
+
+[node name="UnlitLever" parent="RavinePuzzle/Lever5" index="1"]
+visible = false
+
+[node name="LitLeverHandle" parent="RavinePuzzle/Lever5" index="2"]
+visible = false
+
+[node name="LitLever" parent="RavinePuzzle/Lever5" index="3"]
+visible = false
+
+[node name="CollisionShape2D" parent="RavinePuzzle/Lever5" index="4"]
+disabled = true
+
+[node name="Platform1" parent="RavinePuzzle" groups=["UnlitOnly"] instance=ExtResource( 2 )]
+position = Vector2( 3887, 1529 )
+showInLight = false
+
+[node name="UnlitPlatformmiddle" parent="RavinePuzzle/Platform1" index="0"]
+visible = false
+
+[node name="Litplatformmiddle" parent="RavinePuzzle/Platform1" index="1"]
+visible = false
+
+[node name="CollisionShape2D" parent="RavinePuzzle/Platform1" index="2"]
+disabled = true
+
+[node name="Platform2" parent="RavinePuzzle" groups=["UnlitOnly"] instance=ExtResource( 2 )]
+position = Vector2( 4653, 1250 )
+showInLight = false
+
+[node name="UnlitPlatformmiddle" parent="RavinePuzzle/Platform2" index="0"]
+visible = false
+
+[node name="Litplatformmiddle" parent="RavinePuzzle/Platform2" index="1"]
+visible = false
+
+[node name="CollisionShape2D" parent="RavinePuzzle/Platform2" index="2"]
+disabled = true
+
+[node name="Platform3" parent="RavinePuzzle" groups=["UnlitOnly"] instance=ExtResource( 2 )]
+position = Vector2( 5229, 954 )
+showInLight = false
+
+[node name="UnlitPlatformmiddle" parent="RavinePuzzle/Platform3" index="0"]
+visible = false
+
+[node name="Litplatformmiddle" parent="RavinePuzzle/Platform3" index="1"]
+visible = false
+
+[node name="CollisionShape2D" parent="RavinePuzzle/Platform3" index="2"]
+disabled = true
+
+[node name="Platform4" parent="RavinePuzzle" instance=ExtResource( 2 )]
+position = Vector2( 3695, 937 )
+
+[node name="UnlitPlatformmiddle" parent="RavinePuzzle/Platform4" index="0"]
+visible = false
+
+[node name="Litplatformmiddle" parent="RavinePuzzle/Platform4" index="1"]
+visible = false
+
+[node name="CollisionShape2D" parent="RavinePuzzle/Platform4" index="2"]
+disabled = true
+
+[node name="Platform5" parent="RavinePuzzle" instance=ExtResource( 2 )]
+position = Vector2( 3061, 599 )
+
+[node name="UnlitPlatformmiddle" parent="RavinePuzzle/Platform5" index="0"]
+visible = false
+
+[node name="Litplatformmiddle" parent="RavinePuzzle/Platform5" index="1"]
+visible = false
+
+[node name="CollisionShape2D" parent="RavinePuzzle/Platform5" index="2"]
+disabled = true
+
+[node name="Platform6" parent="RavinePuzzle" instance=ExtResource( 2 )]
+position = Vector2( 4180, 339 )
+
+[node name="UnlitPlatformmiddle" parent="RavinePuzzle/Platform6" index="0"]
+visible = false
+
+[node name="Litplatformmiddle" parent="RavinePuzzle/Platform6" index="1"]
+visible = false
+
+[node name="CollisionShape2D" parent="RavinePuzzle/Platform6" index="2"]
+disabled = true
+
+[node name="Platform7" parent="RavinePuzzle" instance=ExtResource( 2 )]
+position = Vector2( 5054, 78 )
+
+[node name="UnlitPlatformmiddle" parent="RavinePuzzle/Platform7" index="0"]
+visible = false
+
+[node name="Litplatformmiddle" parent="RavinePuzzle/Platform7" index="1"]
+visible = false
+
+[node name="CollisionShape2D" parent="RavinePuzzle/Platform7" index="2"]
+disabled = true
 
 [node name="BlockPuzzle" type="Node" parent="."]
 
@@ -206,7 +327,7 @@ visible = false
 visible = false
 
 [node name="LargeBlock" parent="BlockPuzzle" instance=ExtResource( 6 )]
-position = Vector2( 8999, -322 )
+position = Vector2( 8999, -458 )
 scale = Vector2( 1.5, 1.5 )
 
 [node name="SkinnyBlock" parent="BlockPuzzle" instance=ExtResource( 6 )]
@@ -221,7 +342,7 @@ position = Vector2( 12385, -1409 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Platform9" parent="BlockPuzzle" instance=ExtResource( 2 )]
-position = Vector2( 10131, 139 )
+position = Vector2( 10131, 171 )
 scale = Vector2( 2, 1 )
 collision_layer = 4
 collision_mask = 4
@@ -231,9 +352,6 @@ visible = false
 
 [node name="Litplatformmiddle" parent="BlockPuzzle/Platform9" index="1"]
 visible = false
-
-[node name="CollisionShape2D" parent="BlockPuzzle/Platform9" index="2"]
-position = Vector2( -2, 32.9224 )
 
 [node name="Platform10" parent="BlockPuzzle" instance=ExtResource( 2 )]
 position = Vector2( 10953, 171 )
@@ -263,19 +381,19 @@ visible = false
 position = Vector2( -2, 28.9229 )
 
 [node name="SavingPoint" parent="." instance=ExtResource( 11 )]
-position = Vector2( 1643, 88 )
+position = Vector2( 1643, 32 )
 scale = Vector2( 5, 1.5 )
 
 [node name="SavingPoint2" parent="." instance=ExtResource( 11 )]
-position = Vector2( 5803, -295 )
+position = Vector2( 5803, -443 )
 scale = Vector2( 4, 1.5 )
 
 [node name="SavingPoint3" parent="." instance=ExtResource( 11 )]
-position = Vector2( 7556, -298 )
+position = Vector2( 7556, -466 )
 scale = Vector2( 4, 1.5 )
 
 [node name="SavingPoint4" parent="." instance=ExtResource( 11 )]
-position = Vector2( 9536, 111 )
+position = Vector2( 9536, -81 )
 scale = Vector2( 5, 1.5 )
 
 [node name="EndLevel2" type="Area2D" parent="."]
@@ -298,6 +416,15 @@ position = Vector2( 13674, -126 )
 [editable path="PlatformFall/PressurePlate1"]
 [editable path="LeverPuzzle/Lever2"]
 [editable path="LeverPuzzle/Lever3"]
+[editable path="RavinePuzzle/Lever4"]
+[editable path="RavinePuzzle/Lever5"]
+[editable path="RavinePuzzle/Platform1"]
+[editable path="RavinePuzzle/Platform2"]
+[editable path="RavinePuzzle/Platform3"]
+[editable path="RavinePuzzle/Platform4"]
+[editable path="RavinePuzzle/Platform5"]
+[editable path="RavinePuzzle/Platform6"]
+[editable path="RavinePuzzle/Platform7"]
 [editable path="BlockPuzzle/PlatformSkinnyBlock"]
 [editable path="BlockPuzzle/PlatformLargeBlock"]
 [editable path="BlockPuzzle/PlatformSmallBlock"]

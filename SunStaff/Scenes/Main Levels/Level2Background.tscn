@@ -118,15 +118,15 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Lit/LitGround"]
-position = Vector2( -284.667, 258.669 )
+position = Vector2( -295.333, 130.669 )
 shape = SubResource( 5 )
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Lit/LitGround"]
-position = Vector2( 704, 390.002 )
+position = Vector2( 693.334, 262.002 )
 shape = SubResource( 6 )
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Lit/LitGround"]
-position = Vector2( 1303.42, 518.002 )
+position = Vector2( 1292.75, 390.002 )
 shape = SubResource( 7 )
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="Lit/LitGround"]

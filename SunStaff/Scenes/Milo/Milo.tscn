@@ -480,13 +480,12 @@ frame = 17
 texture = ExtResource( 4 )
 hframes = 8
 vframes = 10
-frame = 44
+frame = 37
 
 [node name="SunStaff" parent="Lit" instance=ExtResource( 3 )]
 
 [node name="Light2D" parent="Lit/SunStaff" index="0"]
-position = Vector2( -45, 0 )
-scale = Vector2( 2.1, 2.1 )
+position = Vector2( 3.8147e-06, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Fall_Staff = SubResource( 197 )

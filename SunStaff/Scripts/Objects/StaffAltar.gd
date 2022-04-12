@@ -52,8 +52,7 @@ func SunStaffPlacement():
 		SunStaff.get_child(0).set_color(Color(1,1,1,0))
 		GameManager.GetPlayer().ChangeHasStaffState(false)
 		CurrentClosestAltar.get_child(1).get_child(0).visible = true
-		GameManager.CheckForLevelSpecificActions("Altar",true,CurrentClosestAltar)
-		GameManager.CheckForLevelSpecificActions("Altar",true,CurrentClosestAltar)
+		CheckForAltarMethodsOnLevels()
 		activated = true
 
 	else: # If the altar has the Staff
@@ -65,10 +64,8 @@ func SunStaffPlacement():
 	
 	if (CurrentClosestAltar.get_child(1).get_child(0).visible): # If the altar has the Staff, turn off LightCircle monitoring
 		LightCircle.ChangeLightCircleMonitoring(false)
-		print("Light Circle Monitoring: ", LightCircle.monitoring)
 	else:
 		LightCircle.ChangeLightCircleMonitoring(true)
-		print("Light Circle Monitoring: ", LightCircle.monitoring)
 
 func GetCurrentClosestAltar(altars, player):
 	CurrentClosestAltar = null

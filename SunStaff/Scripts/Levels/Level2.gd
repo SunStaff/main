@@ -38,7 +38,6 @@ func _ready():
 	#Block Puzzle elements initialized (Last puzzle)
 	skinnyBlock = get_parent().get_node("BlockPuzzle/SkinnyBlock")
 	skinnyBlockGate = get_parent().get_node("BlockPuzzle/SkinnyBlockGate")
-	print(skinnyBlockGate)
 	largeBlock = get_parent().get_node("BlockPuzzle/LargeBlock")
 	smallBlockBlocker = get_parent().get_node("BlockPuzzle/SmallBlockBlocker")
 	smallBlock = get_parent().get_node("BlockPuzzle/SmallBlock")
@@ -52,13 +51,11 @@ func _ready():
 	timer = Timer.new()
 	self.add_child(timer)
 
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
 
-func Level2_RavinePuzzle():
+func Level2_PlatformFall():
 	for i in range(len(ravinePlatform_Array)):
 		if i > 0:
 			ravinePlatform_Array[i].queue_free()
@@ -77,8 +74,38 @@ func Level2_RavinePuzzle():
 
 	ravinePlatform_Array[0].queue_free()
 
+func Level2_Ravine_FirstLever(state):
+	var ravine_platform1 = get_parent().get_node("RavinePuzzle/Platform1")
+	var ravine_platform2 = get_parent().get_node("RavinePuzzle/Platform2")
+	var ravine_platform3 = get_parent().get_node("RavinePuzzle/Platform3")
+	var ravine_lever1 = get_parent().get_node("RavinePuzzle/Lever5")
 
+	ravine_platform1.get_child(0).visible = state
+	ravine_platform1.get_child(2).set_deferred("disabled", !state)
+	ravine_platform2.get_child(0).visible = state
+	ravine_platform2.get_child(2).set_deferred("disabled", !state)
+	ravine_platform3.get_child(0).visible = state
+	ravine_platform3.get_child(2).set_deferred("disabled", !state)
 
+	ravine_lever1.get_child(0).visible = state
+	ravine_lever1.get_child(1).visible = state
+	ravine_lever1.get_child(4).set_deferred("disabled", !state)
+
+func Level2_Ravine_SecondLever(state):
+	var ravine_lever2 = get_parent().get_node("RavinePuzzle/Lever5")
+	var ravine_nodeArray = get_parent().get_node("RavinePuzzle").get_children()
+
+	for node in ravine_nodeArray:
+		if ("Platform" in node.name):
+			node.get_child(0).visible = state
+			node.get_child(1).visible = state
+			node.get_child(2).set_deferred("disabled", !state)
+
+	ravine_lever2.get_child(0).visible = state
+	ravine_lever2.get_child(1).visible = state
+	ravine_lever2.get_child(2).visible = state
+	ravine_lever2.get_child(3).visible = state
+	ravine_lever2.get_child(4).set_deferred("disabled", !state)
 
 func Destroy_SkinnyBlockGate():
 	if (!allowSkinnyBlockMovement):
