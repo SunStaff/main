@@ -37,12 +37,11 @@ MiloSpawnLocation = Vector2( 5800, -720 )
 [node name="Level2Background" parent="." instance=ExtResource( 9 )]
 
 [node name="Milo" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1654, -339 )
 
 [node name="PlatformFall" type="Node" parent="."]
 
 [node name="PressurePlate1" parent="PlatformFall" instance=ExtResource( 1 )]
-position = Vector2( 2679, -192 )
+position = Vector2( 1295, -192 )
 scale = Vector2( 7, 2 )
 
 [node name="Sprite2" parent="PlatformFall/PressurePlate1" index="0"]
@@ -52,25 +51,25 @@ visible = false
 visible = false
 
 [node name="FallPlatform1" parent="PlatformFall" instance=ExtResource( 2 )]
-position = Vector2( 2680, -120 )
+position = Vector2( 1296, -120 )
 
 [node name="FallPlatform2" parent="PlatformFall" instance=ExtResource( 2 )]
-position = Vector2( 3456, 160 )
+position = Vector2( 2072, 160 )
 
 [node name="FallPlatform3" parent="PlatformFall" instance=ExtResource( 2 )]
-position = Vector2( 4232, -72 )
+position = Vector2( 2848, -72 )
 
 [node name="FallPlatform4" parent="PlatformFall" instance=ExtResource( 2 )]
-position = Vector2( 5040, -344 )
+position = Vector2( 3656, -344 )
 
 [node name="LeverPuzzle" type="Node" parent="."]
 
 [node name="StaffAltar" parent="LeverPuzzle" instance=ExtResource( 8 )]
-position = Vector2( 5956, -472 )
+position = Vector2( 4572, -472 )
 
 [node name="PuzzleDoor" type="KinematicBody2D" parent="LeverPuzzle" groups=["Door"]]
 light_mask = 2
-position = Vector2( 7334, -906 )
+position = Vector2( 5950, -906 )
 scale = Vector2( 1.5, 2.5 )
 __meta__ = {
 "_edit_group_": true
@@ -86,10 +85,10 @@ position = Vector2( -19.5, 11 )
 shape = SubResource( 1 )
 
 [node name="Lever1" parent="LeverPuzzle" instance=ExtResource( 4 )]
-position = Vector2( 6300, -496 )
+position = Vector2( 4916, -496 )
 
 [node name="Lever2" parent="LeverPuzzle" instance=ExtResource( 4 )]
-position = Vector2( 6700, -496 )
+position = Vector2( 5316, -496 )
 
 [node name="UnlitLeverHandle" parent="LeverPuzzle/Lever2" index="0"]
 visible = false
@@ -101,7 +100,7 @@ visible = false
 position = Vector2( 0, 0 )
 
 [node name="Lever3" parent="LeverPuzzle" groups=["UnlitOnly"] instance=ExtResource( 4 )]
-position = Vector2( 7100, -496 )
+position = Vector2( 5716, -496 )
 
 [node name="LitLeverHandle" parent="LeverPuzzle/Lever3" index="2"]
 visible = false
@@ -115,10 +114,10 @@ position = Vector2( 0, 0 )
 [node name="RavinePuzzle" type="Node" parent="."]
 
 [node name="StaffAltar" parent="RavinePuzzle" instance=ExtResource( 8 )]
-position = Vector2( 2422, 1718 )
+position = Vector2( 1038, 1718 )
 
 [node name="Lever4" parent="RavinePuzzle" instance=ExtResource( 4 )]
-position = Vector2( 3248, 1696 )
+position = Vector2( 1864, 1696 )
 
 [node name="UnlitLeverHandle" parent="RavinePuzzle/Lever4" index="0"]
 visible = false
@@ -127,7 +126,7 @@ visible = false
 visible = false
 
 [node name="Lever5" parent="RavinePuzzle" groups=["UnlitOnly"] instance=ExtResource( 4 )]
-position = Vector2( 5224, 871 )
+position = Vector2( 3840, 871 )
 
 [node name="UnlitLeverHandle" parent="RavinePuzzle/Lever5" index="0"]
 visible = false
@@ -145,7 +144,7 @@ visible = false
 disabled = true
 
 [node name="Platform1" parent="RavinePuzzle" groups=["UnlitOnly"] instance=ExtResource( 2 )]
-position = Vector2( 3887, 1529 )
+position = Vector2( 2503, 1529 )
 showInLight = false
 
 [node name="UnlitPlatformmiddle" parent="RavinePuzzle/Platform1" index="0"]
@@ -158,7 +157,7 @@ visible = false
 disabled = true
 
 [node name="Platform2" parent="RavinePuzzle" groups=["UnlitOnly"] instance=ExtResource( 2 )]
-position = Vector2( 4653, 1250 )
+position = Vector2( 3269, 1250 )
 showInLight = false
 
 [node name="UnlitPlatformmiddle" parent="RavinePuzzle/Platform2" index="0"]
@@ -171,7 +170,7 @@ visible = false
 disabled = true
 
 [node name="Platform3" parent="RavinePuzzle" groups=["UnlitOnly"] instance=ExtResource( 2 )]
-position = Vector2( 5229, 954 )
+position = Vector2( 3845, 954 )
 showInLight = false
 
 [node name="UnlitPlatformmiddle" parent="RavinePuzzle/Platform3" index="0"]
@@ -184,7 +183,7 @@ visible = false
 disabled = true
 
 [node name="Platform4" parent="RavinePuzzle" instance=ExtResource( 2 )]
-position = Vector2( 3695, 937 )
+position = Vector2( 2311, 937 )
 
 [node name="UnlitPlatformmiddle" parent="RavinePuzzle/Platform4" index="0"]
 visible = false
@@ -196,7 +195,7 @@ visible = false
 disabled = true
 
 [node name="Platform5" parent="RavinePuzzle" instance=ExtResource( 2 )]
-position = Vector2( 3061, 599 )
+position = Vector2( 1677, 599 )
 
 [node name="UnlitPlatformmiddle" parent="RavinePuzzle/Platform5" index="0"]
 visible = false
@@ -208,7 +207,7 @@ visible = false
 disabled = true
 
 [node name="Platform6" parent="RavinePuzzle" instance=ExtResource( 2 )]
-position = Vector2( 4180, 339 )
+position = Vector2( 2796, 339 )
 
 [node name="UnlitPlatformmiddle" parent="RavinePuzzle/Platform6" index="0"]
 visible = false
@@ -220,7 +219,7 @@ visible = false
 disabled = true
 
 [node name="Platform7" parent="RavinePuzzle" instance=ExtResource( 2 )]
-position = Vector2( 5054, 78 )
+position = Vector2( 3670, 78 )
 
 [node name="UnlitPlatformmiddle" parent="RavinePuzzle/Platform7" index="0"]
 visible = false
@@ -235,7 +234,7 @@ disabled = true
 
 [node name="SmallBlockBlocker" type="KinematicBody2D" parent="BlockPuzzle"]
 light_mask = 0
-position = Vector2( 12371, -1295 )
+position = Vector2( 10987, -1295 )
 
 [node name="SmallBlockBlocker" type="Sprite" parent="BlockPuzzle/SmallBlockBlocker"]
 light_mask = 0
@@ -251,7 +250,7 @@ shape = SubResource( 2 )
 
 [node name="SkinnyBlockGate" type="KinematicBody2D" parent="BlockPuzzle"]
 light_mask = 0
-position = Vector2( 10946, 165 )
+position = Vector2( 9562, 165 )
 scale = Vector2( 5, 1 )
 __meta__ = {
 "_edit_group_": true
@@ -272,7 +271,7 @@ __meta__ = {
 
 [node name="FinalDoor" type="KinematicBody2D" parent="BlockPuzzle"]
 light_mask = 2
-position = Vector2( 13134, -400 )
+position = Vector2( 11750, -400 )
 scale = Vector2( 1.5, 2.5 )
 __meta__ = {
 "_edit_group_": true
@@ -288,19 +287,19 @@ position = Vector2( -25.75, 0 )
 shape = SubResource( 4 )
 
 [node name="PressurePlate2" parent="BlockPuzzle" instance=ExtResource( 1 )]
-position = Vector2( 10122, 711 )
+position = Vector2( 8738, 711 )
 scale = Vector2( 8, 1 )
 
 [node name="PressurePlate3" parent="BlockPuzzle" instance=ExtResource( 1 )]
-position = Vector2( 10945, 971 )
+position = Vector2( 9561, 971 )
 scale = Vector2( 4, 1 )
 
 [node name="PressurePlate4" parent="BlockPuzzle" instance=ExtResource( 1 )]
-position = Vector2( 11820, 596 )
+position = Vector2( 10436, 596 )
 scale = Vector2( 3, 1 )
 
 [node name="PlatformSkinnyBlock" parent="BlockPuzzle" instance=ExtResource( 2 )]
-position = Vector2( 10951, 1043 )
+position = Vector2( 9567, 1043 )
 
 [node name="UnlitPlatformmiddle" parent="BlockPuzzle/PlatformSkinnyBlock" index="0"]
 visible = false
@@ -309,7 +308,7 @@ visible = false
 visible = false
 
 [node name="PlatformLargeBlock" parent="BlockPuzzle" instance=ExtResource( 2 )]
-position = Vector2( 10117, 762 )
+position = Vector2( 8733, 762 )
 
 [node name="UnlitPlatformmiddle" parent="BlockPuzzle/PlatformLargeBlock" index="0"]
 visible = false
@@ -318,7 +317,7 @@ visible = false
 visible = false
 
 [node name="PlatformSmallBlock" parent="BlockPuzzle" instance=ExtResource( 2 )]
-position = Vector2( 11819, 655 )
+position = Vector2( 10435, 655 )
 
 [node name="UnlitPlatformmiddle" parent="BlockPuzzle/PlatformSmallBlock" index="0"]
 visible = false
@@ -327,22 +326,22 @@ visible = false
 visible = false
 
 [node name="LargeBlock" parent="BlockPuzzle" instance=ExtResource( 6 )]
-position = Vector2( 8999, -458 )
+position = Vector2( 7615, -458 )
 scale = Vector2( 1.5, 1.5 )
 
 [node name="SkinnyBlock" parent="BlockPuzzle" instance=ExtResource( 6 )]
-position = Vector2( 10643, -374 )
+position = Vector2( 9259, -374 )
 scale = Vector2( 0.4, 1 )
 
 [node name="BoxUnlit" parent="BlockPuzzle/SkinnyBlock/Node2D" index="0"]
 light_mask = 1
 
 [node name="SmallBlock" parent="BlockPuzzle" instance=ExtResource( 6 )]
-position = Vector2( 12385, -1409 )
+position = Vector2( 11001, -1409 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Platform9" parent="BlockPuzzle" instance=ExtResource( 2 )]
-position = Vector2( 10131, 171 )
+position = Vector2( 8747, 171 )
 scale = Vector2( 2, 1 )
 collision_layer = 4
 collision_mask = 4
@@ -354,7 +353,7 @@ visible = false
 visible = false
 
 [node name="Platform10" parent="BlockPuzzle" instance=ExtResource( 2 )]
-position = Vector2( 10953, 171 )
+position = Vector2( 9569, 171 )
 scale = Vector2( 1, 1 )
 collision_layer = 4
 collision_mask = 4
@@ -366,7 +365,7 @@ visible = false
 visible = false
 
 [node name="Platform11" parent="BlockPuzzle" instance=ExtResource( 2 )]
-position = Vector2( 11815, 138 )
+position = Vector2( 10431, 138 )
 scale = Vector2( 1, 1 )
 collision_layer = 4
 collision_mask = 4
@@ -381,24 +380,24 @@ visible = false
 position = Vector2( -2, 28.9229 )
 
 [node name="SavingPoint" parent="." instance=ExtResource( 11 )]
-position = Vector2( 1643, 32 )
+position = Vector2( 215, 32 )
 scale = Vector2( 5, 1.5 )
 
 [node name="SavingPoint2" parent="." instance=ExtResource( 11 )]
-position = Vector2( 5803, -443 )
+position = Vector2( 4419, -443 )
 scale = Vector2( 4, 1.5 )
 
 [node name="SavingPoint3" parent="." instance=ExtResource( 11 )]
-position = Vector2( 7556, -466 )
+position = Vector2( 6172, -466 )
 scale = Vector2( 4, 1.5 )
 
 [node name="SavingPoint4" parent="." instance=ExtResource( 11 )]
-position = Vector2( 9536, -81 )
+position = Vector2( 8152, -81 )
 scale = Vector2( 5, 1.5 )
 
 [node name="EndLevel2" type="Area2D" parent="."]
 light_mask = 2
-position = Vector2( 13913, -281 )
+position = Vector2( 12529, -281 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -409,7 +408,7 @@ position = Vector2( 384, 0 )
 shape = SubResource( 5 )
 
 [node name="Blue_GemPickup" parent="." instance=ExtResource( 12 )]
-position = Vector2( 13674, -126 )
+position = Vector2( 12290, -126 )
 
 [connection signal="body_entered" from="EndLevel2" to="Level2Manager" method="_on_EndLevel2_body_entered"]
 

@@ -16,6 +16,7 @@ var leverDoor
 var leverDoorOpened = false
 
 var ravinePlatform_Array = []
+var ravine_nodeArray = []
 var timer
 var timerActivated = false
 
@@ -47,6 +48,14 @@ func _ready():
 	ravinePlatform_Array.append(get_parent().get_node("PlatformFall/FallPlatform2"))
 	ravinePlatform_Array.append(get_parent().get_node("PlatformFall/FallPlatform3"))
 	ravinePlatform_Array.append(get_parent().get_node("PlatformFall/FallPlatform4"))
+
+	ravine_nodeArray = get_parent().get_node("RavinePuzzle").get_children()
+
+	for node in ravine_nodeArray:
+		if ("Platform" in node.name):
+			node.get_child(0).visible = false
+			node.get_child(1).visible = false
+			node.get_child(2).set_deferred("disabled", true)
 
 	timer = Timer.new()
 	self.add_child(timer)
@@ -93,13 +102,14 @@ func Level2_Ravine_FirstLever(state):
 
 func Level2_Ravine_SecondLever(state):
 	var ravine_lever2 = get_parent().get_node("RavinePuzzle/Lever5")
-	var ravine_nodeArray = get_parent().get_node("RavinePuzzle").get_children()
-
+	
 	for node in ravine_nodeArray:
 		if ("Platform" in node.name):
 			node.get_child(0).visible = state
 			node.get_child(1).visible = state
 			node.get_child(2).set_deferred("disabled", !state)
+			if (node.is_in_group("UnlitOnly")):
+				node.remove_from_group("UnlitOnly")
 
 	ravine_lever2.get_child(0).visible = state
 	ravine_lever2.get_child(1).visible = state

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MiloRunStaffDEMO.png-99f9722a96ecc9afecc714c163706af3.stex"
+path="res://.import/Untitled_Artwork.png-69a02a6e9bc03c0902a61644e87061e0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/DEMO/MiloRunStaffDEMO.png"
-dest_files=[ "res://.import/MiloRunStaffDEMO.png-99f9722a96ecc9afecc714c163706af3.stex" ]
+source_file="res://Art/Lit/Objects/Untitled_Artwork.png"
+dest_files=[ "res://.import/Untitled_Artwork.png-69a02a6e9bc03c0902a61644e87061e0.stex" ]
 
 [params]
 
