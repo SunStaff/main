@@ -93,12 +93,14 @@ func Level1(lever, _turnedOn):
 		#Moves altar to third altar position
 		"5":
 			GameManager.GetLevelManagers()[0].ChangeAltarPos()
+			GameManager.GetLevelManagers()[0].SetAltarCheckPoint(3)
 		#First lever to flick in level, releases bridge
 		"6":
 			GameManager.GetLevelManagers()[0].ReleaseDrawBridge()
 		#Moves altar to second altar position
 		"7":
 			GameManager.GetLevelManagers()[0].ChangeAltarPos()
+			GameManager.GetLevelManagers()[0].SetAltarCheckPoint(2)
 
 func Level2(lever, turnedOn):
 	var name = lever.name.replacen("Lever", "")

@@ -30,17 +30,13 @@ func ChangeAltarPos():
 		while(movingAltar.position.x <= POS2 and movingPlatform.position.x <= POS2):
 			movingAltar.position.x += 50
 			movingPlatform.position.x += 50
-		checkPoint1 = false
-		checkPoint2 = true
 	elif(checkPoint2):
 		while(movingAltar.position.x <= POS3 and movingPlatform.position.x <= POS3):
 			movingAltar.position.x += 50
 			movingPlatform.position.x += 50
-		checkPoint2 = false
-		checkPoint3 = true
 
 func MoveBlock():
-	while(movingBlock.position.y <= 1000):
+	while(movingBlock.position.y <= 5000):
 		movingBlock.position.y += 50
 
 func ReleaseDrawBridge():
@@ -50,3 +46,17 @@ func ReleaseDrawBridge():
 	elif(drawBridge.rotation_degrees >= 90):
 		while(drawBridge.rotation_degrees >= 0):
 			drawBridge.rotation_degrees -= 1 
+
+func SetAltarCheckPoint(num):
+	if(num == 1):
+		checkPoint1 = true
+		checkPoint2 = false
+		checkPoint3 = false
+	elif (num == 2):
+		checkPoint1 = false
+		checkPoint2 = true
+		checkPoint3 = false
+	elif (num == 3):
+		checkPoint1 = false
+		checkPoint2 = false
+		checkPoint3 = true
