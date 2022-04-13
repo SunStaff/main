@@ -60,3 +60,12 @@ func SetAltarCheckPoint(num):
 		checkPoint1 = false
 		checkPoint2 = false
 		checkPoint3 = true
+
+
+func _on_EndLevel1_body_entered(body):
+	if ("Milo" in body.name):
+		Level1End()
+
+func Level1End():
+	print("End of Level 1")
+	GameManager.ChangeScene()
