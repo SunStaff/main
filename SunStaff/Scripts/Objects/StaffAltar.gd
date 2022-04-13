@@ -1,6 +1,6 @@
 extends Area2D
 
-var activated
+var activated = false
 var playerRootNode
 var WithinAltarRange = false
 
