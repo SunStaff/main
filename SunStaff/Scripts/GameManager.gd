@@ -125,7 +125,9 @@ func CheckForLevelSpecificActions(from, information, optionalNode):
 	LevelManagers = GetLevelManagers()
 	match CurrentLevel:
 		"Tutorial":
-			pass
+			if ("Altar" in from):
+				if ("_MoveDoor" in optionalNode.name):
+					LevelManagers[0].Tutorial_MoveDoor_DueTo_StaffAltar(information)
 		"Level1":
 			pass
 		"Level2":

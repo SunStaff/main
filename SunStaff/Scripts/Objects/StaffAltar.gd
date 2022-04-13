@@ -29,6 +29,7 @@ func _process(_delta):
 
 func _on_StaffAltar_body_entered(body):
 	if ("Milo" in body.name):
+		print(name)
 		WithinAltarRange = true
 
 func _on_StaffAltar_body_exited(body):
@@ -49,7 +50,7 @@ func _on_LightCircle_area_exited(area):
 
 func SunStaffPlacement():
 	GetCurrentClosestAltar(GameManager.GetSunStaffAltars(), GameManager.GetPlayer())
-	if (StaffVisibility): # If Milo is holding staff
+	if (StaffVisibility and !activated): # If Milo is holding staff
 		SunStaff.get_child(0).set_color(Color(1,1,1,0))
 		StaffVisibility = false
 		GameManager.GetPlayer().ChangeHasStaffState(false)
