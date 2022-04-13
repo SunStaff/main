@@ -108,6 +108,9 @@ position = Vector2( 6012, 1500 )
 visible = false
 
 [node name="Milo" parent="." instance=ExtResource( 1 )]
+jump_height = 750.0
+jump_time_to_peak = 0.4
+jumo_time_to_descent = 0.3
 
 [node name="StartingDoor" type="KinematicBody2D" parent="." groups=["Door"]]
 light_mask = 0

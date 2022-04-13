@@ -32,11 +32,15 @@ extents = Vector2( 116, 400 )
 
 [node name="Level2Manager" type="Node" parent="." groups=["LevelManager"]]
 script = ExtResource( 3 )
-MiloSpawnLocation = Vector2( 5800, -720 )
+DebugMode = true
+MiloSpawnLocation = Vector2( 6800, -900 )
 
 [node name="Level2Background" parent="." instance=ExtResource( 9 )]
 
 [node name="Milo" parent="." instance=ExtResource( 7 )]
+position = Vector2( 6800, -900 )
+jump_height = 750.0
+jump_time_to_peak = 0.4
 
 [node name="PlatformFall" type="Node" parent="."]
 

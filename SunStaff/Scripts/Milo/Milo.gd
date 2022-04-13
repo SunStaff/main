@@ -23,8 +23,12 @@ var direction
 
 # Jump Variables
 var justJumped = false
-export (float) var jump_speed = -1600
-export (float) var gravity = 3000
+export (float) var jump_height = 750
+export (float) var jump_time_to_peak = 0.4
+export (float) var jumo_time_to_descent = 0.3
+onready var jump_velocity: float = -1 * ((2.0 * jump_height) / jump_time_to_peak)
+onready var jump_gravity: float = -1 * ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak))
+onready var fall_gravity: float = -1 * ((-2.0 * jump_height) / (jumo_time_to_descent * jumo_time_to_descent))
 
 func _ready():
 	if (GameManager.ChangeSceneCalled):
@@ -44,7 +48,7 @@ func get_input():
 
 	if (is_on_floor()):
 		playLeftOrRight = true
-
+	
 	if Input.is_action_pressed("Right"):
 		velocity.x += speed
 		sprite.scale.x = 1
@@ -67,19 +71,20 @@ func get_input():
 
 	if Input.is_action_pressed("Sprint") and (Input.is_action_pressed("Left") or Input.is_action_pressed("Right")):
 		if is_on_floor():
-			velocity.x += speed * 2 * direction
+			pass
+		velocity.x += speed * 2 * direction
 	
 	AnimationManager.UpdateAnimations(StateMachine, HasStaff, velocity, playLeftOrRight)
 	
 func _physics_process(delta):
 	if (GameManager.IsGamePlaying and GameManager.IsPlayerAlive):
 		get_input()
-		velocity.y += gravity * delta
+		velocity.y += GetGravity() * delta
 		velocity = move_and_slide(velocity, Vector2.UP)
 		if Input.is_action_just_pressed("Jump"):
 			if is_on_floor():
 				AnimationManager.JumpAnimation()
-				velocity.y = jump_speed
+				velocity.y = jump_velocity
 				playLeftOrRight = false
 				justJumped = true
 		
@@ -100,3 +105,6 @@ func ChangeHasStaffState(state):
 
 func GetHasStaffState():
 	return HasStaff
+
+func GetGravity():
+	return jump_gravity if velocity.y < 0.0 else fall_gravity

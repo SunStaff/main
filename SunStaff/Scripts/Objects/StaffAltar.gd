@@ -51,18 +51,18 @@ func SunStaffPlacement():
 	if (GameManager.GetPlayer().GetHasStaffState() and !activated): # If Milo is holding staff
 		SunStaff.get_child(0).set_color(Color(1,1,1,0))
 		GameManager.GetPlayer().ChangeHasStaffState(false)
-		CurrentClosestAltar.get_child(1).get_child(0).visible = true
-		CheckForAltarMethodsOnLevels()
+		CurrentClosestAltar.get_child(2).visible = true
+		CheckForAltarMethodsOnLevels(true)
 		activated = true
 
 	else: # If the altar has the Staff
 		SunStaff.get_child(0).set_color(Color(1,1,1,1))
 		GameManager.GetPlayer().ChangeHasStaffState(true)
-		CurrentClosestAltar.get_child(1).get_child(0).visible = false
-		CheckForAltarMethodsOnLevels()
+		CurrentClosestAltar.get_child(2).visible = false
+		CheckForAltarMethodsOnLevels(false)
 		activated = false
 	
-	if (CurrentClosestAltar.get_child(1).get_child(0).visible): # If the altar has the Staff, turn off LightCircle monitoring
+	if (CurrentClosestAltar.get_child(2).visible): # If the altar has the Staff, turn off LightCircle monitoring
 		LightCircle.ChangeLightCircleMonitoring(false)
 	else:
 		LightCircle.ChangeLightCircleMonitoring(true)
@@ -78,6 +78,5 @@ func GetCurrentClosestAltar(altars, player):
 	minDistanceToAltar = INF
 	return CurrentClosestAltar
 
-func CheckForAltarMethodsOnLevels():
-	GameManager.CheckForLevelSpecificActions("Altar",false,CurrentClosestAltar)
-	GameManager.CheckForLevelSpecificActions("Altar",false,CurrentClosestAltar)
+func CheckForAltarMethodsOnLevels(state):
+	GameManager.CheckForLevelSpecificActions("Altar",state,CurrentClosestAltar)

@@ -154,7 +154,7 @@ func SetSpawnLocation():
 		"Level2":
 			LastLivingPos = Vector2(500,-250)
 		"Level3":
-			LastLivingPos = Vector2(-1000,-55)
+			LastLivingPos = Vector2(0,0)
 
 	TeleportPlayer()
 
