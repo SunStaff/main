@@ -227,91 +227,23 @@ position = Vector2( 95.5, 161.25 )
 shape = SubResource( 11 )
 
 [node name="GemPuzzle" parent="." instance=ExtResource( 12 )]
-position = Vector2( -10408, 1234 )
+position = Vector2( -9624, 1234 )
 scale = Vector2( 2.5, 2.5 )
-
-[node name="StaffAltar4_GemPuzzle" parent="GemPuzzle" index="0"]
-position = Vector2( 6191, -730 )
-
-[node name="StaffAltar3_GemPuzzle" parent="GemPuzzle" index="1"]
-position = Vector2( 6461, -730 )
-
-[node name="StaffAltar2_GemPuzzle" parent="GemPuzzle" index="2"]
-position = Vector2( 6731, -730 )
-
-[node name="StaffAltar1_GemPuzzle" parent="GemPuzzle" index="3"]
-position = Vector2( 7001, -730 )
-
-[node name="Mirrors" parent="GemPuzzle" index="4"]
-position = Vector2( 6596, -825 )
-
-[node name="GemPedestal5" parent="GemPuzzle" index="5"]
-position = Vector2( 7136, -800 )
-
-[node name="GemPedestal4" parent="GemPuzzle" index="6"]
-position = Vector2( 6866, -800 )
-
-[node name="Sprite" parent="GemPuzzle/GemPedestal4" index="0"]
-frame = 4
-
-[node name="LightBeamGreyscale4" parent="GemPuzzle/GemPedestal4/Beams" index="0"]
-visible = true
-modulate = Color( 0, 1, 1, 1 )
-
-[node name="LightBeamGreyscale10" parent="GemPuzzle/GemPedestal4/Beams" index="1"]
-visible = true
-modulate = Color( 0, 1, 1, 1 )
-
-[node name="GemPedestal3" parent="GemPuzzle" index="7"]
-position = Vector2( 6596, -800 )
-
-[node name="GemPedestal2" parent="GemPuzzle" index="8"]
-position = Vector2( 6326, -800 )
-
-[node name="Sprite" parent="GemPuzzle/GemPedestal2" index="0"]
-frame = 3
-
-[node name="LightBeamGreyscale3" parent="GemPuzzle/GemPedestal2/Beams" index="0"]
-visible = true
-modulate = Color( 1, 0, 1, 1 )
-
-[node name="LightBeamGreyscale7" parent="GemPuzzle/GemPedestal2/Beams" index="1"]
-visible = true
-modulate = Color( 1, 0, 1, 1 )
-
-[node name="GemPedestal1" parent="GemPuzzle" index="9"]
-position = Vector2( 6056, -800 )
-
-[node name="Sprite" parent="GemPuzzle/GemPedestal1" index="0"]
-frame = 5
-
-[node name="LightBeamGreyscale1" parent="GemPuzzle/GemPedestal1/Beams" index="0"]
-visible = true
-modulate = Color( 1, 0, 0, 1 )
-
-[node name="LightBeamGreyscale2" parent="GemPuzzle/GemPedestal1/Beams" index="1"]
-visible = true
-modulate = Color( 1, 0, 0, 1 )
-
-[node name="WhiteDimondForPuzzle" parent="GemPuzzle" index="10"]
-position = Vector2( 6596, -1200 )
-
-[node name="EndDoor" parent="GemPuzzle" index="11"]
-position = Vector2( 7818, -860 )
-
-[node name="EndLevel" parent="GemPuzzle" index="12"]
-position = Vector2( 7928, -834 )
-
-[node name="GemSelection" type="CanvasLayer" parent="."]
-
-[node name="GemSelectionScreen" parent="GemSelection" instance=ExtResource( 11 )]
-visible = false
 
 [node name="Green_GemPickup" parent="." instance=ExtResource( 3 )]
 position = Vector2( 9044, 463 )
 
 [node name="AnimatedSprite" parent="Green_GemPickup" index="1"]
 frame = 1
+
+[node name="GemSelection" type="CanvasLayer" parent="."]
+
+[node name="GemSelectionScreen" parent="GemSelection" instance=ExtResource( 11 )]
+visible = false
+
+[node name="SavingPoint3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 4621, -589 )
+scale = Vector2( 10, 1.5 )
 
 [editable path="Platforms/Platform19"]
 [editable path="Platforms/Platform20"]
@@ -323,8 +255,4 @@ frame = 1
 [editable path="TimerPuzzle/TimerPlatform1"]
 [editable path="TimerPuzzle/TimerPlatform2"]
 [editable path="TimerPuzzle/TimerPlatform3"]
-[editable path="GemPuzzle"]
-[editable path="GemPuzzle/GemPedestal4"]
-[editable path="GemPuzzle/GemPedestal2"]
-[editable path="GemPuzzle/GemPedestal1"]
 [editable path="Green_GemPickup"]

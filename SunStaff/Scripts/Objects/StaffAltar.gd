@@ -10,6 +10,7 @@ var LightCircle
 var CurrentClosestAltar
 var minDistanceToAltar = INF
 var HasStaff = true
+var CurrentAltarWithStaff = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -47,20 +48,21 @@ func _on_LightCircle_area_exited(area):
 func SunStaffPlacement():
 	SunStaff = GameManager.GetSunStaff()
 	LightCircle = SunStaff.get_child(1)
-	GetCurrentClosestAltar(GameManager.GetSunStaffAltars(), GameManager.GetPlayer())
 	if (GameManager.GetPlayer().GetHasStaffState() and !activated): # If Milo is holding staff
 		SunStaff.get_child(0).set_color(Color(1,1,1,0))
 		GameManager.GetPlayer().ChangeHasStaffState(false)
 		CurrentClosestAltar.get_child(2).visible = true
 		CheckForAltarMethodsOnLevels(true)
 		activated = true
+		CurrentAltarWithStaff = CurrentClosestAltar
 
-	else: # If the altar has the Staff
+	elif (CurrentAltarWithStaff == self): # If the altar has the Staff
 		SunStaff.get_child(0).set_color(Color(1,1,1,1))
 		GameManager.GetPlayer().ChangeHasStaffState(true)
 		CurrentClosestAltar.get_child(2).visible = false
 		CheckForAltarMethodsOnLevels(false)
 		activated = false
+		CurrentAltarWithStaff = null
 	
 	if (CurrentClosestAltar.get_child(2).visible): # If the altar has the Staff, turn off LightCircle monitoring
 		LightCircle.ChangeLightCircleMonitoring(false)

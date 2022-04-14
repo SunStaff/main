@@ -402,20 +402,26 @@ animation = "Walk_Staffless"
 [sub_resource type="AnimationNodeStateMachineTransition" id=178]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=179]
+switch_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=180]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=182]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=183]
+switch_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=184]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=186]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=187]
+switch_mode = 1
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=188]
+switch_mode = 1
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=189]
 
@@ -458,7 +464,7 @@ states/Walk_Staffless/node = SubResource( 175 )
 states/Walk_Staffless/position = Vector2( 354, 461 )
 transitions = [ "Idle_Staff", "Idle_Staffless", SubResource( 176 ), "Idle_Staffless", "Idle_Staff", SubResource( 177 ), "Idle_Staff", "Walk_Staff", SubResource( 178 ), "Walk_Staff", "Idle_Staff", SubResource( 179 ), "Idle_Staff", "Jump_Staff", SubResource( 180 ), "Idle_Staff", "Run_Staff", SubResource( 182 ), "Run_Staff", "Idle_Staff", SubResource( 183 ), "Idle_Staffless", "Jump_Staffless", SubResource( 184 ), "Idle_Staffless", "Walk_Staffless", SubResource( 186 ), "Walk_Staffless", "Idle_Staffless", SubResource( 187 ), "Run_Staffless", "Idle_Staffless", SubResource( 188 ), "Idle_Staffless", "Run_Staffless", SubResource( 189 ), "Walk_Staff", "Run_Staff", SubResource( 190 ), "Run_Staff", "Walk_Staff", SubResource( 191 ), "Run_Staffless", "Walk_Staffless", SubResource( 192 ), "Walk_Staffless", "Run_Staffless", SubResource( 193 ), "Jump_Staffless", "Fall_Staffless", SubResource( 199 ), "Fall_Staffless", "Idle_Staffless", SubResource( 200 ), "Jump_Staff", "Fall_Staff", SubResource( 202 ), "Fall_Staff", "Idle_Staff", SubResource( 203 ) ]
 start_node = "Idle_Staff"
-graph_offset = Vector2( 0, -46.9785 )
+graph_offset = Vector2( -141, -131.567 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=195]
 
@@ -484,7 +490,7 @@ frame = 17
 texture = ExtResource( 4 )
 hframes = 8
 vframes = 10
-frame = 42
+frame = 40
 
 [node name="SunStaff" parent="Lit" instance=ExtResource( 3 )]
 

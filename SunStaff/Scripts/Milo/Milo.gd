@@ -45,21 +45,23 @@ func _ready():
 
 func get_input():
 	velocity.x = 0.0
+	playLeftOrRight = false
 
-	if (is_on_floor()):
-		playLeftOrRight = true
-	
 	if Input.is_action_pressed("Right"):
 		velocity.x += speed
 		sprite.scale.x = 1
 		spriteUnlit.scale.x = 1
 		direction = 1
+		if (is_on_floor()):
+			playLeftOrRight = true
 	
 	elif Input.is_action_pressed("Left"):
 		velocity.x -= speed
 		sprite.scale.x = -1
 		spriteUnlit.scale.x = -1
 		direction = -1
+		if (is_on_floor()):
+			playLeftOrRight = true
 
 	if Input.is_action_pressed("Jump"):
 		playLeftOrRight = false
@@ -74,7 +76,7 @@ func get_input():
 			pass
 		velocity.x += speed * 2 * direction
 	
-	AnimationManager.UpdateAnimations(StateMachine, HasStaff, velocity, playLeftOrRight)
+	AnimationManager.UpdateAnimations(StateMachine, HasStaff, velocity, playLeftOrRight, speed, MARGIN_OF_ERROR)
 	
 func _physics_process(delta):
 	if (GameManager.IsGamePlaying and GameManager.IsPlayerAlive):
