@@ -27,7 +27,7 @@ func _ready():
 			print("Testing Failed!! Please check tests!!")
 		Player = GetPlayer()
 		LevelManagers = GetLevelManagers()
-		GemsCollected = {"Green": false, "Blue": false, "Red": false, "Cyan": false, "Magenta": false }
+		GemsCollected = {"Green": true, "Blue": true, "Red": true, "Cyan": true, "Magenta": true }
 		
 		SetSpawnLocation()
 
@@ -154,7 +154,7 @@ func SetSpawnLocation():
 		"Level2":
 			LastLivingPos = Vector2(500,-250)
 		"Level3":
-			LastLivingPos = Vector2(-1000,-55)
+			LastLivingPos = Vector2(0,0)
 
 	TeleportPlayer()
 

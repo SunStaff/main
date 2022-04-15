@@ -1,14 +1,34 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Objects/Block.gd" type="Script" id=1]
 [ext_resource path="res://Art/Unlit/Objects/box_unlit.png" type="Texture" id=2]
-[ext_resource path="res://Art/Lit/box_lit.png" type="Texture" id=3]
+[ext_resource path="res://Art/Unlit/Objects/box_3_tall_unlit.png" type="Texture" id=3]
+[ext_resource path="res://Art/Lit/Objects/box_3_tall_lit.png" type="Texture" id=4]
+[ext_resource path="res://Art/Lit/Objects/box_2_tall_lit.png" type="Texture" id=5]
+[ext_resource path="res://Art/Lit/Objects/box_lit.png" type="Texture" id=6]
+[ext_resource path="res://Art/Unlit/Objects/box_2_tall_unlit.png" type="Texture" id=7]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 7 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 115, 90.6 )
+extents = Vector2( 120, 100 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 215, 227.5 )
+extents = Vector2( 90, 95 )
 
 [node name="PushableBlock" type="KinematicBody2D"]
 __meta__ = {
@@ -17,27 +37,23 @@ __meta__ = {
 
 [node name="Node2D" type="Node2D" parent="."]
 
-[node name="BoxUnlit" type="Sprite" parent="Node2D"]
+[node name="BoxUnlit" type="AnimatedSprite" parent="Node2D"]
 light_mask = 2
-position = Vector2( -2, -20 )
-scale = Vector2( 2.5, 2.5 )
-texture = ExtResource( 2 )
+frames = SubResource( 3 )
 
-[node name="BoxLit" type="Sprite" parent="Node2D"]
-position = Vector2( -2, -20 )
-scale = Vector2( 2.5, 2.5 )
-texture = ExtResource( 3 )
+[node name="BoxLit" type="AnimatedSprite" parent="Node2D"]
+frames = SubResource( 4 )
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource( 1 )
+blockGravity = 55.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 4, 9.5 )
-scale = Vector2( 2.5, 2.5 )
+position = Vector2( 2, 10 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1, 10.5 )
+position = Vector2( 2, 10 )
 shape = SubResource( 2 )
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]

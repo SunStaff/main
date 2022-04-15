@@ -28,7 +28,7 @@ extents = Vector2( 347.5, 103 )
 
 [node name="Unlit" type="Node2D" parent="."]
 light_mask = 2
-position = Vector2( 3576, 0 )
+position = Vector2( 4576, 0 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -129,7 +129,10 @@ position = Vector2( 5719, -1210 )
 texture = ExtResource( 12 )
 
 [node name="Lit" type="Node2D" parent="."]
-position = Vector2( 3528, 0 )
+position = Vector2( 4576, 0 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Lv3LitBackgroundPt1" type="Sprite" parent="Lit"]
 position = Vector2( -2400, -132 )

@@ -16,22 +16,24 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func UpdateAnimations(stateMachine, hasStaff, velocity, playLeftOrRight):
+func UpdateAnimations(stateMachine, hasStaff, velocity, playLeftOrRight, speed, MARGIN_OF_ERROR):
 	StateMachine = stateMachine
 	MiloHasStaff = hasStaff
-	if (velocity.length() == 0):
+	var runSpeed = speed * 2
+	var marginErrorVec = Vector2(MARGIN_OF_ERROR, MARGIN_OF_ERROR)
+	if (velocity > -marginErrorVec and velocity < marginErrorVec):
 		if (MiloHasStaff):
 			StateMachine.travel("Idle_Staff")
 		else:
 			StateMachine.travel("Idle_Staffless")
-	if (playLeftOrRight and (velocity.x > 0 or velocity.x < 0)):
+	if (playLeftOrRight and (velocity.x > MARGIN_OF_ERROR or velocity.x < -MARGIN_OF_ERROR)):
 		if (MiloHasStaff):
-			if (velocity.x > 600 or velocity.x < -600):
+			if (velocity.x > runSpeed or velocity.x < -runSpeed):
 				StateMachine.travel("Run_Staff")
 			else:
 				StateMachine.travel("Walk_Staff")
 		else:
-			if (velocity.x > 600 or velocity.x < -600):
+			if (velocity.x > runSpeed or velocity.x < -runSpeed):
 				StateMachine.travel("Run_Staffless")
 			else:
 				StateMachine.travel("Walk_Staffless")

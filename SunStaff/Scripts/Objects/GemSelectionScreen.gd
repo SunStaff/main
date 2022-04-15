@@ -1,7 +1,7 @@
 extends Control
 
 var Gems = {}
-var PositionPlacements = [Vector2(234,390),Vector2(534,390),Vector2(834,390),Vector2(1134,390),Vector2(1434,390)]
+var PositionPlacements = []
 var CurrentGems = []
 var BlueButton
 var GreenButton
@@ -9,6 +9,7 @@ var RedButton
 var CyanButton
 var MagentaButton
 var LevelManagers
+var windowSize
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,8 +23,13 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-# func _process(_delta):
-# 	pass
+func _process(_delta):
+	windowSize = get_viewport().size
+	PositionPlacements.append(Vector2(windowSize.x*0.174,windowSize.y*0.5))
+	PositionPlacements.append(Vector2(windowSize.x*0.33,windowSize.y*0.5))
+	PositionPlacements.append(Vector2(windowSize.x*0.4865,windowSize.y*0.5))
+	PositionPlacements.append(Vector2(windowSize.x*0.643,windowSize.y*0.5))
+	PositionPlacements.append(Vector2(windowSize.x*0.799,windowSize.y*0.5))
 	
 func ButtonsToBePlaced():
 	Gems = GameManager.GetGemStates().values()

@@ -16,7 +16,7 @@ extents = Vector2( 200, 200 )
 [node name="GemPuzzle" type="Node2D"]
 
 [node name="StaffAltar4_GemPuzzle" parent="." instance=ExtResource( 1 )]
-position = Vector2( 5791, -730 )
+position = Vector2( 6103, -730 )
 rotation = 0.0100749
 scale = Vector2( 0.45, 0.45 )
 
@@ -41,7 +41,7 @@ scale = Vector2( 0.95657, 0.598564 )
 texture = ExtResource( 7 )
 
 [node name="StaffAltar3_GemPuzzle" parent="." instance=ExtResource( 1 )]
-position = Vector2( 6061, -730 )
+position = Vector2( 6373, -730 )
 scale = Vector2( 0.45, 0.45 )
 
 [node name="Beams" type="Node2D" parent="StaffAltar3_GemPuzzle"]
@@ -82,7 +82,7 @@ scale = Vector2( 1, 0.553084 )
 texture = ExtResource( 7 )
 
 [node name="StaffAltar2_GemPuzzle" parent="." instance=ExtResource( 1 )]
-position = Vector2( 6331, -730 )
+position = Vector2( 6643, -730 )
 scale = Vector2( 0.45, 0.45 )
 
 [node name="Beams" type="Node2D" parent="StaffAltar2_GemPuzzle"]
@@ -135,7 +135,7 @@ scale = Vector2( 1, 5.51415 )
 texture = ExtResource( 7 )
 
 [node name="StaffAltar1_GemPuzzle" parent="." instance=ExtResource( 1 )]
-position = Vector2( 6601, -730 )
+position = Vector2( 6913, -730 )
 scale = Vector2( 0.45, 0.45 )
 
 [node name="Beams" type="Node2D" parent="StaffAltar1_GemPuzzle"]
@@ -180,7 +180,7 @@ texture = ExtResource( 7 )
 
 [node name="Mirrors" type="Node2D" parent="."]
 light_mask = 2
-position = Vector2( 6196, -825 )
+position = Vector2( 6508, -825 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="MirrorForPuzzleWip" type="Sprite" parent="Mirrors"]
@@ -316,7 +316,7 @@ texture = ExtResource( 4 )
 
 [node name="GemPedestal5" parent="." instance=ExtResource( 2 )]
 light_mask = 2
-position = Vector2( 6736, -800 )
+position = Vector2( 7048, -800 )
 scale = Vector2( 0.45, 0.45 )
 
 [node name="Beams" type="Node2D" parent="GemPedestal5"]
@@ -342,7 +342,7 @@ __meta__ = {
 
 [node name="GemPedestal4" parent="." instance=ExtResource( 2 )]
 light_mask = 2
-position = Vector2( 6466, -800 )
+position = Vector2( 6778, -800 )
 scale = Vector2( 0.45, 0.45 )
 
 [node name="Beams" type="Node2D" parent="GemPedestal4"]
@@ -371,7 +371,7 @@ __meta__ = {
 
 [node name="GemPedestal3" parent="." instance=ExtResource( 2 )]
 light_mask = 2
-position = Vector2( 6196, -800 )
+position = Vector2( 6508, -800 )
 scale = Vector2( 0.45, 0.45 )
 
 [node name="Beams" type="Node2D" parent="GemPedestal3"]
@@ -408,7 +408,7 @@ __meta__ = {
 
 [node name="GemPedestal2" parent="." instance=ExtResource( 2 )]
 light_mask = 2
-position = Vector2( 5926, -800 )
+position = Vector2( 6238, -800 )
 scale = Vector2( 0.45, 0.45 )
 
 [node name="Beams" type="Node2D" parent="GemPedestal2"]
@@ -431,7 +431,7 @@ texture = ExtResource( 7 )
 
 [node name="GemPedestal1" parent="." instance=ExtResource( 2 )]
 light_mask = 2
-position = Vector2( 5656, -800 )
+position = Vector2( 5968, -800 )
 scale = Vector2( 0.45, 0.45 )
 
 [node name="Beams" type="Node2D" parent="GemPedestal1"]
@@ -455,7 +455,7 @@ texture = ExtResource( 7 )
 [node name="WhiteDimondForPuzzle" type="Sprite" parent="."]
 modulate = Color( 0.176471, 0.176471, 0.176471, 1 )
 light_mask = 2
-position = Vector2( 6196, -1200 )
+position = Vector2( 6508, -1200 )
 scale = Vector2( 0.75, 0.75 )
 z_index = 1
 texture = ExtResource( 6 )
