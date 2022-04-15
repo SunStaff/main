@@ -15,17 +15,19 @@ func ChangeLightCircleMonitoring(state):
 func _on_LightCircle_area_entered(area):
 	if ("Briar" in area.name):
 		area.SetObjectLightState(true)
-	if("Lever3" in area.name):
+	if (area.is_in_group("UnlitOnly")):
 		area.SetObjectLightState(true)
 
 func _on_LightCircle_area_exited(area):
 	if ("Briar" in area.name):
 		area.SetObjectLightState(false)
-	if("Lever3" in area.name):
+	if (area.is_in_group("UnlitOnly")):
 		area.SetObjectLightState(false)
 
-func _on_LightCircle_body_entered(_body):
-	pass
+func _on_LightCircle_body_entered(body):
+	if (body.is_in_group("UnlitOnly")):
+		body.SetObjectLightState(true)
 
-func _on_LightCircle_body_exited(_body):
-	pass
+func _on_LightCircle_body_exited(body):
+	if (body.is_in_group("UnlitOnly")):
+		body.SetObjectLightState(false)

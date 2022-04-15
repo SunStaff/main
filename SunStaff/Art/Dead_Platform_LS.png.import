@@ -2,15 +2,24 @@
 
 importer="texture"
 type="StreamTexture"
+<<<<<<< HEAD:SunStaff/Art/DEMO/MiloIdleStaffDEMO.png.import
+path="res://.import/MiloIdleStaffDEMO.png-439d71b62062e753c645cddb6e234184.stex"
+=======
 path="res://.import/Dead_Platform_LS.png-3ef0bf4b4ec57400f6e15b075ac1b489.stex"
+>>>>>>> logan-branch:SunStaff/Art/Dead_Platform_LS.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<< HEAD:SunStaff/Art/DEMO/MiloIdleStaffDEMO.png.import
+source_file="res://Art/DEMO/MiloIdleStaffDEMO.png"
+dest_files=[ "res://.import/MiloIdleStaffDEMO.png-439d71b62062e753c645cddb6e234184.stex" ]
+=======
 source_file="res://Art/Dead_Platform_LS.png"
 dest_files=[ "res://.import/Dead_Platform_LS.png-3ef0bf4b4ec57400f6e15b075ac1b489.stex" ]
+>>>>>>> logan-branch:SunStaff/Art/Dead_Platform_LS.png.import
 
 [params]
 

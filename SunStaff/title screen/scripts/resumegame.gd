@@ -14,7 +14,3 @@ func set_is_paused(value):
 
 func _on_resume_pressed():
 	self.is_paused = false
-
-
-func _on_back_to_menu_pressed():
-	get_tree().change_scene("res://Scenes/Menus/MainMenu.tscn")

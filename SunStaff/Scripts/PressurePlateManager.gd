@@ -56,11 +56,11 @@ func Level2(name):
 	match(name):
 		#Sets off timer puzzle
 		"1":
-			LevelManagers[0].Level2_TimerPuzzle()
+			LevelManagers[0].Level2_PlatformFall()
 		#Pressure Plate for LargeBlock
 		"2":
 			print("Removing Skinny Block Barrier")
-			LevelManagers[0].Destroy_SkinnyBlockBlocker()
+			LevelManagers[0].Destroy_SkinnyBlockGate()
 
 		#Pressure Plate for SkinnyBlock
 		"3":

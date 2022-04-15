@@ -79,7 +79,6 @@ func Level1(lever, turnedOn):
 			pass
 		"2":
 			pass
-			
 
 func Level2(lever, turnedOn):
 	var name = lever.name.replacen("Lever", "")
@@ -104,6 +103,10 @@ func Level2(lever, turnedOn):
 				leverFlippedCount += 1
 			elif(!turnedOn):
 				leverFlippedCount -= 1
+		"4":
+			GameManager.GetLevelManagers()[0].Level2_Ravine_FirstLever(turnedOn)
+		"5":
+			GameManager.GetLevelManagers()[0].Level2_Ravine_SecondLever(turnedOn)
 	print("LeverFlippedCount: ", leverFlippedCount)
 	if (leverNameValid):
 		leverNameValid = false

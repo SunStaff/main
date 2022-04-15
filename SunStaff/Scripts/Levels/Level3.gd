@@ -204,10 +204,11 @@ func PlaceGem():
 			pedestalSprite.frame = 4
 		"Red":
 			pedestalSprite.frame = 5
-	ChangePedestalBeamColors(placedGem, true)
+	ChangePedestalBeamColors(placedGem, true, pedestal)
 
-func ChangePedestalBeamColors(color, toggle):
+func ChangePedestalBeamColors(color, toggle, currentPedestal):
 	var BeamColor = Color(0,0,0)
+	pedestal = currentPedestal
 	var BeamsNode = pedestal.get_node("Beams")
 	var BeamsArray = BeamsNode.get_children()
 	if (toggle):

@@ -1,9 +1,9 @@
 [gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Scripts/Milo/Milo.gd" type="Script" id=1]
+[ext_resource path="res://Art/Unlit/UnlitSpriteSheetVol2.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Milo/SunStaff.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Art/Lit/LitSpriteSheet1.png" type="Texture" id=15]
-[ext_resource path="res://Art/Unlit/UnlitSpriteSheet1.png" type="Texture" id=16]
+[ext_resource path="res://Art/Lit/LitSpriteSheetVol2.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=197]
 resource_name = "Fall_Staff"
@@ -402,20 +402,26 @@ animation = "Walk_Staffless"
 [sub_resource type="AnimationNodeStateMachineTransition" id=178]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=179]
+switch_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=180]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=182]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=183]
+switch_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=184]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=186]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=187]
+switch_mode = 1
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=188]
+switch_mode = 1
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=189]
 
@@ -458,7 +464,7 @@ states/Walk_Staffless/node = SubResource( 175 )
 states/Walk_Staffless/position = Vector2( 354, 461 )
 transitions = [ "Idle_Staff", "Idle_Staffless", SubResource( 176 ), "Idle_Staffless", "Idle_Staff", SubResource( 177 ), "Idle_Staff", "Walk_Staff", SubResource( 178 ), "Walk_Staff", "Idle_Staff", SubResource( 179 ), "Idle_Staff", "Jump_Staff", SubResource( 180 ), "Idle_Staff", "Run_Staff", SubResource( 182 ), "Run_Staff", "Idle_Staff", SubResource( 183 ), "Idle_Staffless", "Jump_Staffless", SubResource( 184 ), "Idle_Staffless", "Walk_Staffless", SubResource( 186 ), "Walk_Staffless", "Idle_Staffless", SubResource( 187 ), "Run_Staffless", "Idle_Staffless", SubResource( 188 ), "Idle_Staffless", "Run_Staffless", SubResource( 189 ), "Walk_Staff", "Run_Staff", SubResource( 190 ), "Run_Staff", "Walk_Staff", SubResource( 191 ), "Run_Staffless", "Walk_Staffless", SubResource( 192 ), "Walk_Staffless", "Run_Staffless", SubResource( 193 ), "Jump_Staffless", "Fall_Staffless", SubResource( 199 ), "Fall_Staffless", "Idle_Staffless", SubResource( 200 ), "Jump_Staff", "Fall_Staff", SubResource( 202 ), "Fall_Staff", "Idle_Staff", SubResource( 203 ) ]
 start_node = "Idle_Staff"
-graph_offset = Vector2( 0, -46.9785 )
+graph_offset = Vector2( -141, -131.567 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=195]
 
@@ -467,26 +473,29 @@ light_mask = 3
 collision_layer = 5
 collision_mask = 5
 script = ExtResource( 1 )
+speed = 800.0
+jump_height = 1600.0
+jump_time_to_peak = 0.5
+jumo_time_to_descent = 0.4
 
 [node name="Unlit" type="Sprite" parent="."]
 visible = false
 light_mask = 2
-texture = ExtResource( 16 )
+texture = ExtResource( 2 )
 hframes = 8
 vframes = 5
 frame = 17
 
 [node name="Lit" type="Sprite" parent="."]
-texture = ExtResource( 15 )
+texture = ExtResource( 4 )
 hframes = 8
 vframes = 10
-frame = 37
+frame = 40
 
 [node name="SunStaff" parent="Lit" instance=ExtResource( 3 )]
 
 [node name="Light2D" parent="Lit/SunStaff" index="0"]
-position = Vector2( -45, 0 )
-scale = Vector2( 2.1, 2.1 )
+position = Vector2( 3.8147e-06, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Fall_Staff = SubResource( 197 )

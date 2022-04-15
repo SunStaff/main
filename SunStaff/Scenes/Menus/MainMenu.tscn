@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Menus/MainMenu.gd" type="Script" id=1]
-[ext_resource path="res://Art/Misc/Font/font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Art/Misc/Font/Wastinger Display Free Personal.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://title screen/art/logo.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 90
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -41,7 +47,7 @@ margin_top = 5.0
 margin_right = 0.559937
 margin_bottom = -0.160034
 custom_colors/font_color = Color( 0.92549, 0.784314, 0.588235, 1 )
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Play"
 flat = true
 __meta__ = {
@@ -59,7 +65,7 @@ margin_right = 0.559937
 margin_bottom = -6.10352e-05
 custom_colors/font_color_disabled = Color( 0.729412, 0.588235, 0.392157, 1 )
 custom_colors/font_color = Color( 0.92549, 0.784314, 0.588235, 1 )
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = SubResource( 1 )
 disabled = true
 text = "Quit"
 flat = true
