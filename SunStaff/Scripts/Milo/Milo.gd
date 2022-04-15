@@ -22,6 +22,7 @@ var velocity = Vector2.ZERO
 var direction
 
 # Jump Variables
+var ctAllowJump = true
 var justJumped = false
 export (float) var jump_height = 750
 export (float) var jump_time_to_peak = 0.4
@@ -46,6 +47,9 @@ func _ready():
 func get_input():
 	velocity.x = 0.0
 	playLeftOrRight = false
+
+	if is_on_floor():
+		ctAllowJump = true
 
 	if Input.is_action_pressed("Right"):
 		velocity.x += speed
@@ -72,8 +76,6 @@ func get_input():
 		AnimationManager.FallAnimation()
 
 	if Input.is_action_pressed("Sprint") and (Input.is_action_pressed("Left") or Input.is_action_pressed("Right")):
-		if is_on_floor():
-			pass
 		velocity.x += speed * 2 * direction
 	
 	AnimationManager.UpdateAnimations(StateMachine, HasStaff, velocity, playLeftOrRight, speed, MARGIN_OF_ERROR)
@@ -81,10 +83,12 @@ func get_input():
 func _physics_process(delta):
 	if (GameManager.IsGamePlaying and GameManager.IsPlayerAlive):
 		get_input()
-		velocity.y += GetGravity() * delta
+		if !is_on_floor():
+			CoyoteTimeJump()
+			velocity.y += GetGravity() * delta
 		velocity = move_and_slide(velocity, Vector2.UP)
 		if Input.is_action_just_pressed("Jump"):
-			if is_on_floor():
+			if (ctAllowJump):
 				AnimationManager.JumpAnimation()
 				velocity.y = jump_velocity
 				playLeftOrRight = false
@@ -110,3 +114,7 @@ func GetHasStaffState():
 
 func GetGravity():
 	return jump_gravity if velocity.y < 0.0 else fall_gravity
+
+func CoyoteTimeJump():
+	yield(get_tree().create_timer(.1), "timeout")
+	ctAllowJump = false
