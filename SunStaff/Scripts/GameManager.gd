@@ -167,8 +167,8 @@ func ChangeScene():
 			SceneTransition.transition_to("res://Scenes/Level2.tscn") # TODO: CHANGE ONCE TUTORIAL AND LEVEL 1 ARE COMPLETE
 			SetCurrentLevel("Level2")
 		"Tutorial":
-			SceneTransition.transition_to("res://Scenes/Level1.tscn")
-			SetCurrentLevel("Level1")
+			SceneTransition.transition_to("res://Scenes/Level2.tscn")
+			SetCurrentLevel("Level2")
 		"Level1":
 			SceneTransition.transition_to("res://Scenes/Level2.tscn")
 			SetCurrentLevel("Level2")

@@ -31,3 +31,8 @@ func _physics_process(delta):
 	elif !Altar_holding_staff.activated and !lever2.isTurnedOn:
 		print("staff alter is not activated")
 		tutorial_door2.position.y = 280
+
+
+func _on_EndLevelT_body_entered(body):
+		if ("Milo" in body.name):
+			GameManager.ChangeScene()
