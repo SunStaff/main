@@ -27,7 +27,7 @@ func _ready():
 			print("Testing Failed!! Please check tests!!")
 		Player = GetPlayer()
 		LevelManagers = GetLevelManagers()
-		GemsCollected = {"Green": false, "Blue": false, "Red": false, "Cyan": false, "Magenta": false }
+		GemsCollected = {"Green": true, "Blue": true, "Red": true, "Cyan": true, "Magenta": true }
 		
 		SetSpawnLocation()
 

@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scenes/Objects/StaffAltar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Main Levels/GemPuzzle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Milo/Milo.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Menus/GemSelectionScreen.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/Levels/Level3.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10000, 100 )
@@ -17,11 +19,14 @@ shape = SubResource( 1 )
 
 [node name="Milo" parent="." instance=ExtResource( 2 )]
 
-[node name="StaffAltar" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1589, 231 )
+[node name="GemPuzzle" parent="." instance=ExtResource( 1 )]
+position = Vector2( -12602, 2024 )
+scale = Vector2( 2.5, 2.5 )
 
-[node name="StaffAltar2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 2490, 229 )
+[node name="Menus" type="Node" parent="."]
 
-[node name="StaffAltar3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 3382, 226 )
+[node name="GemSelectionScreen" parent="Menus" instance=ExtResource( 3 )]
+visible = false
+
+[node name="Level3Manager" type="Node" parent="."]
+script = ExtResource( 4 )

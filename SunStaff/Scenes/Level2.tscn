@@ -302,31 +302,31 @@ scale = Vector2( 4, 1 )
 position = Vector2( 10436, 596 )
 scale = Vector2( 3, 1 )
 
-[node name="PlatformSkinnyBlock" parent="BlockPuzzle" instance=ExtResource( 2 )]
+[node name="Platform" parent="BlockPuzzle" instance=ExtResource( 2 )]
 position = Vector2( 9567, 1043 )
 
-[node name="UnlitPlatformmiddle" parent="BlockPuzzle/PlatformSkinnyBlock" index="0"]
+[node name="UnlitPlatformmiddle" parent="BlockPuzzle/Platform" index="0"]
 visible = false
 
-[node name="Litplatformmiddle" parent="BlockPuzzle/PlatformSkinnyBlock" index="1"]
+[node name="Litplatformmiddle" parent="BlockPuzzle/Platform" index="1"]
 visible = false
 
-[node name="PlatformLargeBlock" parent="BlockPuzzle" instance=ExtResource( 2 )]
+[node name="Platform2" parent="BlockPuzzle" instance=ExtResource( 2 )]
 position = Vector2( 8733, 762 )
 
-[node name="UnlitPlatformmiddle" parent="BlockPuzzle/PlatformLargeBlock" index="0"]
+[node name="UnlitPlatformmiddle" parent="BlockPuzzle/Platform2" index="0"]
 visible = false
 
-[node name="Litplatformmiddle" parent="BlockPuzzle/PlatformLargeBlock" index="1"]
+[node name="Litplatformmiddle" parent="BlockPuzzle/Platform2" index="1"]
 visible = false
 
-[node name="PlatformSmallBlock" parent="BlockPuzzle" instance=ExtResource( 2 )]
+[node name="Platform3" parent="BlockPuzzle" instance=ExtResource( 2 )]
 position = Vector2( 10435, 655 )
 
-[node name="UnlitPlatformmiddle" parent="BlockPuzzle/PlatformSmallBlock" index="0"]
+[node name="UnlitPlatformmiddle" parent="BlockPuzzle/Platform3" index="0"]
 visible = false
 
-[node name="Litplatformmiddle" parent="BlockPuzzle/PlatformSmallBlock" index="1"]
+[node name="Litplatformmiddle" parent="BlockPuzzle/Platform3" index="1"]
 visible = false
 
 [node name="LargeBlock" parent="BlockPuzzle" instance=ExtResource( 6 )]
@@ -335,14 +335,12 @@ scale = Vector2( 1.5, 1.5 )
 
 [node name="SkinnyBlock" parent="BlockPuzzle" instance=ExtResource( 6 )]
 position = Vector2( 9259, -374 )
-scale = Vector2( 0.4, 1 )
 
 [node name="BoxUnlit" parent="BlockPuzzle/SkinnyBlock/Node2D" index="0"]
 light_mask = 1
 
 [node name="SmallBlock" parent="BlockPuzzle" instance=ExtResource( 6 )]
 position = Vector2( 11001, -1409 )
-scale = Vector2( 0.5, 0.5 )
 
 [node name="Platform9" parent="BlockPuzzle" instance=ExtResource( 2 )]
 position = Vector2( 8747, 171 )
@@ -428,9 +426,9 @@ position = Vector2( 12290, -126 )
 [editable path="RavinePuzzle/Platform5"]
 [editable path="RavinePuzzle/Platform6"]
 [editable path="RavinePuzzle/Platform7"]
-[editable path="BlockPuzzle/PlatformSkinnyBlock"]
-[editable path="BlockPuzzle/PlatformLargeBlock"]
-[editable path="BlockPuzzle/PlatformSmallBlock"]
+[editable path="BlockPuzzle/Platform"]
+[editable path="BlockPuzzle/Platform2"]
+[editable path="BlockPuzzle/Platform3"]
 [editable path="BlockPuzzle/LargeBlock"]
 [editable path="BlockPuzzle/SkinnyBlock"]
 [editable path="BlockPuzzle/Platform9"]

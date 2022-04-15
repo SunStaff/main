@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/box_lit.png-eb8767c38468236fc2991008c7b04389.stex"
+path="res://.import/CYAN_GEM_unlit.png-f9dd38dd4508f3e74fc064b90ad8c32e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Lit/box_lit.png"
-dest_files=[ "res://.import/box_lit.png-eb8767c38468236fc2991008c7b04389.stex" ]
+source_file="res://Art/Unlit/Objects/CYAN_GEM_unlit.png"
+dest_files=[ "res://.import/CYAN_GEM_unlit.png-f9dd38dd4508f3e74fc064b90ad8c32e.stex" ]
 
 [params]
 
