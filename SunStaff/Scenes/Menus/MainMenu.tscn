@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Menus/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Art/Misc/Font/Wastinger Display Free Personal.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://title screen/art/logo.png" type="Texture" id=3]
+[ext_resource path="res://title screen/art/TitleScreen.png" type="Texture" id=3]
+[ext_resource path="res://title screen/art/TitleScreenUnlit.png" type="Texture" id=4]
+[ext_resource path="res://title screen/art/ButtonLitSheetV1.png" type="Texture" id=5]
+[ext_resource path="res://title screen/art/ButtonUnlitSheet.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 90
@@ -28,24 +31,48 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="UnlitTextureRect" type="TextureRect" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
 [node name="TextureRect" type="TextureRect" parent="Control"]
 anchor_right = 1.0
-anchor_bottom = 0.5
+anchor_bottom = 1.0
 texture = ExtResource( 3 )
 stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="PlayButtonUnlitBG" type="Sprite" parent="Control"]
+position = Vector2( 1432, 770 )
+scale = Vector2( 1.75, 1.75 )
+texture = ExtResource( 6 )
+hframes = 5
+vframes = 2
+
+[node name="PlayButtonLitBG" type="Sprite" parent="Control"]
+position = Vector2( 1432, 770 )
+scale = Vector2( 1.75, 1.75 )
+texture = ExtResource( 5 )
+hframes = 5
+vframes = 2
+
 [node name="PlayButton" type="Button" parent="Control"]
-anchor_left = 0.453
-anchor_top = 0.5
-anchor_right = 0.557
-anchor_bottom = 0.602
-margin_left = 0.23999
-margin_top = 5.0
-margin_right = 0.559937
-margin_bottom = -0.160034
+anchor_left = 0.686
+anchor_top = 0.662
+anchor_right = 0.793
+anchor_bottom = 0.757
+margin_left = -134.12
+margin_top = 0.0399351
+margin_right = 157.44
+margin_bottom = 0.439969
 custom_colors/font_color = Color( 0.92549, 0.784314, 0.588235, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Play"
@@ -54,15 +81,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="QuitButtonUnlitBG" type="Sprite" parent="Control"]
+position = Vector2( 1436, 912 )
+scale = Vector2( 1.75, 1.75 )
+texture = ExtResource( 6 )
+hframes = 5
+vframes = 2
+
+[node name="QuitButtonLitBG" type="Sprite" parent="Control"]
+position = Vector2( 1436, 911 )
+scale = Vector2( 1.75, 1.75 )
+texture = ExtResource( 5 )
+hframes = 5
+vframes = 2
+
 [node name="QuitButton" type="Button" parent="Control"]
-anchor_left = 0.453
-anchor_top = 0.653
-anchor_right = 0.557
-anchor_bottom = 0.75
-margin_left = 0.23999
-margin_top = -0.240051
-margin_right = 0.559937
-margin_bottom = -6.10352e-05
+anchor_left = 0.687
+anchor_top = 0.807
+anchor_right = 0.792
+anchor_bottom = 0.905
+margin_left = -75.0401
+margin_top = -56.56
+margin_right = 93.7199
+margin_bottom = 38.698
 custom_colors/font_color_disabled = Color( 0.729412, 0.588235, 0.392157, 1 )
 custom_colors/font_color = Color( 0.92549, 0.784314, 0.588235, 1 )
 custom_fonts/font = SubResource( 1 )

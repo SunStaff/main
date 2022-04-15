@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LV_2_unlit_design_foreground.png-74cd9093b2ced07323a4f91cfcaff155.stex"
+path="res://.import/ButtonUnlitSheet.png-999e94fb689d4fe06c6a215b2d24463f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Lit/Backgrounds/Level2/LV_2_unlit_design_foreground.png"
-dest_files=[ "res://.import/LV_2_unlit_design_foreground.png-74cd9093b2ced07323a4f91cfcaff155.stex" ]
+source_file="res://title screen/art/ButtonUnlitSheet.png"
+dest_files=[ "res://.import/ButtonUnlitSheet.png-999e94fb689d4fe06c6a215b2d24463f.stex" ]
 
 [params]
 
