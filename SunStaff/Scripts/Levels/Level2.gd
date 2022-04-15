@@ -75,7 +75,7 @@ func Level2_PlatformFall():
 	yield(timer, "timeout")
 
 	while (ravinePlatform_Array[0].position.y < 1900):
-		ravinePlatform_Array[0].position.y = lerp(ravinePlatform_Array[0].position.y, ravinePlatform_Array[0].position.y+100,0.5)
+		ravinePlatform_Array[0].position.y = lerp(ravinePlatform_Array[0].position.y, ravinePlatform_Array[0].position.y+100, 0.5)
 		timer.set_wait_time(0.01)
 		timer.set_one_shot(true)
 		timer.start()
