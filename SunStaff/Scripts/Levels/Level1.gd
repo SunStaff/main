@@ -10,9 +10,10 @@ var checkPoint1 = true;
 var checkPoint2 = false;
 var checkPoint3 = false;
 
-const POS1 = 2864
-const POS2 = 5714
-const POS3 = 9514
+
+const POS1 = 3164
+const POS2 = 7685
+const POS3 = 13048
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

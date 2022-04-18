@@ -12,10 +12,14 @@ var platform1
 var platform2
 var platform3
 
-#
+#num * -INCREMENT determines puzzle platform's y-pos
 var num1 = 0
 var num2 = 0
 var num3 = 0
+#increment at which platforms move when num is increased by 1.
+const INCREMENT = 200
+#Lowest possible y-pos for puzzle platforms
+const PLATFORM_OFFSET = -269
 
 # Testing Variables
 var leverNameValid = false
@@ -73,20 +77,20 @@ func Level1(lever, _turnedOn):
 		"1":
 			num1 = (num1 + 1) % 10
 			num3 = (num3 + 1) % 10
-			platform1.position.y = num1 * (-100)
-			platform3.position.y = num3 * (-100)
+			platform1.position.y = num1 * (-INCREMENT) + PLATFORM_OFFSET
+			platform3.position.y = num3 * (-INCREMENT) + PLATFORM_OFFSET
 		#Second lever for ending lever puzzle
 		"2":
 			num1 = (num1 + 2) % 10
 			num2 = (num2 + 2) % 10
-			platform1.position.y = num1 * (-100)
-			platform2.position.y = num2 * (-100)
+			platform1.position.y = num1 * (-INCREMENT) + PLATFORM_OFFSET
+			platform2.position.y = num2 * (-INCREMENT) + PLATFORM_OFFSET
 		#Third lever for ending lever puzzle
 		"3":
 			num2 = (num2 + 3) % 10
 			num3 = (num3 + 3) % 10
-			platform2.position.y = num2 * (-100)
-			platform3.position.y = num3 * (-100)
+			platform2.position.y = num2 * (-INCREMENT) + PLATFORM_OFFSET
+			platform3.position.y = num3 * (-INCREMENT) + PLATFORM_OFFSET
 		#Drops block to get to 2 levers
 		"4":
 			GameManager.GetLevelManagers()[0].MoveBlock()
