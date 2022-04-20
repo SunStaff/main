@@ -32,7 +32,6 @@ extents = Vector2( 116, 400 )
 
 [node name="Level2Manager" type="Node" parent="." groups=["LevelManager"]]
 script = ExtResource( 3 )
-DebugMode = true
 MiloSpawnLocation = Vector2( 6800, -900 )
 
 [node name="Level2Background" parent="." instance=ExtResource( 9 )]
