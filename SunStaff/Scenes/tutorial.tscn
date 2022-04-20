@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Milo/Milo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/Lever.tscn" type="PackedScene" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://Scripts/Levels/tutorial.gd" type="Script" id=7]
 [ext_resource path="res://icon.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/Menus/pause menu.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Main Levels/Level2Background.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 35, 280 )
@@ -20,8 +19,6 @@ extents = Vector2( 116, 400 )
 [sub_resource type="AnimationNodeStateMachinePlayback" id=3]
 
 [node name="Tutorial" type="Node"]
-
-[node name="Level2Background" parent="." instance=ExtResource( 10 )]
 
 [node name="tutorial manager" type="Node" parent="." groups=["LevelManager"]]
 script = ExtResource( 7 )
@@ -51,7 +48,6 @@ position = Vector2( 2092, 559 )
 
 [node name="Briar" parent="lever_and_briar_section" instance=ExtResource( 5 )]
 position = Vector2( 1607, 450 )
-scale = Vector2( 3, 3 )
 
 [node name="Lever1" parent="lever_and_briar_section" instance=ExtResource( 2 )]
 position = Vector2( 2057, 473 )
@@ -127,15 +123,12 @@ position = Vector2( 4882, 502 )
 
 [node name="Briar" parent="to_next_pedestal/briarwall1" instance=ExtResource( 5 )]
 position = Vector2( 6000, 450 )
-scale = Vector2( 3, 3 )
 
 [node name="Briar2" parent="to_next_pedestal/briarwall1" instance=ExtResource( 5 )]
 position = Vector2( 6000, 350 )
-scale = Vector2( 3, 3 )
 
 [node name="Briar3" parent="to_next_pedestal/briarwall1" instance=ExtResource( 5 )]
 position = Vector2( 6000, 300 )
-scale = Vector2( 3, 3 )
 
 [node name="fifth save save" parent="to_next_pedestal" instance=ExtResource( 4 )]
 position = Vector2( 6250, 502 )
@@ -198,7 +191,7 @@ position = Vector2( 179, 37 )
 TurnLightOff = true
 
 [node name="Lit" parent="Milo" index="1"]
-frame = 37
+frame = 46
 
 [node name="SunStaff" parent="Milo/Lit" index="0"]
 visible = false

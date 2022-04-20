@@ -15,6 +15,7 @@ var decrease = false
 func _ready():
 	light2D = get_node("Control/Container/Light2D")
 	currentValue = light2D.texture_scale
+	GameManager.ClearVariables()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

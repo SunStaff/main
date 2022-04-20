@@ -185,6 +185,7 @@ func ChangeScene():
 
 func ClearVariables():
 	Player = null
+	PlayerCamera = null
 	LevelManagers.clear()
 	activated = null
 

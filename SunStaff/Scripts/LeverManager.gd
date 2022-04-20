@@ -77,12 +77,16 @@ func Tutorial(lever, turnedOn):
 				leverFlippedCount -= 1
 				print("LeverFlippedCount down 1")
 	print("LeverFlippedCount: ", leverFlippedCount)
-	if(leverFlippedCount == 1):
-			door1.position.y = 750
-	else:
-			door1.position.y = 250
-	if(leverFlippedCount == 2):
-			door2.position.y = 780
+	if (leverNameValid):
+		leverNameValid = false
+		if(leverFlippedCount == 1):
+			door1.OpenDoor()
+		else:
+			door1.CloseDoor()
+		if(leverFlippedCount == 2):
+			door2.OpenDoor()
+		else:
+			door2.CloseDoor()
 	
 		
 

@@ -17,7 +17,7 @@ var playLeftOrRight = false
 
 # Movement Variables
 var faceRight = true
-export (float) var speed = 600.0
+export (float) var speed = 800.0
 var velocity = Vector2.ZERO
 var direction
 
@@ -41,7 +41,7 @@ func _ready():
 
 	match (GameManager.GetCurrentLevel()):
 		"Tutorial":
-			pass
+			HasStaff = false
 		"Level1":
 			pass
 		"Level2":
