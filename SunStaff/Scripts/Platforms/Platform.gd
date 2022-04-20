@@ -67,9 +67,10 @@ func SetObjectLightState(state): # What to do if object only appears in dark but
 	IsInLight = state
 	if (IsInLight && !activated):
 		activated = true
+		#Hides unlit platform sprite
 		get_child(0).visible = false
-		#self.set_deferred("disabled", true)
 		self.get_child(2).set_deferred("disabled", true)
+		#self.set_deferred("disabled", true) 
 	else:
 		get_child(0).visible = true
 		activated = false

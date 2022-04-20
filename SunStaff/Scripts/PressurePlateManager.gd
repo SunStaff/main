@@ -47,6 +47,7 @@ func Level1(name):
 	name = name.replacen("PressurePlate", "")
 	match(name):
 		"1":
+			#TODO: Implement it where the camera zoom is changed to x: 5, y: 5
 			pass
 		"2":
 			pass
