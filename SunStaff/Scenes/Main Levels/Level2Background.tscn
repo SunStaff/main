@@ -49,12 +49,17 @@ extents = Vector2( 815.998, 65 )
 light_mask = 0
 position = Vector2( 5815, -430 )
 scale = Vector2( 1.5, 1.5 )
+z_index = -2
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Lv2UnlitBackground" type="Sprite" parent="Unlit"]
 light_mask = 2
 texture = ExtResource( 2 )
 
 [node name="Lv2DesignUnlitGround" type="Sprite" parent="Unlit"]
+light_mask = 2
 position = Vector2( 0, -128 )
 texture = ExtResource( 4 )
 
@@ -159,6 +164,10 @@ texture = ExtResource( 11 )
 light_mask = 0
 position = Vector2( 5815, -430 )
 scale = Vector2( 1.5, 1.5 )
+z_index = -2
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Lv2DesignLitBackgroundWhole" type="Sprite" parent="Lit"]
 position = Vector2( 0, 0.666687 )

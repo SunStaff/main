@@ -137,14 +137,14 @@ hframes = 5
 vframes = 2
 
 [node name="Container" type="Control" parent="Control"]
-anchor_left = 0.724
+anchor_left = 0.736
 anchor_top = 0.419
-anchor_right = 0.745
-anchor_bottom = 0.456
-margin_left = 0.919922
+anchor_right = 0.739
+anchor_bottom = 0.424
+margin_left = -0.120117
 margin_top = 0.47998
-margin_right = 0.599854
-margin_bottom = 0.519958
+margin_right = -0.880005
+margin_bottom = 0.0799866
 __meta__ = {
 "_edit_use_anchors_": false
 }

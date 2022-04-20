@@ -143,7 +143,8 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=27]
 extents = Vector2( 32, 219.5 )
 
-[node name="Door" type="KinematicBody2D"]
+[node name="Door" type="KinematicBody2D" groups=["Door"]]
+scale = Vector2( 3, 3 )
 script = ExtResource( 3 )
 
 [node name="FrontDoor" type="AnimatedSprite" parent="."]
@@ -153,8 +154,10 @@ frames = SubResource( 13 )
 [node name="BackDoor" type="AnimatedSprite" parent="."]
 light_mask = 0
 position = Vector2( -16, 0 )
+z_index = -1
 frames = SubResource( 26 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 0
 position = Vector2( 15, -15.5 )
 shape = SubResource( 27 )

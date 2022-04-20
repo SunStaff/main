@@ -12,6 +12,7 @@ var SceneTransition
 var ChangeSceneCalled = false
 var LevelManagers = []
 var AutoTester
+var PlayerCamera
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -188,6 +189,7 @@ func ClearVariables():
 func GetNewInstancesOfVariables():
 	Player = GetPlayer()
 	LevelManagers = GetLevelManagers()
+	PlayerCamera = Player.get_child(4)
 	activated = false
 	SetSpawnLocation()
 	IsGamePlaying = true

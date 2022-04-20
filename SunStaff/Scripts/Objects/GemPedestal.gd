@@ -6,15 +6,22 @@ var CurrentClosestPedestal
 var minDistanceToPedestal = INF
 var Pedestals = []
 var PedestalName = ""
+var PedestalSprite
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	WithinPedestalRange = false
+	PedestalSprite = self.get_child(0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if (PedestalSprite.frame == 0):
+		PedestalSprite.position = Vector2(0, 40)
+	else:
+		PedestalSprite.position = Vector2(0, 0)
+
 	if (WithinPedestalRange):
-		var frameNumber = self.get_child(0).frame
+		var frameNumber = PedestalSprite.frame
 		if (Input.is_action_just_pressed("Interact")):
 			print()
 			print("interaction with pedestal")
@@ -27,27 +34,27 @@ func _process(_delta):
 						1:
 							GameManager.ToggleGem("Blue")
 							print("Blue Changed to No Gem")
-							self.get_child(0).frame = 0
+							PedestalSprite.frame = 0
 							GameManager.GetLevelManagers()[0].ChangePedestalBeamColors("", false, self)
 						2:
 							GameManager.ToggleGem("Green")
 							print("Green Changed to No Gem")
-							self.get_child(0).frame = 0
+							PedestalSprite.frame = 0
 							GameManager.GetLevelManagers()[0].ChangePedestalBeamColors("", false, self)
 						3:
 							GameManager.ToggleGem("Magenta")
 							print("Magenta Changed to No Gem")
-							self.get_child(0).frame = 0
+							PedestalSprite.frame = 0
 							GameManager.GetLevelManagers()[0].ChangePedestalBeamColors("", false, self)
 						4:
 							GameManager.ToggleGem("Cyan")
 							print("Cyan Changed to No Gem")
-							self.get_child(0).frame = 0
+							PedestalSprite.frame = 0
 							GameManager.GetLevelManagers()[0].ChangePedestalBeamColors("", false, self)
 						5:
 							GameManager.ToggleGem("Red")
 							print("Red Changed to No Gem")
-							self.get_child(0).frame = 0
+							PedestalSprite.frame = 0
 							GameManager.GetLevelManagers()[0].ChangePedestalBeamColors("", false, self)
 				else:
 					GameManager.GetLevelManagers()[0].OpenGemSelectionScreen(CurrentClosestPedestal)

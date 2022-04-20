@@ -37,6 +37,24 @@ func _ready():
 		GameManager.ChangeSceneCalled = false
 		GameManager.SetSpawnLocation()
 
+	var PlayerCamera = get_child(4)
+
+	match (GameManager.GetCurrentLevel()):
+		"Tutorial":
+			pass
+		"Level1":
+			pass
+		"Level2":
+			PlayerCamera.limit_left = -1380
+			PlayerCamera.limit_top = -2850
+			PlayerCamera.limit_right = 13000
+			PlayerCamera.limit_bottom = 3600
+		"Level3":
+			PlayerCamera.limit_left = -220
+			PlayerCamera.limit_top = -2800
+			PlayerCamera.limit_right = 9795
+			PlayerCamera.limit_bottom = 1480
+
 	if (TurnLightOff):
 		GameManager.GetSunStaff().visible = false
 	playerRootNode = get_parent()
@@ -48,7 +66,7 @@ func _ready():
 
 func get_input():
 	velocity.x = 0.0
-	playLeftOrRight = false
+	#playLeftOrRight = false
 
 	if is_on_floor():
 		ctAllowJump = true

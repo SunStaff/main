@@ -15,7 +15,7 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func DoorOpen():
+func OpenDoor():
 	var frontDoor = $FrontDoor
 	var backDoor = $BackDoor
 	var collider = $CollisionShape2D
@@ -23,10 +23,13 @@ func DoorOpen():
 	backDoor.playing = true
 	collider.set_deferred("disabled", true)
 
-func DoorClose():
+func CloseDoor():
 	var frontDoor = $FrontDoor
 	var backDoor = $BackDoor
 	var collider = $CollisionShape2D
+	frontDoor.playing = false
+	frontDoor.frame = 0
 	backDoor.playing = false
+	backDoor.frame = 0
 	collider.set_deferred("disabled", false)
 

@@ -18,23 +18,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	currentValue = light2D.texture_scale
-	# If the current value is less than 0.2, start increasing to 4
-	# If the current value is greater than 4, start decreasing to 0.2
-	# else increase to 4
-	if (currentValue <= MIN_VALUE):
-		light2D.set_deferred("texture_scale", currentValue + CHANGING_VALUE)
-		increase = true
-		decrease = false
-	elif (currentValue >= MAX_VALUE):
-		light2D.set_deferred("texture_scale", currentValue - CHANGING_VALUE)
-		decrease = true
-		increase = false
-	else:
-		if (increase):
-			light2D.set_deferred("texture_scale", currentValue + CHANGING_VALUE)
-		elif (decrease):
-			light2D.set_deferred("texture_scale", currentValue - CHANGING_VALUE)
+	LightingEffect()
 
 func _on_PlayButton_pressed():
 	GameManager.ChangeScene()
@@ -42,3 +26,25 @@ func _on_PlayButton_pressed():
 # CURRENTLY DISABLED IN INSPECTOR
 func _on_QuitButton_pressed():
 	get_tree().quit()
+
+func LightingEffect():
+	currentValue = light2D.texture_scale
+	# If the current value is less than 0.2, start increasing to 4
+	# If the current value is greater than 4, start decreasing to 0.2
+	# else increase to 4
+	if (currentValue <= MIN_VALUE):
+		yield(get_tree().create_timer(2.5), "timeout")
+		increase = true
+		decrease = false
+		light2D.set_deferred("texture_scale", currentValue + CHANGING_VALUE)
+		
+	elif (currentValue >= MAX_VALUE):
+		yield(get_tree().create_timer(2.5), "timeout")
+		decrease = true
+		increase = false
+		light2D.set_deferred("texture_scale", currentValue - CHANGING_VALUE)
+	else:
+		if (increase):
+			light2D.set_deferred("texture_scale", currentValue + CHANGING_VALUE)
+		elif (decrease):
+			light2D.set_deferred("texture_scale", currentValue - CHANGING_VALUE)

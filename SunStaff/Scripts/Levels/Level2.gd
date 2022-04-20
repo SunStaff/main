@@ -12,8 +12,6 @@ var smallBlockBlocker
 var smallBlock
 var finalDoor
 var finalDoorOpened = false
-var leverDoor
-var leverDoorOpened = false
 
 var ravinePlatform_Array = []
 var ravine_nodeArray = []
@@ -35,7 +33,6 @@ func _ready():
 		GameManager.GetPlayer().position = MiloSpawnLocation
 	
 	finalDoor = get_parent().get_node("BlockPuzzle/FinalDoor")
-	leverDoor = get_parent().get_node("LeverPuzzle/PuzzleDoor")
 	#Block Puzzle elements initialized (Last puzzle)
 	skinnyBlock = get_parent().get_node("BlockPuzzle/SkinnyBlock")
 	skinnyBlockGate = get_parent().get_node("BlockPuzzle/SkinnyBlockGate")
@@ -131,10 +128,8 @@ func Destroy_SmallBlockBlocker():
 
 func Open_FinalDoor():
 	#Final door motions downward
-	while(not finalDoorOpened):
-		finalDoor.position.y += 25
-		if(finalDoor.position.y >= 600):
-			finalDoorOpened = true
+	finalDoor.OpenDoor()
+	finalDoorOpened = true
 
 func _on_EndLevel2_body_entered(body):
 	if ("Milo" in body.name):

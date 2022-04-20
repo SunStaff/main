@@ -136,9 +136,9 @@ func Level2(lever, turnedOn):
 	if (leverNameValid):
 		leverNameValid = false
 		if(leverFlippedCount >= 3):
-			door1.position.y = 150
+			door1.OpenDoor()
 		elif(leverFlippedCount < 3):
-			door1.position.y = -850
+			door1.CloseDoor()
 
 
 func Level3(lever, turnedOn):
