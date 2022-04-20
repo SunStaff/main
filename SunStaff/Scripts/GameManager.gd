@@ -164,8 +164,8 @@ func ChangeScene():
 	IsGamePlaying = false
 	match CurrentLevel:
 		"MainMenu":
-			SceneTransition.transition_to("res://Scenes/Level2.tscn") # TODO: CHANGE ONCE TUTORIAL AND LEVEL 1 ARE COMPLETE
-			SetCurrentLevel("Level2")
+			SceneTransition.transition_to("res://Scenes/Tutorial.tscn") # TODO: CHANGE ONCE TUTORIAL AND LEVEL 1 ARE COMPLETE
+			SetCurrentLevel("Tutorial")
 		"Tutorial":
 			SceneTransition.transition_to("res://Scenes/Level2.tscn")
 			SetCurrentLevel("Level2")
