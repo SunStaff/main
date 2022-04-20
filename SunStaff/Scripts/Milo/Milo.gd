@@ -36,6 +36,7 @@ func _ready():
 		GameManager.GetNewInstancesOfVariables()
 		GameManager.ChangeSceneCalled = false
 		GameManager.SetSpawnLocation()
+
 	if (TurnLightOff):
 		GameManager.GetSunStaff().visible = false
 	playerRootNode = get_parent()
@@ -70,6 +71,7 @@ func get_input():
 
 	if Input.is_action_pressed("Jump"):
 		playLeftOrRight = false
+		velocity.x *= 1
 
 	if (abs(velocity.y) - MARGIN_OF_ERROR < 0 and justJumped):
 		justJumped = false

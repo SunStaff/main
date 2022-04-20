@@ -6,6 +6,21 @@ var door2
 var door3
 var door4
 
+#Similar concept to Doors, but platforms for a level 1 puzzle
+var Platforms = []
+var platform1
+var platform2
+var platform3
+
+#num * -INCREMENT determines puzzle platform's y-pos
+var num1 = 0
+var num2 = 0
+var num3 = 0
+#increment at which platforms move when num is increased by 1.
+const INCREMENT = 200
+#Lowest possible y-pos for puzzle platforms
+const PLATFORM_OFFSET = -269
+
 # Testing Variables
 var leverNameValid = false
 
@@ -18,7 +33,6 @@ var leverFlippedCount = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -75,10 +89,42 @@ func Tutorial(lever, turnedOn):
 func Level1(lever, turnedOn):
 	var name = lever.name.replacen("Lever", "")
 	match(name):
+		#For Levers 1-3, whenever the lever is flicked the platform elevates by x units
+		#When each num is capped at 10, and will "reset" the platform at a lower elevation
+		#Could be frustrating to complete depending on the player (maybe needs to be reworked due to screensize)
+		
+		#First lever for ending lever puzzle
 		"1":
-			pass
+			num1 = (num1 + 1) % 10
+			num3 = (num3 + 1) % 10
+			platform1.position.y = num1 * (-INCREMENT) + PLATFORM_OFFSET
+			platform3.position.y = num3 * (-INCREMENT) + PLATFORM_OFFSET
+		#Second lever for ending lever puzzle
 		"2":
-			pass
+			num1 = (num1 + 2) % 10
+			num2 = (num2 + 2) % 10
+			platform1.position.y = num1 * (-INCREMENT) + PLATFORM_OFFSET
+			platform2.position.y = num2 * (-INCREMENT) + PLATFORM_OFFSET
+		#Third lever for ending lever puzzle
+		"3":
+			num2 = (num2 + 3) % 10
+			num3 = (num3 + 3) % 10
+			platform2.position.y = num2 * (-INCREMENT) + PLATFORM_OFFSET
+			platform3.position.y = num3 * (-INCREMENT) + PLATFORM_OFFSET
+		#Drops block to get to 2 levers
+		"4":
+			GameManager.GetLevelManagers()[0].MoveBlock()
+		#Moves altar to third altar position
+		"5":
+			GameManager.GetLevelManagers()[0].ChangeAltarPos()
+			GameManager.GetLevelManagers()[0].SetAltarCheckPoint(3)
+		#First lever to flick in level, releases bridge
+		"6":
+			GameManager.GetLevelManagers()[0].ReleaseDrawBridge()
+		#Moves altar to second altar position
+		"7":
+			GameManager.GetLevelManagers()[0].ChangeAltarPos()
+			GameManager.GetLevelManagers()[0].SetAltarCheckPoint(2)
 
 func Level2(lever, turnedOn):
 	var name = lever.name.replacen("Lever", "")
@@ -188,6 +234,13 @@ func GetCurrentClosestLever(levers, player):
 
 func GetDoors():
 	Doors.clear()
+	#Level 1 has platforms interacting with levers
+	if(get_tree().get_current_scene().get_name() == "Level1"):
+		Platforms.clear()
+		Platforms = get_tree().get_nodes_in_group("Platform")
+		platform1 = Platforms[0]
+		platform2 = Platforms[1]
+		platform3 = Platforms[2]
 	if(get_tree().get_current_scene().get_name() == "Level2"):
 		Doors = get_tree().get_nodes_in_group("Door")
 		door1 = Doors[0]

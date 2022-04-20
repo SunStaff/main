@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LV_2_unlit_design_foreground.png-74cd9093b2ced07323a4f91cfcaff155.stex"
+path="res://.import/TitleScreenUnlit.png-0e40a58fed146e2a7588801dfc112eba.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Lit/Backgrounds/Level2/LV_2_unlit_design_foreground.png"
-dest_files=[ "res://.import/LV_2_unlit_design_foreground.png-74cd9093b2ced07323a4f91cfcaff155.stex" ]
+source_file="res://title screen/art/TitleScreenUnlit.png"
+dest_files=[ "res://.import/TitleScreenUnlit.png-0e40a58fed146e2a7588801dfc112eba.stex" ]
 
 [params]
 

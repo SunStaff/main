@@ -354,6 +354,9 @@ visible = false
 [node name="Litplatformmiddle" parent="BlockPuzzle/Platform9" index="1"]
 visible = false
 
+[node name="CollisionShape2D" parent="BlockPuzzle/Platform9" index="2"]
+position = Vector2( -2, 32.9224 )
+
 [node name="Platform10" parent="BlockPuzzle" instance=ExtResource( 2 )]
 position = Vector2( 9569, 171 )
 scale = Vector2( 1, 1 )
