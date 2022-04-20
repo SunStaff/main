@@ -33,7 +33,7 @@ MiloSpawnLocation = Vector2( 6800, -900 )
 
 [node name="Milo" parent="." instance=ExtResource( 7 )]
 position = Vector2( 6800, -900 )
-jump_height = 750.0
+jump_height = 1000.0
 jump_time_to_peak = 0.4
 
 [node name="PlatformFall" type="Node" parent="."]
