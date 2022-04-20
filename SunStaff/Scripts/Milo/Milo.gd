@@ -42,6 +42,10 @@ func _ready():
 	match (GameManager.GetCurrentLevel()):
 		"Tutorial":
 			HasStaff = false
+			PlayerCamera.limit_left = -450
+			PlayerCamera.limit_top = -1420
+			PlayerCamera.limit_right = 10950
+			PlayerCamera.limit_bottom = 2900
 		"Level1":
 			pass
 		"Level2":

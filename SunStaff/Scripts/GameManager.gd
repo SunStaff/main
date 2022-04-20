@@ -28,7 +28,7 @@ func _ready():
 			print("Testing Failed!! Please check tests!!")
 		Player = GetPlayer()
 		LevelManagers = GetLevelManagers()
-		GemsCollected = {"Green": true, "Blue": true, "Red": true, "Cyan": true, "Magenta": true }
+		GemsCollected = {"Green": false, "Blue": false, "Red": false, "Cyan": false, "Magenta": false }
 		
 		SetSpawnLocation()
 
@@ -168,14 +168,17 @@ func ChangeScene():
 			SceneTransition.transition_to("res://Scenes/Tutorial.tscn") # TODO: CHANGE ONCE TUTORIAL AND LEVEL 1 ARE COMPLETE
 			SetCurrentLevel("Tutorial")
 		"Tutorial":
-			SceneTransition.transition_to("res://Scenes/Level2.tscn")
-			SetCurrentLevel("Level2")
+			SceneTransition.transition_to("res://Scenes/Level1.tscn")
+			SetCurrentLevel("Level1")
+			GemsCollected = {"Green": false, "Blue": false, "Red": true, "Cyan": false, "Magenta": false }
 		"Level1":
 			SceneTransition.transition_to("res://Scenes/Level2.tscn")
 			SetCurrentLevel("Level2")
+			GemsCollected = {"Green": false, "Blue": true, "Red": true, "Cyan": false, "Magenta": false }
 		"Level2":
 			SceneTransition.transition_to("res://Scenes/Level3.tscn")
 			SetCurrentLevel("Level3")
+			GemsCollected = {"Green": true, "Blue": true, "Red": true, "Cyan": false, "Magenta": false }
 		"Level3":
 			SceneTransition.transition_to("res://Scenes/Menus/MainMenu.tscn")
 			SetCurrentLevel("MainMenu")

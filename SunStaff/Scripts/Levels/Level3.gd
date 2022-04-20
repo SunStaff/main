@@ -22,12 +22,11 @@ var RockSlide
 var RockSlidePlatform
 var stopTimerPuzzle = false
 export (bool) var DebugMode = false
+var CyanGemPedestal
+var MagentaGemPedestal
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
-	
-	
 	if (DebugMode):
 		BottomPuzzlesComplete = true
 	else:
@@ -50,6 +49,11 @@ func _ready():
 	RockSlide = self.get_parent().get_node("RockSlide")
 	RockSlidePlatform = self.get_parent().get_node("Platforms/Platform5")
 	ChangeRockSlideState(false)
+
+	CyanGemPedestal = GameManager.GetGemPedestals()[1]
+	MagentaGemPedestal = GameManager.GetGemPedestals()[3]
+	ChangePedestalBeamColors("Cyan", true, CyanGemPedestal)
+	ChangePedestalBeamColors("Magenta", true, MagentaGemPedestal)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

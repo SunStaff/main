@@ -345,6 +345,9 @@ light_mask = 2
 position = Vector2( 6778, -800 )
 scale = Vector2( 0.45, 0.45 )
 
+[node name="Sprite" parent="GemPedestal4" index="0"]
+frame = 4
+
 [node name="Beams" type="Node2D" parent="GemPedestal4"]
 light_mask = 2
 
@@ -410,6 +413,9 @@ __meta__ = {
 light_mask = 2
 position = Vector2( 6238, -800 )
 scale = Vector2( 0.45, 0.45 )
+
+[node name="Sprite" parent="GemPedestal2" index="0"]
+frame = 3
 
 [node name="Beams" type="Node2D" parent="GemPedestal2"]
 light_mask = 2
@@ -483,3 +489,6 @@ position = Vector2( 7528, -834 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndLevel"]
 light_mask = 2
 shape = SubResource( 2 )
+
+[editable path="GemPedestal4"]
+[editable path="GemPedestal2"]
