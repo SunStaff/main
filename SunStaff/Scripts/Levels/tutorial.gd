@@ -20,11 +20,12 @@ func _ready():
 	milo.HasStaff = false
 	milo.TurnLightOff = true
 	Altar_holding_staff.CurrentAltarWithStaff = Altar_holding_staff
+	Altar_holding_staff.activated = true
+	GameManager.GetSunStaff().get_child(1).ChangeLightCircleMonitoring(false)
 
-
-
-func _physics_process(delta):
-	
+func _physics_process(_delta):
+	if (!Altar_holding_staff.activated):
+		milo.TurnLightOff = false
 	if StaffAltartest.activated:
 		tutorial_door2.position.y = 780
 	elif !StaffAltartest.activated and !lever2.isTurnedOn:
