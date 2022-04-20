@@ -19,11 +19,15 @@ var Diamond
 var EndDoor 
 var EndLevel
 var RockSlide
+var RockSlidePlatform
 var stopTimerPuzzle = false
 export (bool) var DebugMode = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	
+	
 	if (DebugMode):
 		BottomPuzzlesComplete = true
 	else:
@@ -44,6 +48,7 @@ func _ready():
 	Pedestals = GameManager.GetGemPedestals()
 	StaffAltars = GameManager.GetSunStaffAltars()
 	RockSlide = self.get_parent().get_node("RockSlide")
+	RockSlidePlatform = self.get_parent().get_node("Platforms/Platform5")
 	ChangeRockSlideState(false)
 
 
@@ -269,3 +274,4 @@ func ChangeRockSlideState(state):
 	RockSlide.get_child(1).set_deferred("disabled", state)
 	RockSlide.get_child(2).set_deferred("disabled", state)
 	RockSlide.get_child(3).set_deferred("disabled", state)
+	RockSlidePlatform.get_child(2).set_deferred("disabled", state)

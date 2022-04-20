@@ -3,8 +3,8 @@
 [ext_resource path="res://Art/Unlit/Backgrounds/Level2/LV_2_unlit_design_darkgrass.png" type="Texture" id=1]
 [ext_resource path="res://Art/Unlit/Backgrounds/Level2/LV_2_unlit_design_background.png" type="Texture" id=2]
 [ext_resource path="res://Art/Lit/Backgrounds/Level2/LV_2_design_lit_darkgrass.png" type="Texture" id=3]
-[ext_resource path="res://Art/Lit/Backgrounds/Level2/LV_2_design_lit_ground.png" type="Texture" id=4]
-[ext_resource path="res://Art/Unlit/Backgrounds/Level2/LV_2_unlit_designground.png" type="Texture" id=5]
+[ext_resource path="res://Art/Unlit/Backgrounds/Level2/LV_2_design_unlit_ground.png" type="Texture" id=4]
+[ext_resource path="res://Art/Lit/Backgrounds/Level2/LV_2_design_lit_ground.png" type="Texture" id=5]
 [ext_resource path="res://Art/Lit/Backgrounds/Level2/LV_2_design_lit_background_whole.png" type="Texture" id=6]
 [ext_resource path="res://Art/Lit/Backgrounds/Level2/LV_2_design_lit_grass.png" type="Texture" id=7]
 [ext_resource path="res://Art/Unlit/Backgrounds/Level2/LV_2_unlit_design_grass.png" type="Texture" id=8]
@@ -49,23 +49,27 @@ extents = Vector2( 815.998, 65 )
 light_mask = 0
 position = Vector2( 5815, -430 )
 scale = Vector2( 1.5, 1.5 )
+z_index = -2
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Lv2UnlitBackground" type="Sprite" parent="Unlit"]
 light_mask = 2
 texture = ExtResource( 2 )
 
-[node name="Lv2UnlitGround" type="Sprite" parent="Unlit"]
+[node name="Lv2DesignUnlitGround" type="Sprite" parent="Unlit"]
 light_mask = 2
-position = Vector2( 0, -124 )
-texture = ExtResource( 5 )
+position = Vector2( 0, -128 )
+texture = ExtResource( 4 )
+
+[node name="Lv2UnlitDesignGrass" type="Sprite" parent="Unlit"]
+light_mask = 2
+position = Vector2( 0, -120 )
+texture = ExtResource( 8 )
 __meta__ = {
 "_editor_description_": ""
 }
-
-[node name="Lv2UnlitGrass" type="Sprite" parent="Unlit"]
-light_mask = 2
-position = Vector2( 8, -120 )
-texture = ExtResource( 8 )
 
 [node name="Lv2UnlitDarkgrass" type="Sprite" parent="Unlit"]
 light_mask = 2
@@ -160,15 +164,20 @@ texture = ExtResource( 11 )
 light_mask = 0
 position = Vector2( 5815, -430 )
 scale = Vector2( 1.5, 1.5 )
+z_index = -2
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Lv2DesignLitBackgroundWhole" type="Sprite" parent="Lit"]
+position = Vector2( 0, 0.666687 )
 texture = ExtResource( 6 )
 
-[node name="Lv2DesignLitGround" type="Sprite" parent="Lit"]
+[node name="Lv2DesignLitDarkgrass3" type="Sprite" parent="Lit"]
 position = Vector2( 0, -128.002 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
-[node name="Lv2DesignLitGrass" type="Sprite" parent="Lit"]
+[node name="Lv2DesignLitDarkgrass2" type="Sprite" parent="Lit"]
 position = Vector2( 0, -128.002 )
 texture = ExtResource( 7 )
 

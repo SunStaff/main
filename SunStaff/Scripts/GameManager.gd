@@ -12,6 +12,7 @@ var SceneTransition
 var ChangeSceneCalled = false
 var LevelManagers = []
 var AutoTester
+var PlayerCamera
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -125,7 +126,9 @@ func CheckForLevelSpecificActions(from, information, optionalNode):
 	LevelManagers = GetLevelManagers()
 	match CurrentLevel:
 		"Tutorial":
-			pass
+			if ("Altar" in from):
+				if ("_MoveDoor" in optionalNode.name):
+					LevelManagers[0].Tutorial_MoveDoor_DueTo_StaffAltar(information)
 		"Level1":
 			pass
 		"Level2":
@@ -162,11 +165,11 @@ func ChangeScene():
 	IsGamePlaying = false
 	match CurrentLevel:
 		"MainMenu":
-			SceneTransition.transition_to("res://Scenes/Level2.tscn") # TODO: CHANGE ONCE TUTORIAL AND LEVEL 1 ARE COMPLETE
-			SetCurrentLevel("Level2")
+			SceneTransition.transition_to("res://Scenes/Tutorial.tscn") # TODO: CHANGE ONCE TUTORIAL AND LEVEL 1 ARE COMPLETE
+			SetCurrentLevel("Tutorial")
 		"Tutorial":
-			SceneTransition.transition_to("res://Scenes/Level1.tscn")
-			SetCurrentLevel("Level1")
+			SceneTransition.transition_to("res://Scenes/Level2.tscn")
+			SetCurrentLevel("Level2")
 		"Level1":
 			SceneTransition.transition_to("res://Scenes/Level2.tscn")
 			SetCurrentLevel("Level2")
@@ -188,6 +191,7 @@ func ClearVariables():
 func GetNewInstancesOfVariables():
 	Player = GetPlayer()
 	LevelManagers = GetLevelManagers()
+	PlayerCamera = Player.get_child(4)
 	activated = false
 	SetSpawnLocation()
 	IsGamePlaying = true

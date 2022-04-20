@@ -24,6 +24,7 @@ extents = Vector2( 195.75, 359.75 )
 script = ExtResource( 6 )
 
 [node name="Milo" parent="." instance=ExtResource( 4 )]
+visible = false
 position = Vector2( 708, -353 )
 jump_height = 750.0
 jump_time_to_peak = 0.4

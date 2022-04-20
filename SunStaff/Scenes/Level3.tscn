@@ -235,7 +235,10 @@ scale = Vector2( 2.5, 2.5 )
 [node name="Green_GemPickup" parent="." instance=ExtResource( 3 )]
 position = Vector2( 9044, 463 )
 
-[node name="AnimatedSprite" parent="Green_GemPickup" index="1"]
+[node name="AnimatedSprite2" parent="Green_GemPickup" index="1"]
+frame = 1
+
+[node name="AnimatedSprite" parent="Green_GemPickup" index="2"]
 frame = 1
 
 [node name="GemSelection" type="CanvasLayer" parent="."]

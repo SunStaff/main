@@ -42,15 +42,36 @@ func LeverFlipped(level, lever, turnedOn):
 			print("Not Valid Level Name for LeverFlipped()")
 			return "Not Valid Level Name for LeverFlipped()"
 
-func Tutorial(lever, _turnedOn):
+func Tutorial(lever, turnedOn):
 	var name = lever.name.replacen("Lever", "")
 	match(name):
 		"1":
-			pass
+			leverNameValid = true
+			if (turnedOn):
+				leverFlippedCount += 1
+				print("LeverFlippedCount up 1")
+			elif(!turnedOn):
+				leverFlippedCount -= 1
+				print("LeverFlippedCount down 1")
 		"2":
-			pass
+			leverNameValid = true
+			if (turnedOn):
+				leverFlippedCount += 1
+				print("LeverFlippedCount up 1")
+			elif(!turnedOn):
+				leverFlippedCount -= 1
+				print("LeverFlippedCount down 1")
+	print("LeverFlippedCount: ", leverFlippedCount)
+	if(leverFlippedCount == 1):
+			door1.position.y = 750
+	else:
+			door1.position.y = 250
+	if(leverFlippedCount == 2):
+			door2.position.y = 780
+	
+		
 
-func Level1(lever, _turnedOn):
+func Level1(lever, turnedOn):
 	var name = lever.name.replacen("Lever", "")
 	match(name):
 		#For Levers 1-3, whenever the lever is flicked the platform elevates by x units
@@ -112,9 +133,9 @@ func Level2(lever, turnedOn):
 	if (leverNameValid):
 		leverNameValid = false
 		if(leverFlippedCount >= 3):
-			door1.position.y = 150
+			door1.OpenDoor()
 		elif(leverFlippedCount < 3):
-			door1.position.y = -850
+			door1.CloseDoor()
 
 
 func Level3(lever, turnedOn):
@@ -199,3 +220,7 @@ func GetDoors():
 		door2 = Doors[2]
 		door3 = Doors[3]
 		door4 = Doors[4]
+	if(get_tree().get_current_scene().get_name() == "Tutorial"):
+		Doors = get_tree().get_nodes_in_group("Door")
+		door1 = Doors[0]
+		door2 = Doors[1]

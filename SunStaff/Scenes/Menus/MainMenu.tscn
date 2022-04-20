@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Menus/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Art/Misc/Font/Wastinger Display Free Personal.ttf" type="DynamicFontData" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://title screen/art/TitleScreenUnlit.png" type="Texture" id=4]
 [ext_resource path="res://title screen/art/ButtonLitSheetV1.png" type="Texture" id=5]
 [ext_resource path="res://title screen/art/ButtonUnlitSheet.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/Milo/SunStaff.gd" type="Script" id=7]
+[ext_resource path="res://Art/Misc/Light/LightRadiusBlur.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 90
@@ -13,10 +15,14 @@ use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 2 )
 
+[sub_resource type="CircleShape2D" id=2]
+radius = 460.0
+
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource( 1 )
 
 [node name="Control" type="Control" parent="."]
+light_mask = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -24,14 +30,18 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+light_mask = 0
+anchor_left = -0.1
+anchor_top = -0.1
+anchor_right = 1.1
+anchor_bottom = 1.1
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="UnlitTextureRect" type="TextureRect" parent="Control"]
+light_mask = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 4 )
@@ -50,69 +60,115 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayButtonUnlitBG" type="Sprite" parent="Control"]
-position = Vector2( 1432, 770 )
-scale = Vector2( 1.75, 1.75 )
-texture = ExtResource( 6 )
-hframes = 5
-vframes = 2
-
-[node name="PlayButtonLitBG" type="Sprite" parent="Control"]
-position = Vector2( 1432, 770 )
-scale = Vector2( 1.75, 1.75 )
-texture = ExtResource( 5 )
-hframes = 5
-vframes = 2
-
 [node name="PlayButton" type="Button" parent="Control"]
-anchor_left = 0.686
+light_mask = 0
+anchor_left = 0.699
 anchor_top = 0.662
-anchor_right = 0.793
+anchor_right = 0.801
 anchor_bottom = 0.757
-margin_left = -134.12
-margin_top = 0.0399351
-margin_right = 157.44
-margin_bottom = 0.439969
+margin_left = -0.0800781
+margin_top = 0.039917
+margin_right = -0.920166
+margin_bottom = 0.439941
 custom_colors/font_color = Color( 0.92549, 0.784314, 0.588235, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Play"
 flat = true
+align = 0
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="QuitButtonUnlitBG" type="Sprite" parent="Control"]
-position = Vector2( 1436, 912 )
-scale = Vector2( 1.75, 1.75 )
+[node name="PlayButtonUnlitBG" type="Sprite" parent="Control/PlayButton"]
+show_behind_parent = true
+light_mask = 2
+position = Vector2( 96, 48 )
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 6 )
 hframes = 5
 vframes = 2
 
-[node name="QuitButtonLitBG" type="Sprite" parent="Control"]
-position = Vector2( 1436, 911 )
-scale = Vector2( 1.75, 1.75 )
+[node name="PlayButtonLitBG" type="Sprite" parent="Control/PlayButton"]
+show_behind_parent = true
+position = Vector2( 96, 48 )
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 5 )
 hframes = 5
 vframes = 2
 
 [node name="QuitButton" type="Button" parent="Control"]
-anchor_left = 0.687
-anchor_top = 0.807
-anchor_right = 0.792
-anchor_bottom = 0.905
-margin_left = -75.0401
-margin_top = -56.56
-margin_right = 93.7199
-margin_bottom = 38.698
+light_mask = 0
+anchor_left = 0.699
+anchor_top = 0.817
+anchor_right = 0.803
+anchor_bottom = 0.912
+margin_left = -0.160034
+margin_top = -0.360046
+margin_right = -77.76
+margin_bottom = 0.039917
 custom_colors/font_color_disabled = Color( 0.729412, 0.588235, 0.392157, 1 )
 custom_colors/font_color = Color( 0.92549, 0.784314, 0.588235, 1 )
 custom_fonts/font = SubResource( 1 )
 disabled = true
 text = "Quit"
 flat = true
+align = 0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButtonUnlitBG" type="Sprite" parent="Control/QuitButton"]
+show_behind_parent = true
+light_mask = 2
+position = Vector2( 96, 48 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 6 )
+hframes = 5
+vframes = 2
+
+[node name="QuitButtonLitBG" type="Sprite" parent="Control/QuitButton"]
+show_behind_parent = true
+position = Vector2( 96, 48 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 5 )
+hframes = 5
+vframes = 2
+
+[node name="Container" type="Control" parent="Control"]
+anchor_left = 0.736
+anchor_top = 0.419
+anchor_right = 0.739
+anchor_bottom = 0.424
+margin_left = -0.120117
+margin_top = 0.47998
+margin_right = -0.880005
+margin_bottom = 0.0799866
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Light2D" type="Light2D" parent="Control/Container"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+texture_scale = 0.2
+mode = 3
+range_layer_max = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="LightCircle" type="Area2D" parent="Control/Container/Light2D"]
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Container/Light2D/LightCircle"]
+shape = SubResource( 2 )
+
 [connection signal="pressed" from="Control/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="Control/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="area_entered" from="Control/Container/Light2D/LightCircle" to="Control/Container/Light2D/LightCircle" method="_on_LightCircle_area_entered"]
+[connection signal="area_exited" from="Control/Container/Light2D/LightCircle" to="Control/Container/Light2D/LightCircle" method="_on_LightCircle_area_exited"]
+[connection signal="body_entered" from="Control/Container/Light2D/LightCircle" to="Control/Container/Light2D/LightCircle" method="_on_LightCircle_body_entered"]
+[connection signal="body_exited" from="Control/Container/Light2D/LightCircle" to="Control/Container/Light2D/LightCircle" method="_on_LightCircle_body_exited"]

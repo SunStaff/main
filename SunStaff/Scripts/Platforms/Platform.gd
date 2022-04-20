@@ -2,7 +2,7 @@ extends StaticBody2D
 
 
 #Tells if object is within range of light objects
-export var IsInLight = true
+export var IsInLight = false
 
 #Variables to indicate if object should be present in lit/unlit world
 export (bool) var showInLight = true
@@ -65,17 +65,15 @@ func _show_hide():
 
 func SetObjectLightState(state): # What to do if object only appears in dark but not light
 	IsInLight = state
-	if (IsInLight && !activated):
+	if (IsInLight and !activated):
 		activated = true
 		#Hides unlit platform sprite
 		get_child(0).visible = false
-		self.get_child(2).set_deferred("disabled", true)
-		#self.set_deferred("disabled", true) 
+		set_deferred("disabled", true)
 	else:
 		get_child(0).visible = true
 		activated = false
-		#self.set_deferred("disabled", false)
-		self.get_child(2).set_deferred("disabled", false)
+		set_deferred("disabled", false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
