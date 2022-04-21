@@ -59,11 +59,11 @@ func _ready():
 #    pass
 
 func ChangeAltarPos():
-	if(checkPoint1):
+	if(checkPoint2):
 		while(movingAltar.position.x <= POS2 and movingPlatform.position.x <= POS2):
 			movingAltar.position.x += 50
 			movingPlatform.position.x += 50
-	elif(checkPoint2):
+	elif(checkPoint3):
 		while(movingAltar.position.x <= POS3 and movingPlatform.position.x <= POS3):
 			movingAltar.position.x += 50
 			movingPlatform.position.x += 50
@@ -81,6 +81,7 @@ func ReleaseDrawBridge():
 			drawBridge.rotation_degrees -= 1 
 
 func SetAltarCheckPoint(num):
+	#Set the new checkpoint location, then the altar position will change
 	if(num == 1):
 		checkPoint1 = true
 		checkPoint2 = false
@@ -93,7 +94,7 @@ func SetAltarCheckPoint(num):
 		checkPoint1 = false
 		checkPoint2 = false
 		checkPoint3 = true
-
+	ChangeAltarPos();
 
 func _on_EndLevel1_body_entered(body):
 	if ("Milo" in body.name):
