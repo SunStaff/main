@@ -127,8 +127,11 @@ func Level1(lever, turnedOn):
 			GameManager.GetLevelManagers()[0].ReleaseDrawBridge()
 		#Moves altar to second altar position
 		"7":
-			GameManager.GetLevelManagers()[0].ChangeAltarPos()
-			GameManager.GetLevelManagers()[0].SetAltarCheckPoint(2)
+			if (turnedOn):
+				GameManager.GetLevelManagers()[0].ChangeAltarPos()
+				GameManager.GetLevelManagers()[0].SetAltarCheckPoint(2)
+			else:
+				GameManager.GetLevelManagers()[0].SetAltarCheckPoint(1)
 
 func Level2(lever, turnedOn):
 	var name = lever.name.replacen("Lever", "")

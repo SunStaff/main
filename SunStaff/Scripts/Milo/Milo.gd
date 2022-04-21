@@ -47,7 +47,10 @@ func _ready():
 			PlayerCamera.limit_right = 10950
 			PlayerCamera.limit_bottom = 2900
 		"Level1":
-			pass
+			PlayerCamera.limit_left = -345
+			PlayerCamera.limit_top = -1620
+			PlayerCamera.limit_right = 21304
+			PlayerCamera.limit_bottom = 1620
 		"Level2":
 			PlayerCamera.limit_left = -1380
 			PlayerCamera.limit_top = -2850

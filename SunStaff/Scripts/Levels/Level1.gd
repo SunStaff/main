@@ -10,10 +10,11 @@ var checkPoint1 = true;
 var checkPoint2 = false;
 var checkPoint3 = false;
 
+var timer
 
-const POS1 = 3164
-const POS2 = 7685
-const POS3 = 13048
+const POS1 = 2841
+const POS2 = 7425
+const POS3 = 12768
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,19 +23,30 @@ func _ready():
 	movingBlock = get_parent().get_node("MovingBlock")
 	drawBridge = get_parent().get_node("DrawBridge")
 
+	timer = Timer.new()
+	self.add_child(timer)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #    pass
 
 func ChangeAltarPos():
 	if(checkPoint1):
-		while(movingAltar.position.x <= POS2 and movingPlatform.position.x <= POS2):
-			movingAltar.position.x += 50
-			movingPlatform.position.x += 50
+		while (movingAltar.position.x < POS2):
+			movingAltar.position.x = lerp(movingAltar.position.x,movingAltar.position.x+50,0.5)
+			movingPlatform.position.x = lerp(movingPlatform.position.x,movingPlatform.position.x+50,0.5)
+			timer.set_wait_time(0.1)
+			timer.set_one_shot(true)
+			timer.start()
+			yield(timer, "timeout")
 	elif(checkPoint2):
-		while(movingAltar.position.x <= POS3 and movingPlatform.position.x <= POS3):
-			movingAltar.position.x += 50
-			movingPlatform.position.x += 50
+		while (movingAltar.position.x < POS3):
+			movingAltar.position.x = lerp(movingAltar.position.x,movingAltar.position.x+50,0.5)
+			movingPlatform.position.x = lerp(movingPlatform.position.x,movingPlatform.position.x+50,0.5)
+			timer.set_wait_time(0.1)
+			timer.set_one_shot(true)
+			timer.start()
+			yield(timer, "timeout")
 
 func MoveBlock():
 	while(movingBlock.position.y <= 5000):
