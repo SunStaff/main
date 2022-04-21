@@ -178,39 +178,39 @@ func Level3(lever, turnedOn):
 		#Doors for puzzle are offset by 1 -- Door2 is first puzzle door
 		"2":
 			if(turnedOn):
-				door1.position.y = 430
-				door2.position.y = 430
-				door4.position.y = -200			
+				door1.CloseDoor()
+				door2.CloseDoor()
+				door4.OpenDoor()		
 			elif(!turnedOn):
-				door1.position.y = -200
-				door2.position.y = -200
+				door1.OpenDoor()
+				door2.OpenDoor()
 			pass
 		#Lever 2 of Door Puzzle
 		"3":
 			if(turnedOn):
-				door2.position.y = 430
-				door4.position.y = 430			
+				door2.CloseDoor()
+				door4.CloseDoor()			
 			elif(!turnedOn):
-				door2.position.y = -200
-				door4.position.y = -200
+				door2.OpenDoor()
+				door4.OpenDoor()
 			pass
 		#Lever 3 of Door Puzzle
 		"4":
 			if(turnedOn):
-				door1.position.y = 430
-				door3.position.y = -200			
+				door1.CloseDoor()
+				door3.OpenDoor()
 			elif(!turnedOn):
-				door1.position.y = 430
+				door1.CloseDoor()
 			pass
 		#Lever 4 of Door Puzzle
 		"5":
 			if(turnedOn):
-				door2.position.y = 430
-				door3.position.y = 430
-				door4.position.y = -200			
+				door2.CloseDoor()
+				door3.CloseDoor()
+				door4.OpenDoor()		
 			elif(!turnedOn):
-				door3.position.y = -200
-				door4.position.y = -200
+				door3.OpenDoor()
+				door4.OpenDoor()
 			pass
 
 func GetCurrentClosestLever(levers, player):

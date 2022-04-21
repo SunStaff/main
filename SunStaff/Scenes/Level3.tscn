@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/Milo/Milo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/PressurePlate.tscn" type="PackedScene" id=2]
@@ -9,16 +9,10 @@
 [ext_resource path="res://Scenes/Objects/SavingPoint.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Objects/Platform.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scripts/Levels/Level3.gd" type="Script" id=9]
-[ext_resource path="res://Art/Misc/gate.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/Objects/Door.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Menus/GemSelectionScreen.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Main Levels/GemPuzzle.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Objects/Lever.tscn" type="PackedScene" id=13]
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 35, 280 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 30, 210 )
 
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 875, 167.25 )
@@ -109,97 +103,47 @@ position = Vector2( 6012, 1500 )
 visible = false
 
 [node name="Milo" parent="." instance=ExtResource( 1 )]
+visible = false
 position = Vector2( 4485, -988 )
 
-[node name="StartingDoor" type="KinematicBody2D" parent="." groups=["Door"]]
-light_mask = 0
-position = Vector2( 1484, -150 )
-scale = Vector2( 2, 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StartingDoor"]
-light_mask = 0
-shape = SubResource( 2 )
-
-[node name="Door1" type="Sprite" parent="StartingDoor"]
-light_mask = 0
-scale = Vector2( 1, 1.5 )
-texture = ExtResource( 10 )
+[node name="StartingDoor" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1620, -150 )
 
 [node name="SavingPoint" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2838, 346 )
 scale = Vector2( 5, 1 )
 
 [node name="SavingPoint2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 6807, 670 )
+position = Vector2( 6663, 670 )
 scale = Vector2( 5, 1 )
 
 [node name="Lever2" parent="." instance=ExtResource( 13 )]
-position = Vector2( 7200, 650 )
+position = Vector2( 6800, 650 )
 
 [node name="Lever3" parent="." instance=ExtResource( 13 )]
-position = Vector2( 7450, 650 )
+position = Vector2( 7050, 650 )
 
 [node name="Lever4" parent="." instance=ExtResource( 13 )]
-position = Vector2( 7700, 650 )
+position = Vector2( 7300, 650 )
 
 [node name="Lever5" parent="." instance=ExtResource( 13 )]
-position = Vector2( 7950, 650 )
+position = Vector2( 7550, 650 )
 
-[node name="Door2" type="KinematicBody2D" parent="." groups=["Door"]]
-light_mask = 2
-position = Vector2( 8136, 430 )
-scale = Vector2( 1, 1.5 )
+[node name="Door2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 7912, 350 )
+scale = Vector2( 2, 2 )
 
-[node name="Door2" type="Sprite" parent="Door2"]
-light_mask = 2
-position = Vector2( -0.000177383, 5.18911e-07 )
-texture = ExtResource( 10 )
+[node name="Door3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 8116, 350 )
+scale = Vector2( 2, 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2"]
-light_mask = 2
-shape = SubResource( 3 )
+[node name="Door4" parent="." instance=ExtResource( 10 )]
+position = Vector2( 8320, 350 )
+scale = Vector2( 2, 2 )
 
-[node name="Door3" type="KinematicBody2D" parent="." groups=["Door"]]
-light_mask = 2
-position = Vector2( 8340, 430 )
-scale = Vector2( 1, 1.5 )
-
-[node name="Door3" type="Sprite" parent="Door3"]
-light_mask = 2
-position = Vector2( 3.52859e-05, -2.6226e-06 )
-texture = ExtResource( 10 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door3"]
-light_mask = 2
-shape = SubResource( 3 )
-
-[node name="Door4" type="KinematicBody2D" parent="." groups=["Door"]]
-light_mask = 2
-position = Vector2( 8544, 430 )
-scale = Vector2( 1, 1.5 )
-
-[node name="Door4" type="Sprite" parent="Door4"]
-light_mask = 2
-position = Vector2( 0.000247955, -2.6226e-06 )
-texture = ExtResource( 10 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door4"]
-light_mask = 2
-shape = SubResource( 3 )
-
-[node name="Door5" type="KinematicBody2D" parent="." groups=["Door"]]
-light_mask = 2
-position = Vector2( 8748, 430 )
-scale = Vector2( 1, 1.5 )
-
-[node name="Door5" type="Sprite" parent="Door5"]
-light_mask = 2
-position = Vector2( -2.76566e-05, 4.88758e-06 )
-texture = ExtResource( 10 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door5"]
-light_mask = 2
-shape = SubResource( 3 )
+[node name="Door5" parent="." instance=ExtResource( 10 )]
+position = Vector2( 8524, 350 )
+scale = Vector2( 2, 2 )
 
 [node name="PressurePlate2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 9039, 671 )

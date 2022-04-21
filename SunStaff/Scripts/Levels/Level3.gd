@@ -77,19 +77,9 @@ func _process(_delta):
 
 func Level3_MoveDoor_DueTo_StaffAltar(open):
 	if (open):
-		while (level3_door.position.y < 1000):
-			level3_door.position.y += 50
-			timer.set_wait_time(0.1)
-			timer.set_one_shot(true)
-			timer.start()
-			yield(timer, "timeout")
+		level3_door.OpenDoor()
 	elif(!BottomPuzzlesComplete):
-		while (level3_door.position.y > -150):
-			level3_door.position.y -= 50
-			timer.set_wait_time(0.01)
-			timer.set_one_shot(true)
-			timer.start()
-			yield(timer, "timeout")
+		level3_door.CloseDoor()
 
 func Level3_OpenBottomPuzzles():
 	BottomPuzzlesComplete = true
@@ -99,12 +89,7 @@ func Level3_OpenBottomPuzzles():
 	platform2 = false
 	platform3 = false
 
-	while (level3_door.position.y < 500):
-		level3_door.position.y += 50
-		timer.set_wait_time(0.1)
-		timer.set_one_shot(true)
-		timer.start()
-		yield(timer, "timeout")
+	level3_door.OpenDoor()
 
 	if (not timerActivated):
 		timerActivated = true
@@ -173,7 +158,7 @@ func Level3_TimerPuzzle():
 		timerActivated = false
 
 func OpenTheEnd():
-	EndDoor.position.y = -1060
+	EndDoor.OpenDoor()
 	EndLevel.visible = true
 	EndLevel.monitoring = true
 
