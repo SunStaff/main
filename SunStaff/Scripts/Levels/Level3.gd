@@ -279,3 +279,15 @@ func ChangeRockSlideState(state):
 	RockSlide.get_child(2).set_deferred("disabled", state)
 	RockSlide.get_child(3).set_deferred("disabled", state)
 	RockSlidePlatform.get_child(2).set_deferred("disabled", state)
+
+func ClearSavePoints():
+	var SavePoints = get_tree().get_nodes_in_group("SavePoint")
+	var PressurePlates = get_tree().get_nodes_in_group("PressurePlate")
+	for point in SavePoints:
+		point.queue_free()
+	for plate in PressurePlates:
+		plate.queue_free()
+	var gemSave = load("res://Scenes/Objects/SavingPoint.tscn").instance()
+	gemSave.position = Vector2(4621, -589)
+	gemSave.scale = Vector2(10,1.5)
+	get_parent().add_child(gemSave)

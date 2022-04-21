@@ -71,6 +71,8 @@ func Level2(name):
 		"4":
 			print("Final Door opened")
 			LevelManagers[0].Open_FinalDoor()
+		"5":
+			LevelManagers[0].Level2_PlatformFall()
 
 func Level3(name):
 	name = name.replacen("PressurePlate", "")
@@ -79,3 +81,5 @@ func Level3(name):
 			LevelManagers[0].Level3_TimerPuzzle()
 		"2":
 			LevelManagers[0].Level3_OpenBottomPuzzles()
+		"3":
+			LevelManagers[0].ClearSavePoints()

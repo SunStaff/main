@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 41.5, 23 )
 
-[node name="PressurePlate" type="Area2D"]
+[node name="PressurePlate" type="Area2D" groups=["PressurePlate"]]
 light_mask = 0
 position = Vector2( 523, -76 )
 scale = Vector2( 2, 1.5 )

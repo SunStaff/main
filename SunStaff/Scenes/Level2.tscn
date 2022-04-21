@@ -58,6 +58,17 @@ position = Vector2( 2848, -72 )
 [node name="FallPlatform4" parent="PlatformFall" instance=ExtResource( 2 )]
 position = Vector2( 3656, -344 )
 
+[node name="PressurePlate5" parent="PlatformFall" instance=ExtResource( 1 )]
+position = Vector2( 1695, -936 )
+rotation = -1.5708
+scale = Vector2( 20, 1.5 )
+
+[node name="Sprite2" parent="PlatformFall/PressurePlate5" index="0"]
+visible = false
+
+[node name="Sprite" parent="PlatformFall/PressurePlate5" index="1"]
+visible = false
+
 [node name="LeverPuzzle" type="Node" parent="."]
 
 [node name="StaffAltar" parent="LeverPuzzle" instance=ExtResource( 8 )]
@@ -382,6 +393,7 @@ position = Vector2( 12290, -126 )
 [connection signal="body_entered" from="EndLevel2" to="Level2Manager" method="_on_EndLevel2_body_entered"]
 
 [editable path="PlatformFall/PressurePlate1"]
+[editable path="PlatformFall/PressurePlate5"]
 [editable path="LeverPuzzle/Lever2"]
 [editable path="LeverPuzzle/Lever3"]
 [editable path="RavinePuzzle/Lever4"]

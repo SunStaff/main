@@ -208,6 +208,9 @@ scale = Vector2( 3, 1 )
 [node name="RockSlide" type="StaticBody2D" parent="."]
 light_mask = 3
 position = Vector2( 3421, -7 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Lv3LitRockslide" type="Sprite" parent="RockSlide"]
 position = Vector2( -63, 82 )
@@ -247,6 +250,16 @@ visible = false
 position = Vector2( 4621, -589 )
 scale = Vector2( 10, 1.5 )
 
+[node name="PressurePlate3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 4621, -588 )
+scale = Vector2( 10, 1.5 )
+
+[node name="Sprite2" parent="PressurePlate3" index="0"]
+visible = false
+
+[node name="Sprite" parent="PressurePlate3" index="1"]
+visible = false
+
 [editable path="Platforms/Platform19"]
 [editable path="Platforms/Platform20"]
 [editable path="Platforms/Platform"]
@@ -258,3 +271,4 @@ scale = Vector2( 10, 1.5 )
 [editable path="TimerPuzzle/TimerPlatform2"]
 [editable path="TimerPuzzle/TimerPlatform3"]
 [editable path="Cyan_GemPickup"]
+[editable path="PressurePlate3"]

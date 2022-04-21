@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Art/Unlit/Backgrounds/Level3/LV_3_unlit_world_forground.png" type="Texture" id=1]
 [ext_resource path="res://Art/Unlit/Backgrounds/Level3/LV_3_unlit_world_grass.png" type="Texture" id=2]
@@ -25,6 +25,9 @@ extents = Vector2( 1342.5, 148 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 347.5, 103 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 65, 2500 )
 
 [node name="Level3Background" type="Node"]
 
@@ -178,6 +181,14 @@ shape = SubResource( 2 )
 position = Vector2( -1878.5, 533 )
 rotation = 0.546288
 shape = SubResource( 3 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Lit/LitGround"]
+position = Vector2( -4863, 1 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Lit/LitGround"]
+position = Vector2( 4861, 1 )
+shape = SubResource( 4 )
 
 [node name="Lv3LitGrass" type="Sprite" parent="Lit"]
 position = Vector2( 0, -131 )
