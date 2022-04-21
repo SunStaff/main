@@ -91,47 +91,35 @@ func Tutorial(lever, turnedOn):
 		
 
 func Level1(lever, turnedOn):
-	var name = lever.name.replacen("Lever", "")
-	match(name):
-		#For Levers 1-3, whenever the lever is flicked the platform elevates by x units
-		#When each num is capped at 10, and will "reset" the platform at a lower elevation
-		#Could be frustrating to complete depending on the player (maybe needs to be reworked due to screensize)
-		
-		#First lever for ending lever puzzle
-		"1":
-			num1 = (num1 + 1) % 10
-			num3 = (num3 + 1) % 10
-			platform1.position.y = num1 * (-INCREMENT) + PLATFORM_OFFSET
-			platform3.position.y = num3 * (-INCREMENT) + PLATFORM_OFFSET
-		#Second lever for ending lever puzzle
-		"2":
-			num1 = (num1 + 2) % 10
-			num2 = (num2 + 2) % 10
-			platform1.position.y = num1 * (-INCREMENT) + PLATFORM_OFFSET
-			platform2.position.y = num2 * (-INCREMENT) + PLATFORM_OFFSET
-		#Third lever for ending lever puzzle
-		"3":
-			num2 = (num2 + 3) % 10
-			num3 = (num3 + 3) % 10
-			platform2.position.y = num2 * (-INCREMENT) + PLATFORM_OFFSET
-			platform3.position.y = num3 * (-INCREMENT) + PLATFORM_OFFSET
-		#Drops block to get to 2 levers
-		"4":
-			GameManager.GetLevelManagers()[0].MoveBlock()
-		#Moves altar to third altar position
-		"5":
-			GameManager.GetLevelManagers()[0].ChangeAltarPos()
-			GameManager.GetLevelManagers()[0].SetAltarCheckPoint(3)
-		#First lever to flick in level, releases bridge
-		"6":
-			GameManager.GetLevelManagers()[0].ReleaseDrawBridge()
-		#Moves altar to second altar position
-		"7":
-			if (turnedOn):
-				GameManager.GetLevelManagers()[0].ChangeAltarPos()
-				GameManager.GetLevelManagers()[0].SetAltarCheckPoint(2)
-			else:
-				GameManager.GetLevelManagers()[0].SetAltarCheckPoint(1)
+var name = lever.name.replacen("Lever", "")
+match(name):
+	#For Levers 1-3, whenever the lever is flicked the platform elevates by x units
+	#When each num is capped at 10, and will "reset" the platform at a lower elevation
+	#Could be frustrating to complete depending on the player (maybe needs to be reworked due to screensize)
+	
+	#First lever for ending lever puzzle
+	"1":
+		GameManager.GetLevelManagers()[0].FlippedPuzzleLever(1)
+	#Second lever for ending lever puzzle
+	"2":
+		GameManager.GetLevelManagers()[0].FlippedPuzzleLever(2)
+	#Third lever for ending lever puzzle
+	"3":
+		GameManager.GetLevelManagers()[0].FlippedPuzzleLever(3)
+	#Drops block to get to 2 levers
+	"4":
+		GameManager.GetLevelManagers()[0].MoveBlock()
+	#Moves altar to third altar position
+	"5":
+		GameManager.GetLevelManagers()[0].ChangeAltarPos()
+		GameManager.GetLevelManagers()[0].SetAltarCheckPoint(3)
+	#First lever to flick in level, releases bridge
+	"6":
+		GameManager.GetLevelManagers()[0].ReleaseDrawBridge()
+	#Moves altar to second altar position
+	"7":
+		GameManager.GetLevelManagers()[0].ChangeAltarPos()
+		GameManager.GetLevelManagers()[0].SetAltarCheckPoint(2)
 
 func Level2(lever, turnedOn):
 	var name = lever.name.replacen("Lever", "")
