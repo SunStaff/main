@@ -5,6 +5,7 @@ var playerRootNode
 var sprite
 var spriteUnlit
 const MARGIN_OF_ERROR = 0.008
+var PlayerCamera
 
 # SunStaff Variables
 var HasStaff = true
@@ -37,7 +38,7 @@ func _ready():
 		GameManager.ChangeSceneCalled = false
 		GameManager.SetSpawnLocation()
 
-	var PlayerCamera = get_child(4)
+	PlayerCamera = get_child(4)
 
 	match (GameManager.GetCurrentLevel()):
 		"Tutorial":

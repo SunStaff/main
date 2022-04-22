@@ -204,3 +204,11 @@ func GetNewInstancesOfVariables():
 		if (!AutoTester.Execute(get_node("/root/LeverManager"))):
 			IsGamePlaying = false
 			print("Testing Failed!! Please check tests!!")
+
+func OffsetCameraMilo(offsetAmt):
+	if (offsetAmt > 0):
+		while (GetPlayer().PlayerCamera.position.x < offsetAmt):
+			GetPlayer().PlayerCamera.position = Vector2(GetPlayer().PlayerCamera.position.x+100,GetPlayer().PlayerCamera.position.y)
+	else:
+		while (GetPlayer().PlayerCamera.position.x > offsetAmt):
+			GetPlayer().PlayerCamera.position = Vector2(GetPlayer().PlayerCamera.position.x-100,GetPlayer().PlayerCamera.position.y)

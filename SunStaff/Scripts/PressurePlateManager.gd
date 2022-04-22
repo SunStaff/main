@@ -47,9 +47,9 @@ func Level1(name):
 	name = name.replacen("PressurePlate", "")
 	match(name):
 		"1":
-			pass
+			LevelManagers[0].OffsetCamera()
 		"2":
-			pass
+			LevelManagers[0].OriginalCamera()
 
 func Level2(name):
 	name = name.replacen("PressurePlate", "")

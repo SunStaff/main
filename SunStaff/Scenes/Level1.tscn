@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Objects/Platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/StaffAltar.tscn" type="PackedScene" id=2]
@@ -9,6 +9,10 @@
 [ext_resource path="res://Art/Misc/gate.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/Objects/SavingPoint.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Main Levels/Level1Background.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Objects/PressurePlate.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Objects/GemPickup.tscn" type="PackedScene" id=11]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 18, 211.5 )
@@ -24,7 +28,13 @@ script = ExtResource( 6 )
 [node name="Level1Background" parent="." instance=ExtResource( 9 )]
 
 [node name="Milo" parent="." instance=ExtResource( 4 )]
-position = Vector2( 2406, -757 )
+position = Vector2( 1600, -549 )
+
+[node name="Lit" parent="Milo" index="1"]
+frame = 44
+
+[node name="AnimationTree" parent="Milo" index="5"]
+parameters/playback = SubResource( 3 )
 
 [node name="Platforms" type="Node" parent="."]
 
@@ -95,7 +105,7 @@ position = Vector2( 259, 299 )
 
 [node name="DrawBridge" type="KinematicBody2D" parent="."]
 light_mask = 3
-position = Vector2( 898, 316 )
+position = Vector2( 860, 335 )
 scale = Vector2( 1, 3 )
 z_index = -1
 __meta__ = {
@@ -103,10 +113,12 @@ __meta__ = {
 }
 
 [node name="DoorSprite" type="Sprite" parent="DrawBridge"]
+light_mask = 0
 position = Vector2( 0, -180 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DrawBridge"]
+light_mask = 0
 position = Vector2( 36, -178 )
 shape = SubResource( 1 )
 
@@ -144,7 +156,41 @@ __meta__ = {
 light_mask = 0
 shape = SubResource( 2 )
 
+[node name="PressurePlate1" parent="." instance=ExtResource( 10 )]
+position = Vector2( 13869, 158 )
+scale = Vector2( 15, 1.5 )
+
+[node name="Sprite2" parent="PressurePlate1" index="0"]
+visible = false
+
+[node name="Sprite" parent="PressurePlate1" index="1"]
+visible = false
+
+[node name="PressurePlate2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 20069, -860 )
+scale = Vector2( 20, 1.5 )
+
+[node name="Sprite2" parent="PressurePlate2" index="0"]
+visible = false
+
+[node name="Sprite" parent="PressurePlate2" index="1"]
+visible = false
+
+[node name="Green_GemPickup" parent="." instance=ExtResource( 11 )]
+position = Vector2( 20713, -1030 )
+
+[node name="AnimatedSprite2" parent="Green_GemPickup" index="1"]
+frame = 1
+
+[node name="AnimatedSprite" parent="Green_GemPickup" index="2"]
+frame = 1
+
 [connection signal="body_entered" from="EndLevel1" to="Level1Manager" method="_on_EndLevel1_body_entered"]
 
+[editable path="Milo"]
+[editable path="Milo/Lit/SunStaff"]
 [editable path="Platforms/Platform6"]
 [editable path="MovingBlock"]
+[editable path="PressurePlate1"]
+[editable path="PressurePlate2"]
+[editable path="Green_GemPickup"]

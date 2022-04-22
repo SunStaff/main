@@ -36,38 +36,38 @@ position = Vector2( 6800, -900 )
 
 [node name="PlatformFall" type="Node" parent="."]
 
-[node name="PressurePlate1" parent="PlatformFall" instance=ExtResource( 1 )]
-position = Vector2( 1295, -192 )
-scale = Vector2( 7, 2 )
-
-[node name="Sprite2" parent="PlatformFall/PressurePlate1" index="0"]
-visible = false
-
-[node name="Sprite" parent="PlatformFall/PressurePlate1" index="1"]
-visible = false
-
 [node name="FallPlatform1" parent="PlatformFall" instance=ExtResource( 2 )]
 position = Vector2( 1296, -120 )
 
 [node name="FallPlatform2" parent="PlatformFall" instance=ExtResource( 2 )]
 position = Vector2( 2072, 160 )
 
+[node name="PressurePlate1" parent="PlatformFall/FallPlatform2" instance=ExtResource( 1 )]
+position = Vector2( -518, -352 )
+scale = Vector2( 4.66667, 2 )
+
+[node name="Sprite2" parent="PlatformFall/FallPlatform2/PressurePlate1" index="0"]
+visible = false
+
+[node name="Sprite" parent="PlatformFall/FallPlatform2/PressurePlate1" index="1"]
+visible = false
+
+[node name="PressurePlate5" parent="PlatformFall/FallPlatform2" instance=ExtResource( 1 )]
+position = Vector2( -251.333, -1096 )
+rotation = -1.5708
+scale = Vector2( 20, 1 )
+
+[node name="Sprite2" parent="PlatformFall/FallPlatform2/PressurePlate5" index="0"]
+visible = false
+
+[node name="Sprite" parent="PlatformFall/FallPlatform2/PressurePlate5" index="1"]
+visible = false
+
 [node name="FallPlatform3" parent="PlatformFall" instance=ExtResource( 2 )]
 position = Vector2( 2848, -72 )
 
 [node name="FallPlatform4" parent="PlatformFall" instance=ExtResource( 2 )]
 position = Vector2( 3656, -344 )
-
-[node name="PressurePlate5" parent="PlatformFall" instance=ExtResource( 1 )]
-position = Vector2( 1695, -936 )
-rotation = -1.5708
-scale = Vector2( 20, 1.5 )
-
-[node name="Sprite2" parent="PlatformFall/PressurePlate5" index="0"]
-visible = false
-
-[node name="Sprite" parent="PlatformFall/PressurePlate5" index="1"]
-visible = false
 
 [node name="LeverPuzzle" type="Node" parent="."]
 
@@ -392,8 +392,8 @@ position = Vector2( 12290, -126 )
 
 [connection signal="body_entered" from="EndLevel2" to="Level2Manager" method="_on_EndLevel2_body_entered"]
 
-[editable path="PlatformFall/PressurePlate1"]
-[editable path="PlatformFall/PressurePlate5"]
+[editable path="PlatformFall/FallPlatform2/PressurePlate1"]
+[editable path="PlatformFall/FallPlatform2/PressurePlate5"]
 [editable path="LeverPuzzle/Lever2"]
 [editable path="LeverPuzzle/Lever3"]
 [editable path="RavinePuzzle/Lever4"]
