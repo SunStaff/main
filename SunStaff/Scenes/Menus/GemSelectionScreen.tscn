@@ -31,15 +31,30 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Green Gem" type="Button" parent="."]
-anchor_left = 0.122
-anchor_top = 0.361
-anchor_right = 0.226
-anchor_bottom = 0.639
-margin_left = -0.240021
-margin_top = 0.119934
-margin_right = 0.0799866
-margin_bottom = -0.120117
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 652.0
+margin_top = 379.0
+margin_right = 1268.0
+margin_bottom = 701.0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 616.0
+margin_bottom = 200.0
+
+[node name="Green Gem" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_right = 120.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 120, 200 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 icon = ExtResource( 4 )
 flat = true
 expand_icon = true
@@ -47,15 +62,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Blue Gem" type="Button" parent="."]
-anchor_left = 0.278
-anchor_top = 0.361
-anchor_right = 0.382
-anchor_bottom = 0.639
-margin_left = 0.239868
-margin_top = 0.119934
-margin_right = 0.559875
-margin_bottom = -0.120117
+[node name="Blue Gem" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 124.0
+margin_right = 244.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 120, 200 )
 icon = ExtResource( 2 )
 flat = true
 expand_icon = true
@@ -63,15 +74,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Red Gem" type="Button" parent="."]
-anchor_left = 0.434
-anchor_top = 0.361
-anchor_right = 0.539
-anchor_bottom = 0.639
-margin_left = 0.719971
-margin_top = 0.119965
-margin_right = -0.880127
-margin_bottom = -0.120056
+[node name="Red Gem" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 248.0
+margin_right = 368.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 120, 200 )
 icon = ExtResource( 1 )
 flat = true
 expand_icon = true
@@ -79,15 +86,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Cyan Gem" type="Button" parent="."]
-anchor_left = 0.591
-anchor_top = 0.361
-anchor_right = 0.695
-anchor_bottom = 0.639
-margin_left = -0.720093
-margin_top = 0.119965
-margin_right = -0.400146
-margin_bottom = -0.120056
+[node name="Cyan Gem" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 372.0
+margin_right = 492.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 120, 200 )
 icon = ExtResource( 5 )
 flat = true
 expand_icon = true
@@ -95,15 +98,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Magenta Gem" type="Button" parent="."]
-anchor_left = 0.747
-anchor_top = 0.361
-anchor_right = 0.851
-anchor_bottom = 0.639
-margin_left = -0.240112
-margin_top = 0.119965
-margin_right = 0.0799561
-margin_bottom = -0.120056
+[node name="Magenta Gem" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 496.0
+margin_right = 616.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 120, 200 )
 icon = ExtResource( 3 )
 flat = true
 expand_icon = true
@@ -111,24 +110,56 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="."]
-anchor_left = 0.437
-anchor_top = 0.833
-anchor_right = 0.563
-anchor_bottom = 0.922
-margin_left = -0.540039
-margin_top = 0.359924
-margin_right = 0.539917
-margin_bottom = 0.239929
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 204.0
+margin_right = 616.0
+margin_bottom = 208.0
+
+[node name="HSeparator2" type="HSeparator" parent="CenterContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 212.0
+margin_right = 616.0
+margin_bottom = 216.0
+
+[node name="HSeparator3" type="HSeparator" parent="CenterContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 220.0
+margin_right = 616.0
+margin_bottom = 224.0
+
+[node name="HSeparator4" type="HSeparator" parent="CenterContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 228.0
+margin_right = 616.0
+margin_bottom = 232.0
+
+[node name="HSeparator5" type="HSeparator" parent="CenterContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 236.0
+margin_right = 616.0
+margin_bottom = 240.0
+
+[node name="HSeparator6" type="HSeparator" parent="CenterContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 244.0
+margin_right = 616.0
+margin_bottom = 248.0
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 252.0
+margin_right = 616.0
+margin_bottom = 322.0
+rect_min_size = Vector2( 300, 70 )
 custom_fonts/font = SubResource( 1 )
 text = "Cancel"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="Green Gem" to="." method="_on_Green_Gem_pressed"]
-[connection signal="pressed" from="Blue Gem" to="." method="_on_Blue_Gem_pressed"]
-[connection signal="pressed" from="Red Gem" to="." method="_on_Red_Gem_pressed"]
-[connection signal="pressed" from="Cyan Gem" to="." method="_on_Cyan_Gem_pressed"]
-[connection signal="pressed" from="Magenta Gem" to="." method="_on_Magenta_Gem_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Green Gem" to="." method="_on_Green_Gem_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Blue Gem" to="." method="_on_Blue_Gem_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Red Gem" to="." method="_on_Red_Gem_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Cyan Gem" to="." method="_on_Cyan_Gem_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Magenta Gem" to="." method="_on_Magenta_Gem_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]

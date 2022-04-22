@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Art/Lit/Backgrounds/Level1/LV_1_darkgrass_lit_pt1.png" type="Texture" id=1]
 [ext_resource path="res://Art/Lit/Backgrounds/Level1/lv_1_background_lit_pt_3.png" type="Texture" id=2]
@@ -18,6 +18,14 @@
 [ext_resource path="res://Art/Unlit/Backgrounds/Level1/LV_1_darkgrass_unlit_pt1.png" type="Texture" id=16]
 [ext_resource path="res://Art/Unlit/Backgrounds/Level1/lv_1_ground_unlit_pt_1.png" type="Texture" id=17]
 [ext_resource path="res://Art/Unlit/Backgrounds/Level1/lv_1_ground_unlit_pt_2.png" type="Texture" id=18]
+[ext_resource path="res://icon.png" type="Texture" id=19]
+[ext_resource path="res://Art/Misc/fogEffect.shader" type="Shader" id=20]
+[ext_resource path="res://Art/Foreground/FrontTrees/TreesFront-2.png" type="Texture" id=21]
+[ext_resource path="res://Art/Foreground/FrontTrees/TreesFront-1.png" type="Texture" id=22]
+[ext_resource path="res://Art/Foreground/BackTrees/TreesBack-7.png" type="Texture" id=23]
+[ext_resource path="res://Art/Foreground/BackTrees/TreesBack-12.png" type="Texture" id=24]
+[ext_resource path="res://Art/Foreground/BackTrees/TreesBack-8.png" type="Texture" id=25]
+[ext_resource path="res://Art/Foreground/BackTrees/TreesBack-11.png" type="Texture" id=26]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 65, 2000 )
@@ -40,127 +48,190 @@ extents = Vector2( 1045.25, 1226.5 )
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 65, 2000 )
 
+[sub_resource type="ShaderMaterial" id=8]
+shader = ExtResource( 20 )
+shader_param/fogColor = Vector3( 0.8, 0.8, 0.8 )
+shader_param/OCTAVES = 100
+
 [node name="Level1Background" type="Node"]
 
-[node name="Unlit" type="Node2D" parent="."]
+[node name="UnlitBack" type="Node2D" parent="."]
 z_index = -2
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Lv1UnlitBackgroundNotpurplewaterPt1" type="Sprite" parent="Unlit"]
+[node name="Lv1UnlitBackgroundNotpurplewaterPt1" type="Sprite" parent="UnlitBack"]
 light_mask = 2
 position = Vector2( 5067, 0 )
 texture = ExtResource( 11 )
 
-[node name="Lv1UnlitBackgroundNotpurplewaterPt2" type="Sprite" parent="Unlit"]
+[node name="Lv1UnlitBackgroundNotpurplewaterPt2" type="Sprite" parent="UnlitBack"]
 light_mask = 2
 position = Vector2( 15888, 0 )
 texture = ExtResource( 12 )
 
-[node name="Lv1GroundLitPt1" type="Sprite" parent="Unlit"]
+[node name="Background" type="Node2D" parent="UnlitBack"]
+light_mask = 2
+
+[node name="TreesBack-12" type="Sprite" parent="UnlitBack/Background"]
+light_mask = 2
+position = Vector2( 8123, -508 )
+texture = ExtResource( 26 )
+
+[node name="TreesBack-8" type="Sprite" parent="UnlitBack/Background"]
+light_mask = 2
+position = Vector2( 13496, -718 )
+texture = ExtResource( 23 )
+
+[node name="Lv1GroundLitPt1" type="Sprite" parent="UnlitBack"]
 light_mask = 2
 position = Vector2( 3690, 371.334 )
 texture = ExtResource( 17 )
 
-[node name="Lv1GroundLitPt2" type="Sprite" parent="Unlit"]
+[node name="Lv1GroundLitPt2" type="Sprite" parent="UnlitBack"]
 light_mask = 2
 position = Vector2( 17197.3, -320 )
 texture = ExtResource( 18 )
 
-[node name="Lv1GrassLitPt1" type="Sprite" parent="Unlit"]
+[node name="UnlitFront" type="Node2D" parent="UnlitBack"]
+light_mask = 2
+
+[node name="TreesFront-2" type="Sprite" parent="UnlitBack/UnlitFront"]
+light_mask = 2
+position = Vector2( -178, -395 )
+z_index = 3
+texture = ExtResource( 22 )
+
+[node name="Lv1GrassLitPt1" type="Sprite" parent="UnlitBack"]
 light_mask = 2
 position = Vector2( 4150, 326.001 )
+z_index = 3
 texture = ExtResource( 14 )
 
-[node name="Lv1GrassLitPt2" type="Sprite" parent="Unlit"]
+[node name="Lv1GrassLitPt2" type="Sprite" parent="UnlitBack"]
 light_mask = 2
 position = Vector2( 17184.7, -272 )
+z_index = 3
 texture = ExtResource( 15 )
 
-[node name="Lv1DarkgrassLitPt1" type="Sprite" parent="Unlit"]
+[node name="Lv1DarkgrassLitPt1" type="Sprite" parent="UnlitBack"]
 light_mask = 2
 position = Vector2( 4150, 326.001 )
+z_index = 3
 texture = ExtResource( 16 )
 
-[node name="Lv1DarkgrassLitPt2" type="Sprite" parent="Unlit"]
+[node name="Lv1DarkgrassLitPt2" type="Sprite" parent="UnlitBack"]
 light_mask = 2
 position = Vector2( 17184.7, -272 )
+z_index = 3
 texture = ExtResource( 13 )
 
-[node name="Lit" type="Node2D" parent="."]
+[node name="LitBack" type="Node2D" parent="."]
 position = Vector2( 16, 0 )
 z_index = -2
+
+[node name="Lv1BackgroundLitPt1" type="Sprite" parent="LitBack"]
+position = Vector2( 2345, 0 )
+texture = ExtResource( 7 )
+
+[node name="Lv1BackgroundLitPt2" type="Sprite" parent="LitBack"]
+position = Vector2( 7757.33, 2.92063e-06 )
+texture = ExtResource( 3 )
+
+[node name="Lv1BackgroundLitPt3" type="Sprite" parent="LitBack"]
+position = Vector2( 13170, -2.86102e-06 )
+texture = ExtResource( 2 )
+
+[node name="Lv1BackgroundLitPt4" type="Sprite" parent="LitBack"]
+position = Vector2( 18582, -1.49012e-06 )
+texture = ExtResource( 4 )
+
+[node name="Background" type="Node2D" parent="LitBack"]
+
+[node name="TreesBack-12" type="Sprite" parent="LitBack/Background"]
+position = Vector2( 8123, -508 )
+texture = ExtResource( 24 )
+
+[node name="TreesBack-8" type="Sprite" parent="LitBack/Background"]
+position = Vector2( 13496, -718 )
+texture = ExtResource( 25 )
+
+[node name="Lv1GroundLitPt1" type="Sprite" parent="LitBack"]
+position = Vector2( 3690, 371.334 )
+texture = ExtResource( 8 )
+
+[node name="Lv1GroundLitPt2" type="Sprite" parent="LitBack"]
+position = Vector2( 17197.3, -320 )
+texture = ExtResource( 9 )
+
+[node name="LitFront" type="Node2D" parent="LitBack"]
+position = Vector2( -16, 0 )
+
+[node name="TreesFront-2" type="Sprite" parent="LitBack/LitFront"]
+position = Vector2( -178, -395 )
+z_index = 3
+texture = ExtResource( 21 )
+
+[node name="Lv1GrassLitPt1" type="Sprite" parent="LitBack"]
+position = Vector2( 4150, 326.001 )
+z_index = 3
+texture = ExtResource( 10 )
+
+[node name="Lv1GrassLitPt2" type="Sprite" parent="LitBack"]
+position = Vector2( 17184.7, -272 )
+z_index = 3
+texture = ExtResource( 5 )
+
+[node name="Lv1DarkgrassLitPt1" type="Sprite" parent="LitBack"]
+position = Vector2( 4150, 326.001 )
+z_index = 3
+texture = ExtResource( 1 )
+
+[node name="Lv1DarkgrassLitPt2" type="Sprite" parent="LitBack"]
+position = Vector2( 17184.7, -272 )
+z_index = 3
+texture = ExtResource( 6 )
+
+[node name="Ground" type="StaticBody2D" parent="LitBack"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LitBack/Ground"]
+position = Vector2( -420, 0 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LitBack/Ground"]
+position = Vector2( 273, 986.5 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="LitBack/Ground"]
+position = Vector2( 2102.75, 986 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="LitBack/Ground"]
+position = Vector2( 8099, 441 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="LitBack/Ground"]
+position = Vector2( 13838, 925.75 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="LitBack/Ground"]
+position = Vector2( 20243.8, 393.5 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="LitBack/Ground"]
+position = Vector2( 21353, 0 )
+shape = SubResource( 7 )
+
+[node name="Fog" type="Node2D" parent="."]
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Lv1BackgroundLitPt1" type="Sprite" parent="Lit"]
-position = Vector2( 2345, 0 )
-texture = ExtResource( 7 )
-
-[node name="Lv1BackgroundLitPt2" type="Sprite" parent="Lit"]
-position = Vector2( 7757.33, 2.92063e-06 )
-texture = ExtResource( 3 )
-
-[node name="Lv1BackgroundLitPt3" type="Sprite" parent="Lit"]
-position = Vector2( 13170, -2.86102e-06 )
-texture = ExtResource( 2 )
-
-[node name="Lv1BackgroundLitPt4" type="Sprite" parent="Lit"]
-position = Vector2( 18582, -1.49012e-06 )
-texture = ExtResource( 4 )
-
-[node name="Lv1GroundLitPt1" type="Sprite" parent="Lit"]
-position = Vector2( 3690, 371.334 )
-texture = ExtResource( 8 )
-
-[node name="Lv1GroundLitPt2" type="Sprite" parent="Lit"]
-position = Vector2( 17197.3, -320 )
-texture = ExtResource( 9 )
-
-[node name="Lv1GrassLitPt1" type="Sprite" parent="Lit"]
-position = Vector2( 4150, 326.001 )
-texture = ExtResource( 10 )
-
-[node name="Lv1GrassLitPt2" type="Sprite" parent="Lit"]
-position = Vector2( 17184.7, -272 )
-texture = ExtResource( 5 )
-
-[node name="Lv1DarkgrassLitPt1" type="Sprite" parent="Lit"]
-position = Vector2( 4150, 326.001 )
-texture = ExtResource( 1 )
-
-[node name="Lv1DarkgrassLitPt2" type="Sprite" parent="Lit"]
-position = Vector2( 17184.7, -272 )
-texture = ExtResource( 6 )
-
-[node name="Ground" type="StaticBody2D" parent="Lit"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lit/Ground"]
-position = Vector2( -420, 0 )
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Lit/Ground"]
-position = Vector2( 273, 986.5 )
-shape = SubResource( 2 )
-
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="Lit/Ground"]
-position = Vector2( 2102.75, 986 )
-shape = SubResource( 3 )
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="Lit/Ground"]
-position = Vector2( 8099, 441 )
-shape = SubResource( 4 )
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Lit/Ground"]
-position = Vector2( 13838, 925.75 )
-shape = SubResource( 5 )
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Lit/Ground"]
-position = Vector2( 20243.8, 393.5 )
-shape = SubResource( 6 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Lit/Ground"]
-position = Vector2( 21353, 0 )
-shape = SubResource( 7 )
+[node name="Sprite" type="Sprite" parent="Fog"]
+modulate = Color( 1, 1, 1, 0.352941 )
+light_mask = 0
+material = SubResource( 8 )
+position = Vector2( 10451.5, -2.00006 )
+scale = Vector2( 339.859, 51.25 )
+texture = ExtResource( 19 )

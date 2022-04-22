@@ -37,31 +37,9 @@ func _ready():
 		GameManager.GetNewInstancesOfVariables()
 		GameManager.ChangeSceneCalled = false
 		GameManager.SetSpawnLocation()
-
+	
 	PlayerCamera = get_child(4)
-
-	match (GameManager.GetCurrentLevel()):
-		"Tutorial":
-			HasStaff = false
-			PlayerCamera.limit_left = -450
-			PlayerCamera.limit_top = -1420
-			PlayerCamera.limit_right = 10950
-			PlayerCamera.limit_bottom = 2900
-		"Level1":
-			PlayerCamera.limit_left = -345
-			PlayerCamera.limit_top = -1620
-			PlayerCamera.limit_right = 21304
-			PlayerCamera.limit_bottom = 1620
-		"Level2":
-			PlayerCamera.limit_left = -1380
-			PlayerCamera.limit_top = -2850
-			PlayerCamera.limit_right = 13000
-			PlayerCamera.limit_bottom = 3600
-		"Level3":
-			PlayerCamera.limit_left = -220
-			PlayerCamera.limit_top = -2800
-			PlayerCamera.limit_right = 9795
-			PlayerCamera.limit_bottom = 1480
+	ChangeCameraBorders()
 
 	if (TurnLightOff):
 		GameManager.GetSunStaff().visible = false
@@ -147,3 +125,27 @@ func GetGravity():
 func CoyoteTimeJump():
 	yield(get_tree().create_timer(.1), "timeout")
 	ctAllowJump = false
+
+func ChangeCameraBorders():
+	match (GameManager.GetCurrentLevel()):
+		"Tutorial":
+			HasStaff = false
+			PlayerCamera.limit_left = -450
+			PlayerCamera.limit_top = -1420
+			PlayerCamera.limit_right = 10950
+			PlayerCamera.limit_bottom = 2900
+		"Level1":
+			PlayerCamera.limit_left = -345
+			PlayerCamera.limit_top = -1620
+			PlayerCamera.limit_right = 21304
+			PlayerCamera.limit_bottom = 1620
+		"Level2":
+			PlayerCamera.limit_left = -1380
+			PlayerCamera.limit_top = -2850
+			PlayerCamera.limit_right = 13000
+			PlayerCamera.limit_bottom = 3600
+		"Level3":
+			PlayerCamera.limit_left = -220
+			PlayerCamera.limit_top = -2800
+			PlayerCamera.limit_right = 9795
+			PlayerCamera.limit_bottom = 1480

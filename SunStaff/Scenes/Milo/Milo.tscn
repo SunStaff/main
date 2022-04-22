@@ -1,10 +1,11 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://Scripts/Milo/Milo.gd" type="Script" id=1]
 [ext_resource path="res://Art/Unlit/UnlitSpriteSheetVol2.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Milo/SunStaff.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Art/Lit/LitSpriteSheetVol2.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Milo/AudioManager.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Menus/pause menu.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=197]
 resource_name = "Fall_Staff"
@@ -519,5 +520,10 @@ active = true
 parameters/playback = SubResource( 195 )
 
 [node name="AudioManager" parent="." instance=ExtResource( 5 )]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="pause menu" parent="CanvasLayer" instance=ExtResource( 6 )]
+visible = false
 
 [editable path="Lit/SunStaff"]

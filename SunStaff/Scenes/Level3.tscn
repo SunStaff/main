@@ -27,7 +27,6 @@ extents = Vector2( 165.5, 164.25 )
 
 [node name="Level3Manager" type="Node" parent="." groups=["LevelManager"]]
 script = ExtResource( 9 )
-DebugMode = true
 
 [node name="Level3Background" parent="." instance=ExtResource( 4 )]
 
@@ -103,8 +102,7 @@ position = Vector2( 6012, 1500 )
 visible = false
 
 [node name="Milo" parent="." instance=ExtResource( 1 )]
-visible = false
-position = Vector2( 4485, -988 )
+position = Vector2( 470, -11 )
 
 [node name="StartingDoor" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1620, -150 )
@@ -119,15 +117,19 @@ scale = Vector2( 5, 1 )
 
 [node name="Lever2" parent="." instance=ExtResource( 13 )]
 position = Vector2( 6800, 650 )
+scale = Vector2( 1, 1 )
 
 [node name="Lever3" parent="." instance=ExtResource( 13 )]
 position = Vector2( 7050, 650 )
+scale = Vector2( 1, 1 )
 
 [node name="Lever4" parent="." instance=ExtResource( 13 )]
 position = Vector2( 7300, 650 )
+scale = Vector2( 1, 1 )
 
 [node name="Lever5" parent="." instance=ExtResource( 13 )]
 position = Vector2( 7550, 650 )
+scale = Vector2( 1, 1 )
 
 [node name="Door2" parent="." instance=ExtResource( 10 )]
 position = Vector2( 7912, 350 )
@@ -204,6 +206,8 @@ visible = false
 [node name="Sprite" parent="PressurePlate3" index="1"]
 visible = false
 
+[connection signal="body_entered" from="GemPuzzle/EndLevel" to="Level3Manager" method="_on_EndLevel_body_entered"]
+
 [editable path="Platforms/Platform19"]
 [editable path="Platforms/Platform20"]
 [editable path="Platforms/Platform"]
@@ -214,5 +218,9 @@ visible = false
 [editable path="TimerPuzzle/TimerPlatform1"]
 [editable path="TimerPuzzle/TimerPlatform2"]
 [editable path="TimerPuzzle/TimerPlatform3"]
+[editable path="GemPuzzle"]
+[editable path="GemPuzzle/GemPedestal4"]
+[editable path="GemPuzzle/GemPedestal2"]
+[editable path="GemPuzzle/EndDoor"]
 [editable path="Cyan_GemPickup"]
 [editable path="PressurePlate3"]

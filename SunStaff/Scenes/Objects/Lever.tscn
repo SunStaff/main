@@ -11,6 +11,7 @@ extents = Vector2( 125, 58.5 )
 
 [node name="Lever" type="Area2D" groups=["Lever"]]
 light_mask = 2
+scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true

@@ -1,6 +1,5 @@
 extends Node
 
-
 var door2
 var StaffAltar_Puzzle
 var StaffAltar_Grand
@@ -11,6 +10,12 @@ var platform1
 var platform2
 var activated = false
 var SunStaff
+var TutorialMessages
+var lrActivated = false
+var jActivated = false
+var iActivated = false
+var sActivated = false
+var pActivated = false
 
 func _ready():
 	door2 = get_parent().get_node("Section2/Door2")
@@ -18,7 +23,7 @@ func _ready():
 	StaffAltar_Puzzle=  get_parent().get_node("Section2/StaffAltar")
 	lever2 = get_parent().get_node("Section2/Lever2")
 	Milo = GameManager.GetPlayer()
-
+	CreateTutorialMessages()
 	platform1 = get_parent().get_node("Platform")
 	platform1.get_child(2).set_deferred("disabled", true)
 	platform1.get_child(1).set_deferred("visible", false)
@@ -34,6 +39,7 @@ func _ready():
 	SunStaff.get_child(1).ChangeLightCircleMonitoring(false)
 
 func _physics_process(_delta):
+	CheckMiloPosition()
 	GrandStaff()
 	# If the Staff is in the altar, open the door
 	if StaffAltar_Puzzle.activated:
@@ -55,3 +61,52 @@ func GrandStaff():
 func _on_EndTutorial_body_entered(body):
 	if ("Milo" in body.name):
 		GameManager.ChangeScene()
+
+func CreateTutorialMessages():
+	TutorialMessages = load("res://Scenes/Milo/TutorialMessages.tscn").instance()
+	Milo.add_child(TutorialMessages)
+	TutorialMessages.position.y = -440
+	TutorialMessages.visible = false
+
+func DisplayLR():
+	TutorialMessages.visible = true
+	TutorialMessages.frame = 0
+
+func DisplayJump():
+	TutorialMessages.visible = true
+	TutorialMessages.frame = 1
+
+func DisplayInteract():
+	TutorialMessages.visible = true
+	TutorialMessages.frame = 3
+
+func DisplayRun():
+	TutorialMessages.visible = true
+	TutorialMessages.frame = 2
+
+func DisplayPause():
+	TutorialMessages.visible = true
+	TutorialMessages.frame = 4
+
+func TurnOffMessage():
+	TutorialMessages.visible = true
+
+func CheckMiloPosition():
+	if(Milo.position.x > -441 and Milo.position.x < 260):
+		DisplayLR()
+	elif (Milo.position.x > 300 and Milo.position.x < 916):
+		DisplayJump()
+	elif (Milo.position.x > 1920 and Milo.position.x < 2650):
+		DisplayInteract()
+	elif (Milo.position.x > 3955 and Milo.position.x < 4776):
+		DisplayInteract()
+	elif (Milo.position.x > 4826 and Milo.position.x < 6110):
+		DisplayPause()
+	elif (Milo.position.x > 6540 and Milo.position.x < 7755):
+		DisplayRun()
+	elif (Milo.position.x > 8438 and Milo.position.x < 8900):
+		DisplayInteract()
+	elif (Milo.position.x > 9800 and Milo.position.x < 10400):
+		DisplayInteract()
+	else:
+		TurnOffMessage()

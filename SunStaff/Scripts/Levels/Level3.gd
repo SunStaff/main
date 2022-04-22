@@ -36,8 +36,8 @@ func _ready():
 	Diamond = self.get_parent().get_node("GemPuzzle/WhiteDimondForPuzzle")
 	EndDoor = self.get_parent().get_node("GemPuzzle/EndDoor")
 	EndLevel = self.get_parent().get_node("GemPuzzle/EndLevel")
-	EndLevel.visible = false
-	EndLevel.monitoring = false
+	EndLevel.set_deferred("visible", false)
+	EndLevel.set_deferred("monitoring", false)
 	timerPuzzle_Array.append(get_parent().get_node("TimerPuzzle/TimerPlatform1"))
 	timerPuzzle_Array.append(get_parent().get_node("TimerPuzzle/TimerPlatform2"))
 	timerPuzzle_Array.append(get_parent().get_node("TimerPuzzle/TimerPlatform3"))
@@ -50,9 +50,7 @@ func _ready():
 	RockSlidePlatform = self.get_parent().get_node("Platforms/Platform5")
 	ChangeRockSlideState(false)
 
-	CyanGemPedestal = GameManager.GetGemPedestals()[1]
 	MagentaGemPedestal = GameManager.GetGemPedestals()[3]
-	ChangePedestalBeamColors("Cyan", true, CyanGemPedestal)
 	ChangePedestalBeamColors("Magenta", true, MagentaGemPedestal)
 
 
@@ -64,13 +62,13 @@ func _process(_delta):
 		ChangeRockSlideState(true)
 
 	if (not Level3Complete):
-		if (Pedestals[0].get_child(0).frame == 5):
-			if (Pedestals[1].get_child(0).frame == 3):
+		if (Pedestals[0].get_child(0).frame == 2):
+			if (Pedestals[1].get_child(0).frame == 4):
 				if (Pedestals[2].get_child(0).frame == 1):
-					if (Pedestals[3].get_child(0).frame == 4):
-						if (Pedestals[4].get_child(0).frame == 2):
+					if (Pedestals[3].get_child(0).frame == 3):
+						if (Pedestals[4].get_child(0).frame == 5):
 							if (StaffAltars[2].activated):
-								Diamond.set_deferred("modulate", Color(255,255,255,255))
+								Diamond.set_deferred("modulate", Color(1,1,1,1))
 								Level3Complete = true
 								OpenTheEnd()
 
@@ -90,34 +88,8 @@ func Level3_OpenBottomPuzzles():
 	platform3 = false
 
 	level3_door.OpenDoor()
-
-	if (not timerActivated):
-		timerActivated = true
-		for platform in timerPuzzle_Array:
-			platform.position.y = 1500
-			
-		while (not allPlatformsUp):
-			if (not platform1):
-				timerPuzzle_Array[0].position.y -= 50
-				if (timerPuzzle_Array[0].position.y <= 400):
-					platform1 = true
-
-			if (not platform2):
-				timerPuzzle_Array[1].position.y -= 50
-				if (timerPuzzle_Array[1].position.y <= 600):
-					platform2 = true
-
-			if (not platform3):
-				timerPuzzle_Array[2].position.y -= 50
-				if (timerPuzzle_Array[2].position.y <= 800):
-					platform3 = true
-			
-			if (platform1 and platform2 and platform3):
-				allPlatformsUp = true
-			timer.set_wait_time(0.1)
-			timer.set_one_shot(true)
-			timer.start()
-			yield(timer, "timeout")
+	for platform in timerPuzzle_Array:
+		platform.position.y = 600
 
 func Level3_TimerPuzzle():
 	if (not timerActivated):
@@ -146,9 +118,9 @@ func Level3_TimerPuzzle():
 			timer.start()
 			yield(timer, "timeout")
 
-		while (timerPuzzle_Array[0].position.y < 1600 or
-			timerPuzzle_Array[1].position.y < 1600 or
-			timerPuzzle_Array[2].position.y < 1600):
+		while (not BottomPuzzlesComplete and (timerPuzzle_Array[0].position.y < 2000 or
+			timerPuzzle_Array[1].position.y < 2000 or
+			timerPuzzle_Array[2].position.y < 2000)):
 			for platform in timerPuzzle_Array:
 				platform.position.y += 50
 				timer.set_wait_time(0.5)
@@ -158,9 +130,14 @@ func Level3_TimerPuzzle():
 		timerActivated = false
 
 func OpenTheEnd():
+	EndDoor.get_child(0).light_mask |= 1 << 0
+	EndDoor.get_child(0).light_mask &= ~(1 << 1)
+	EndDoor.get_child(1).light_mask |= 1 << 0
+	EndDoor.get_child(1).light_mask &= ~(1 << 1)
+	EndDoor.set_deferred("modulate", Color(1,1,1,1))
 	EndDoor.OpenDoor()
-	EndLevel.visible = true
-	EndLevel.monitoring = true
+	EndLevel.set_deferred("visible", true)
+	EndLevel.set_deferred("monitoring", true)
 
 func Level3End():
 	print("End of Level 3")
@@ -276,3 +253,4 @@ func ClearSavePoints():
 	gemSave.position = Vector2(4621, -589)
 	gemSave.scale = Vector2(10,1.5)
 	get_parent().add_child(gemSave)
+	GameManager.GemsCollected = {"Green": true, "Blue": true, "Red": true, "Cyan": true, "Magenta": false }

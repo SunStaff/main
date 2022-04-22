@@ -21,14 +21,17 @@ func _ready():
 	SceneTransition = SceneTransition.get_child(0)
 	SetCurrentLevel(get_tree().get_current_scene().get_name())
 
-	if (not ("MainMenu" in get_tree().get_current_scene().get_name())):
+	if (not ("MainMenu" in get_tree().get_current_scene().get_name()) 
+		and not ("StartingCutscene" in get_tree().get_current_scene().get_name()) 
+		and not ("EndingCutscene" in get_tree().get_current_scene().get_name()) 
+		and not ("Credits" in get_tree().get_current_scene().get_name())):
 		AutoTester = preload("res://Scripts/Auto_Tester.gd").new()
 		if (!AutoTester.Execute(get_node("/root/LeverManager"))):
 			IsGamePlaying = false
 			print("Testing Failed!! Please check tests!!")
 		Player = GetPlayer()
 		LevelManagers = GetLevelManagers()
-		GemsCollected = {"Green": false, "Blue": false, "Red": false, "Cyan": false, "Magenta": false }
+		GemsCollected = {"Green": true, "Blue": true, "Red": true, "Cyan": true, "Magenta": false }
 		
 		SetSpawnLocation()
 
@@ -165,7 +168,10 @@ func ChangeScene():
 	IsGamePlaying = false
 	match CurrentLevel:
 		"MainMenu":
-			SceneTransition.transition_to("res://Scenes/Tutorial.tscn") # TODO: CHANGE ONCE TUTORIAL AND LEVEL 1 ARE COMPLETE
+			SceneTransition.transition_to("res://Scenes/StartingCutscene.tscn") 
+			SetCurrentLevel("StartingCutscene")
+		"StartingCutscene":
+			SceneTransition.transition_to("res://Scenes/Tutorial.tscn")
 			SetCurrentLevel("Tutorial")
 		"Tutorial":
 			SceneTransition.transition_to("res://Scenes/Level1.tscn")
@@ -174,12 +180,18 @@ func ChangeScene():
 		"Level1":
 			SceneTransition.transition_to("res://Scenes/Level2.tscn")
 			SetCurrentLevel("Level2")
-			GemsCollected = {"Green": false, "Blue": true, "Red": true, "Cyan": false, "Magenta": false }
+			GemsCollected = {"Green": true, "Blue": false, "Red": true, "Cyan": false, "Magenta": false }
 		"Level2":
 			SceneTransition.transition_to("res://Scenes/Level3.tscn")
 			SetCurrentLevel("Level3")
 			GemsCollected = {"Green": true, "Blue": true, "Red": true, "Cyan": false, "Magenta": false }
 		"Level3":
+			SceneTransition.transition_to("res://Scenes/EndingCutscene.tscn")
+			SetCurrentLevel("EndingCutscene")
+		"EndingCutscene":
+			SceneTransition.transition_to("res://Scenes/Credits.tscn")
+			SetCurrentLevel("Credits")
+		"Credits":
 			SceneTransition.transition_to("res://Scenes/Menus/MainMenu.tscn")
 			SetCurrentLevel("MainMenu")
 	ClearVariables()
@@ -199,11 +211,6 @@ func GetNewInstancesOfVariables():
 	activated = false
 	SetSpawnLocation()
 	IsGamePlaying = true
-	if (not ("MainMenu" in get_tree().get_current_scene().get_name())):
-		AutoTester = preload("res://Scripts/Auto_Tester.gd").new()
-		if (!AutoTester.Execute(get_node("/root/LeverManager"))):
-			IsGamePlaying = false
-			print("Testing Failed!! Please check tests!!")
 
 func OffsetCameraMilo(offsetAmt):
 	if (offsetAmt > 0):
