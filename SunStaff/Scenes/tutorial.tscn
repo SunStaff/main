@@ -26,7 +26,7 @@ script = ExtResource( 10 )
 [node name="Milo" parent="." instance=ExtResource( 6 )]
 
 [node name="Lit" parent="Milo" index="1"]
-frame = 38
+frame = 42
 
 [node name="AnimationTree" parent="Milo" index="5"]
 parameters/playback = SubResource( 1 )
