@@ -102,7 +102,7 @@ position = Vector2( 6012, 1500 )
 visible = false
 
 [node name="Milo" parent="." instance=ExtResource( 1 )]
-position = Vector2( 470, -11 )
+position = Vector2( 398, -53 )
 
 [node name="StartingDoor" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1620, -150 )
@@ -132,7 +132,7 @@ position = Vector2( 7550, 650 )
 scale = Vector2( 1, 1 )
 
 [node name="Door2" parent="." instance=ExtResource( 10 )]
-position = Vector2( 7912, 350 )
+position = Vector2( 7912, 358 )
 scale = Vector2( 2, 2 )
 
 [node name="Door3" parent="." instance=ExtResource( 10 )]
