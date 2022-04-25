@@ -1,17 +1,17 @@
 [gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Art/Lit/Backgrounds/Level1/LV_1_darkgrass_lit_pt1.png" type="Texture" id=1]
-[ext_resource path="res://Art/Lit/Backgrounds/Level1/lv_1_background_lit_pt_3.png" type="Texture" id=2]
-[ext_resource path="res://Art/Lit/Backgrounds/Level1/lv_1_background_lit_pt_2.png" type="Texture" id=3]
-[ext_resource path="res://Art/Lit/Backgrounds/Level1/lv_1_background_lit_pt_4.png" type="Texture" id=4]
-[ext_resource path="res://Art/Lit/Backgrounds/Level1/lv_1_grass_lit_pt_2.png" type="Texture" id=5]
+[ext_resource path="res://Art/Lit/Backgrounds/Level1/Resized/lv_1_grass_lit_pt_1.png" type="Texture" id=2]
+[ext_resource path="res://Art/Lit/Backgrounds/Level1/Resized/lv_1_background_lit_pt_2.png" type="Texture" id=3]
+[ext_resource path="res://Art/Lit/Backgrounds/Level1/Resized/lv_1_background_lit_pt_3.png" type="Texture" id=4]
+[ext_resource path="res://Art/Lit/Backgrounds/Level1/Resized/lv_1_background_lit_pt_4.png" type="Texture" id=5]
 [ext_resource path="res://Art/Lit/Backgrounds/Level1/LV_1_darkgrass_lit_pt2.png" type="Texture" id=6]
-[ext_resource path="res://Art/Lit/Backgrounds/Level1/lv_1_background_lit_pt_1.png" type="Texture" id=7]
-[ext_resource path="res://Art/Lit/Backgrounds/Level1/lv_1_ground_lit_pt_1.png" type="Texture" id=8]
-[ext_resource path="res://Art/Lit/Backgrounds/Level1/lv_1_ground_lit_pt_2.png" type="Texture" id=9]
-[ext_resource path="res://Art/Lit/Backgrounds/Level1/lv_1_grass_lit_pt_1.png" type="Texture" id=10]
-[ext_resource path="res://Art/Unlit/Backgrounds/Level1/lv_1_background_unlit_purple_pt1.png" type="Texture" id=11]
-[ext_resource path="res://Art/Unlit/Backgrounds/Level1/lv_1_background_unlit_purple_pt2.png" type="Texture" id=12]
+[ext_resource path="res://Art/Lit/Backgrounds/Level1/Resized/lv_1_background_lit_pt_1.png" type="Texture" id=7]
+[ext_resource path="res://Art/Lit/Backgrounds/Level1/Resized/lv_1_ground_lit_pt_1.png" type="Texture" id=8]
+[ext_resource path="res://Art/Lit/Backgrounds/Level1/Resized/lv_1_ground_lit_pt_2.png" type="Texture" id=9]
+[ext_resource path="res://Art/Lit/Backgrounds/Level1/Resized/lv_1_grass_lit_pt_2.png" type="Texture" id=10]
+[ext_resource path="res://Art/Unlit/Backgrounds/Level1/Resized/lv_1_background_unlit_purple_pt1.png" type="Texture" id=11]
+[ext_resource path="res://Art/Unlit/Backgrounds/Level1/Resized/lv_1_background_unlit_purple_pt2.png" type="Texture" id=12]
 [ext_resource path="res://Art/Unlit/Backgrounds/Level1/LV_1_darkgrass_unlit_pt2.png" type="Texture" id=13]
 [ext_resource path="res://Art/Unlit/Backgrounds/Level1/lv_1_grass_unlit_pt_1.png" type="Texture" id=14]
 [ext_resource path="res://Art/Unlit/Backgrounds/Level1/lv_1_grass_unlit_pt_2.png" type="Texture" id=15]
@@ -57,18 +57,17 @@ shader_param/OCTAVES = 100
 
 [node name="UnlitBack" type="Node2D" parent="."]
 z_index = -2
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Lv1UnlitBackgroundNotpurplewaterPt1" type="Sprite" parent="UnlitBack"]
 light_mask = 2
 position = Vector2( 5067, 0 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 11 )
 
 [node name="Lv1UnlitBackgroundNotpurplewaterPt2" type="Sprite" parent="UnlitBack"]
 light_mask = 2
 position = Vector2( 15888, 0 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 12 )
 
 [node name="Background" type="Node2D" parent="UnlitBack"]
@@ -133,19 +132,23 @@ z_index = -2
 
 [node name="Lv1BackgroundLitPt1" type="Sprite" parent="LitBack"]
 position = Vector2( 2345, 0 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 7 )
 
 [node name="Lv1BackgroundLitPt2" type="Sprite" parent="LitBack"]
 position = Vector2( 7757.33, 2.92063e-06 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 
 [node name="Lv1BackgroundLitPt3" type="Sprite" parent="LitBack"]
 position = Vector2( 13170, -2.86102e-06 )
-texture = ExtResource( 2 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
 
 [node name="Lv1BackgroundLitPt4" type="Sprite" parent="LitBack"]
 position = Vector2( 18582, -1.49012e-06 )
-texture = ExtResource( 4 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
 
 [node name="Background" type="Node2D" parent="LitBack"]
 
@@ -158,11 +161,13 @@ position = Vector2( 13496, -718 )
 texture = ExtResource( 25 )
 
 [node name="Lv1GroundLitPt1" type="Sprite" parent="LitBack"]
-position = Vector2( 3690, 371.334 )
+position = Vector2( 4050, 371.334 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 8 )
 
 [node name="Lv1GroundLitPt2" type="Sprite" parent="LitBack"]
 position = Vector2( 17197.3, -320 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 9 )
 
 [node name="LitFront" type="Node2D" parent="LitBack"]
@@ -175,13 +180,15 @@ texture = ExtResource( 21 )
 
 [node name="Lv1GrassLitPt1" type="Sprite" parent="LitBack"]
 position = Vector2( 4150, 326.001 )
+scale = Vector2( 2, 2 )
 z_index = 3
-texture = ExtResource( 10 )
+texture = ExtResource( 2 )
 
 [node name="Lv1GrassLitPt2" type="Sprite" parent="LitBack"]
 position = Vector2( 17184.7, -272 )
+scale = Vector2( 2, 2 )
 z_index = 3
-texture = ExtResource( 5 )
+texture = ExtResource( 10 )
 
 [node name="Lv1DarkgrassLitPt1" type="Sprite" parent="LitBack"]
 position = Vector2( 4150, 326.001 )
@@ -224,6 +231,7 @@ position = Vector2( 21353, 0 )
 shape = SubResource( 7 )
 
 [node name="Fog" type="Node2D" parent="."]
+visible = false
 __meta__ = {
 "_edit_group_": true
 }
