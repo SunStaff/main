@@ -40,7 +40,7 @@ func _ready():
 	EndLevel.set_deferred("monitoring", false)
 	timerPuzzle_Array.append(get_parent().get_node("TimerPuzzle/TimerPlatform1"))
 	timerPuzzle_Array.append(get_parent().get_node("TimerPuzzle/TimerPlatform2"))
-	timerPuzzle_Array.append(get_parent().get_node("TimerPuzzle/TimerPlatform3"))
+	#timerPuzzle_Array.append(get_parent().get_node("TimerPuzzle/TimerPlatform3"))
 	timer = Timer.new()
 	self.add_child(timer)
 	GemSelectionScreen = get_tree().get_nodes_in_group("GemSelectionScreen")[0]
@@ -105,12 +105,13 @@ func Level3_TimerPuzzle():
 				if (timerPuzzle_Array[1].position.y <= 600):
 					platform2 = true
 
-			if (not platform3):
-				timerPuzzle_Array[2].position.y -= 50
-				if (timerPuzzle_Array[2].position.y <= 800):
-					platform3 = true
+			# if (not platform3):
+			# 	timerPuzzle_Array[2].position.y -= 50
+			# 	if (timerPuzzle_Array[2].position.y <= 800):
+			# 		platform3 = true
 			
-			if (platform1 and platform2 and platform3):
+			#if (platform1 and platform2 and platform3):
+			if (platform1 and platform2):
 				allPlatformsUp = true
 
 			timer.set_wait_time(0.1)
@@ -119,8 +120,8 @@ func Level3_TimerPuzzle():
 			yield(timer, "timeout")
 
 		while (not BottomPuzzlesComplete and (timerPuzzle_Array[0].position.y < 2000 or
-			timerPuzzle_Array[1].position.y < 2000 or
-			timerPuzzle_Array[2].position.y < 2000)):
+			timerPuzzle_Array[1].position.y < 2000)):
+			#or timerPuzzle_Array[2].position.y < 2000)):
 			for platform in timerPuzzle_Array:
 				platform.position.y += 50
 				timer.set_wait_time(0.5)
