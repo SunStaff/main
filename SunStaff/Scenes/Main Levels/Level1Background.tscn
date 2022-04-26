@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Art/Lit/Backgrounds/Level1/LV_1_darkgrass_lit_pt1.png" type="Texture" id=1]
 [ext_resource path="res://Art/Lit/Backgrounds/Level1/Resized/lv_1_grass_lit_pt_1.png" type="Texture" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://Art/Foreground/BackTrees/TreesBack-12.png" type="Texture" id=24]
 [ext_resource path="res://Art/Foreground/BackTrees/TreesBack-8.png" type="Texture" id=25]
 [ext_resource path="res://Art/Foreground/BackTrees/TreesBack-11.png" type="Texture" id=26]
+[ext_resource path="res://Art/Misc/Gems/gem_pedastel.png" type="Texture" id=27]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 65, 2000 )
@@ -237,6 +238,11 @@ shape = SubResource( 6 )
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="LitBack/Ground"]
 position = Vector2( 21353, 0 )
 shape = SubResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="."]
+light_mask = 0
+position = Vector2( 20895, -1017 )
+texture = ExtResource( 27 )
 
 [node name="Fog" type="Node2D" parent="."]
 __meta__ = {

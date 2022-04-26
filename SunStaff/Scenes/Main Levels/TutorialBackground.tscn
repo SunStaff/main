@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Art/Lit/Backgrounds/Tutorial/LV_0_design_tutorial_ground.png" type="Texture" id=1]
 [ext_resource path="res://Art/Lit/Backgrounds/Tutorial/lv_0_background.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Art/Unlit/Backgrounds/erroded_hillbackground3.png" type="Texture" id=10]
 [ext_resource path="res://icon.png" type="Texture" id=11]
 [ext_resource path="res://Art/Misc/fogEffect.shader" type="Shader" id=12]
+[ext_resource path="res://Art/Misc/Gems/gem_pedastel.png" type="Texture" id=13]
 [ext_resource path="res://Art/Foreground/FrontTrees/TreesFront-9.png" type="Texture" id=14]
 [ext_resource path="res://Art/Foreground/FrontTrees/TreesFront-10.png" type="Texture" id=17]
 [ext_resource path="res://Art/Foreground/BackTrees/TreesBack-7.png" type="Texture" id=19]
@@ -271,8 +272,12 @@ light_mask = 0
 position = Vector2( 11014, 0 )
 shape = SubResource( 7 )
 
+[node name="Sprite" type="Sprite" parent="."]
+light_mask = 0
+position = Vector2( 10467, 545 )
+texture = ExtResource( 13 )
+
 [node name="Fog" type="Node2D" parent="."]
-visible = false
 __meta__ = {
 "_edit_group_": true
 }

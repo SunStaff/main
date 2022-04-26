@@ -13,6 +13,8 @@ var ChangeSceneCalled = false
 var LevelManagers = []
 var AutoTester
 var PlayerCamera
+const GLOWMATERIALTIME = 0.5
+var GemSelectionScreenOpen = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,7 +33,6 @@ func _ready():
 			print("Testing Failed!! Please check tests!!")
 		Player = GetPlayer()
 		LevelManagers = GetLevelManagers()
-		GemsCollected = {"Green": true, "Blue": true, "Red": true, "Cyan": true, "Magenta": false }
 		
 		SetSpawnLocation()
 

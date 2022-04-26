@@ -1,7 +1,7 @@
 extends Control
 
 func _unhandled_input(event):
-	if event.is_action_pressed("pause"):
+	if (event.is_action_pressed("pause") and not GameManager.GemSelectionScreenOpen):
 		self.is_paused = !is_paused
 
 var is_paused = false setget set_is_paused

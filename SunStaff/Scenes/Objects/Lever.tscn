@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
+[ext_resource path="res://Art/Misc/outlineShaderLever.tres" type="Material" id=1]
 [ext_resource path="res://Scripts/Objects/Levers_Switches.gd" type="Script" id=2]
 [ext_resource path="res://Art/Unlit/Objects/lever_unlit_front.png" type="Texture" id=3]
 [ext_resource path="res://Art/Unlit/Objects/lever_unlit_handel.png" type="Texture" id=4]
@@ -11,29 +12,41 @@ extents = Vector2( 125, 58.5 )
 
 [node name="Lever" type="Area2D" groups=["Lever"]]
 light_mask = 2
+material = ExtResource( 1 )
 scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="UnlitLeverHandle" type="Sprite" parent="."]
+[node name="Unlit" type="Node2D" parent="."]
 light_mask = 2
-position = Vector2( 3.5, -23.5 )
+use_parent_material = true
+
+[node name="UnlitLeverHandle" type="Sprite" parent="Unlit"]
+light_mask = 2
+use_parent_material = true
+position = Vector2( -30, -50 )
 rotation = -0.785398
 texture = ExtResource( 4 )
 
-[node name="UnlitLever" type="Sprite" parent="."]
+[node name="UnlitLever" type="Sprite" parent="Unlit"]
 light_mask = 2
+use_parent_material = true
 position = Vector2( 3, -65 )
 texture = ExtResource( 3 )
 
-[node name="LitLeverHandle" type="Sprite" parent="."]
-position = Vector2( 3.5, -23.5 )
+[node name="Lit" type="Node2D" parent="."]
+use_parent_material = true
+
+[node name="LitLeverHandle" type="Sprite" parent="Lit"]
+use_parent_material = true
+position = Vector2( -30, -50 )
 rotation = -0.785398
 texture = ExtResource( 6 )
 
-[node name="LitLever" type="Sprite" parent="."]
+[node name="LitLever" type="Sprite" parent="Lit"]
+use_parent_material = true
 position = Vector2( 3, -65 )
 texture = ExtResource( 5 )
 

@@ -22,13 +22,21 @@ var RockSlide
 var RockSlidePlatform
 var stopTimerPuzzle = false
 export (bool) var DebugMode = false
-var CyanGemPedestal
+
+# Gem Puzzle Variables
 var MagentaGemPedestal
+var firstCorrect = false
+var secondCorrect = false
+var thirdCorrect = false
+var fourthCorrect = false
+var fifthCorrect = false
+var altarCorrect = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if (DebugMode):
 		BottomPuzzlesComplete = true
+		GameManager.GemsCollected =  {"Green": true, "Blue": true, "Red": true, "Cyan": true, "Magenta": false }
 	else:
 		BottomPuzzlesComplete = false
 	
@@ -60,17 +68,7 @@ func _process(_delta):
 		ChangeRockSlideState(false)
 	else:
 		ChangeRockSlideState(true)
-
-	if (not Level3Complete):
-		if (Pedestals[0].get_child(0).frame == 2):
-			if (Pedestals[1].get_child(0).frame == 4):
-				if (Pedestals[2].get_child(0).frame == 1):
-					if (Pedestals[3].get_child(0).frame == 3):
-						if (Pedestals[4].get_child(0).frame == 5):
-							if (StaffAltars[2].activated):
-								Diamond.set_deferred("modulate", Color(1,1,1,1))
-								Level3Complete = true
-								OpenTheEnd()
+	CheckForLevelCompelete()
 
 
 func Level3_MoveDoor_DueTo_StaffAltar(open):
@@ -234,7 +232,8 @@ func ChangeAltarBeamColors(toggle, altar):
 
 func _on_EndLevel_body_entered(body):
 	if ("Milo" in body.name):
-		Level3End()
+		if (GameManager.GetPlayer().GetHasStaffState()):
+			Level3End()
 
 func ChangeRockSlideState(state):
 	RockSlide.get_child(1).set_deferred("disabled", state)
@@ -250,7 +249,51 @@ func ClearSavePoints():
 	for plate in PressurePlates:
 		plate.queue_free()
 	var gemSave = load("res://Scenes/Objects/SavingPoint.tscn").instance()
-	gemSave.position = Vector2(4621, -589)
-	gemSave.scale = Vector2(10,1.5)
+	gemSave.set_deferred("position", Vector2(4621, -589))
+	gemSave.set_deferred("scale", Vector2(10,1.5))
 	get_parent().add_child(gemSave)
 	GameManager.GemsCollected = {"Green": true, "Blue": true, "Red": true, "Cyan": true, "Magenta": false }
+
+func CheckForLevelCompelete():
+	if (not Level3Complete):
+		if (Pedestals[0].get_child(0).frame == 2):
+			firstCorrect = true
+			# UP LIT AMBIENCE/MUSIC VOLUME
+		else:
+			pass # UP UNLIT AMBIENCE/MUSIC VOLUME
+
+		if (Pedestals[1].get_child(0).frame == 4):
+			secondCorrect = true
+			# UP LIT AMBIENCE/MUSIC VOLUME
+		else:
+			pass # UP UNLIT AMBIENCE/MUSIC VOLUME
+
+		if (Pedestals[2].get_child(0).frame == 1):
+			thirdCorrect = true
+			# UP LIT AMBIENCE/MUSIC VOLUME
+		else:
+			pass # UP UNLIT AMBIENCE/MUSIC VOLUME
+
+		if (Pedestals[3].get_child(0).frame == 3):
+			fourthCorrect = true
+			# UP LIT AMBIENCE/MUSIC VOLUME
+		else:
+			pass # UP UNLIT AMBIENCE/MUSIC VOLUME
+
+		if (Pedestals[4].get_child(0).frame == 5):
+			fifthCorrect = true
+			# UP LIT AMBIENCE/MUSIC VOLUME
+		else:
+			pass # UP UNLIT AMBIENCE/MUSIC VOLUME
+
+		if (StaffAltars[2].activated):
+			altarCorrect = true
+			# UP LIT AMBIENCE/MUSIC VOLUME
+		else:
+			pass # UP UNLIT AMBIENCE/MUSIC VOLUME
+		
+		if (firstCorrect and secondCorrect and thirdCorrect and fourthCorrect and fifthCorrect and altarCorrect):
+			Level3Complete = true
+			yield(get_tree().create_timer(1.5), "timeout")
+			Diamond.set_deferred("modulate", Color(1,1,1,1))
+			OpenTheEnd()

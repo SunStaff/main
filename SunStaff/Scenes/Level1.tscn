@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scenes/Objects/Platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/StaffAltar.tscn" type="PackedScene" id=2]
@@ -11,16 +11,89 @@
 [ext_resource path="res://Scenes/Main Levels/Level1Background.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Objects/PressurePlate.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Objects/GemPickup.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Art/Misc/outlineShaderCode.shader" type="Shader" id=12]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=3]
+
+[sub_resource type="ShaderMaterial" id=4]
+resource_local_to_scene = true
+shader = ExtResource( 12 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/width = 5.0
+shader_param/pattern = 2
+shader_param/inside = false
+shader_param/add_margins = true
+
+[sub_resource type="ShaderMaterial" id=5]
+resource_local_to_scene = true
+shader = ExtResource( 12 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/width = 5.0
+shader_param/pattern = 2
+shader_param/inside = false
+shader_param/add_margins = true
+
+[sub_resource type="ShaderMaterial" id=6]
+resource_local_to_scene = true
+shader = ExtResource( 12 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/width = 5.0
+shader_param/pattern = 2
+shader_param/inside = false
+shader_param/add_margins = true
+
+[sub_resource type="ShaderMaterial" id=7]
+resource_local_to_scene = true
+shader = ExtResource( 12 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/width = 2.5
+shader_param/pattern = 0
+shader_param/inside = false
+shader_param/add_margins = true
+
+[sub_resource type="ShaderMaterial" id=8]
+resource_local_to_scene = true
+shader = ExtResource( 12 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/width = 5.0
+shader_param/pattern = 2
+shader_param/inside = false
+shader_param/add_margins = true
+
+[sub_resource type="ShaderMaterial" id=9]
+resource_local_to_scene = true
+shader = ExtResource( 12 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/width = 5.0
+shader_param/pattern = 2
+shader_param/inside = false
+shader_param/add_margins = true
+
+[sub_resource type="ShaderMaterial" id=10]
+resource_local_to_scene = true
+shader = ExtResource( 12 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/width = 5.0
+shader_param/pattern = 2
+shader_param/inside = false
+shader_param/add_margins = true
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 18, 211.5 )
 
+[sub_resource type="ShaderMaterial" id=11]
+resource_local_to_scene = true
+shader = ExtResource( 12 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/width = 5.0
+shader_param/pattern = 2
+shader_param/inside = false
+shader_param/add_margins = true
+
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 195.75, 359.75 )
 
-[node name="Level1" type="Node2D"]
+[node name="Level1" type="Node"]
 
 [node name="Level1Manager" type="Node" parent="." groups=["LevelManager"]]
 script = ExtResource( 6 )
@@ -29,9 +102,6 @@ script = ExtResource( 6 )
 
 [node name="Milo" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1600, -549 )
-
-[node name="Lit" parent="Milo" index="1"]
-frame = 40
 
 [node name="AnimationTree" parent="Milo" index="5"]
 parameters/playback = SubResource( 3 )
@@ -73,15 +143,19 @@ rotation = 1.5708
 scale = Vector2( 5, 1 )
 
 [node name="Lever1" parent="." instance=ExtResource( 3 )]
+material = SubResource( 4 )
 position = Vector2( 13490, 176 )
 
 [node name="Lever2" parent="." instance=ExtResource( 3 )]
+material = SubResource( 5 )
 position = Vector2( 13913, 176 )
 
 [node name="Lever3" parent="." instance=ExtResource( 3 )]
+material = SubResource( 6 )
 position = Vector2( 14336, 173 )
 
 [node name="MovingAltar" parent="." instance=ExtResource( 2 )]
+material = SubResource( 7 )
 position = Vector2( 2841, 457 )
 
 [node name="MovingBlock" parent="." instance=ExtResource( 5 )]
@@ -95,12 +169,15 @@ blockGravity = 0.0
 position = Vector2( 2841, 530 )
 
 [node name="Lever4" parent="." instance=ExtResource( 3 )]
+material = SubResource( 8 )
 position = Vector2( 10255, -674 )
 
 [node name="Lever5" parent="." instance=ExtResource( 3 )]
+material = SubResource( 9 )
 position = Vector2( 10918, -684 )
 
 [node name="Lever6" parent="." instance=ExtResource( 3 )]
+material = SubResource( 10 )
 position = Vector2( 259, 299 )
 
 [node name="DrawBridge" type="KinematicBody2D" parent="."]
@@ -123,6 +200,7 @@ position = Vector2( 36, -178 )
 shape = SubResource( 1 )
 
 [node name="Lever7" parent="." instance=ExtResource( 3 )]
+material = SubResource( 11 )
 position = Vector2( 6254, -280 )
 
 [node name="SavingPoint" parent="." instance=ExtResource( 8 )]
@@ -177,7 +255,7 @@ visible = false
 visible = false
 
 [node name="Green_GemPickup" parent="." instance=ExtResource( 11 )]
-position = Vector2( 20713, -1030 )
+position = Vector2( 20897, -1204 )
 
 [node name="AnimatedSprite2" parent="Green_GemPickup" index="1"]
 frame = 1

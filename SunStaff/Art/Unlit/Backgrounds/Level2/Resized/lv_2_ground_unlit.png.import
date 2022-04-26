@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Credits.png-3e2ba25cd0280e2a957a19e1917a3ef3.stex"
+path="res://.import/lv_2_ground_unlit.png-8250e42e3c17174cca5afbb28a6ac8b1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Misc/Credits.png"
-dest_files=[ "res://.import/Credits.png-3e2ba25cd0280e2a957a19e1917a3ef3.stex" ]
+source_file="res://Art/Unlit/Backgrounds/Level2/Resized/lv_2_ground_unlit.png"
+dest_files=[ "res://.import/lv_2_ground_unlit.png-8250e42e3c17174cca5afbb28a6ac8b1.stex" ]
 
 [params]
 
