@@ -19,8 +19,10 @@ volume_db = -6.0
 pause_mode = 2
 volume_db = -6.0
 
-[node name="Ambiences" type="AudioStreamPlayer" parent="."]
+[node name="LitAmbience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+
+[node name="UnlitAmbience" type="AudioStreamPlayer" parent="."]
 
 [node name="Walking" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
