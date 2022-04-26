@@ -1,7 +1,35 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Art/Misc/Credits.png" type="Texture" id=1]
+[ext_resource path="res://Art/Misc/Credits (1).png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Menus/Credits.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Credits"
+length = 35.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Credit:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 30 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -5300 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Credit:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ) ]
+}
 
 [node name="Credits" type="CanvasLayer"]
 script = ExtResource( 2 )
@@ -13,10 +41,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
-margin_right = 1920.0
-margin_bottom = 6405.0
+[node name="Credit" type="TextureRect" parent="CenterContainer"]
+margin_right = 960.0
+margin_bottom = 3203.0
+rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
+stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer"]
+method_call_mode = 1
+anims/Credits = SubResource( 1 )
+
+[connection signal="animation_finished" from="CenterContainer/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

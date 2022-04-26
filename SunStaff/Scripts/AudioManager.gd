@@ -7,9 +7,12 @@ onready var Running = $Running
 onready var Bell = $Bell
 onready var Collectable = $Collectable
 onready var Landing = $Landing
+onready var LitAmbience = $LitAmbience
 
 var LitMusicCurrentPos = 0.0
 var UnlitMusicCurrentPos = 0.0
+var currentLitAmbienceIndex = 0
+var AmbienceLitSounds = ["res://Art/Sounds/Fairy Forest.wav", "res://Art/Sounds/Fairy Forest.v2.ilcapand.wav", "res://Art/Sounds/Fairy Forest.v3.ilcapand.wav"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

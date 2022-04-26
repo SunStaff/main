@@ -7,6 +7,7 @@ var minDistanceToPedestal = INF
 var Pedestals = []
 var PedestalName = ""
 var PedestalSprite
+onready var shader = self.material
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,8 +20,9 @@ func _process(_delta):
 		PedestalSprite.position = Vector2(0, 40)
 	else:
 		PedestalSprite.position = Vector2(0, 0)
-
+	GlowMaterial(false)
 	if (WithinPedestalRange):
+		GlowMaterial(true)
 		var frameNumber = PedestalSprite.frame
 		if (Input.is_action_just_pressed("Interact")):
 			print()
@@ -78,3 +80,9 @@ func GetCurrentClosestPedestal(pedestals, player):
 			CurrentClosestPedestal = pedestal
 	minDistanceToPedestal = INF
 	return CurrentClosestPedestal
+
+func GlowMaterial(state):
+	if (state):
+		shader.set_shader_param("color", Color(1,1,1,0.75))
+	else:
+		shader.set_shader_param("color", Color(1,1,1,0))

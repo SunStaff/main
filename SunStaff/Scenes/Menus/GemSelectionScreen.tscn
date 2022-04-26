@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Art/Misc/Gems/RED_GEM.png" type="Texture" id=1]
 [ext_resource path="res://Art/Misc/Gems/BLUE_GEM.png" type="Texture" id=2]
 [ext_resource path="res://Art/Misc/Gems/magenta_GEM.png" type="Texture" id=3]
 [ext_resource path="res://Art/Misc/Gems/GREEN_GEM.png" type="Texture" id=4]
 [ext_resource path="res://Art/Misc/Gems/cyan_GEM.png" type="Texture" id=5]
-[ext_resource path="res://Scripts/Objects/GemSelectionScreen.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Menus/GemSelectionScreen.gd" type="Script" id=6]
 [ext_resource path="res://Art/DEMO/Montserrat-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Art/Misc/Gems/gem_menu.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -39,19 +40,26 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 652.0
-margin_top = 379.0
-margin_right = 1268.0
-margin_bottom = 701.0
+margin_left = 617.0
+margin_top = 134.0
+margin_right = 1303.0
+margin_bottom = 946.0
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
-margin_right = 616.0
-margin_bottom = 200.0
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer"]
+margin_right = 686.0
+margin_bottom = 690.0
+texture = ExtResource( 8 )
 
-[node name="Green Gem" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
-margin_right = 120.0
-margin_bottom = 200.0
+[node name="Green Gem" type="Button" parent="CenterContainer/VBoxContainer/TextureRect"]
+anchor_left = 0.78
+anchor_top = 0.886
+anchor_right = 0.78
+anchor_bottom = 0.886
+margin_left = -60.08
+margin_top = -100.34
+margin_right = 59.92
+margin_bottom = 99.66
 rect_min_size = Vector2( 120, 200 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -62,10 +70,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Blue Gem" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
-margin_left = 124.0
-margin_right = 244.0
-margin_bottom = 200.0
+[node name="Blue Gem" type="Button" parent="CenterContainer/VBoxContainer/TextureRect"]
+anchor_left = 0.513
+anchor_top = 0.116
+anchor_right = 0.513
+anchor_bottom = 0.116
+margin_left = -59.918
+margin_top = -100.04
+margin_right = 60.082
+margin_bottom = 99.96
 rect_min_size = Vector2( 120, 200 )
 icon = ExtResource( 2 )
 flat = true
@@ -74,10 +87,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Red Gem" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
-margin_left = 248.0
-margin_right = 368.0
-margin_bottom = 200.0
+[node name="Red Gem" type="Button" parent="CenterContainer/VBoxContainer/TextureRect"]
+anchor_left = 0.241
+anchor_top = 0.886
+anchor_right = 0.241
+anchor_bottom = 0.886
+margin_left = -60.326
+margin_top = -100.34
+margin_right = 59.674
+margin_bottom = 99.66
 rect_min_size = Vector2( 120, 200 )
 icon = ExtResource( 1 )
 flat = true
@@ -86,10 +104,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Cyan Gem" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
-margin_left = 372.0
-margin_right = 492.0
-margin_bottom = 200.0
+[node name="Cyan Gem" type="Button" parent="CenterContainer/VBoxContainer/TextureRect"]
+anchor_left = 0.924
+anchor_top = 0.41
+anchor_right = 0.924
+anchor_bottom = 0.41
+margin_left = -59.864
+margin_top = -99.9
+margin_right = 60.136
+margin_bottom = 100.1
 rect_min_size = Vector2( 120, 200 )
 icon = ExtResource( 5 )
 flat = true
@@ -98,10 +121,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Magenta Gem" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
-margin_left = 496.0
-margin_right = 616.0
-margin_bottom = 200.0
+[node name="Magenta Gem" type="Button" parent="CenterContainer/VBoxContainer/TextureRect"]
+anchor_left = 0.079
+anchor_top = 0.41
+anchor_right = 0.079
+anchor_bottom = 0.41
+margin_left = -60.194
+margin_top = -99.9
+margin_right = 59.806
+margin_bottom = 100.1
 rect_min_size = Vector2( 120, 200 )
 icon = ExtResource( 3 )
 flat = true
@@ -112,44 +140,44 @@ __meta__ = {
 
 [node name="HSeparator" type="HSeparator" parent="CenterContainer/VBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = 204.0
-margin_right = 616.0
-margin_bottom = 208.0
+margin_top = 694.0
+margin_right = 686.0
+margin_bottom = 698.0
 
 [node name="HSeparator2" type="HSeparator" parent="CenterContainer/VBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = 212.0
-margin_right = 616.0
-margin_bottom = 216.0
+margin_top = 702.0
+margin_right = 686.0
+margin_bottom = 706.0
 
 [node name="HSeparator3" type="HSeparator" parent="CenterContainer/VBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = 220.0
-margin_right = 616.0
-margin_bottom = 224.0
+margin_top = 710.0
+margin_right = 686.0
+margin_bottom = 714.0
 
 [node name="HSeparator4" type="HSeparator" parent="CenterContainer/VBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = 228.0
-margin_right = 616.0
-margin_bottom = 232.0
+margin_top = 718.0
+margin_right = 686.0
+margin_bottom = 722.0
 
 [node name="HSeparator5" type="HSeparator" parent="CenterContainer/VBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = 236.0
-margin_right = 616.0
-margin_bottom = 240.0
+margin_top = 726.0
+margin_right = 686.0
+margin_bottom = 730.0
 
 [node name="HSeparator6" type="HSeparator" parent="CenterContainer/VBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = 244.0
-margin_right = 616.0
-margin_bottom = 248.0
+margin_top = 734.0
+margin_right = 686.0
+margin_bottom = 738.0
 
 [node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 252.0
-margin_right = 616.0
-margin_bottom = 322.0
+margin_top = 742.0
+margin_right = 686.0
+margin_bottom = 812.0
 rect_min_size = Vector2( 300, 70 )
 custom_fonts/font = SubResource( 1 )
 text = "Cancel"
@@ -157,9 +185,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Green Gem" to="." method="_on_Green_Gem_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Blue Gem" to="." method="_on_Blue_Gem_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Red Gem" to="." method="_on_Red_Gem_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Cyan Gem" to="." method="_on_Cyan_Gem_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Magenta Gem" to="." method="_on_Magenta_Gem_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/TextureRect/Green Gem" to="." method="_on_Green_Gem_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/TextureRect/Blue Gem" to="." method="_on_Blue_Gem_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/TextureRect/Red Gem" to="." method="_on_Red_Gem_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/TextureRect/Cyan Gem" to="." method="_on_Cyan_Gem_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/TextureRect/Magenta Gem" to="." method="_on_Magenta_Gem_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]

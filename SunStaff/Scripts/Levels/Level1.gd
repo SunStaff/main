@@ -86,7 +86,9 @@ func SetAltarCheckPoint(num):
 
 func _on_EndLevel1_body_entered(body):
 	if ("Milo" in body.name):
-		Level1End()
+		if (GameManager.GetPlayer().GetHasStaffState()):
+			if (GameManager.GetGemStates()["Green"]):
+				Level1End()
 
 func Level1End():
 	print("End of Level 1")

@@ -1,11 +1,11 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Art/Unlit/Backgrounds/Level2/LV_2_unlit_design_darkgrass.png" type="Texture" id=1]
-[ext_resource path="res://Art/Unlit/Backgrounds/Level2/LV_2_unlit_design_background.png" type="Texture" id=2]
+[ext_resource path="res://Art/Unlit/Backgrounds/Level2/Resized/LV_2_unlit_design_.png" type="Texture" id=2]
 [ext_resource path="res://Art/Lit/Backgrounds/Level2/LV_2_design_lit_darkgrass.png" type="Texture" id=3]
-[ext_resource path="res://Art/Unlit/Backgrounds/Level2/LV_2_design_unlit_ground.png" type="Texture" id=4]
-[ext_resource path="res://Art/Lit/Backgrounds/Level2/LV_2_design_lit_ground.png" type="Texture" id=5]
-[ext_resource path="res://Art/Lit/Backgrounds/Level2/LV_2_design_lit_background_whole.png" type="Texture" id=6]
+[ext_resource path="res://Art/Unlit/Backgrounds/Level2/Resized/lv_2_ground_unlit.png" type="Texture" id=4]
+[ext_resource path="res://Art/Lit/Backgrounds/Level2/Resized/lv_2_ground_lit.png" type="Texture" id=5]
+[ext_resource path="res://Art/Lit/Backgrounds/Level2/Resized/LV_2_design_lit_background.png" type="Texture" id=6]
 [ext_resource path="res://Art/Lit/Backgrounds/Level2/LV_2_design_lit_grass.png" type="Texture" id=7]
 [ext_resource path="res://Art/Unlit/Backgrounds/Level2/LV_2_unlit_design_grass.png" type="Texture" id=8]
 [ext_resource path="res://Art/Lit/Backgrounds/SKY.png" type="Texture" id=9]
@@ -26,6 +26,7 @@
 [ext_resource path="res://Art/Foreground/BackTrees/TreesBack-2.png" type="Texture" id=24]
 [ext_resource path="res://Art/Foreground/BackTrees/TreesBack-1.png" type="Texture" id=25]
 [ext_resource path="res://Art/Foreground/BackTrees/TreesBack-9.png" type="Texture" id=26]
+[ext_resource path="res://Art/Misc/Gems/gem_pedastel.png" type="Texture" id=27]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 756.667, 65 )
@@ -72,6 +73,9 @@ light_mask = 0
 position = Vector2( 5815, -430 )
 scale = Vector2( 1.5, 1.5 )
 z_index = -2
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sky3" type="Sprite" parent="UnlitBack"]
 light_mask = 2
@@ -159,6 +163,7 @@ texture = ExtResource( 11 )
 
 [node name="Lv2UnlitBackground" type="Sprite" parent="UnlitBack"]
 light_mask = 2
+scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 
 [node name="Background" type="Node2D" parent="UnlitBack"]
@@ -218,7 +223,8 @@ texture = ExtResource( 25 )
 
 [node name="Lv2DesignUnlitGround" type="Sprite" parent="UnlitBack"]
 light_mask = 2
-position = Vector2( 0, -128 )
+position = Vector2( 0, 165.333 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 4 )
 
 [node name="UnlitFront" type="Node2D" parent="UnlitBack"]
@@ -256,6 +262,9 @@ light_mask = 0
 position = Vector2( 5815, -430 )
 scale = Vector2( 1.5, 1.5 )
 z_index = -2
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sky" type="Sprite" parent="LitBack"]
 position = Vector2( -6728, -539.333 )
@@ -327,6 +336,7 @@ texture = ExtResource( 10 )
 
 [node name="Lv2DesignLitBackgroundWhole" type="Sprite" parent="LitBack"]
 position = Vector2( 0, 0.666687 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 6 )
 
 [node name="Background" type="Node2D" parent="LitBack"]
@@ -376,7 +386,8 @@ position = Vector2( -3666.67, -584 )
 texture = ExtResource( 24 )
 
 [node name="Lv2DesignLitDarkgrass3" type="Sprite" parent="LitBack"]
-position = Vector2( 0, -128.002 )
+position = Vector2( 0, 165.331 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
 
 [node name="LitFront" type="Node2D" parent="LitBack"]
@@ -475,3 +486,8 @@ material = SubResource( 12 )
 position = Vector2( 5807.5, 413 )
 scale = Vector2( 226.141, 101.312 )
 texture = ExtResource( 13 )
+
+[node name="Sprite" type="Sprite" parent="."]
+light_mask = 0
+position = Vector2( 12620, -35 )
+texture = ExtResource( 27 )

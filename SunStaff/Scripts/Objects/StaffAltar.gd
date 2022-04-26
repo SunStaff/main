@@ -3,6 +3,7 @@ extends Area2D
 var activated
 var playerRootNode
 var WithinAltarRange = false
+onready var shader = self.material
 
 # Sun Staff Variables
 var SunStaff
@@ -17,10 +18,13 @@ func _ready():
 	playerRootNode = get_parent()
 	SunStaff = GameManager.GetSunStaff()
 	LightCircle = SunStaff.get_child(1)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	GlowMaterial(false)
 	if (WithinAltarRange):
+		GlowMaterial(true)
 		if (Input.is_action_just_pressed("Interact")):
 			if (GetCurrentClosestAltar(GameManager.GetSunStaffAltars(), GameManager.GetPlayer()) == self):
 				SunStaffPlacement()
@@ -82,3 +86,9 @@ func GetCurrentClosestAltar(altars, player):
 
 func CheckForAltarMethodsOnLevels(state):
 	GameManager.CheckForLevelSpecificActions("Altar",state,CurrentClosestAltar)
+
+func GlowMaterial(state):
+	if (state):
+		shader.set_shader_param("color", Color(1,1,1,0.75))
+	else:
+		shader.set_shader_param("color", Color(1,1,1,0))

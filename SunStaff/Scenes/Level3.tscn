@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Scenes/Milo/Milo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/PressurePlate.tscn" type="PackedScene" id=2]
@@ -13,6 +13,52 @@
 [ext_resource path="res://Scenes/Menus/GemSelectionScreen.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Main Levels/GemPuzzle.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Objects/Lever.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Art/Misc/outlineShaderCode.shader" type="Shader" id=14]
+
+[sub_resource type="ShaderMaterial" id=12]
+resource_local_to_scene = true
+shader = ExtResource( 14 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/width = 2.5
+shader_param/pattern = 0
+shader_param/inside = false
+shader_param/add_margins = true
+
+[sub_resource type="ShaderMaterial" id=13]
+resource_local_to_scene = true
+shader = ExtResource( 14 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/width = 5.0
+shader_param/pattern = 2
+shader_param/inside = false
+shader_param/add_margins = true
+
+[sub_resource type="ShaderMaterial" id=14]
+resource_local_to_scene = true
+shader = ExtResource( 14 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/width = 5.0
+shader_param/pattern = 2
+shader_param/inside = false
+shader_param/add_margins = true
+
+[sub_resource type="ShaderMaterial" id=15]
+resource_local_to_scene = true
+shader = ExtResource( 14 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/width = 5.0
+shader_param/pattern = 2
+shader_param/inside = false
+shader_param/add_margins = true
+
+[sub_resource type="ShaderMaterial" id=16]
+resource_local_to_scene = true
+shader = ExtResource( 14 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/width = 5.0
+shader_param/pattern = 2
+shader_param/inside = false
+shader_param/add_margins = true
 
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 875, 167.25 )
@@ -23,14 +69,97 @@ extents = Vector2( 249.5, 372.25 )
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 165.5, 164.25 )
 
+[sub_resource type="ShaderMaterial" id=17]
+resource_local_to_scene = true
+shader = ExtResource( 14 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/width = 2.5
+shader_param/pattern = 0
+shader_param/inside = false
+shader_param/add_margins = true
+
+[sub_resource type="ShaderMaterial" id=18]
+resource_local_to_scene = true
+shader = ExtResource( 14 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/width = 2.5
+shader_param/pattern = 0
+shader_param/inside = false
+shader_param/add_margins = true
+
+[sub_resource type="ShaderMaterial" id=19]
+resource_local_to_scene = true
+shader = ExtResource( 14 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/width = 2.5
+shader_param/pattern = 0
+shader_param/inside = false
+shader_param/add_margins = true
+
+[sub_resource type="ShaderMaterial" id=20]
+resource_local_to_scene = true
+shader = ExtResource( 14 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/width = 2.5
+shader_param/pattern = 0
+shader_param/inside = false
+shader_param/add_margins = true
+
+[sub_resource type="ShaderMaterial" id=21]
+resource_local_to_scene = true
+shader = ExtResource( 14 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/width = 5.0
+shader_param/pattern = 1
+shader_param/inside = false
+shader_param/add_margins = true
+
+[sub_resource type="ShaderMaterial" id=22]
+resource_local_to_scene = true
+shader = ExtResource( 14 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/width = 5.0
+shader_param/pattern = 1
+shader_param/inside = false
+shader_param/add_margins = true
+
+[sub_resource type="ShaderMaterial" id=23]
+resource_local_to_scene = true
+shader = ExtResource( 14 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/width = 5.0
+shader_param/pattern = 1
+shader_param/inside = false
+shader_param/add_margins = true
+
+[sub_resource type="ShaderMaterial" id=24]
+resource_local_to_scene = true
+shader = ExtResource( 14 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/width = 5.0
+shader_param/pattern = 1
+shader_param/inside = false
+shader_param/add_margins = true
+
+[sub_resource type="ShaderMaterial" id=25]
+resource_local_to_scene = true
+shader = ExtResource( 14 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/width = 5.0
+shader_param/pattern = 1
+shader_param/inside = false
+shader_param/add_margins = true
+
 [node name="Level3" type="Node"]
 
 [node name="Level3Manager" type="Node" parent="." groups=["LevelManager"]]
 script = ExtResource( 9 )
+DebugMode = true
 
 [node name="Level3Background" parent="." instance=ExtResource( 4 )]
 
 [node name="StaffAltar1_MoveDoor" parent="." instance=ExtResource( 6 )]
+material = SubResource( 12 )
 position = Vector2( 1150, 255 )
 
 [node name="Platforms" type="Node" parent="."]
@@ -105,7 +234,7 @@ position = Vector2( 6092, 733 )
 visible = false
 
 [node name="Milo" parent="." instance=ExtResource( 1 )]
-position = Vector2( 682, -98 )
+position = Vector2( 398, -53 )
 
 [node name="StartingDoor" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1620, -150 )
@@ -180,6 +309,33 @@ shape = SubResource( 11 )
 [node name="GemPuzzle" parent="." instance=ExtResource( 12 )]
 position = Vector2( -9624, 1234 )
 scale = Vector2( 2.5, 2.5 )
+
+[node name="StaffAltar4_GemPuzzle" parent="GemPuzzle" index="0"]
+material = SubResource( 17 )
+
+[node name="StaffAltar3_GemPuzzle" parent="GemPuzzle" index="1"]
+material = SubResource( 18 )
+
+[node name="StaffAltar2_GemPuzzle" parent="GemPuzzle" index="2"]
+material = SubResource( 19 )
+
+[node name="StaffAltar1_GemPuzzle" parent="GemPuzzle" index="3"]
+material = SubResource( 20 )
+
+[node name="GemPedestal5" parent="GemPuzzle" index="5"]
+material = SubResource( 21 )
+
+[node name="GemPedestal4" parent="GemPuzzle" index="6"]
+material = SubResource( 22 )
+
+[node name="GemPedestal3" parent="GemPuzzle" index="7"]
+material = SubResource( 23 )
+
+[node name="GemPedestal2" parent="GemPuzzle" index="8"]
+material = SubResource( 24 )
+
+[node name="GemPedestal1" parent="GemPuzzle" index="9"]
+material = SubResource( 25 )
 
 [node name="Cyan_GemPickup" parent="." instance=ExtResource( 3 )]
 position = Vector2( 9641, 463 )
