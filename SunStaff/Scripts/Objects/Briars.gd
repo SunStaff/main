@@ -21,8 +21,12 @@ func SetObjectLightState(state): # What to do if object only appears in dark but
 	if (IsInLight && !activated):
 		activated = true
 		get_node("Sprite").visible = false
+		get_node("Sprite2").visible = false
+		get_node("Sprite3").visible = false
 		self.set_deferred("monitoring", false)
 	else:
 		get_node("Sprite").visible = true
+		get_node("Sprite2").visible = true
+		get_node("Sprite3").visible = true
 		activated = false
 		self.set_deferred("monitoring", true)
