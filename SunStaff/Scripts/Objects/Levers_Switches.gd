@@ -17,15 +17,15 @@ func _ready():
 func _change_lever_state():
 	isTurnedOn = not isTurnedOn
 	if(isTurnedOn == true):
-		get_child(0).get_child(0).rotation = 45
-		get_child(0).get_child(0).position.x *= -1
-		get_child(1).get_child(0).rotation = 45
-		get_child(1).get_child(0).position.x *= -1
+		get_child(0).rotation = 45
+		get_child(0).position.x *= -1
+		get_child(2).rotation = 45
+		get_child(2).position.x *= -1
 	elif(!isTurnedOn):
-		get_child(0).get_child(0).rotation = -45
-		get_child(0).get_child(0).position.x *= -1
-		get_child(1).get_child(0).rotation = -45
-		get_child(1).get_child(0).position.x *= -1
+		get_child(0).rotation = -45
+		get_child(0).position.x *= -1
+		get_child(2).rotation = -45
+		get_child(2).position.x *= -1
 	LeverManager.LeverFlipped(GameManager.GetCurrentLevel(), self, isTurnedOn)
 
 #Get lever's position
@@ -38,11 +38,9 @@ func SetPosition(x, y):
 
 func SetObjectLightState(state): # What to do if object only appears in dark but not light
 	IsInLight = state
-
-	if("Lever3" in self.name):
-		get_child(0).get_child(0).visible = !state
-		get_child(0).get_child(1).visible = !state
-		self.set_deferred("monitoring", !state)
+	get_child(0).visible = !state
+	get_child(1).visible = !state
+	self.set_deferred("monitoring", !state)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -63,6 +61,6 @@ func _on_Lever_body_exited(body):
 
 func GlowMaterial(state):
 	if (state):
-		shader.set_shader_param("color", Color(1,1,1,0.75))
+		shader.set_shader_param("color", Color(1,1,1,1.0))
 	else:
 		shader.set_shader_param("color", Color(1,1,1,0))

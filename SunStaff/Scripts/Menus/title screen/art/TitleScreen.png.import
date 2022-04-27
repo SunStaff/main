@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ButtonLitSheetV1.png-2f29e96cfb023857a7da6a6b2892464f.stex"
+path="res://.import/TitleScreen.png-e7f578b1325b3ac6e3471f0d6635931a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://title screen/art/ButtonLitSheetV1.png"
-dest_files=[ "res://.import/ButtonLitSheetV1.png-2f29e96cfb023857a7da6a6b2892464f.stex" ]
+source_file="res://Scripts/Menus/title screen/art/TitleScreen.png"
+dest_files=[ "res://.import/TitleScreen.png-e7f578b1325b3ac6e3471f0d6635931a.stex" ]
 
 [params]
 

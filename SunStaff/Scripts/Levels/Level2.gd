@@ -49,7 +49,7 @@ func _ready():
 	ravine_nodeArray = get_parent().get_node("RavinePuzzle").get_children()
 
 	for node in ravine_nodeArray:
-		if ("Platform" in node.name):
+		if ("Platform" in node.name and not "Unlit" in node.name):
 			node.get_child(0).visible = false
 			node.get_child(1).visible = false
 			node.get_child(2).set_deferred("disabled", true)
@@ -61,7 +61,7 @@ func _ready():
 func _process(_delta):
 	pass
 
-func Level2_PlatformFall():
+func Level2_PlatformFall():	
 	for i in range(len(ravinePlatform_Array)):
 		if i > 0:
 			ravinePlatform_Array[i].queue_free()
@@ -81,17 +81,14 @@ func Level2_PlatformFall():
 	ravinePlatform_Array[0].queue_free()
 
 func Level2_Ravine_FirstLever(state):
-	var ravine_platform1 = get_parent().get_node("RavinePuzzle/Platform1")
-	var ravine_platform2 = get_parent().get_node("RavinePuzzle/Platform2")
-	var ravine_platform3 = get_parent().get_node("RavinePuzzle/Platform3")
+	var ravine_platform1 = get_parent().get_node("RavinePuzzle/UnlitOnlyPlatform1")
+	var ravine_platform2 = get_parent().get_node("RavinePuzzle/UnlitOnlyPlatform2")
+	var ravine_platform3 = get_parent().get_node("RavinePuzzle/UnlitOnlyPlatform3")
 	var ravine_lever1 = get_parent().get_node("RavinePuzzle/Lever5")
 
-	ravine_platform1.get_child(0).visible = state
-	ravine_platform1.get_child(2).set_deferred("disabled", !state)
-	ravine_platform2.get_child(0).visible = state
-	ravine_platform2.get_child(2).set_deferred("disabled", !state)
-	ravine_platform3.get_child(0).visible = state
-	ravine_platform3.get_child(2).set_deferred("disabled", !state)
+	ravine_platform1.AllowPlatformSprites = true
+	ravine_platform2.AllowPlatformSprites = true
+	ravine_platform3.AllowPlatformSprites = true
 
 	ravine_lever1.get_child(0).visible = state
 	ravine_lever1.get_child(1).visible = state
@@ -105,8 +102,10 @@ func Level2_Ravine_SecondLever(state):
 			node.get_child(0).visible = state
 			node.get_child(1).visible = state
 			node.get_child(2).set_deferred("disabled", !state)
-			if (node.is_in_group("UnlitOnly")):
-				node.remove_from_group("UnlitOnly")
+			if ("UnlitOnly" in node.name and state):
+				node.FullEnablePlatform()
+			elif ("UnlitOnly" in node.name):
+				node.FullDisablePlatform()
 
 	ravine_lever2.get_child(0).visible = state
 	ravine_lever2.get_child(1).visible = state

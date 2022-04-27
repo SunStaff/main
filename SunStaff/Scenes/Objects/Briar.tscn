@@ -17,11 +17,23 @@ position = Vector2( -3, -7.5 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0.517647, 0.278431, 0.631373, 1 )
+modulate = Color( 0.729412, 0.278431, 0.290196, 1 )
 light_mask = 2
 texture = ExtResource( 3 )
 
 [node name="Sprite2" type="Sprite" parent="."]
+modulate = Color( 0.729412, 0.278431, 0.290196, 1 )
+light_mask = 2
+position = Vector2( -100, 80 )
+texture = ExtResource( 3 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+modulate = Color( 0.729412, 0.278431, 0.290196, 1 )
+light_mask = 2
+position = Vector2( 100, 80 )
+texture = ExtResource( 3 )
+
+[node name="Sprite4" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 
 [connection signal="body_entered" from="." to="." method="_on_Briar_body_entered"]

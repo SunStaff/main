@@ -1,8 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://title screen/scenes/menubutton.tscn" type="PackedScene" id=1]
-[ext_resource path="res://title screen/font/font test.tres" type="DynamicFont" id=2]
-[ext_resource path="res://title screen/scripts/resumegame.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Menus/title screen/scenes/menubutton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Menus/title screen/font/font test.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scripts/Menus/title screen/scripts/resumegame.gd" type="Script" id=3]
+
 
 [node name="pause menu" type="Control"]
 pause_mode = 2

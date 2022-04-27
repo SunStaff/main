@@ -83,6 +83,6 @@ func GetCurrentClosestPedestal(pedestals, player):
 
 func GlowMaterial(state):
 	if (state):
-		shader.set_shader_param("color", Color(1,1,1,0.75))
+		shader.set_shader_param("color", Color(1,1,1,1.0))
 	else:
 		shader.set_shader_param("color", Color(1,1,1,0))

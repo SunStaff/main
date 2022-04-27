@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Scenes/Objects/PressurePlate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/Platform.tscn" type="PackedScene" id=2]
@@ -14,6 +14,9 @@
 [ext_resource path="res://Scenes/Objects/GemPickup.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Objects/Door.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Art/Misc/outlineShaderCode.shader" type="Shader" id=14]
+[ext_resource path="res://Art/Misc/fogEffect.shader" type="Shader" id=15]
+[ext_resource path="res://Scenes/Objects/UnlitOnlyPlatform.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Objects/Briar.tscn" type="PackedScene" id=17]
 
 [sub_resource type="ShaderMaterial" id=6]
 resource_local_to_scene = true
@@ -84,6 +87,21 @@ extents = Vector2( 334.5, 46.5 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 38.5, 32 )
 
+[sub_resource type="ShaderMaterial" id=13]
+shader = ExtResource( 15 )
+shader_param/fogColor = Vector3( 0.8, 0.8, 0.8 )
+shader_param/OCTAVES = 100
+
+[sub_resource type="ShaderMaterial" id=14]
+shader = ExtResource( 15 )
+shader_param/fogColor = Vector3( 0.8, 0.8, 0.8 )
+shader_param/OCTAVES = 100
+
+[sub_resource type="ShaderMaterial" id=15]
+shader = ExtResource( 15 )
+shader_param/fogColor = Vector3( 0.8, 0.8, 0.8 )
+shader_param/OCTAVES = 100
+
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 116, 400 )
 
@@ -150,14 +168,20 @@ position = Vector2( 4916, -496 )
 material = SubResource( 8 )
 position = Vector2( 5316, -496 )
 
-[node name="CollisionShape2D" parent="LeverPuzzle/Lever2" index="2"]
+[node name="CollisionShape2D" parent="LeverPuzzle/Lever2" index="4"]
 position = Vector2( 0, 0 )
 
 [node name="Lever3" parent="LeverPuzzle" groups=["UnlitOnly"] instance=ExtResource( 4 )]
 material = SubResource( 9 )
 position = Vector2( 5716, -496 )
 
-[node name="CollisionShape2D" parent="LeverPuzzle/Lever3" index="2"]
+[node name="LitLeverHandle" parent="LeverPuzzle/Lever3" index="2"]
+visible = false
+
+[node name="LitLever" parent="LeverPuzzle/Lever3" index="3"]
+visible = false
+
+[node name="CollisionShape2D" parent="LeverPuzzle/Lever3" index="4"]
 position = Vector2( 0, 0 )
 
 [node name="RavinePuzzle" type="Node" parent="."]
@@ -174,46 +198,19 @@ position = Vector2( 1864, 1696 )
 material = SubResource( 12 )
 position = Vector2( 3840, 871 )
 
-[node name="CollisionShape2D" parent="RavinePuzzle/Lever5" index="2"]
-disabled = true
-
-[node name="Platform1" parent="RavinePuzzle" groups=["UnlitOnly"] instance=ExtResource( 2 )]
-position = Vector2( 2503, 1529 )
-showInLight = false
-
-[node name="UnlitPlatformmiddle" parent="RavinePuzzle/Platform1" index="0"]
+[node name="UnlitLeverHandle" parent="RavinePuzzle/Lever5" index="0"]
 visible = false
 
-[node name="Litplatformmiddle" parent="RavinePuzzle/Platform1" index="1"]
+[node name="UnlitLever" parent="RavinePuzzle/Lever5" index="1"]
 visible = false
 
-[node name="CollisionShape2D" parent="RavinePuzzle/Platform1" index="2"]
-disabled = true
-
-[node name="Platform2" parent="RavinePuzzle" groups=["UnlitOnly"] instance=ExtResource( 2 )]
-position = Vector2( 3269, 1250 )
-showInLight = false
-
-[node name="UnlitPlatformmiddle" parent="RavinePuzzle/Platform2" index="0"]
+[node name="LitLeverHandle" parent="RavinePuzzle/Lever5" index="2"]
 visible = false
 
-[node name="Litplatformmiddle" parent="RavinePuzzle/Platform2" index="1"]
+[node name="LitLever" parent="RavinePuzzle/Lever5" index="3"]
 visible = false
 
-[node name="CollisionShape2D" parent="RavinePuzzle/Platform2" index="2"]
-disabled = true
-
-[node name="Platform3" parent="RavinePuzzle" groups=["UnlitOnly"] instance=ExtResource( 2 )]
-position = Vector2( 3845, 954 )
-showInLight = false
-
-[node name="UnlitPlatformmiddle" parent="RavinePuzzle/Platform3" index="0"]
-visible = false
-
-[node name="Litplatformmiddle" parent="RavinePuzzle/Platform3" index="1"]
-visible = false
-
-[node name="CollisionShape2D" parent="RavinePuzzle/Platform3" index="2"]
+[node name="CollisionShape2D" parent="RavinePuzzle/Lever5" index="4"]
 disabled = true
 
 [node name="Platform4" parent="RavinePuzzle" instance=ExtResource( 2 )]
@@ -264,6 +261,15 @@ visible = false
 [node name="CollisionShape2D" parent="RavinePuzzle/Platform7" index="2"]
 disabled = true
 
+[node name="UnlitOnlyPlatform1" parent="RavinePuzzle" instance=ExtResource( 16 )]
+position = Vector2( 2503, 1529 )
+
+[node name="UnlitOnlyPlatform2" parent="RavinePuzzle" instance=ExtResource( 16 )]
+position = Vector2( 3269, 1250 )
+
+[node name="UnlitOnlyPlatform3" parent="RavinePuzzle" instance=ExtResource( 16 )]
+position = Vector2( 3845, 954 )
+
 [node name="BlockPuzzle" type="Node" parent="."]
 
 [node name="SmallBlockBlocker" type="KinematicBody2D" parent="BlockPuzzle"]
@@ -291,6 +297,7 @@ __meta__ = {
 }
 
 [node name="SkinnyBlockFloorBlocker" type="Sprite" parent="BlockPuzzle/SkinnyBlockGate"]
+visible = false
 light_mask = 0
 scale = Vector2( 1.20313, 1 )
 texture = ExtResource( 5 )
@@ -365,7 +372,9 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="UnlitPlatformmiddle" parent="BlockPuzzle/Platform9" index="0"]
-visible = false
+modulate = Color( 0.0745098, 0.666667, 0.8, 1 )
+light_mask = 0
+material = SubResource( 13 )
 
 [node name="Litplatformmiddle" parent="BlockPuzzle/Platform9" index="1"]
 visible = false
@@ -380,7 +389,9 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="UnlitPlatformmiddle" parent="BlockPuzzle/Platform10" index="0"]
-visible = false
+modulate = Color( 0.0745098, 0.666667, 0.8, 1 )
+light_mask = 0
+material = SubResource( 14 )
 
 [node name="Litplatformmiddle" parent="BlockPuzzle/Platform10" index="1"]
 visible = false
@@ -392,7 +403,9 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="UnlitPlatformmiddle" parent="BlockPuzzle/Platform11" index="0"]
-visible = false
+modulate = Color( 0.0745098, 0.666667, 0.8, 1 )
+light_mask = 0
+material = SubResource( 15 )
 
 [node name="Litplatformmiddle" parent="BlockPuzzle/Platform11" index="1"]
 visible = false
@@ -431,6 +444,9 @@ shape = SubResource( 5 )
 [node name="Blue_GemPickup" parent="." instance=ExtResource( 12 )]
 position = Vector2( 12621, -226 )
 
+[node name="Briar" parent="." instance=ExtResource( 17 )]
+position = Vector2( 792, 49 )
+
 [connection signal="body_entered" from="EndLevel2" to="Level2Manager" method="_on_EndLevel2_body_entered"]
 
 [editable path="PlatformFall/FallPlatform2/PressurePlate1"]
@@ -439,9 +455,6 @@ position = Vector2( 12621, -226 )
 [editable path="LeverPuzzle/Lever3"]
 [editable path="RavinePuzzle/Lever4"]
 [editable path="RavinePuzzle/Lever5"]
-[editable path="RavinePuzzle/Platform1"]
-[editable path="RavinePuzzle/Platform2"]
-[editable path="RavinePuzzle/Platform3"]
 [editable path="RavinePuzzle/Platform4"]
 [editable path="RavinePuzzle/Platform5"]
 [editable path="RavinePuzzle/Platform6"]
