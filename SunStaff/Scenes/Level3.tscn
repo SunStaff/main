@@ -206,6 +206,9 @@ position = Vector2( 3574, -151 )
 [node name="UnlitPlatformmiddle" parent="Platforms/Platform5" index="0"]
 visible = false
 
+[node name="Platform6" parent="Platforms" instance=ExtResource( 8 )]
+position = Vector2( 9582, 733 )
+
 [node name="TimerPuzzle" type="Node" parent="."]
 
 [node name="PressurePlate1" parent="TimerPuzzle" instance=ExtResource( 2 )]
@@ -225,7 +228,7 @@ position = Vector2( 5246, 1500 )
 visible = false
 
 [node name="TimerPlatform3" parent="TimerPuzzle" instance=ExtResource( 8 )]
-position = Vector2( 6012, 1500 )
+position = Vector2( 6092, 733 )
 
 [node name="Litplatformmiddle" parent="TimerPuzzle/TimerPlatform3" index="1"]
 visible = false
@@ -241,47 +244,43 @@ position = Vector2( 2838, 346 )
 scale = Vector2( 5, 1 )
 
 [node name="SavingPoint2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 6663, 670 )
+position = Vector2( 5919, 697 )
 scale = Vector2( 5, 1 )
 
 [node name="Lever2" parent="." instance=ExtResource( 13 )]
-material = SubResource( 13 )
-position = Vector2( 6800, 650 )
+position = Vector2( 6050, 650 )
 scale = Vector2( 1, 1 )
 
 [node name="Lever3" parent="." instance=ExtResource( 13 )]
-material = SubResource( 14 )
-position = Vector2( 7050, 650 )
+position = Vector2( 6500, 650 )
 scale = Vector2( 1, 1 )
 
 [node name="Lever4" parent="." instance=ExtResource( 13 )]
-material = SubResource( 15 )
-position = Vector2( 7300, 650 )
+position = Vector2( 6950, 650 )
 scale = Vector2( 1, 1 )
 
 [node name="Lever5" parent="." instance=ExtResource( 13 )]
-material = SubResource( 16 )
-position = Vector2( 7550, 650 )
+position = Vector2( 7400, 650 )
 scale = Vector2( 1, 1 )
 
 [node name="Door2" parent="." instance=ExtResource( 10 )]
-position = Vector2( 7912, 358 )
-scale = Vector2( 2, 2 )
+position = Vector2( 7910, 390 )
+scale = Vector2( 1.75, 1.75 )
 
 [node name="Door3" parent="." instance=ExtResource( 10 )]
-position = Vector2( 8116, 350 )
-scale = Vector2( 2, 2 )
+position = Vector2( 8285, 390 )
+scale = Vector2( 1.75, 1.75 )
 
 [node name="Door4" parent="." instance=ExtResource( 10 )]
-position = Vector2( 8320, 350 )
-scale = Vector2( 2, 2 )
+position = Vector2( 8660, 390 )
+scale = Vector2( 1.75, 1.75 )
 
 [node name="Door5" parent="." instance=ExtResource( 10 )]
-position = Vector2( 8524, 350 )
-scale = Vector2( 2, 2 )
+position = Vector2( 9030, 390 )
+scale = Vector2( 1.75, 1.75 )
 
 [node name="PressurePlate2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 9039, 671 )
+position = Vector2( 9636, 671 )
 scale = Vector2( 3, 1 )
 
 [node name="RockSlide" type="StaticBody2D" parent="."]
@@ -339,7 +338,7 @@ material = SubResource( 24 )
 material = SubResource( 25 )
 
 [node name="Cyan_GemPickup" parent="." instance=ExtResource( 3 )]
-position = Vector2( 9044, 463 )
+position = Vector2( 9641, 463 )
 
 [node name="AnimatedSprite2" parent="Cyan_GemPickup" index="1"]
 frame = 4

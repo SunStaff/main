@@ -318,7 +318,7 @@ position = Vector2( -4863, 1 )
 shape = SubResource( 4 )
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="LitBack/LitGround"]
-position = Vector2( 4861, 1 )
+position = Vector2( 5318, 1 )
 shape = SubResource( 4 )
 
 [node name="LitTreeFront" type="Node2D" parent="LitBack"]
