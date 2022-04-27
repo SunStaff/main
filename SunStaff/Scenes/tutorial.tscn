@@ -62,6 +62,9 @@ script = ExtResource( 10 )
 
 [node name="Milo" parent="." instance=ExtResource( 6 )]
 
+[node name="Lit" parent="Milo" index="1"]
+frame = 44
+
 [node name="AnimationTree" parent="Milo" index="5"]
 parameters/playback = SubResource( 1 )
 
@@ -73,7 +76,7 @@ scale = Vector2( 5, 1.5 )
 
 [node name="Briar" parent="Section1" instance=ExtResource( 5 )]
 position = Vector2( 1760, 428 )
-scale = Vector2( 0.4, 0.5 )
+scale = Vector2( 0.3, 0.5 )
 
 [node name="Lever1" parent="Section1" instance=ExtResource( 8 )]
 material = SubResource( 3 )
