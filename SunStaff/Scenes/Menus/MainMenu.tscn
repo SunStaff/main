@@ -2,10 +2,10 @@
 
 [ext_resource path="res://Scripts/Menus/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Art/Misc/Font/Wastinger Display Free Personal.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://title screen/art/TitleScreen.png" type="Texture" id=3]
-[ext_resource path="res://title screen/art/TitleScreenUnlit.png" type="Texture" id=4]
-[ext_resource path="res://title screen/art/ButtonLitSheetV1.png" type="Texture" id=5]
-[ext_resource path="res://title screen/art/ButtonUnlitSheet.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/Menus/title screen/art/TitleScreen.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Menus/title screen/art/TitleScreenUnlit.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Menus/title screen/art/ButtonLitSheetV1.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/Menus/title screen/art/ButtonUnlitSheet.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/Milo/SunStaff.gd" type="Script" id=7]
 [ext_resource path="res://Art/Misc/Light/LightRadiusBlur.png" type="Texture" id=8]
 
