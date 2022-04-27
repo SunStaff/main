@@ -14,7 +14,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if (AllowPlatformSprites and not spriteActivated and not IsInLight):
-		get_child(0).visible = true
 		staticBodyCollider.set_deferred("disabled", false)
 		spriteActivated = true
 
@@ -22,13 +21,10 @@ func SetObjectLightState(state): # What to do if object only appears in dark but
 	IsInLight = state
 	if (IsInLight and not activated):
 		activated = true
-		get_child(0).visible = false
 		if (not AllowCollision):
 			staticBodyCollider.set_deferred("disabled", true)
 	else:
 		activated = false
-		if (AllowPlatformSprites):
-			get_child(0).visible = true
 		staticBodyCollider.set_deferred("disabled", false)
 
 func FullEnablePlatform():

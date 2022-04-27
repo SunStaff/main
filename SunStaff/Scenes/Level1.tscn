@@ -106,7 +106,7 @@ script = ExtResource( 6 )
 position = Vector2( 1600, -549 )
 
 [node name="Lit" parent="Milo" index="1"]
-frame = 47
+frame = 43
 
 [node name="AnimationTree" parent="Milo" index="5"]
 parameters/playback = SubResource( 3 )
@@ -218,8 +218,8 @@ position = Vector2( 2117, 327 )
 scale = Vector2( 8, 1.5 )
 
 [node name="SavingPoint4" parent="." instance=ExtResource( 8 )]
-position = Vector2( 9912, -664 )
-scale = Vector2( 5, 1.5 )
+position = Vector2( 10325, -817 )
+scale = Vector2( 15, 15 )
 
 [node name="SavingPoint5" parent="." instance=ExtResource( 8 )]
 position = Vector2( 13215, 83 )
@@ -257,7 +257,8 @@ visible = false
 visible = false
 
 [node name="Green_GemPickup" parent="." instance=ExtResource( 11 )]
-position = Vector2( 20897, -1204 )
+position = Vector2( 20641, -1204 )
+z_index = -1
 
 [node name="AnimatedSprite2" parent="Green_GemPickup" index="1"]
 frame = 1
@@ -305,6 +306,7 @@ position = Vector2( 11116, 517 )
 
 [editable path="Milo"]
 [editable path="Milo/Lit/SunStaff"]
+[editable path="MovingAltar"]
 [editable path="MovingBlock"]
 [editable path="PressurePlate1"]
 [editable path="PressurePlate2"]

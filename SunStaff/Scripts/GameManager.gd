@@ -212,6 +212,7 @@ func GetNewInstancesOfVariables():
 	activated = false
 	SetSpawnLocation()
 	IsGamePlaying = true
+	LeverManager.leverFlippedCount = 0
 
 func OffsetCameraMilo(offsetAmt):
 	if (offsetAmt > 0):

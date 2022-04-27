@@ -24,7 +24,7 @@ shader_param/pattern = 0
 shader_param/inside = false
 shader_param/add_margins = true
 
-[sub_resource type="ShaderMaterial" id=13]
+[sub_resource type="ShaderMaterial" id=26]
 resource_local_to_scene = true
 shader = ExtResource( 14 )
 shader_param/color = Color( 1, 1, 1, 1 )
@@ -33,7 +33,7 @@ shader_param/pattern = 2
 shader_param/inside = false
 shader_param/add_margins = true
 
-[sub_resource type="ShaderMaterial" id=14]
+[sub_resource type="ShaderMaterial" id=27]
 resource_local_to_scene = true
 shader = ExtResource( 14 )
 shader_param/color = Color( 1, 1, 1, 1 )
@@ -42,7 +42,7 @@ shader_param/pattern = 2
 shader_param/inside = false
 shader_param/add_margins = true
 
-[sub_resource type="ShaderMaterial" id=15]
+[sub_resource type="ShaderMaterial" id=28]
 resource_local_to_scene = true
 shader = ExtResource( 14 )
 shader_param/color = Color( 1, 1, 1, 1 )
@@ -51,7 +51,7 @@ shader_param/pattern = 2
 shader_param/inside = false
 shader_param/add_margins = true
 
-[sub_resource type="ShaderMaterial" id=16]
+[sub_resource type="ShaderMaterial" id=29]
 resource_local_to_scene = true
 shader = ExtResource( 14 )
 shader_param/color = Color( 1, 1, 1, 1 )
@@ -154,7 +154,6 @@ shader_param/add_margins = true
 
 [node name="Level3Manager" type="Node" parent="." groups=["LevelManager"]]
 script = ExtResource( 9 )
-DebugMode = true
 
 [node name="Level3Background" parent="." instance=ExtResource( 4 )]
 
@@ -248,18 +247,22 @@ position = Vector2( 5919, 697 )
 scale = Vector2( 5, 1 )
 
 [node name="Lever2" parent="." instance=ExtResource( 13 )]
+material = SubResource( 26 )
 position = Vector2( 6050, 650 )
 scale = Vector2( 1, 1 )
 
 [node name="Lever3" parent="." instance=ExtResource( 13 )]
+material = SubResource( 27 )
 position = Vector2( 6500, 650 )
 scale = Vector2( 1, 1 )
 
 [node name="Lever4" parent="." instance=ExtResource( 13 )]
+material = SubResource( 28 )
 position = Vector2( 6950, 650 )
 scale = Vector2( 1, 1 )
 
 [node name="Lever5" parent="." instance=ExtResource( 13 )]
+material = SubResource( 29 )
 position = Vector2( 7400, 650 )
 scale = Vector2( 1, 1 )
 
@@ -338,7 +341,8 @@ material = SubResource( 24 )
 material = SubResource( 25 )
 
 [node name="Cyan_GemPickup" parent="." instance=ExtResource( 3 )]
-position = Vector2( 9641, 463 )
+position = Vector2( 9641, 319 )
+z_index = -1
 
 [node name="AnimatedSprite2" parent="Cyan_GemPickup" index="1"]
 frame = 4

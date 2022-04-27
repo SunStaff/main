@@ -133,5 +133,4 @@ func Open_FinalDoor():
 func _on_EndLevel2_body_entered(body):
 	if ("Milo" in body.name):
 		if (GameManager.GetPlayer().GetHasStaffState()):
-			if (GameManager.GetGemStates()["Blue"]):
-				GameManager.ChangeScene()
+			GameManager.ChangeScene()

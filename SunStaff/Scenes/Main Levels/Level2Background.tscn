@@ -490,4 +490,5 @@ texture = ExtResource( 13 )
 [node name="Sprite" type="Sprite" parent="."]
 light_mask = 0
 position = Vector2( 12620, -35 )
+z_index = -1
 texture = ExtResource( 27 )

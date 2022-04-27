@@ -147,5 +147,5 @@ func ChangeCameraBorders():
 		"Level3":
 			PlayerCamera.limit_left = -220
 			PlayerCamera.limit_top = -2800
-			PlayerCamera.limit_right = 9795
+			PlayerCamera.limit_right = 9880
 			PlayerCamera.limit_bottom = 1480
