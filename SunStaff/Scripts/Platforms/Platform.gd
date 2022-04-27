@@ -65,15 +65,17 @@ func _show_hide():
 
 func SetObjectLightState(state): # What to do if object only appears in dark but not light
 	IsInLight = state
-	if (IsInLight and !activated):
+	if (IsInLight and not activated):
 		activated = true
 		get_child(0).visible = false
-		set_deferred("disabled", true)
+		get_child(2).set_deferred("disabled", true)
 	else:
-		get_child(0).visible = true
 		activated = false
-		set_deferred("disabled", false)
+		get_child(0).visible = true
+		get_child(2).set_deferred("disabled", false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+# Pass LightPosition into function, get the distance from light position to the platform, if it is less than lightRadius, the platform should be disabled, if it is greater than lightRadius, it should be enabled
