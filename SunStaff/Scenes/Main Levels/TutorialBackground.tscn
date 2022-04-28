@@ -120,6 +120,46 @@ light_mask = 2
 position = Vector2( 644, -104 )
 texture = ExtResource( 26 )
 
+[node name="TreesBack-3" type="Sprite" parent="UnlitBack/Background"]
+light_mask = 2
+position = Vector2( -191, -262 )
+texture = ExtResource( 22 )
+
+[node name="TreesBack-1" type="Sprite" parent="UnlitBack/Background"]
+light_mask = 2
+position = Vector2( 1317, -414 )
+texture = ExtResource( 25 )
+
+[node name="TreesBack-9" type="Sprite" parent="UnlitBack/Background"]
+light_mask = 2
+position = Vector2( 1725, -362 )
+texture = ExtResource( 26 )
+
+[node name="TreesBack-11" type="Sprite" parent="UnlitBack/Background"]
+light_mask = 2
+position = Vector2( 245, -230 )
+texture = ExtResource( 24 )
+
+[node name="TreesBack-13" type="Sprite" parent="UnlitBack/Background"]
+light_mask = 2
+position = Vector2( 6801, -218 )
+texture = ExtResource( 24 )
+
+[node name="TreesBack-14" type="Sprite" parent="UnlitBack/Background"]
+light_mask = 2
+position = Vector2( 7517, -206 )
+texture = ExtResource( 26 )
+
+[node name="TreesBack-5" type="Sprite" parent="UnlitBack/Background"]
+light_mask = 2
+position = Vector2( 9341, -218 )
+texture = ExtResource( 22 )
+
+[node name="TreesBack-6" type="Sprite" parent="UnlitBack/Background"]
+light_mask = 2
+position = Vector2( 10053, -266 )
+texture = ExtResource( 25 )
+
 [node name="Lv0UnlitTutorialGround" type="Sprite" parent="UnlitBack"]
 light_mask = 2
 position = Vector2( 5250, 200 )
@@ -211,6 +251,38 @@ texture = ExtResource( 21 )
 position = Vector2( 644, -104 )
 texture = ExtResource( 28 )
 
+[node name="TreesBack-3" type="Sprite" parent="LitBack/Background"]
+position = Vector2( -191, -262 )
+texture = ExtResource( 21 )
+
+[node name="TreesBack-1" type="Sprite" parent="LitBack/Background"]
+position = Vector2( 1317, -414 )
+texture = ExtResource( 27 )
+
+[node name="TreesBack-9" type="Sprite" parent="LitBack/Background"]
+position = Vector2( 1725, -362 )
+texture = ExtResource( 28 )
+
+[node name="TreesBack-11" type="Sprite" parent="LitBack/Background"]
+position = Vector2( 245, -230 )
+texture = ExtResource( 20 )
+
+[node name="TreesBack-13" type="Sprite" parent="LitBack/Background"]
+position = Vector2( 6801, -218 )
+texture = ExtResource( 20 )
+
+[node name="TreesBack-14" type="Sprite" parent="LitBack/Background"]
+position = Vector2( 7517, -206 )
+texture = ExtResource( 28 )
+
+[node name="TreesBack-5" type="Sprite" parent="LitBack/Background"]
+position = Vector2( 9341, -218 )
+texture = ExtResource( 21 )
+
+[node name="TreesBack-6" type="Sprite" parent="LitBack/Background"]
+position = Vector2( 10053, -266 )
+texture = ExtResource( 27 )
+
 [node name="Lv0DesignTutorialGround" type="Sprite" parent="LitBack"]
 position = Vector2( 5250, 200 )
 texture = ExtResource( 1 )
@@ -278,13 +350,12 @@ position = Vector2( 10467, 545 )
 texture = ExtResource( 13 )
 
 [node name="Fog" type="Node2D" parent="."]
-visible = false
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="Fog"]
-modulate = Color( 1, 1, 1, 0.352941 )
+modulate = Color( 1, 1, 1, 0.588235 )
 light_mask = 0
 material = SubResource( 8 )
 position = Vector2( 5311.5, 287 )
