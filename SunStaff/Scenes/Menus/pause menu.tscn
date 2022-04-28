@@ -36,6 +36,7 @@ __meta__ = {
 }
 
 [node name="options menu" type="Label" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 __meta__ = {
@@ -204,7 +205,7 @@ __meta__ = {
 }
 
 [node name="resume" type="Button" parent="paused menu/VBoxContainer"]
-margin_right = 392.0
+margin_right = 419.0
 margin_bottom = 103.0
 rect_min_size = Vector2( 0, 100 )
 custom_fonts/font = ExtResource( 4 )
@@ -217,16 +218,44 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="paused menu/VBoxContainer/resume"]
 show_behind_parent = true
-position = Vector2( 186, 42 )
+position = Vector2( 210, 42 )
 scale = Vector2( 1.5, 1.25 )
 texture = ExtResource( 5 )
 hframes = 5
 vframes = 2
 
-[node name="options" type="Button" parent="paused menu/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="paused menu/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
 margin_top = 107.0
-margin_right = 392.0
-margin_bottom = 210.0
+margin_right = 419.0
+margin_bottom = 111.0
+
+[node name="Restart" type="Button" parent="paused menu/VBoxContainer"]
+margin_top = 115.0
+margin_right = 419.0
+margin_bottom = 218.0
+custom_fonts/font = ExtResource( 4 )
+text = "RESTART"
+flat = true
+
+[node name="Sprite2" type="Sprite" parent="paused menu/VBoxContainer/Restart"]
+show_behind_parent = true
+position = Vector2( 210, 43 )
+scale = Vector2( 1.5, 1.25 )
+texture = ExtResource( 5 )
+hframes = 5
+vframes = 2
+
+[node name="HSeparator2" type="HSeparator" parent="paused menu/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 222.0
+margin_right = 419.0
+margin_bottom = 226.0
+
+[node name="options" type="Button" parent="paused menu/VBoxContainer"]
+margin_top = 230.0
+margin_right = 419.0
+margin_bottom = 333.0
 rect_min_size = Vector2( 0, 100 )
 custom_fonts/font = ExtResource( 4 )
 text = "OPTIONS"
@@ -238,16 +267,22 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="paused menu/VBoxContainer/options"]
 show_behind_parent = true
-position = Vector2( 186, 42 )
+position = Vector2( 210, 42 )
 scale = Vector2( 1.5, 1.25 )
 texture = ExtResource( 5 )
 hframes = 5
 vframes = 2
 
+[node name="HSeparator3" type="HSeparator" parent="paused menu/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 337.0
+margin_right = 419.0
+margin_bottom = 341.0
+
 [node name="back to menu" type="Button" parent="paused menu/VBoxContainer"]
-margin_top = 214.0
-margin_right = 392.0
-margin_bottom = 317.0
+margin_top = 345.0
+margin_right = 419.0
+margin_bottom = 448.0
 rect_min_size = Vector2( 0, 100 )
 custom_fonts/font = ExtResource( 4 )
 text = "EXIT"
@@ -259,7 +294,7 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="paused menu/VBoxContainer/back to menu"]
 show_behind_parent = true
-position = Vector2( 186, 42 )
+position = Vector2( 210, 42 )
 scale = Vector2( 1.5, 1.25 )
 texture = ExtResource( 5 )
 hframes = 5
@@ -270,5 +305,6 @@ __meta__ = {
 
 [connection signal="pressed" from="options menu/OPTIONS/back to pause" to="." method="_on_back_to_pause_pressed"]
 [connection signal="pressed" from="paused menu/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="paused menu/VBoxContainer/Restart" to="." method="_on_Restart_pressed"]
 [connection signal="pressed" from="paused menu/VBoxContainer/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="paused menu/VBoxContainer/back to menu" to="." method="_on_back_to_menu_pressed"]
