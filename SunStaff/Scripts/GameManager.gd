@@ -197,7 +197,6 @@ func ChangeScene():
 			SetCurrentLevel("MainMenu")
 	ClearVariables()
 	ChangeSceneCalled = true
-	print("Change Scene Called")
 
 func ClearVariables():
 	Player = null

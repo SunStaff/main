@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 GameManager="*res://Scripts/GameManager.gd"
 LeverManager="*res://Scripts/LeverManager.gd"
 PressurePlateManager="*res://Scripts/PressurePlateManager.gd"
+AudioManager="*res://Scenes/Milo/AudioManager.tscn"
 
 [debug]
 

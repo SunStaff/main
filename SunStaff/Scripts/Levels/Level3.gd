@@ -139,7 +139,6 @@ func OpenTheEnd():
 	EndLevel.set_deferred("monitoring", true)
 
 func Level3End():
-	print("End of Level 3")
 	GameManager.ChangeScene()
 
 func OpenGemSelectionScreen(currentPedestal):
@@ -250,9 +249,9 @@ func ClearSavePoints():
 	for plate in PressurePlates:
 		plate.queue_free()
 	var gemSave = load("res://Scenes/Objects/SavingPoint.tscn").instance()
+	get_parent().add_child(gemSave)
 	gemSave.set_deferred("position", Vector2(4621, -589))
 	gemSave.set_deferred("scale", Vector2(10,1.5))
-	get_parent().add_child(gemSave)
 	GameManager.GemsCollected = {"Green": true, "Blue": true, "Red": true, "Cyan": true, "Magenta": false }
 
 func CheckForLevelCompelete():
@@ -261,40 +260,46 @@ func CheckForLevelCompelete():
 			firstCorrect = true
 			# UP LIT AMBIENCE/MUSIC VOLUME
 		else:
+			firstCorrect = false
 			pass # UP UNLIT AMBIENCE/MUSIC VOLUME
 
 		if (Pedestals[1].get_child(0).frame == 4):
 			secondCorrect = true
 			# UP LIT AMBIENCE/MUSIC VOLUME
 		else:
+			secondCorrect = false
 			pass # UP UNLIT AMBIENCE/MUSIC VOLUME
 
 		if (Pedestals[2].get_child(0).frame == 1):
 			thirdCorrect = true
 			# UP LIT AMBIENCE/MUSIC VOLUME
 		else:
+			thirdCorrect = false
 			pass # UP UNLIT AMBIENCE/MUSIC VOLUME
 
 		if (Pedestals[3].get_child(0).frame == 3):
 			fourthCorrect = true
 			# UP LIT AMBIENCE/MUSIC VOLUME
 		else:
+			fourthCorrect = false
 			pass # UP UNLIT AMBIENCE/MUSIC VOLUME
 
 		if (Pedestals[4].get_child(0).frame == 5):
 			fifthCorrect = true
 			# UP LIT AMBIENCE/MUSIC VOLUME
 		else:
+			fifthCorrect = false
 			pass # UP UNLIT AMBIENCE/MUSIC VOLUME
 
 		if (StaffAltars[2].activated):
 			altarCorrect = true
 			# UP LIT AMBIENCE/MUSIC VOLUME
 		else:
+			altarCorrect = false
 			pass # UP UNLIT AMBIENCE/MUSIC VOLUME
 		
 		if (firstCorrect and secondCorrect and thirdCorrect and fourthCorrect and fifthCorrect and altarCorrect):
 			Level3Complete = true
-			yield(get_tree().create_timer(1.5), "timeout")
+			yield(get_tree().create_timer(2.5), "timeout")
 			Diamond.set_deferred("modulate", Color(1,1,1,1))
 			OpenTheEnd()

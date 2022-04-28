@@ -106,7 +106,7 @@ script = ExtResource( 6 )
 position = Vector2( 1600, -549 )
 
 [node name="Lit" parent="Milo" index="1"]
-frame = 43
+frame = 41
 
 [node name="AnimationTree" parent="Milo" index="5"]
 parameters/playback = SubResource( 3 )
@@ -273,10 +273,10 @@ position = Vector2( 4806, 450 )
 position = Vector2( 4806, 634 )
 
 [node name="Briar3" parent="." instance=ExtResource( 14 )]
-position = Vector2( 10140, 333 )
+position = Vector2( 10252, 333 )
 
 [node name="Briar4" parent="." instance=ExtResource( 14 )]
-position = Vector2( 10140, 517 )
+position = Vector2( 10252, 517 )
 
 [node name="Briar5" parent="." instance=ExtResource( 14 )]
 position = Vector2( 10396, 333 )
@@ -285,22 +285,22 @@ position = Vector2( 10396, 333 )
 position = Vector2( 10396, 517 )
 
 [node name="Briar7" parent="." instance=ExtResource( 14 )]
-position = Vector2( 10644, 333 )
+position = Vector2( 10540, 333 )
 
 [node name="Briar8" parent="." instance=ExtResource( 14 )]
-position = Vector2( 10644, 517 )
+position = Vector2( 10540, 517 )
 
 [node name="Briar9" parent="." instance=ExtResource( 14 )]
-position = Vector2( 10892, 333 )
+position = Vector2( 10684, 333 )
 
 [node name="Briar10" parent="." instance=ExtResource( 14 )]
-position = Vector2( 10892, 517 )
+position = Vector2( 10684, 517 )
 
 [node name="Briar11" parent="." instance=ExtResource( 14 )]
-position = Vector2( 11116, 333 )
+position = Vector2( 10836, 333 )
 
 [node name="Briar12" parent="." instance=ExtResource( 14 )]
-position = Vector2( 11116, 517 )
+position = Vector2( 10836, 517 )
 
 [connection signal="body_entered" from="EndLevel1" to="Level1Manager" method="_on_EndLevel1_body_entered"]
 
