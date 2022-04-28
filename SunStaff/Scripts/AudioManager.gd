@@ -95,13 +95,13 @@ func _on_UnlitAmbience_finished():
 
 func ChangeBetweenLitAndUnlit(HasStaff):
 	if (HasStaff):
-		AudioManager.StopUnlitAmbience()
-		AudioManager.StopUnlitMusic()
-		AudioManager.PlayLitAmbience()
-		AudioManager.PlayLitMusic()
+		StopUnlitAmbience()
+		StopUnlitMusic()
+		PlayLitAmbience()
+		PlayLitMusic()
 		
 	else:
-		AudioManager.StopLitAmbience()
-		AudioManager.StopLitMusic()
-		AudioManager.PlayUnlitAmbience()
-		AudioManager.PlayUnlitMusic()
+		StopLitAmbience()
+		StopLitMusic()
+		PlayUnlitAmbience()
+		PlayUnlitMusic()

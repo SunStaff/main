@@ -32,27 +32,27 @@ func _process(_delta):
 							GameManager.ToggleGem("Blue")
 							PedestalSprite.frame = 0
 							GameManager.GetLevelManagers()[0].ChangePedestalBeamColors("", false, self)
-							AudioManager.PlayCollectable()
+							AudioManager.get_script().PlayCollectable()
 						2:
 							GameManager.ToggleGem("Green")
 							PedestalSprite.frame = 0
 							GameManager.GetLevelManagers()[0].ChangePedestalBeamColors("", false, self)
-							AudioManager.PlayCollectable()
+							AudioManager.get_script().PlayCollectable()
 						3:
 							GameManager.ToggleGem("Magenta")
 							PedestalSprite.frame = 0
 							GameManager.GetLevelManagers()[0].ChangePedestalBeamColors("", false, self)
-							AudioManager.PlayCollectable()
+							AudioManager.get_script().PlayCollectable()
 						4:
 							GameManager.ToggleGem("Cyan")
 							PedestalSprite.frame = 0
 							GameManager.GetLevelManagers()[0].ChangePedestalBeamColors("", false, self)
-							AudioManager.PlayCollectable()
+							AudioManager.get_script().PlayCollectable()
 						5:
 							GameManager.ToggleGem("Red")
 							PedestalSprite.frame = 0
 							GameManager.GetLevelManagers()[0].ChangePedestalBeamColors("", false, self)
-							AudioManager.PlayCollectable()
+							AudioManager.get_script().PlayCollectable()
 				else:
 					GameManager.GetLevelManagers()[0].OpenGemSelectionScreen(CurrentClosestPedestal)
 			

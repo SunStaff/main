@@ -41,7 +41,7 @@ func _ready():
 	
 	PlayerCamera = get_child(4)
 	ChangeCameraBorders()
-	AudioManager.ChangeBetweenLitAndUnlit(HasStaff)
+	AudioManager.get_script().ChangeBetweenLitAndUnlit(HasStaff)
 	
 	if (TurnLightOff):
 		GameManager.GetSunStaff().visible = false
@@ -67,7 +67,7 @@ func get_input():
 		if (is_on_floor()):
 			playLeftOrRight = true
 			if (not runningSoundPlaying):
-				AudioManager.PlayWalking()
+				AudioManager.get_script().PlayWalking()
 	
 	elif Input.is_action_pressed("Left"):
 		velocity.x -= speed
@@ -77,10 +77,10 @@ func get_input():
 		if (is_on_floor()):
 			playLeftOrRight = true
 			if (not runningSoundPlaying):
-				AudioManager.PlayWalking()
+				AudioManager.get_script().PlayWalking()
 	else:
-		AudioManager.StopWalking()
-		AudioManager.StopRunning()
+		AudioManager.get_script().StopWalking()
+		AudioManager.get_script().StopRunning()
 
 	if Input.is_action_pressed("Jump"):
 		playLeftOrRight = false
@@ -91,16 +91,16 @@ func get_input():
 		playLeftOrRight = false
 		AnimationManager.FallAnimation()
 		yield(get_tree().create_timer(jump_time_to_descent-0.05), "timeout")
-		AudioManager.PlayLanding()
+		AudioManager.get_script().PlayLanding()
 
 	if Input.is_action_pressed("Sprint") and (Input.is_action_pressed("Left") or Input.is_action_pressed("Right")):
 		velocity.x += speed * 2 * direction
 		if (not justJumped):
-			AudioManager.PlayRunning()
+			AudioManager.get_script().PlayRunning()
 			runningSoundPlaying = true
 	else:
 		runningSoundPlaying = false
-		AudioManager.StopRunning()
+		AudioManager.get_script().StopRunning()
 	
 	AnimationManager.UpdateAnimations(StateMachine, HasStaff, velocity, playLeftOrRight, speed, MARGIN_OF_ERROR)
 	
@@ -132,7 +132,7 @@ func PlayerDeath(position):
 
 func ChangeHasStaffState(state):
 	HasStaff = state
-	AudioManager.ChangeBetweenLitAndUnlit(HasStaff)
+	AudioManager.get_script().ChangeBetweenLitAndUnlit(HasStaff)
 
 func GetHasStaffState():
 	return HasStaff
