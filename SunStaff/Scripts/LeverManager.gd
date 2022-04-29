@@ -63,15 +63,15 @@ func Tutorial(lever, turnedOn):
 		"1":
 			leverNameValid = true
 			if (turnedOn):
-				leverFlippedCount += 1
+				leverFlippedCount = 1
 			elif(!turnedOn):
-				leverFlippedCount -= 1
+				leverFlippedCount = 0
 		"2":
 			leverNameValid = true
 			if (turnedOn):
-				leverFlippedCount += 1
+				leverFlippedCount = 2
 			elif(!turnedOn):
-				leverFlippedCount -= 1
+				leverFlippedCount = 1
 	if (leverNameValid):
 		leverNameValid = false
 		if(leverFlippedCount == 1):

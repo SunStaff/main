@@ -60,7 +60,7 @@ extents = Vector2( 130, 827 )
 position = Vector2( 0, -400 )
 
 [node name="Lit" parent="Milo" index="1"]
-frame = 38
+frame = 44
 
 [node name="AnimationTree" parent="Milo" index="5"]
 parameters/playback = SubResource( 1 )
@@ -93,15 +93,9 @@ position = Vector2( 3954, 1684 )
 scale = Vector2( 20, 1.5 )
 
 [node name="Platform" parent="." instance=ExtResource( 9 )]
-position = Vector2( 4693, 1409 )
+position = Vector2( 5200, 1300 )
 
 [node name="UnlitPlatformmiddle" parent="Platform" index="0"]
-visible = false
-
-[node name="Platform2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 5195, 1043 )
-
-[node name="UnlitPlatformmiddle" parent="Platform2" index="0"]
 visible = false
 
 [node name="Section2" type="Node" parent="."]
@@ -152,5 +146,4 @@ frame = 3
 [editable path="Milo/Lit/SunStaff"]
 [editable path="StaffAltar_Grand"]
 [editable path="Platform"]
-[editable path="Platform2"]
 [editable path="Section2/Red_GemPickup"]
