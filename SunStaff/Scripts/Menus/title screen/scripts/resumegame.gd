@@ -37,4 +37,5 @@ func _on_back_to_pause_pressed():
 	get_node("options menu/OPTIONS").visible = false
 
 func _on_Restart_pressed():
-	var _unused = get_tree().reload_current_scene()
+	GameManager.TeleportPlayer()
+	_on_resume_pressed()

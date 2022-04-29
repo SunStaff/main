@@ -152,10 +152,13 @@ shader_param/add_margins = true
 
 [node name="Level3" type="Node"]
 
+[node name="Level3Background" parent="." instance=ExtResource( 4 )]
+
+[node name="Milo" parent="." instance=ExtResource( 1 )]
+position = Vector2( 398, -53 )
+
 [node name="Level3Manager" type="Node" parent="." groups=["LevelManager"]]
 script = ExtResource( 9 )
-
-[node name="Level3Background" parent="." instance=ExtResource( 4 )]
 
 [node name="StaffAltar1_MoveDoor" parent="." instance=ExtResource( 6 )]
 material = SubResource( 12 )
@@ -231,9 +234,6 @@ position = Vector2( 6092, 733 )
 
 [node name="Litplatformmiddle" parent="TimerPuzzle/TimerPlatform3" index="1"]
 visible = false
-
-[node name="Milo" parent="." instance=ExtResource( 1 )]
-position = Vector2( 398, -53 )
 
 [node name="StartingDoor" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1620, -150 )

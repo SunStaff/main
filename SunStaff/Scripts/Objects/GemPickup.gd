@@ -22,7 +22,7 @@ func _process(_delta):
 func GemPickup():
 	var color = self.name.replacen("_GemPickup", "")
 	GameManager.ToggleGem(color)
-	AudioManager.get_script().PlayCollectable()
+	GameManager.GetPlayer().AudioManager.PlayCollectable()
 	self.visible = false
 	
 
