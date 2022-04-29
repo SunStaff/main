@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scenes/Objects/Platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/StaffAltar.tscn" type="PackedScene" id=2]
@@ -13,7 +13,6 @@
 [ext_resource path="res://Scenes/Objects/GemPickup.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Art/Misc/outlineShaderCode.shader" type="Shader" id=12]
 [ext_resource path="res://Scenes/Objects/UnlitOnlyPlatform.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scenes/Objects/Briar.tscn" type="PackedScene" id=14]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=3]
 
@@ -106,7 +105,7 @@ script = ExtResource( 6 )
 position = Vector2( 1600, -549 )
 
 [node name="Lit" parent="Milo" index="1"]
-frame = 41
+frame = 44
 
 [node name="AnimationTree" parent="Milo" index="5"]
 parameters/playback = SubResource( 3 )
@@ -265,42 +264,6 @@ frame = 1
 
 [node name="AnimatedSprite" parent="Green_GemPickup" index="2"]
 frame = 1
-
-[node name="Briar" parent="." instance=ExtResource( 14 )]
-position = Vector2( 4806, 450 )
-
-[node name="Briar2" parent="." instance=ExtResource( 14 )]
-position = Vector2( 4806, 634 )
-
-[node name="Briar3" parent="." instance=ExtResource( 14 )]
-position = Vector2( 10252, 333 )
-
-[node name="Briar4" parent="." instance=ExtResource( 14 )]
-position = Vector2( 10252, 517 )
-
-[node name="Briar5" parent="." instance=ExtResource( 14 )]
-position = Vector2( 10396, 333 )
-
-[node name="Briar6" parent="." instance=ExtResource( 14 )]
-position = Vector2( 10396, 517 )
-
-[node name="Briar7" parent="." instance=ExtResource( 14 )]
-position = Vector2( 10540, 333 )
-
-[node name="Briar8" parent="." instance=ExtResource( 14 )]
-position = Vector2( 10540, 517 )
-
-[node name="Briar9" parent="." instance=ExtResource( 14 )]
-position = Vector2( 10684, 333 )
-
-[node name="Briar10" parent="." instance=ExtResource( 14 )]
-position = Vector2( 10684, 517 )
-
-[node name="Briar11" parent="." instance=ExtResource( 14 )]
-position = Vector2( 10836, 333 )
-
-[node name="Briar12" parent="." instance=ExtResource( 14 )]
-position = Vector2( 10836, 517 )
 
 [connection signal="body_entered" from="EndLevel1" to="Level1Manager" method="_on_EndLevel1_body_entered"]
 

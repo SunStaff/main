@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Scenes/Objects/PressurePlate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/Platform.tscn" type="PackedScene" id=2]
@@ -16,7 +16,6 @@
 [ext_resource path="res://Art/Misc/outlineShaderCode.shader" type="Shader" id=14]
 [ext_resource path="res://Art/Misc/fogEffect.shader" type="Shader" id=15]
 [ext_resource path="res://Scenes/Objects/UnlitOnlyPlatform.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Scenes/Objects/Briar.tscn" type="PackedScene" id=17]
 
 [sub_resource type="ShaderMaterial" id=6]
 resource_local_to_scene = true
@@ -444,9 +443,6 @@ shape = SubResource( 5 )
 [node name="Blue_GemPickup" parent="." instance=ExtResource( 12 )]
 position = Vector2( 12621, -226 )
 z_index = -1
-
-[node name="Briar" parent="." instance=ExtResource( 17 )]
-position = Vector2( 792, 49 )
 
 [connection signal="body_entered" from="EndLevel2" to="Level2Manager" method="_on_EndLevel2_body_entered"]
 
