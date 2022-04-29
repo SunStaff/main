@@ -241,7 +241,7 @@ shape = SubResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="."]
 light_mask = 0
-position = Vector2( 20895, -1017 )
+position = Vector2( 20639, -1017 )
 texture = ExtResource( 27 )
 
 [node name="Fog" type="Node2D" parent="."]

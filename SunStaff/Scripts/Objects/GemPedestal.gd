@@ -25,39 +25,34 @@ func _process(_delta):
 		GlowMaterial(true)
 		var frameNumber = PedestalSprite.frame
 		if (Input.is_action_just_pressed("Interact")):
-			print()
-			print("interaction with pedestal")
-			print(GetCurrentClosestPedestal(GameManager.GetGemPedestals(), GameManager.GetPlayer()).name)
-			print(self.name)
 			if (GetCurrentClosestPedestal(GameManager.GetGemPedestals(), GameManager.GetPlayer()) == self):
 				if (frameNumber > 0):
-					print("Current Frame Number for " + self.name + ": " + str(frameNumber))
 					match frameNumber:
 						1:
 							GameManager.ToggleGem("Blue")
-							print("Blue Changed to No Gem")
 							PedestalSprite.frame = 0
 							GameManager.GetLevelManagers()[0].ChangePedestalBeamColors("", false, self)
+							AudioManager.get_script().PlayCollectable()
 						2:
 							GameManager.ToggleGem("Green")
-							print("Green Changed to No Gem")
 							PedestalSprite.frame = 0
 							GameManager.GetLevelManagers()[0].ChangePedestalBeamColors("", false, self)
+							AudioManager.get_script().PlayCollectable()
 						3:
 							GameManager.ToggleGem("Magenta")
-							print("Magenta Changed to No Gem")
 							PedestalSprite.frame = 0
 							GameManager.GetLevelManagers()[0].ChangePedestalBeamColors("", false, self)
+							AudioManager.get_script().PlayCollectable()
 						4:
 							GameManager.ToggleGem("Cyan")
-							print("Cyan Changed to No Gem")
 							PedestalSprite.frame = 0
 							GameManager.GetLevelManagers()[0].ChangePedestalBeamColors("", false, self)
+							AudioManager.get_script().PlayCollectable()
 						5:
 							GameManager.ToggleGem("Red")
-							print("Red Changed to No Gem")
 							PedestalSprite.frame = 0
 							GameManager.GetLevelManagers()[0].ChangePedestalBeamColors("", false, self)
+							AudioManager.get_script().PlayCollectable()
 				else:
 					GameManager.GetLevelManagers()[0].OpenGemSelectionScreen(CurrentClosestPedestal)
 			

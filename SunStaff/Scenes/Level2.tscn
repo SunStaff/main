@@ -464,6 +464,7 @@ shape = SubResource( 5 )
 
 [node name="Blue_GemPickup" parent="." instance=ExtResource( 12 )]
 position = Vector2( 12621, -226 )
+z_index = -1
 
 [node name="Briar" parent="." instance=ExtResource( 17 )]
 position = Vector2( 792, 49 )

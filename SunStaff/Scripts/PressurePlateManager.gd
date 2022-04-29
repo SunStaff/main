@@ -59,17 +59,14 @@ func Level2(name):
 			LevelManagers[0].Level2_PlatformFall()
 		#Pressure Plate for LargeBlock
 		"2":
-			print("Removing Skinny Block Barrier")
 			LevelManagers[0].Destroy_SkinnyBlockGate()
 
 		#Pressure Plate for SkinnyBlock
 		"3":
-			print("Small Block Dropping")
 			LevelManagers[0].Destroy_SmallBlockBlocker()
 
 		#Pressure Plate for SmallBlock
 		"4":
-			print("Final Door opened")
 			LevelManagers[0].Open_FinalDoor()
 		"5":
 			LevelManagers[0].Level2_PlatformFall()

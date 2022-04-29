@@ -154,7 +154,6 @@ shader_param/add_margins = true
 
 [node name="Level3Manager" type="Node" parent="." groups=["LevelManager"]]
 script = ExtResource( 9 )
-DebugMode = true
 
 [node name="Level3Background" parent="." instance=ExtResource( 4 )]
 
@@ -342,7 +341,8 @@ material = SubResource( 24 )
 material = SubResource( 25 )
 
 [node name="Cyan_GemPickup" parent="." instance=ExtResource( 3 )]
-position = Vector2( 9641, 463 )
+position = Vector2( 9641, 319 )
+z_index = -1
 
 [node name="AnimatedSprite2" parent="Cyan_GemPickup" index="1"]
 frame = 4

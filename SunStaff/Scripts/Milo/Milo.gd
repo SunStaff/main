@@ -21,16 +21,17 @@ var faceRight = true
 export (float) var speed = 800.0
 var velocity = Vector2.ZERO
 var direction
+var runningSoundPlaying = false
 
 # Jump Variables
 var ctAllowJump = true
 var justJumped = false
 export (float) var jump_height = 750
 export (float) var jump_time_to_peak = 0.4
-export (float) var jumo_time_to_descent = 0.3
+export (float) var jump_time_to_descent = 0.3
 onready var jump_velocity: float = -1 * ((2.0 * jump_height) / jump_time_to_peak)
 onready var jump_gravity: float = -1 * ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak))
-onready var fall_gravity: float = -1 * ((-2.0 * jump_height) / (jumo_time_to_descent * jumo_time_to_descent))
+onready var fall_gravity: float = -1 * ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent))
 
 func _ready():
 	if (GameManager.ChangeSceneCalled):
@@ -40,7 +41,8 @@ func _ready():
 	
 	PlayerCamera = get_child(4)
 	ChangeCameraBorders()
-
+	AudioManager.get_script().ChangeBetweenLitAndUnlit(HasStaff)
+	
 	if (TurnLightOff):
 		GameManager.GetSunStaff().visible = false
 	playerRootNode = get_parent()
@@ -64,6 +66,8 @@ func get_input():
 		direction = 1
 		if (is_on_floor()):
 			playLeftOrRight = true
+			if (not runningSoundPlaying):
+				AudioManager.get_script().PlayWalking()
 	
 	elif Input.is_action_pressed("Left"):
 		velocity.x -= speed
@@ -72,6 +76,11 @@ func get_input():
 		direction = -1
 		if (is_on_floor()):
 			playLeftOrRight = true
+			if (not runningSoundPlaying):
+				AudioManager.get_script().PlayWalking()
+	else:
+		AudioManager.get_script().StopWalking()
+		AudioManager.get_script().StopRunning()
 
 	if Input.is_action_pressed("Jump"):
 		playLeftOrRight = false
@@ -81,13 +90,21 @@ func get_input():
 		justJumped = false
 		playLeftOrRight = false
 		AnimationManager.FallAnimation()
+		yield(get_tree().create_timer(jump_time_to_descent-0.05), "timeout")
+		AudioManager.get_script().PlayLanding()
 
 	if Input.is_action_pressed("Sprint") and (Input.is_action_pressed("Left") or Input.is_action_pressed("Right")):
 		velocity.x += speed * 2 * direction
+		if (not justJumped):
+			AudioManager.get_script().PlayRunning()
+			runningSoundPlaying = true
+	else:
+		runningSoundPlaying = false
+		AudioManager.get_script().StopRunning()
 	
 	AnimationManager.UpdateAnimations(StateMachine, HasStaff, velocity, playLeftOrRight, speed, MARGIN_OF_ERROR)
 	
-func _physics_process(delta):
+func _process(delta):
 	if (GameManager.IsGamePlaying and GameManager.IsPlayerAlive):
 		get_input()
 		if !is_on_floor():
@@ -115,6 +132,7 @@ func PlayerDeath(position):
 
 func ChangeHasStaffState(state):
 	HasStaff = state
+	AudioManager.get_script().ChangeBetweenLitAndUnlit(HasStaff)
 
 func GetHasStaffState():
 	return HasStaff
@@ -147,5 +165,5 @@ func ChangeCameraBorders():
 		"Level3":
 			PlayerCamera.limit_left = -220
 			PlayerCamera.limit_top = -2800
-			PlayerCamera.limit_right = 9795
+			PlayerCamera.limit_right = 9880
 			PlayerCamera.limit_bottom = 1480

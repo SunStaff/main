@@ -42,11 +42,15 @@ func _on_LightCircle_area_entered(area):
 		area.SetObjectLightState(true)
 	if("Lever3" in area.name):
 		area.SetObjectLightState(true)
+	if ("UnlitOnlyPlatform" in area.name):
+		area.SetObjectLightState(true)
 
 func _on_LightCircle_area_exited(area):
 	if ("Briar" in area.name):
 		area.SetObjectLightState(false)
 	if("Lever3" in area.name):
+		area.SetObjectLightState(false)
+	if ("UnlitOnlyPlatform" in area.name):
 		area.SetObjectLightState(false)
 
 func SunStaffPlacement():

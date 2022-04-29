@@ -64,19 +64,14 @@ func Tutorial(lever, turnedOn):
 			leverNameValid = true
 			if (turnedOn):
 				leverFlippedCount += 1
-				print("LeverFlippedCount up 1")
 			elif(!turnedOn):
 				leverFlippedCount -= 1
-				print("LeverFlippedCount down 1")
 		"2":
 			leverNameValid = true
 			if (turnedOn):
 				leverFlippedCount += 1
-				print("LeverFlippedCount up 1")
 			elif(!turnedOn):
 				leverFlippedCount -= 1
-				print("LeverFlippedCount down 1")
-	print("LeverFlippedCount: ", leverFlippedCount)
 	if (leverNameValid):
 		leverNameValid = false
 		if(leverFlippedCount == 1):
@@ -140,10 +135,8 @@ func Level2(lever, turnedOn):
 			leverNameValid = true
 			if (turnedOn):
 				leverFlippedCount += 1
-				print("LeverFlippedCount up 1")
 			elif(!turnedOn):
 				leverFlippedCount -= 1
-				print("LeverFlippedCount down 1")
 		"2":
 			leverNameValid = true
 			if(turnedOn):
@@ -160,7 +153,6 @@ func Level2(lever, turnedOn):
 			GameManager.GetLevelManagers()[0].Level2_Ravine_FirstLever(turnedOn)
 		"5":
 			GameManager.GetLevelManagers()[0].Level2_Ravine_SecondLever(turnedOn)
-	print("LeverFlippedCount: ", leverFlippedCount)
 	if (leverNameValid):
 		leverNameValid = false
 		if(leverFlippedCount >= 3):

@@ -30,10 +30,8 @@ func _on_LightCircle_area_exited(area):
 
 func _on_LightCircle_body_entered(body):
 	if (body.is_in_group("UnlitOnly")):
-		print("body entered")
 		body.SetObjectLightState(true)
 
 func _on_LightCircle_body_exited(body):
 	if (body.is_in_group("UnlitOnly")):
-		print("body exited")
 		body.SetObjectLightState(false)
