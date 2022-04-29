@@ -39,3 +39,15 @@ func _on_back_to_pause_pressed():
 func _on_Restart_pressed():
 	GameManager.TeleportPlayer()
 	_on_resume_pressed()
+
+
+func _on_Aslider_value_changed(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Ambience"), value)
+
+
+func _on_Mslider_value_changed(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), value)
+
+
+func _on_Sslider_value_changed(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), value)

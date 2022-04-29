@@ -67,6 +67,7 @@ volume_db = -6.0
 bus = "SFX"
 
 [node name="Mew" type="AudioStreamPlayer" parent="."]
+bus = "SFX"
 
 [connection signal="finished" from="LitAmbience" to="." method="_on_LitAmbience_finished"]
 [connection signal="finished" from="UnlitAmbience" to="." method="_on_UnlitAmbience_finished"]
