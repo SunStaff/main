@@ -1,23 +1,9 @@
 extends Node
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-var LevelManagers = []
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+var LevelManager
 
 func PlateTouched(level, name):
-	LevelManagers.clear()
-	LevelManagers = GameManager.GetLevelManagers()
+	LevelManager = GameManager.GetLevelManager()
 	match(level):
 		"Tutorial":
 			Tutorial(name)
@@ -47,36 +33,36 @@ func Level1(name):
 	name = name.replacen("PressurePlate", "")
 	match(name):
 		"1":
-			LevelManagers[0].OffsetCamera()
+			LevelManager.OffsetCamera()
 		"2":
-			LevelManagers[0].OriginalCamera()
+			LevelManager.OriginalCamera()
 
 func Level2(name):
 	name = name.replacen("PressurePlate", "")
 	match(name):
 		#Sets off timer puzzle
 		"1":
-			LevelManagers[0].Level2_PlatformFall()
+			LevelManager.Level2_PlatformFall()
 		#Pressure Plate for LargeBlock
 		"2":
-			LevelManagers[0].Destroy_SkinnyBlockGate()
+			LevelManager.Destroy_SkinnyBlockGate()
 
 		#Pressure Plate for SkinnyBlock
 		"3":
-			LevelManagers[0].Destroy_SmallBlockBlocker()
+			LevelManager.Destroy_SmallBlockBlocker()
 
 		#Pressure Plate for SmallBlock
 		"4":
-			LevelManagers[0].Open_FinalDoor()
+			LevelManager.Open_FinalDoor()
 		"5":
-			LevelManagers[0].Level2_PlatformFall()
+			LevelManager.Level2_PlatformFall()
 
 func Level3(name):
 	name = name.replacen("PressurePlate", "")
 	match(name):
 		"1":
-			LevelManagers[0].Level3_TimerPuzzle()
+			LevelManager.Level3_TimerPuzzle()
 		"2":
-			LevelManagers[0].Level3_OpenBottomPuzzles()
+			LevelManager.Level3_OpenBottomPuzzles()
 		"3":
-			LevelManagers[0].ClearSavePoints()
+			LevelManager.ClearSavePoints()

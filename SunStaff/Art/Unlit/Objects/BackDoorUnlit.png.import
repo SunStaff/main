@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/briar.png-daf99938b09bcae463cf66af2906eb7d.stex"
+path="res://.import/BackDoorUnlit.png-0181703aa7175fb811263bb2d56fab18.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Misc/briar.png"
-dest_files=[ "res://.import/briar.png-daf99938b09bcae463cf66af2906eb7d.stex" ]
+source_file="res://Art/Unlit/Objects/BackDoorUnlit.png"
+dest_files=[ "res://.import/BackDoorUnlit.png-0181703aa7175fb811263bb2d56fab18.stex" ]
 
 [params]
 

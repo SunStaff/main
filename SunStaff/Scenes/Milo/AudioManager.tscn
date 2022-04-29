@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/AudioManager.gd" type="Script" id=1]
 [ext_resource path="res://Art/Sounds/landing.v1.ilcapand.wav" type="AudioStream" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Art/Sounds/Fairy Forest.v3.ilcapand.wav" type="AudioStream" id=7]
 [ext_resource path="res://Art/Sounds/535934__shortrecord__soft-music.wav" type="AudioStream" id=8]
 [ext_resource path="res://Art/Sounds/262259__shadydave__snowfall-final.wav" type="AudioStream" id=9]
+[ext_resource path="res://Art/Sounds/368309__kristiankulta__spooky-ambiance-2.ogg" type="AudioStream" id=10]
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource( 1 )
@@ -31,6 +32,7 @@ volume_db = -10.0
 bus = "Ambience"
 
 [node name="UnlitAmbience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
 volume_db = -10.0
 bus = "Ambience"
 
@@ -50,10 +52,12 @@ bus = "SFX"
 
 [node name="Bell" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+volume_db = -8.0
 bus = "SFX"
 
 [node name="Landing" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+volume_db = -6.0
 bus = "SFX"
 
 [connection signal="finished" from="LitAmbience" to="." method="_on_LitAmbience_finished"]

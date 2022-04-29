@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/door_rough.png-bf57c4ba78c827b0be3a00c8ad99e8eb.stex"
+path="res://.import/SkipInstruction.png-761659168930ebe8f3f57a7a6f42f3a5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Misc/door_rough.png"
-dest_files=[ "res://.import/door_rough.png-bf57c4ba78c827b0be3a00c8ad99e8eb.stex" ]
+source_file="res://Art/Misc/SkipInstruction.png"
+dest_files=[ "res://.import/SkipInstruction.png-761659168930ebe8f3f57a7a6f42f3a5.stex" ]
 
 [params]
 

@@ -37,7 +37,7 @@ func _process(delta):
 	velocity.y += blockGravity * delta
 	if (WithinBlockRange):
 		var direction = (blockBody.global_transform.origin - GameManager.GetPlayer().global_transform.origin).normalized()
-		if ("Skinny" in blockBody.name and GameManager.GetLevelManagers()[0].allowSkinnyBlockMovement):
+		if ("Skinny" in blockBody.name and GameManager.GetLevelManager().allowSkinnyBlockMovement):
 			velocity.x += direction.x * 200
 		elif ("Small" in blockBody.name):
 			velocity.x += direction.x * 300

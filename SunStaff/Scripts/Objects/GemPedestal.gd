@@ -26,35 +26,36 @@ func _process(_delta):
 		var frameNumber = PedestalSprite.frame
 		if (Input.is_action_just_pressed("Interact")):
 			if (GetCurrentClosestPedestal(GameManager.GetGemPedestals(), GameManager.GetPlayer()) == self):
+				var LevelManager = GameManager.GetLevelManager()
 				if (frameNumber > 0):
 					match frameNumber:
 						1:
 							GameManager.ToggleGem("Blue")
 							PedestalSprite.frame = 0
-							GameManager.GetLevelManagers()[0].ChangePedestalBeamColors("", false, self)
-							AudioManager.get_script().PlayCollectable()
+							LevelManager.ChangePedestalBeamColors("", false, self)
+							GameManager.GetPlayer().AudioManager.PlayCollectable()
 						2:
 							GameManager.ToggleGem("Green")
 							PedestalSprite.frame = 0
-							GameManager.GetLevelManagers()[0].ChangePedestalBeamColors("", false, self)
-							AudioManager.get_script().PlayCollectable()
+							LevelManager.ChangePedestalBeamColors("", false, self)
+							GameManager.GetPlayer().AudioManager.PlayCollectable()
 						3:
 							GameManager.ToggleGem("Magenta")
 							PedestalSprite.frame = 0
-							GameManager.GetLevelManagers()[0].ChangePedestalBeamColors("", false, self)
-							AudioManager.get_script().PlayCollectable()
+							LevelManager.ChangePedestalBeamColors("", false, self)
+							GameManager.GetPlayer().AudioManager.PlayCollectable()
 						4:
 							GameManager.ToggleGem("Cyan")
 							PedestalSprite.frame = 0
-							GameManager.GetLevelManagers()[0].ChangePedestalBeamColors("", false, self)
-							AudioManager.get_script().PlayCollectable()
+							LevelManager.ChangePedestalBeamColors("", false, self)
+							GameManager.GetPlayer().AudioManager.PlayCollectable()
 						5:
 							GameManager.ToggleGem("Red")
 							PedestalSprite.frame = 0
-							GameManager.GetLevelManagers()[0].ChangePedestalBeamColors("", false, self)
-							AudioManager.get_script().PlayCollectable()
+							LevelManager.ChangePedestalBeamColors("", false, self)
+							GameManager.GetPlayer().AudioManager.PlayCollectable()
 				else:
-					GameManager.GetLevelManagers()[0].OpenGemSelectionScreen(CurrentClosestPedestal)
+					LevelManager.OpenGemSelectionScreen(CurrentClosestPedestal)
 			
 
 func _on_GemPedestal_body_entered(body):
@@ -69,7 +70,7 @@ func GetCurrentClosestPedestal(pedestals, player):
 	CurrentClosestPedestal = null
 	# Get Current Closest Pedestal
 	for pedestal in pedestals:
-		var distanceTo = GameManager.DistanceTo(player.position, pedestal.global_position)
+		var distanceTo =player.position.distance_to(pedestal.global_position)
 		if (distanceTo <= minDistanceToPedestal):
 			minDistanceToPedestal = distanceTo
 			CurrentClosestPedestal = pedestal

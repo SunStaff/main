@@ -7,6 +7,9 @@ var spriteUnlit
 const MARGIN_OF_ERROR = 0.008
 var PlayerCamera
 
+# Audio Variables
+var AudioManager
+
 # SunStaff Variables
 var HasStaff = true
 export (bool) var TurnLightOff = false
@@ -41,7 +44,8 @@ func _ready():
 	
 	PlayerCamera = get_child(4)
 	ChangeCameraBorders()
-	AudioManager.get_script().ChangeBetweenLitAndUnlit(HasStaff)
+	AudioManager = $AudioManager
+	AudioManager.ChangeBetweenLitAndUnlit(HasStaff)
 	
 	if (TurnLightOff):
 		GameManager.GetSunStaff().visible = false
@@ -67,8 +71,8 @@ func get_input():
 		if (is_on_floor()):
 			playLeftOrRight = true
 			if (not runningSoundPlaying):
-				AudioManager.get_script().PlayWalking()
-	
+				AudioManager.PlayWalking()
+
 	elif Input.is_action_pressed("Left"):
 		velocity.x -= speed
 		sprite.scale.x = -1
@@ -77,10 +81,10 @@ func get_input():
 		if (is_on_floor()):
 			playLeftOrRight = true
 			if (not runningSoundPlaying):
-				AudioManager.get_script().PlayWalking()
+				AudioManager.PlayWalking()
 	else:
-		AudioManager.get_script().StopWalking()
-		AudioManager.get_script().StopRunning()
+		AudioManager.StopWalking()
+		AudioManager.StopRunning()
 
 	if Input.is_action_pressed("Jump"):
 		playLeftOrRight = false
@@ -91,17 +95,23 @@ func get_input():
 		playLeftOrRight = false
 		AnimationManager.FallAnimation()
 		yield(get_tree().create_timer(jump_time_to_descent-0.05), "timeout")
-		AudioManager.get_script().PlayLanding()
+		AudioManager.PlayLanding()
+		AudioManager.PlayBell()
 
 	if Input.is_action_pressed("Sprint") and (Input.is_action_pressed("Left") or Input.is_action_pressed("Right")):
 		velocity.x += speed * 2 * direction
 		if (not justJumped):
-			AudioManager.get_script().PlayRunning()
+			AudioManager.PlayRunning()
 			runningSoundPlaying = true
 	else:
 		runningSoundPlaying = false
-		AudioManager.get_script().StopRunning()
+		AudioManager.StopRunning()
 	
+	if Input.is_action_just_released("Sprint") and (Input.is_action_pressed("Left") or Input.is_action_pressed("Right")):
+		AudioManager.PlayBell()
+	elif Input.is_action_just_pressed("Sprint") and (Input.is_action_pressed("Left") or Input.is_action_pressed("Right")):
+		AudioManager.PlayBell()
+
 	AnimationManager.UpdateAnimations(StateMachine, HasStaff, velocity, playLeftOrRight, speed, MARGIN_OF_ERROR)
 	
 func _process(delta):
@@ -132,7 +142,7 @@ func PlayerDeath(position):
 
 func ChangeHasStaffState(state):
 	HasStaff = state
-	AudioManager.get_script().ChangeBetweenLitAndUnlit(HasStaff)
+	AudioManager.ChangeBetweenLitAndUnlit(HasStaff)
 
 func GetHasStaffState():
 	return HasStaff

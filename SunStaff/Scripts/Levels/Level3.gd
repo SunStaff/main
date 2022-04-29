@@ -20,6 +20,7 @@ var EndDoor
 var EndLevel
 var RockSlide
 var RockSlidePlatform
+var AtGemPuzzle = false
 var stopTimerPuzzle = false
 export (bool) var DebugMode = false
 
@@ -68,7 +69,9 @@ func _process(_delta):
 		ChangeRockSlideState(false)
 	else:
 		ChangeRockSlideState(true)
-	CheckForLevelCompelete()
+
+	if (AtGemPuzzle):
+		CheckForLevelCompelete()
 
 
 func Level3_MoveDoor_DueTo_StaffAltar(open):
@@ -86,6 +89,8 @@ func Level3_OpenBottomPuzzles():
 	platform3 = false
 
 	level3_door.OpenDoor()
+	var plate = get_parent().get_node("TimerPuzzle/PressurePlate1")
+	plate.queue_free()
 	for platform in timerPuzzle_Array:
 		platform.position.y = 600
 
@@ -253,6 +258,7 @@ func ClearSavePoints():
 	gemSave.set_deferred("position", Vector2(4621, -589))
 	gemSave.set_deferred("scale", Vector2(10,1.5))
 	GameManager.GemsCollected = {"Green": true, "Blue": true, "Red": true, "Cyan": true, "Magenta": false }
+	AtGemPuzzle = true
 
 func CheckForLevelCompelete():
 	if (not Level3Complete):
