@@ -82,7 +82,7 @@ func _on_EndLevel1_body_entered(body):
 				Level1End()
 
 func Level1End():
-	GameManager.ChangeScene()
+	GameManager.ChangeScene("Level2")
 
 #num * -INCREMENT determines puzzle platform's y-pos (tells current num for current position)
 #Current numbers are the defaults

@@ -10,10 +10,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if (int(Video.stream_position) == 54 and !activated):
-		GameManager.ChangeScene()
+		GameManager.ChangeScene("Tutorial")
 		activated = true
 
 	if (Input.is_action_just_pressed("Jump")):
 		LoadingScene = preload("res://Scenes/Menus/LoadingScene.tscn").instance()
 		self.add_child(LoadingScene)
-		GameManager.ChangeScene()
+		GameManager.ChangeScene("Tutorial")

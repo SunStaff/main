@@ -144,7 +144,7 @@ func OpenTheEnd():
 	EndLevel.set_deferred("monitoring", true)
 
 func Level3End():
-	GameManager.ChangeScene()
+	GameManager.ChangeScene("EndingCutscene")
 
 func OpenGemSelectionScreen(currentPedestal):
 	GemSelectionScreen.ButtonsToBePlaced()

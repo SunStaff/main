@@ -62,7 +62,7 @@ func _on_EndTutorial_body_entered(body):
 	if ("Milo" in body.name):
 		if (Milo.GetHasStaffState()):
 			if (GameManager.GetGemStates()["Red"]):
-				GameManager.ChangeScene()
+				GameManager.ChangeScene("Level1")
 
 func CreateTutorialMessages():
 	TutorialMessages = load("res://Scenes/Milo/TutorialMessages.tscn").instance()

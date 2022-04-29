@@ -22,7 +22,7 @@ func _process(_delta):
 	if (Input.is_action_just_pressed("Jump")):
 		LoadingScene = preload("res://Scenes/Menus/LoadingScene.tscn").instance()
 		self.add_child(LoadingScene)
-		GameManager.ChangeScene()
+		GameManager.ChangeScene("MainMenu")
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
-	GameManager.ChangeScene()
+	GameManager.ChangeScene("MainMenu")

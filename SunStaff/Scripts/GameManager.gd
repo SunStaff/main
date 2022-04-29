@@ -156,36 +156,36 @@ func SetSpawnLocation():
 
 	TeleportPlayer()
 
-func ChangeScene():
+func ChangeScene(goToLevel):
 	IsGamePlaying = false
-	match CurrentLevel:
+	match goToLevel:
 		"MainMenu":
+			SceneTransition.transition_to("res://Scenes/Menus/MainMenu.tscn")
+			SetCurrentLevel("MainMenu")
+		"StartingCutscene":
 			SceneTransition.transition_to("res://Scenes/StartingCutscene.tscn") 
 			SetCurrentLevel("StartingCutscene")
-		"StartingCutscene":
+		"Tutorial":
 			SceneTransition.transition_to("res://Scenes/Tutorial.tscn")
 			SetCurrentLevel("Tutorial")
-		"Tutorial":
+		"Level1":
 			SceneTransition.transition_to("res://Scenes/Level1.tscn")
 			SetCurrentLevel("Level1")
 			GemsCollected = {"Green": false, "Blue": false, "Red": true, "Cyan": false, "Magenta": false }
-		"Level1":
+		"Level2":
 			SceneTransition.transition_to("res://Scenes/Level2.tscn")
 			SetCurrentLevel("Level2")
 			GemsCollected = {"Green": true, "Blue": false, "Red": true, "Cyan": false, "Magenta": false }
-		"Level2":
+		"Level3":
 			SceneTransition.transition_to("res://Scenes/Level3.tscn")
 			SetCurrentLevel("Level3")
 			GemsCollected = {"Green": true, "Blue": true, "Red": true, "Cyan": false, "Magenta": false }
-		"Level3":
+		"EndingCutscene":
 			SceneTransition.transition_to("res://Scenes/EndingCutscene.tscn")
 			SetCurrentLevel("EndingCutscene")
-		"EndingCutscene":
+		"Credits":
 			SceneTransition.transition_to("res://Scenes/Credits.tscn")
 			SetCurrentLevel("Credits")
-		"Credits":
-			SceneTransition.transition_to("res://Scenes/Menus/MainMenu.tscn")
-			SetCurrentLevel("MainMenu")
 	ClearVariables()
 	ChangeSceneCalled = true
 
