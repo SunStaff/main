@@ -340,9 +340,6 @@ material = SubResource( 24 )
 [node name="GemPedestal1" parent="GemPuzzle" index="9"]
 material = SubResource( 25 )
 
-[node name="EndLevel" parent="GemPuzzle" index="12"]
-position = Vector2( 7528, -834 )
-
 [node name="Cyan_GemPickup" parent="." instance=ExtResource( 3 )]
 position = Vector2( 9641, 319 )
 z_index = -1

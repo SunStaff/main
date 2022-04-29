@@ -13,8 +13,6 @@ onready var shader = self.material
 func _ready():
 	LeverManager = get_node("/root/LeverManager")
 
-	#TEMP CALL (Unless it works), DELETE if fails!!!
-	#ResetLeverState()
 
 #When the switch is interacted with, change lever state from ON to OFF, or OFF to ON.
 func _change_lever_state():
@@ -68,13 +66,6 @@ func GlowMaterial(state):
 	else:
 		shader.set_shader_param("color", Color(1,1,1,0))
 
+		
 
-#Currently Temp functions to check and see if progress will get reset
 
-# func ResetLeverState():
-# 	#Looking to have lever state = false at the start of the level
-# 	if (GetLeverState() == true):
-# 		_change_lever_state()
-
-# func GetLeverState():
-# 	return isTurnedOn
