@@ -34,13 +34,16 @@ func PlayRunning():
 		Running.play(0)
 
 func PlayBell():
-	Bell.play(0)
+	if (not Bell.playing):
+		Bell.play(0)
 
 func PlayCollectable():
-	Collectable.play(0)
+	if (not Collectable.playing):
+		Collectable.play(0)
 
 func PlayLanding():
-	Landing.play(0)
+	if (not Landing.playing):
+		Landing.play(0)
 
 func PlayLitAmbience():
 	if (not LitAmbience.playing):

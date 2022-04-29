@@ -6,6 +6,8 @@ var sprite
 var spriteUnlit
 const MARGIN_OF_ERROR = 0.008
 var PlayerCamera
+
+# Audio Variables
 var AudioManager
 
 # SunStaff Variables
@@ -70,7 +72,7 @@ func get_input():
 			playLeftOrRight = true
 			if (not runningSoundPlaying):
 				AudioManager.PlayWalking()
-	
+
 	elif Input.is_action_pressed("Left"):
 		velocity.x -= speed
 		sprite.scale.x = -1
@@ -94,6 +96,7 @@ func get_input():
 		AnimationManager.FallAnimation()
 		yield(get_tree().create_timer(jump_time_to_descent-0.05), "timeout")
 		AudioManager.PlayLanding()
+		AudioManager.PlayBell()
 
 	if Input.is_action_pressed("Sprint") and (Input.is_action_pressed("Left") or Input.is_action_pressed("Right")):
 		velocity.x += speed * 2 * direction
@@ -104,6 +107,11 @@ func get_input():
 		runningSoundPlaying = false
 		AudioManager.StopRunning()
 	
+	if Input.is_action_just_released("Sprint") and (Input.is_action_pressed("Left") or Input.is_action_pressed("Right")):
+		AudioManager.PlayBell()
+	elif Input.is_action_just_pressed("Sprint") and (Input.is_action_pressed("Left") or Input.is_action_pressed("Right")):
+		AudioManager.PlayBell()
+
 	AnimationManager.UpdateAnimations(StateMachine, HasStaff, velocity, playLeftOrRight, speed, MARGIN_OF_ERROR)
 	
 func _process(delta):

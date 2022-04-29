@@ -102,7 +102,7 @@ extents = Vector2( 195.75, 359.75 )
 position = Vector2( 1600, -549 )
 
 [node name="Lit" parent="Milo" index="1"]
-frame = 42
+frame = 41
 
 [node name="AnimationTree" parent="Milo" index="5"]
 parameters/playback = SubResource( 3 )
