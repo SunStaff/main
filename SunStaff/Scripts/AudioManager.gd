@@ -11,6 +11,7 @@ onready var LitAmbience = $LitAmbience
 onready var UnlitAmbience = $UnlitAmbience
 onready var FrustratedMew = $FrustratedMew
 onready var Mew = $Mew
+onready var HappyNoise = $HappyNoise
 
 var LitMusicCurrentPos = 0.0
 var UnlitMusicCurrentPos = 0.0
@@ -60,6 +61,10 @@ func PlayFrustratedMew():
 	if (not FrustratedMew.playing):
 		FrustratedMew.play(0)
 
+func PlayHappyNoise():
+	if (not HappyNoise.playing):
+		HappyNoise.play(0)
+
 func PlayMew():
 	if (not Mew.playing):
 		var rng = RandomNumberGenerator.new()
@@ -96,12 +101,6 @@ func StopLitAmbience():
 
 func StopUnlitAmbience():
 	UnlitAmbience.stop()
-
-func _on_LitAmbience_finished():
-	LitAmbience.play(0.0)
-
-func _on_UnlitAmbience_finished():
-	UnlitAmbience.play(0.0)
 
 func StopMew():
 	Mew.stop()

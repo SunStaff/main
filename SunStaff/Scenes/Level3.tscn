@@ -159,6 +159,7 @@ position = Vector2( 398, -53 )
 
 [node name="Level3Manager" type="Node" parent="." groups=["LevelManager"]]
 script = ExtResource( 9 )
+DebugMode = true
 
 [node name="StaffAltar1_MoveDoor" parent="." instance=ExtResource( 6 )]
 material = SubResource( 12 )

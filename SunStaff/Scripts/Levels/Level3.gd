@@ -264,48 +264,43 @@ func ClearSavePoints():
 
 func CheckForLevelCompelete():
 	if (not Level3Complete):
-		if (Pedestals[0].get_child(0).frame == 2):
+		# If Correct, play happy noise, else, play sad noise
+		if (Pedestals[0].get_child(0).frame == 2 and not firstCorrect):
 			firstCorrect = true
-			# UP LIT AMBIENCE/MUSIC VOLUME
-		else:
+			GameManager.GetPlayer().AudioManager.PlayHappyNoise()
+		elif (Pedestals[0].get_child(0).frame != 2 and firstCorrect):
 			firstCorrect = false
-			pass # UP UNLIT AMBIENCE/MUSIC VOLUME
 
-		if (Pedestals[1].get_child(0).frame == 4):
+		if (Pedestals[1].get_child(0).frame == 4 and not secondCorrect):
 			secondCorrect = true
-			# UP LIT AMBIENCE/MUSIC VOLUME
-		else:
+			GameManager.GetPlayer().AudioManager.PlayHappyNoise()
+		elif (Pedestals[1].get_child(0).frame != 4 and secondCorrect):
 			secondCorrect = false
-			pass # UP UNLIT AMBIENCE/MUSIC VOLUME
 
-		if (Pedestals[2].get_child(0).frame == 1):
+		if (Pedestals[2].get_child(0).frame == 1 and not thirdCorrect):
 			thirdCorrect = true
-			# UP LIT AMBIENCE/MUSIC VOLUME
-		else:
+			GameManager.GetPlayer().AudioManager.PlayHappyNoise()
+		elif (Pedestals[2].get_child(0).frame != 1 and thirdCorrect):
 			thirdCorrect = false
-			pass # UP UNLIT AMBIENCE/MUSIC VOLUME
 
-		if (Pedestals[3].get_child(0).frame == 3):
+		if (Pedestals[3].get_child(0).frame == 3 and not fourthCorrect):
 			fourthCorrect = true
-			# UP LIT AMBIENCE/MUSIC VOLUME
-		else:
+			GameManager.GetPlayer().AudioManager.PlayHappyNoise()
+		elif (Pedestals[3].get_child(0).frame != 3 and fourthCorrect):
 			fourthCorrect = false
-			pass # UP UNLIT AMBIENCE/MUSIC VOLUME
 
-		if (Pedestals[4].get_child(0).frame == 5):
+		if (Pedestals[4].get_child(0).frame == 5 and not fifthCorrect):
 			fifthCorrect = true
-			# UP LIT AMBIENCE/MUSIC VOLUME
-		else:
+			GameManager.GetPlayer().AudioManager.PlayHappyNoise()
+		elif (Pedestals[4].get_child(0).frame != 5 and fifthCorrect):
 			fifthCorrect = false
-			pass # UP UNLIT AMBIENCE/MUSIC VOLUME
 
-		if (StaffAltars[2].activated):
+		if (StaffAltars[2].activated and not altarCorrect):
 			altarCorrect = true
-			# UP LIT AMBIENCE/MUSIC VOLUME
-		else:
+			GameManager.GetPlayer().AudioManager.PlayHappyNoise()
+		elif (not StaffAltars[2].activated and altarCorrect):
 			altarCorrect = false
-			pass # UP UNLIT AMBIENCE/MUSIC VOLUME
-		
+
 		if (firstCorrect and secondCorrect and thirdCorrect and fourthCorrect and fifthCorrect and altarCorrect):
 			Level3Complete = true
 			yield(get_tree().create_timer(2.5), "timeout")

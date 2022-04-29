@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/collectable.v1.ilcapand.wav-17e0b60e77ac10ba395676961ea8b15a.sample"
+
+[deps]
+
+source_file="res://Art/Sounds/collectable.v1.ilcapand.wav"
+dest_files=[ "res://.import/collectable.v1.ilcapand.wav-17e0b60e77ac10ba395676961ea8b15a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

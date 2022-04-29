@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/AudioManager.gd" type="Script" id=1]
 [ext_resource path="res://Art/Sounds/landing.v1.ilcapand.wav" type="AudioStream" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Art/Sounds/262259__shadydave__snowfall-final.wav" type="AudioStream" id=9]
 [ext_resource path="res://Art/Sounds/Shadow Forest.v4.ilcapand.ogg" type="AudioStream" id=10]
 [ext_resource path="res://Art/Sounds/hmm(frustrated).v2.ilcapand.wav" type="AudioStream" id=11]
+[ext_resource path="res://Art/Sounds/collectable.v1.ilcapand.wav" type="AudioStream" id=12]
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource( 1 )
@@ -69,5 +70,7 @@ bus = "SFX"
 [node name="Mew" type="AudioStreamPlayer" parent="."]
 bus = "SFX"
 
-[connection signal="finished" from="LitAmbience" to="." method="_on_LitAmbience_finished"]
-[connection signal="finished" from="UnlitAmbience" to="." method="_on_UnlitAmbience_finished"]
+[node name="HappyNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -6.0
+bus = "SFX"
