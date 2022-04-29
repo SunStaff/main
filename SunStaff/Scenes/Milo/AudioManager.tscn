@@ -53,7 +53,7 @@ bus = "SFX"
 
 [node name="Bell" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
-volume_db = -8.0
+volume_db = -12.0
 bus = "SFX"
 
 [node name="Landing" type="AudioStreamPlayer" parent="."]
@@ -67,6 +67,7 @@ volume_db = -6.0
 bus = "SFX"
 
 [node name="Mew" type="AudioStreamPlayer" parent="."]
+bus = "SFX"
 
 [connection signal="finished" from="LitAmbience" to="." method="_on_LitAmbience_finished"]
 [connection signal="finished" from="UnlitAmbience" to="." method="_on_UnlitAmbience_finished"]

@@ -147,7 +147,7 @@ func PlayerDeath(position):
 
 func ChangeHasStaffState(state):
 	HasStaff = state
-	AudioManager.ChangeBetweenLitAndUnlit(HasStaff)
+	AudioManager.ChangeBetweenLitAndUnlit(state)
 
 func GetHasStaffState():
 	return HasStaff

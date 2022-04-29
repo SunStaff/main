@@ -204,7 +204,7 @@ __meta__ = {
 
 [node name="TreesFront-2" type="Sprite" parent="UnlitBack/UnlitTreeFront"]
 light_mask = 2
-position = Vector2( -271, -291 )
+position = Vector2( -271, -355 )
 texture = ExtResource( 18 )
 
 [node name="Lv3UnlitWorldForground" type="Sprite" parent="UnlitBack/UnlitTreeFront"]
@@ -407,7 +407,7 @@ __meta__ = {
 }
 
 [node name="TreesFront-2" type="Sprite" parent="LitBack/LitTreeFront"]
-position = Vector2( -271, -291 )
+position = Vector2( -271, -355 )
 texture = ExtResource( 17 )
 
 [node name="RockForPuttingInLevelLit" type="Sprite" parent="LitBack/LitTreeFront"]
