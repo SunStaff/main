@@ -27,9 +27,7 @@ func _ready():
 	platform1 = get_parent().get_node("Platform")
 	platform1.get_child(2).set_deferred("disabled", true)
 	platform1.get_child(1).set_deferred("visible", false)
-	platform2 = get_parent().get_node("Platform2")
-	platform2.get_child(2).set_deferred("disabled", true)
-	platform2.get_child(1).set_deferred("visible", false)
+
 
 	StaffAltar_Grand.CurrentAltarWithStaff = StaffAltar_Grand
 	StaffAltar_Grand.activated = true
@@ -55,8 +53,7 @@ func GrandStaff():
 			
 		platform1.get_child(2).set_deferred("disabled", false)
 		platform1.get_child(1).set_deferred("visible", true)
-		platform2.get_child(2).set_deferred("disabled", false)
-		platform2.get_child(1).set_deferred("visible", true)
+	
 
 func _on_EndTutorial_body_entered(body):
 	if ("Milo" in body.name):
