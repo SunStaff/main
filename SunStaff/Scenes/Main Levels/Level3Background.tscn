@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Art/Unlit/Backgrounds/Level3/LV_3_unlit_world_forground.png" type="Texture" id=1]
 [ext_resource path="res://Art/Unlit/Backgrounds/Level3/Resized/LV_3_unlit_world_grass.png" type="Texture" id=2]
@@ -40,6 +40,9 @@ extents = Vector2( 347.5, 103 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 65, 2500 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 88.5, 1205 )
 
 [sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 20 )
@@ -322,6 +325,10 @@ shape = SubResource( 4 )
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="LitBack/LitGround"]
 position = Vector2( 5300, 1 )
 shape = SubResource( 4 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="LitBack/LitGround"]
+position = Vector2( 4894.5, -1598 )
+shape = SubResource( 6 )
 
 [node name="LitTreeFront" type="Node2D" parent="LitBack"]
 position = Vector2( -4576, 0 )
