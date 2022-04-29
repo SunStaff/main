@@ -13,14 +13,6 @@ onready var UnlitAmbience = $UnlitAmbience
 var LitMusicCurrentPos = 0.0
 var UnlitMusicCurrentPos = 0.0
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 func PlayLitMusic():
 	if (LitMusicCurrentPos > LitMusic.stream.get_length() - 5):
 		LitMusicCurrentPos = 0.0

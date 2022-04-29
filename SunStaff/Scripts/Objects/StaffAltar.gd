@@ -40,17 +40,17 @@ func _on_StaffAltar_body_exited(body):
 func _on_LightCircle_area_entered(area):
 	if ("Briar" in area.name):
 		area.SetObjectLightState(true)
-	if("Lever3" in area.name):
+	elif("Lever3" in area.name):
 		area.SetObjectLightState(true)
-	if ("UnlitOnlyPlatform" in area.name):
+	elif ("UnlitOnlyPlatform" in area.name):
 		area.SetObjectLightState(true)
 
 func _on_LightCircle_area_exited(area):
 	if ("Briar" in area.name):
 		area.SetObjectLightState(false)
-	if("Lever3" in area.name):
+	elif("Lever3" in area.name):
 		area.SetObjectLightState(false)
-	if ("UnlitOnlyPlatform" in area.name):
+	elif ("UnlitOnlyPlatform" in area.name):
 		area.SetObjectLightState(false)
 
 func SunStaffPlacement():
@@ -81,7 +81,7 @@ func GetCurrentClosestAltar(altars, player):
 	CurrentClosestAltar = null
 	# Get Current Closest Altar
 	for altar in altars:
-		var distanceTo = GameManager.DistanceTo(player.position, altar.global_position)
+		var distanceTo = player.position.distance_to(altar.global_position)
 		if (distanceTo < minDistanceToAltar):
 			minDistanceToAltar = distanceTo
 			CurrentClosestAltar = altar

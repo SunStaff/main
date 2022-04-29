@@ -331,7 +331,7 @@ func Test_GameManager_DistanceTo_Normal():
 	var b = Vector2(10,10)
 
 	var expected = 14.142136
-	var result = GameManager.DistanceTo(a,b)
+	var result = a.distance_to(b)
 
 	if (abs(result - expected) <= 0.00001):
 		return [true, "GameManager_DistanceTo_Normal"]
@@ -343,7 +343,7 @@ func Test_GameManager_DistanceTo_SameValue():
 	var b = Vector2(0,0)
 
 	var expected = 0
-	var result = GameManager.DistanceTo(a,b)
+	var result = a.distance_to(b)
 	if (abs(result - expected) <= 0.00001):
 		return [true, "GameManager_DistanceTo_SameValue"]
 	else:
@@ -354,7 +354,7 @@ func Test_GameManager_DistanceTo_NullValues():
 	var b = null
 
 	var expected = -1
-	var result = GameManager.DistanceTo(a,b)
+	var result = a.distance_to(b)
 	if (abs(result - expected) <= 0.00001):
 		return [true, "GameManager_DistanceTo_NullValues"]
 	else:

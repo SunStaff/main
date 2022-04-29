@@ -10,7 +10,7 @@ var Player
 var GemSelectionScreen
 var SceneTransition
 var ChangeSceneCalled = false
-var LevelManagers = []
+var LevelManager = []
 var AutoTester
 var PlayerCamera
 const GLOWMATERIALTIME = 0.5
@@ -32,7 +32,7 @@ func _ready():
 			IsGamePlaying = false
 			print("Testing Failed!! Please check tests!!")
 		Player = GetPlayer()
-		LevelManagers = GetLevelManagers()
+		LevelManager = GetLevelManager()
 		
 		SetSpawnLocation()
 
@@ -76,8 +76,8 @@ func GetLevers():
 func GetGemStates():
 	return GemsCollected
 
-func GetLevelManagers():
-	return get_tree().get_nodes_in_group("LevelManager")
+func GetLevelManager():
+	return get_tree().get_nodes_in_group("LevelManager")[0]
 
 func TeleportPlayer():
 	Player.PlayerDeath(LastLivingPos) 
@@ -126,13 +126,12 @@ func ToggleGem(color):
 			return ["Not Valid Gem Color for ToggleGem()", null]
 
 func CheckForLevelSpecificActions(from, information, optionalNode):
-	LevelManagers.clear()
-	LevelManagers = GetLevelManagers()
+	LevelManager = GetLevelManager()
 	match CurrentLevel:
 		"Tutorial":
 			if ("Altar" in from):
 				if ("_MoveDoor" in optionalNode.name):
-					LevelManagers[0].Tutorial_MoveDoor_DueTo_StaffAltar(information)
+					LevelManager.Tutorial_MoveDoor_DueTo_StaffAltar(information)
 		"Level1":
 			pass
 		"Level2":
@@ -140,17 +139,9 @@ func CheckForLevelSpecificActions(from, information, optionalNode):
 		"Level3":
 			if ("Altar" in from):
 				if ("_MoveDoor" in optionalNode.name):
-					LevelManagers[0].Level3_MoveDoor_DueTo_StaffAltar(information)
+					LevelManager.Level3_MoveDoor_DueTo_StaffAltar(information)
 				elif ("_GemPuzzle" in optionalNode.name):
-					LevelManagers[0].ChangeAltarBeamColors(information, optionalNode)
-
-func DistanceTo(a,b):
-	if (a == null or b == null):
-		return -1
-	else:
-		var x = b.x - a.x
-		var y = b.y - a.y
-		return sqrt(pow(x,2) + pow(y,2))
+					LevelManager.ChangeAltarBeamColors(information, optionalNode)
 
 func SetSpawnLocation():
 	match CurrentLevel:
@@ -201,12 +192,11 @@ func ChangeScene():
 func ClearVariables():
 	Player = null
 	PlayerCamera = null
-	LevelManagers.clear()
 	activated = null
 
 func GetNewInstancesOfVariables():
 	Player = GetPlayer()
-	LevelManagers = GetLevelManagers()
+	LevelManager = GetLevelManager()
 	PlayerCamera = Player.get_child(4)
 	activated = false
 	SetSpawnLocation()
