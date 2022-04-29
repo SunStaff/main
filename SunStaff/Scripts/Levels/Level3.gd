@@ -26,6 +26,7 @@ export (bool) var DebugMode = false
 
 # Gem Puzzle Variables
 var MagentaGemPedestal
+var CheckPuzzle = null
 var firstCorrect = false
 var secondCorrect = false
 var thirdCorrect = false
@@ -71,7 +72,8 @@ func _process(_delta):
 		ChangeRockSlideState(true)
 
 	if (AtGemPuzzle):
-		CheckForLevelCompelete()
+		if (not CheckPuzzle or not CheckPuzzle.is_valid()):
+			CheckPuzzle = CheckForLevelCompelete()
 
 
 func Level3_MoveDoor_DueTo_StaffAltar(open):

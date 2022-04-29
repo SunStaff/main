@@ -22,7 +22,7 @@ func _process(_delta):
 	LightingEffect()
 
 func _on_PlayButton_pressed():
-	GameManager.ChangeScene()
+	GameManager.ChangeScene("StartingCutscene")
 
 # CURRENTLY DISABLED IN INSPECTOR
 func _on_QuitButton_pressed():
