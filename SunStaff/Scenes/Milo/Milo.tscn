@@ -486,7 +486,7 @@ frame = 17
 texture = ExtResource( 4 )
 hframes = 8
 vframes = 10
-frame = 43
+frame = 37
 
 [node name="SunStaff" parent="Lit" instance=ExtResource( 3 )]
 

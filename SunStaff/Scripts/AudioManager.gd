@@ -9,9 +9,12 @@ onready var Collectable = $Collectable
 onready var Landing = $Landing
 onready var LitAmbience = $LitAmbience
 onready var UnlitAmbience = $UnlitAmbience
+onready var FrustratedMew = $FrustratedMew
+onready var Mew = $Mew
 
 var LitMusicCurrentPos = 0.0
 var UnlitMusicCurrentPos = 0.0
+var MewArray = ["res://Art/Sounds/mew.v1.ilcapand.wav","res://Art/Sounds/mew.v2.ilcapand.wav","res://Art/Sounds/mew.v3.ilcapand.wav"]
 
 func PlayLitMusic():
 	if (LitMusicCurrentPos > LitMusic.stream.get_length() - 5):
@@ -53,6 +56,18 @@ func PlayUnlitAmbience():
 	if (not UnlitAmbience.playing):
 		UnlitAmbience.play(0)
 
+func PlayFrustratedMew():
+	if (not FrustratedMew.playing):
+		FrustratedMew.play(0)
+
+func PlayMew():
+	if (not Mew.playing):
+		var rng = RandomNumberGenerator.new()
+		rng.randomize()
+		var randomMew = load(MewArray[rng.randi_range(0,len(MewArray)-1)])
+		Mew.stream = randomMew
+		Mew.play(0)
+
 func StopLitMusic():
 	LitMusicCurrentPos = LitMusic.get_playback_position()
 	LitMusic.stop()
@@ -87,6 +102,9 @@ func _on_LitAmbience_finished():
 
 func _on_UnlitAmbience_finished():
 	UnlitAmbience.play(0.0)
+
+func StopMew():
+	Mew.stop()
 
 func ChangeBetweenLitAndUnlit(HasStaff):
 	if (HasStaff):

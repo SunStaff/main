@@ -9,6 +9,8 @@ var PlayerCamera
 
 # Audio Variables
 var AudioManager
+var mewFunc = null
+var allowMew = true
 
 # SunStaff Variables
 var HasStaff = true
@@ -85,6 +87,9 @@ func get_input():
 	else:
 		AudioManager.StopWalking()
 		AudioManager.StopRunning()
+		if allowMew and (not mewFunc or not mewFunc.is_valid()):
+			allowMew = false
+			mewFunc = MiloMew()
 
 	if Input.is_action_pressed("Jump"):
 		playLeftOrRight = false
@@ -153,6 +158,11 @@ func GetGravity():
 func CoyoteTimeJump():
 	yield(get_tree().create_timer(.1), "timeout")
 	ctAllowJump = false
+
+func MiloMew():
+	AudioManager.PlayMew()
+	yield(get_tree().create_timer(8.0), "timeout")
+	allowMew = true
 
 func ChangeCameraBorders():
 	match (GameManager.GetCurrentLevel()):

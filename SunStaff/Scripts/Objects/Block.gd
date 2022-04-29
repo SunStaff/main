@@ -52,3 +52,4 @@ func _on_Area2D_body_exited(body:Node):
 func _on_Area2D_body_entered(body:Node):
 	if ("Milo" in body.name):
 		WithinBlockRange = true
+		GameManager.GetPlayer().AudioManager.PlayFrustratedMew()

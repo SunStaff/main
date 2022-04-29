@@ -1,15 +1,16 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/AudioManager.gd" type="Script" id=1]
 [ext_resource path="res://Art/Sounds/landing.v1.ilcapand.wav" type="AudioStream" id=2]
 [ext_resource path="res://Art/Sounds/Footstep 1.ilcapand.wav" type="AudioStream" id=3]
-[ext_resource path="res://Art/Sounds/Footstep 3.ilcapand.wav" type="AudioStream" id=4]
+[ext_resource path="res://Art/Sounds/Running.v2.ilcapand.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Art/Sounds/pickup.v2.ilcapand.wav" type="AudioStream" id=5]
 [ext_resource path="res://Art/Sounds/bell.v3.ilcapand.wav" type="AudioStream" id=6]
 [ext_resource path="res://Art/Sounds/Fairy Forest.v3.ilcapand.wav" type="AudioStream" id=7]
 [ext_resource path="res://Art/Sounds/535934__shortrecord__soft-music.wav" type="AudioStream" id=8]
 [ext_resource path="res://Art/Sounds/262259__shadydave__snowfall-final.wav" type="AudioStream" id=9]
-[ext_resource path="res://Art/Sounds/368309__kristiankulta__spooky-ambiance-2.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Art/Sounds/Shadow Forest.v4.ilcapand.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Art/Sounds/hmm(frustrated).v2.ilcapand.wav" type="AudioStream" id=11]
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource( 1 )
@@ -33,7 +34,7 @@ bus = "Ambience"
 
 [node name="UnlitAmbience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
-volume_db = -10.0
+volume_db = -15.0
 bus = "Ambience"
 
 [node name="Walking" type="AudioStreamPlayer" parent="."]
@@ -59,6 +60,13 @@ bus = "SFX"
 stream = ExtResource( 2 )
 volume_db = -6.0
 bus = "SFX"
+
+[node name="FrustratedMew" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -6.0
+bus = "SFX"
+
+[node name="Mew" type="AudioStreamPlayer" parent="."]
 
 [connection signal="finished" from="LitAmbience" to="." method="_on_LitAmbience_finished"]
 [connection signal="finished" from="UnlitAmbience" to="." method="_on_UnlitAmbience_finished"]

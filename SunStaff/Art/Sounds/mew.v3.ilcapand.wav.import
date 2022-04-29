@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mew.v3.ilcapand.wav-6987e599cb5445fa9b82fc7d1f41c5b3.sample"
+
+[deps]
+
+source_file="res://Art/Sounds/mew.v3.ilcapand.wav"
+dest_files=[ "res://.import/mew.v3.ilcapand.wav-6987e599cb5445fa9b82fc7d1f41c5b3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
