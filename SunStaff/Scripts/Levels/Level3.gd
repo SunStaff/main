@@ -20,6 +20,7 @@ var EndDoor
 var EndLevel
 var RockSlide
 var RockSlidePlatform
+var AtGemPuzzle = false
 var stopTimerPuzzle = false
 export (bool) var DebugMode = false
 
@@ -48,7 +49,7 @@ func _ready():
 	EndLevel.set_deferred("monitoring", false)
 	timerPuzzle_Array.append(get_parent().get_node("TimerPuzzle/TimerPlatform1"))
 	timerPuzzle_Array.append(get_parent().get_node("TimerPuzzle/TimerPlatform2"))
-	timerPuzzle_Array.append(get_parent().get_node("TimerPuzzle/TimerPlatform3"))
+	#timerPuzzle_Array.append(get_parent().get_node("TimerPuzzle/TimerPlatform3"))
 	timer = Timer.new()
 	self.add_child(timer)
 	GemSelectionScreen = get_tree().get_nodes_in_group("GemSelectionScreen")[0]
@@ -68,7 +69,9 @@ func _process(_delta):
 		ChangeRockSlideState(false)
 	else:
 		ChangeRockSlideState(true)
-	CheckForLevelCompelete()
+
+	if (AtGemPuzzle):
+		CheckForLevelCompelete()
 
 
 func Level3_MoveDoor_DueTo_StaffAltar(open):
@@ -86,6 +89,8 @@ func Level3_OpenBottomPuzzles():
 	platform3 = false
 
 	level3_door.OpenDoor()
+	var plate = get_parent().get_node("TimerPuzzle/PressurePlate1")
+	plate.queue_free()
 	for platform in timerPuzzle_Array:
 		platform.position.y = 600
 
@@ -103,12 +108,13 @@ func Level3_TimerPuzzle():
 				if (timerPuzzle_Array[1].position.y <= 600):
 					platform2 = true
 
-			if (not platform3):
-				timerPuzzle_Array[2].position.y -= 50
-				if (timerPuzzle_Array[2].position.y <= 800):
-					platform3 = true
+			# if (not platform3):
+			# 	timerPuzzle_Array[2].position.y -= 50
+			# 	if (timerPuzzle_Array[2].position.y <= 800):
+			# 		platform3 = true
 			
-			if (platform1 and platform2 and platform3):
+			#if (platform1 and platform2 and platform3):
+			if (platform1 and platform2):
 				allPlatformsUp = true
 
 			timer.set_wait_time(0.1)
@@ -117,8 +123,8 @@ func Level3_TimerPuzzle():
 			yield(timer, "timeout")
 
 		while (not BottomPuzzlesComplete and (timerPuzzle_Array[0].position.y < 2000 or
-			timerPuzzle_Array[1].position.y < 2000 or
-			timerPuzzle_Array[2].position.y < 2000)):
+			timerPuzzle_Array[1].position.y < 2000)):
+			#or timerPuzzle_Array[2].position.y < 2000)):
 			for platform in timerPuzzle_Array:
 				platform.position.y += 50
 				timer.set_wait_time(0.5)
@@ -138,7 +144,6 @@ func OpenTheEnd():
 	EndLevel.set_deferred("monitoring", true)
 
 func Level3End():
-	print("End of Level 3")
 	GameManager.ChangeScene()
 
 func OpenGemSelectionScreen(currentPedestal):
@@ -249,10 +254,11 @@ func ClearSavePoints():
 	for plate in PressurePlates:
 		plate.queue_free()
 	var gemSave = load("res://Scenes/Objects/SavingPoint.tscn").instance()
+	get_parent().add_child(gemSave)
 	gemSave.set_deferred("position", Vector2(4621, -589))
 	gemSave.set_deferred("scale", Vector2(10,1.5))
-	get_parent().add_child(gemSave)
 	GameManager.GemsCollected = {"Green": true, "Blue": true, "Red": true, "Cyan": true, "Magenta": false }
+	AtGemPuzzle = true
 
 func CheckForLevelCompelete():
 	if (not Level3Complete):
@@ -260,40 +266,46 @@ func CheckForLevelCompelete():
 			firstCorrect = true
 			# UP LIT AMBIENCE/MUSIC VOLUME
 		else:
+			firstCorrect = false
 			pass # UP UNLIT AMBIENCE/MUSIC VOLUME
 
 		if (Pedestals[1].get_child(0).frame == 4):
 			secondCorrect = true
 			# UP LIT AMBIENCE/MUSIC VOLUME
 		else:
+			secondCorrect = false
 			pass # UP UNLIT AMBIENCE/MUSIC VOLUME
 
 		if (Pedestals[2].get_child(0).frame == 1):
 			thirdCorrect = true
 			# UP LIT AMBIENCE/MUSIC VOLUME
 		else:
+			thirdCorrect = false
 			pass # UP UNLIT AMBIENCE/MUSIC VOLUME
 
 		if (Pedestals[3].get_child(0).frame == 3):
 			fourthCorrect = true
 			# UP LIT AMBIENCE/MUSIC VOLUME
 		else:
+			fourthCorrect = false
 			pass # UP UNLIT AMBIENCE/MUSIC VOLUME
 
 		if (Pedestals[4].get_child(0).frame == 5):
 			fifthCorrect = true
 			# UP LIT AMBIENCE/MUSIC VOLUME
 		else:
+			fifthCorrect = false
 			pass # UP UNLIT AMBIENCE/MUSIC VOLUME
 
 		if (StaffAltars[2].activated):
 			altarCorrect = true
 			# UP LIT AMBIENCE/MUSIC VOLUME
 		else:
+			altarCorrect = false
 			pass # UP UNLIT AMBIENCE/MUSIC VOLUME
 		
 		if (firstCorrect and secondCorrect and thirdCorrect and fourthCorrect and fifthCorrect and altarCorrect):
 			Level3Complete = true
-			yield(get_tree().create_timer(1.5), "timeout")
+			yield(get_tree().create_timer(2.5), "timeout")
 			Diamond.set_deferred("modulate", Color(1,1,1,1))
 			OpenTheEnd()

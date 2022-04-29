@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scenes/Objects/Platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/StaffAltar.tscn" type="PackedScene" id=2]
@@ -13,7 +13,6 @@
 [ext_resource path="res://Scenes/Objects/GemPickup.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Art/Misc/outlineShaderCode.shader" type="Shader" id=12]
 [ext_resource path="res://Scenes/Objects/UnlitOnlyPlatform.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scenes/Objects/Briar.tscn" type="PackedScene" id=14]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=3]
 
@@ -97,19 +96,19 @@ extents = Vector2( 195.75, 359.75 )
 
 [node name="Level1" type="Node"]
 
-[node name="Level1Manager" type="Node" parent="." groups=["LevelManager"]]
-script = ExtResource( 6 )
-
 [node name="Level1Background" parent="." instance=ExtResource( 9 )]
 
 [node name="Milo" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1600, -549 )
 
 [node name="Lit" parent="Milo" index="1"]
-frame = 47
+frame = 45
 
 [node name="AnimationTree" parent="Milo" index="5"]
 parameters/playback = SubResource( 3 )
+
+[node name="Level1Manager" type="Node" parent="." groups=["LevelManager"]]
+script = ExtResource( 6 )
 
 [node name="Platforms" type="Node" parent="."]
 
@@ -218,8 +217,8 @@ position = Vector2( 2117, 327 )
 scale = Vector2( 8, 1.5 )
 
 [node name="SavingPoint4" parent="." instance=ExtResource( 8 )]
-position = Vector2( 9912, -664 )
-scale = Vector2( 5, 1.5 )
+position = Vector2( 10325, -817 )
+scale = Vector2( 15, 15 )
 
 [node name="SavingPoint5" parent="." instance=ExtResource( 8 )]
 position = Vector2( 13215, 83 )
@@ -257,7 +256,8 @@ visible = false
 visible = false
 
 [node name="Green_GemPickup" parent="." instance=ExtResource( 11 )]
-position = Vector2( 20897, -1204 )
+position = Vector2( 20641, -1204 )
+z_index = -1
 
 [node name="AnimatedSprite2" parent="Green_GemPickup" index="1"]
 frame = 1
@@ -265,46 +265,11 @@ frame = 1
 [node name="AnimatedSprite" parent="Green_GemPickup" index="2"]
 frame = 1
 
-[node name="Briar" parent="." instance=ExtResource( 14 )]
-position = Vector2( 4806, 450 )
-
-[node name="Briar2" parent="." instance=ExtResource( 14 )]
-position = Vector2( 4806, 634 )
-
-[node name="Briar3" parent="." instance=ExtResource( 14 )]
-position = Vector2( 10140, 333 )
-
-[node name="Briar4" parent="." instance=ExtResource( 14 )]
-position = Vector2( 10140, 517 )
-
-[node name="Briar5" parent="." instance=ExtResource( 14 )]
-position = Vector2( 10396, 333 )
-
-[node name="Briar6" parent="." instance=ExtResource( 14 )]
-position = Vector2( 10396, 517 )
-
-[node name="Briar7" parent="." instance=ExtResource( 14 )]
-position = Vector2( 10644, 333 )
-
-[node name="Briar8" parent="." instance=ExtResource( 14 )]
-position = Vector2( 10644, 517 )
-
-[node name="Briar9" parent="." instance=ExtResource( 14 )]
-position = Vector2( 10892, 333 )
-
-[node name="Briar10" parent="." instance=ExtResource( 14 )]
-position = Vector2( 10892, 517 )
-
-[node name="Briar11" parent="." instance=ExtResource( 14 )]
-position = Vector2( 11116, 333 )
-
-[node name="Briar12" parent="." instance=ExtResource( 14 )]
-position = Vector2( 11116, 517 )
-
 [connection signal="body_entered" from="EndLevel1" to="Level1Manager" method="_on_EndLevel1_body_entered"]
 
 [editable path="Milo"]
 [editable path="Milo/Lit/SunStaff"]
+[editable path="MovingAltar"]
 [editable path="MovingBlock"]
 [editable path="PressurePlate1"]
 [editable path="PressurePlate2"]

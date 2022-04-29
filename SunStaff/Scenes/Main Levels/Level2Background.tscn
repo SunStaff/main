@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Art/Unlit/Backgrounds/Level2/LV_2_unlit_design_darkgrass.png" type="Texture" id=1]
 [ext_resource path="res://Art/Unlit/Backgrounds/Level2/Resized/LV_2_unlit_design_.png" type="Texture" id=2]
@@ -27,6 +27,10 @@
 [ext_resource path="res://Art/Foreground/BackTrees/TreesBack-1.png" type="Texture" id=25]
 [ext_resource path="res://Art/Foreground/BackTrees/TreesBack-9.png" type="Texture" id=26]
 [ext_resource path="res://Art/Misc/Gems/gem_pedastel.png" type="Texture" id=27]
+[ext_resource path="res://Art/Foreground/BackTrees/TreesBack-7.png" type="Texture" id=28]
+[ext_resource path="res://Art/Foreground/BackTrees/TreesBack-11.png" type="Texture" id=29]
+[ext_resource path="res://Art/Foreground/BackTrees/TreesBack-8.png" type="Texture" id=30]
+[ext_resource path="res://Art/Foreground/BackTrees/TreesBack-12.png" type="Texture" id=31]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 756.667, 65 )
@@ -221,6 +225,31 @@ light_mask = 2
 position = Vector2( -3666.67, -584 )
 texture = ExtResource( 25 )
 
+[node name="TreesBack-9" type="Sprite" parent="UnlitBack/Background"]
+light_mask = 2
+position = Vector2( 1308.67, -624 )
+texture = ExtResource( 26 )
+
+[node name="TreesBack-7" type="Sprite" parent="UnlitBack/Background"]
+light_mask = 2
+position = Vector2( 256.667, -781.333 )
+texture = ExtResource( 28 )
+
+[node name="TreesBack-3" type="Sprite" parent="UnlitBack/Background"]
+light_mask = 2
+position = Vector2( -4359.33, -533.333 )
+texture = ExtResource( 22 )
+
+[node name="TreesBack-11" type="Sprite" parent="UnlitBack/Background"]
+light_mask = 2
+position = Vector2( 4812.67, -553.333 )
+texture = ExtResource( 29 )
+
+[node name="TreesBack-12" type="Sprite" parent="UnlitBack/Background"]
+light_mask = 2
+position = Vector2( 3623.33, -328 )
+texture = ExtResource( 26 )
+
 [node name="Lv2DesignUnlitGround" type="Sprite" parent="UnlitBack"]
 light_mask = 2
 position = Vector2( 0, 165.333 )
@@ -262,9 +291,6 @@ light_mask = 0
 position = Vector2( 5815, -430 )
 scale = Vector2( 1.5, 1.5 )
 z_index = -2
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sky" type="Sprite" parent="LitBack"]
 position = Vector2( -6728, -539.333 )
@@ -385,6 +411,26 @@ texture = ExtResource( 21 )
 position = Vector2( -3666.67, -584 )
 texture = ExtResource( 24 )
 
+[node name="TreesBack-9" type="Sprite" parent="LitBack/Background"]
+position = Vector2( 1308.67, -624 )
+texture = ExtResource( 23 )
+
+[node name="TreesBack-7" type="Sprite" parent="LitBack/Background"]
+position = Vector2( 256.667, -781.333 )
+texture = ExtResource( 30 )
+
+[node name="TreesBack-3" type="Sprite" parent="LitBack/Background"]
+position = Vector2( -4359.33, -533.333 )
+texture = ExtResource( 21 )
+
+[node name="TreesBack-11" type="Sprite" parent="LitBack/Background"]
+position = Vector2( 4812.67, -553.333 )
+texture = ExtResource( 31 )
+
+[node name="TreesBack-12" type="Sprite" parent="LitBack/Background"]
+position = Vector2( 3623.33, -328 )
+texture = ExtResource( 23 )
+
 [node name="Lv2DesignLitDarkgrass3" type="Sprite" parent="LitBack"]
 position = Vector2( 0, 165.331 )
 scale = Vector2( 2, 2 )
@@ -480,7 +526,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Fog"]
-modulate = Color( 1, 1, 1, 0.352941 )
+modulate = Color( 1, 1, 1, 0.588235 )
 light_mask = 0
 material = SubResource( 12 )
 position = Vector2( 5807.5, 413 )
@@ -490,4 +536,5 @@ texture = ExtResource( 13 )
 [node name="Sprite" type="Sprite" parent="."]
 light_mask = 0
 position = Vector2( 12620, -35 )
+z_index = -1
 texture = ExtResource( 27 )

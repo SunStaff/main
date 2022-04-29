@@ -64,19 +64,14 @@ func Tutorial(lever, turnedOn):
 			leverNameValid = true
 			if (turnedOn):
 				leverFlippedCount += 1
-				print("LeverFlippedCount up 1")
 			elif(!turnedOn):
 				leverFlippedCount -= 1
-				print("LeverFlippedCount down 1")
 		"2":
 			leverNameValid = true
 			if (turnedOn):
 				leverFlippedCount += 1
-				print("LeverFlippedCount up 1")
 			elif(!turnedOn):
 				leverFlippedCount -= 1
-				print("LeverFlippedCount down 1")
-	print("LeverFlippedCount: ", leverFlippedCount)
 	if (leverNameValid):
 		leverNameValid = false
 		if(leverFlippedCount == 1):
@@ -92,7 +87,7 @@ func Tutorial(lever, turnedOn):
 
 func Level1(lever, turnedOn):
 	var name = lever.name.replacen("Lever", "")
-	
+	var lvl1Manager = GameManager.GetLevelManager()
 	var POS1 = 2841
 	var POS2 = 7425
 	var POS3 = 12768
@@ -103,47 +98,46 @@ func Level1(lever, turnedOn):
 		
 		#First lever for ending lever puzzle
 		"1":
-			GameManager.GetLevelManagers()[0].FlippedPuzzleLever(1)
+			lvl1Manager.FlippedPuzzleLever(1)
 		#Second lever for ending lever puzzle
 		"2":
-			GameManager.GetLevelManagers()[0].FlippedPuzzleLever(2)
+			lvl1Manager.FlippedPuzzleLever(2)
 		#Third lever for ending lever puzzle
 		"3":
-			GameManager.GetLevelManagers()[0].FlippedPuzzleLever(3)
+			lvl1Manager.FlippedPuzzleLever(3)
 		#Drops block to get to 2 levers
 		"4":
-			GameManager.GetLevelManagers()[0].MoveBlock()
+			lvl1Manager.MoveBlock()
 		#Moves altar to third altar position
 		"5":
 			if (turnedOn):
-				GameManager.GetLevelManagers()[0].ChangeAltarPos(POS3, true)
-				GameManager.GetLevelManagers()[0].SetAltarCheckPoint(3)
+				lvl1Manager.ChangeAltarPos(POS3, true)
+				lvl1Manager.SetAltarCheckPoint(3)
 			else:
-				GameManager.GetLevelManagers()[0].ChangeAltarPos(POS2, false)
-				GameManager.GetLevelManagers()[0].SetAltarCheckPoint(2)
+				lvl1Manager.ChangeAltarPos(POS2, false)
+				lvl1Manager.SetAltarCheckPoint(2)
 		#First lever to flick in level, releases bridge
 		"6":
-			GameManager.GetLevelManagers()[0].ReleaseDrawBridge()
+			lvl1Manager.ReleaseDrawBridge()
 		#Moves altar to second altar position
 		"7":
 			if (turnedOn):
-				GameManager.GetLevelManagers()[0].ChangeAltarPos(POS2, true)
-				GameManager.GetLevelManagers()[0].SetAltarCheckPoint(2)
+				lvl1Manager.ChangeAltarPos(POS2, true)
+				lvl1Manager.SetAltarCheckPoint(2)
 			else:
-				GameManager.GetLevelManagers()[0].ChangeAltarPos(POS1, false)
-				GameManager.GetLevelManagers()[0].SetAltarCheckPoint(1)
+				lvl1Manager.ChangeAltarPos(POS1, false)
+				lvl1Manager.SetAltarCheckPoint(1)
 
 func Level2(lever, turnedOn):
 	var name = lever.name.replacen("Lever", "")
+	var lvl2Manager = GameManager.GetLevelManager()
 	match(name):
 		"1":
 			leverNameValid = true
 			if (turnedOn):
 				leverFlippedCount += 1
-				print("LeverFlippedCount up 1")
 			elif(!turnedOn):
 				leverFlippedCount -= 1
-				print("LeverFlippedCount down 1")
 		"2":
 			leverNameValid = true
 			if(turnedOn):
@@ -157,10 +151,9 @@ func Level2(lever, turnedOn):
 			elif(!turnedOn):
 				leverFlippedCount -= 1
 		"4":
-			GameManager.GetLevelManagers()[0].Level2_Ravine_FirstLever(turnedOn)
+			lvl2Manager.Level2_Ravine_FirstLever(turnedOn)
 		"5":
-			GameManager.GetLevelManagers()[0].Level2_Ravine_SecondLever(turnedOn)
-	print("LeverFlippedCount: ", leverFlippedCount)
+			lvl2Manager.Level2_Ravine_SecondLever(turnedOn)
 	if (leverNameValid):
 		leverNameValid = false
 		if(leverFlippedCount >= 3):
@@ -230,9 +223,9 @@ func GetCurrentClosestLever(levers, player):
 	for lever in levers:
 		var distanceTo = 0
 		if (childOfRoot):
-			distanceTo = GameManager.DistanceTo(player.position, lever.position)
+			distanceTo = player.position.distance_to(lever.position)
 		else:
-			distanceTo = GameManager.DistanceTo(player.position, lever.global_position)
+			distanceTo = player.position.distance_to(lever.global_position)
 		if (distanceTo < minDistanceToLever):
 			minDistanceToLever = distanceTo
 			CurrentClosestLever = lever
@@ -248,17 +241,17 @@ func GetDoors():
 		platform1 = Platforms[0]
 		platform2 = Platforms[1]
 		platform3 = Platforms[2]
-	if(get_tree().get_current_scene().get_name() == "Level2"):
+	elif(get_tree().get_current_scene().get_name() == "Level2"):
 		Doors = get_tree().get_nodes_in_group("Door")
 		door1 = Doors[0]
 	#Added if-statement, so the doors are only obtained for level 3
-	if(get_tree().get_current_scene().get_name() == "Level3"):
+	elif(get_tree().get_current_scene().get_name() == "Level3"):
 		Doors = get_tree().get_nodes_in_group("Door")
 		door1 = Doors[1]
 		door2 = Doors[2]
 		door3 = Doors[3]
 		door4 = Doors[4]
-	if(get_tree().get_current_scene().get_name() == "Tutorial"):
+	elif(get_tree().get_current_scene().get_name() == "Tutorial"):
 		Doors = get_tree().get_nodes_in_group("Door")
 		door1 = Doors[0]
 		door2 = Doors[1]

@@ -15,14 +15,12 @@ func set_is_paused(value):
 	get_tree().paused = is_paused
 	visible = is_paused
 
-
 func _on_resume_pressed():
 	self.is_paused = false
 
 func _on_back_to_menu_pressed():
 	self.is_paused = false
 	GameManager.SceneTransition.transition_to("res://Scenes/Menus/MainMenu.tscn")
-
 
 func _on_options_pressed():
 	options = true
@@ -31,11 +29,13 @@ func _on_options_pressed():
 	get_node("options menu/VBoxContainer").visible = true
 	get_node("options menu/OPTIONS").visible = true
 	
-
-
 func _on_back_to_pause_pressed():
 	options = false
 	get_node("paused menu/VBoxContainer").visible = true
 	get_node("paused menu/paused").visible = true
 	get_node("options menu/VBoxContainer").visible = false
 	get_node("options menu/OPTIONS").visible = false
+
+func _on_Restart_pressed():
+	GameManager.TeleportPlayer()
+	_on_resume_pressed()

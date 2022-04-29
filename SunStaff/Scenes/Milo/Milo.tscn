@@ -464,12 +464,14 @@ states/Walk_Staffless/node = SubResource( 175 )
 states/Walk_Staffless/position = Vector2( 354, 461 )
 transitions = [ "Idle_Staff", "Idle_Staffless", SubResource( 176 ), "Idle_Staffless", "Idle_Staff", SubResource( 177 ), "Idle_Staff", "Walk_Staff", SubResource( 178 ), "Walk_Staff", "Idle_Staff", SubResource( 179 ), "Idle_Staff", "Jump_Staff", SubResource( 180 ), "Idle_Staff", "Run_Staff", SubResource( 182 ), "Run_Staff", "Idle_Staff", SubResource( 183 ), "Idle_Staffless", "Jump_Staffless", SubResource( 184 ), "Idle_Staffless", "Walk_Staffless", SubResource( 186 ), "Walk_Staffless", "Idle_Staffless", SubResource( 187 ), "Run_Staffless", "Idle_Staffless", SubResource( 188 ), "Idle_Staffless", "Run_Staffless", SubResource( 189 ), "Walk_Staff", "Run_Staff", SubResource( 190 ), "Run_Staff", "Walk_Staff", SubResource( 191 ), "Run_Staffless", "Walk_Staffless", SubResource( 192 ), "Walk_Staffless", "Run_Staffless", SubResource( 193 ), "Jump_Staffless", "Fall_Staffless", SubResource( 199 ), "Fall_Staffless", "Idle_Staffless", SubResource( 200 ), "Jump_Staff", "Fall_Staff", SubResource( 202 ), "Fall_Staff", "Idle_Staff", SubResource( 203 ) ]
 start_node = "Idle_Staff"
-graph_offset = Vector2( -141, 202.333 )
+graph_offset = Vector2( -141, -55.883 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=195]
 
 [node name="Milo" type="KinematicBody2D" groups=["Player"]]
 light_mask = 3
+collision_layer = 5
+collision_mask = 5
 script = ExtResource( 1 )
 
 [node name="Unlit" type="Sprite" parent="."]
@@ -484,7 +486,7 @@ frame = 17
 texture = ExtResource( 4 )
 hframes = 8
 vframes = 10
-frame = 41
+frame = 37
 
 [node name="SunStaff" parent="Lit" instance=ExtResource( 3 )]
 
@@ -517,11 +519,11 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 195 )
 
-[node name="AudioManager" parent="." instance=ExtResource( 5 )]
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="pause menu" parent="CanvasLayer" instance=ExtResource( 6 )]
 visible = false
+
+[node name="AudioManager" parent="." instance=ExtResource( 5 )]
 
 [editable path="Lit/SunStaff"]

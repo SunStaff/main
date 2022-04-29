@@ -31,9 +31,6 @@ func _ready():
 	platform1 = Platforms[0]
 	platform2 = Platforms[1]
 	platform3 = Platforms[2]
-	
-	timer = Timer.new()
-	self.add_child(timer)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -44,18 +41,12 @@ func ChangeAltarPos(POS, goingRight):
 		while (movingAltar.position.x < POS):
 			movingAltar.position.x = lerp(movingAltar.position.x,movingAltar.position.x+50,0.5)
 			movingPlatform.position.x = lerp(movingPlatform.position.x,movingPlatform.position.x+50,0.5)
-			timer.set_wait_time(0.05)
-			timer.set_one_shot(true)
-			timer.start()
-			yield(timer, "timeout")
+			yield(get_tree().create_timer(.05), "timeout")
 	else:
 		while (movingAltar.position.x > POS):
 			movingAltar.position.x = lerp(movingAltar.position.x,movingAltar.position.x-50,0.5)
 			movingPlatform.position.x = lerp(movingPlatform.position.x,movingPlatform.position.x-50,0.5)
-			timer.set_wait_time(0.05)
-			timer.set_one_shot(true)
-			timer.start()
-			yield(timer, "timeout")
+			yield(get_tree().create_timer(.05), "timeout")
 
 func MoveBlock():
 	while(movingBlock.position.y <= 5000):
@@ -91,7 +82,6 @@ func _on_EndLevel1_body_entered(body):
 				Level1End()
 
 func Level1End():
-	print("End of Level 1")
 	GameManager.ChangeScene()
 
 #num * -INCREMENT determines puzzle platform's y-pos (tells current num for current position)

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Running.v2.ilcapand.ogg-4ae6d1b5a748d57da23087fb9adc2c3c.oggstr"
+
+[deps]
+
+source_file="res://Art/Sounds/Running.v2.ilcapand.ogg"
+dest_files=[ "res://.import/Running.v2.ilcapand.ogg-4ae6d1b5a748d57da23087fb9adc2c3c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

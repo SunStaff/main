@@ -54,29 +54,16 @@ func _ready():
 			node.get_child(1).visible = false
 			node.get_child(2).set_deferred("disabled", true)
 
-	timer = Timer.new()
-	self.add_child(timer)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-
 func Level2_PlatformFall():	
 	for i in range(len(ravinePlatform_Array)):
 		if i > 0:
 			ravinePlatform_Array[i].queue_free()
 
-	timer.set_wait_time(0.5)
-	timer.set_one_shot(true)
-	timer.start()
-	yield(timer, "timeout")
+	yield(get_tree().create_timer(.5), "timeout")
 
 	while (ravinePlatform_Array[0].position.y < 1900):
 		ravinePlatform_Array[0].position.y = lerp(ravinePlatform_Array[0].position.y, ravinePlatform_Array[0].position.y+100, 0.5)
-		timer.set_wait_time(0.01)
-		timer.set_one_shot(true)
-		timer.start()
-		yield(timer, "timeout")
+		yield(get_tree().create_timer(.01), "timeout")
 
 	ravinePlatform_Array[0].queue_free()
 
@@ -133,5 +120,4 @@ func Open_FinalDoor():
 func _on_EndLevel2_body_entered(body):
 	if ("Milo" in body.name):
 		if (GameManager.GetPlayer().GetHasStaffState()):
-			if (GameManager.GetGemStates()["Blue"]):
-				GameManager.ChangeScene()
+			GameManager.ChangeScene()

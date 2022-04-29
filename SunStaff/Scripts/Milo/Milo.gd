@@ -7,6 +7,11 @@ var spriteUnlit
 const MARGIN_OF_ERROR = 0.008
 var PlayerCamera
 
+# Audio Variables
+var AudioManager
+var mewFunc = null
+var allowMew = true
+
 # SunStaff Variables
 var HasStaff = true
 export (bool) var TurnLightOff = false
@@ -21,16 +26,17 @@ var faceRight = true
 export (float) var speed = 800.0
 var velocity = Vector2.ZERO
 var direction
+var runningSoundPlaying = false
 
 # Jump Variables
 var ctAllowJump = true
 var justJumped = false
 export (float) var jump_height = 750
 export (float) var jump_time_to_peak = 0.4
-export (float) var jumo_time_to_descent = 0.3
+export (float) var jump_time_to_descent = 0.3
 onready var jump_velocity: float = -1 * ((2.0 * jump_height) / jump_time_to_peak)
 onready var jump_gravity: float = -1 * ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak))
-onready var fall_gravity: float = -1 * ((-2.0 * jump_height) / (jumo_time_to_descent * jumo_time_to_descent))
+onready var fall_gravity: float = -1 * ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent))
 
 func _ready():
 	if (GameManager.ChangeSceneCalled):
@@ -40,7 +46,9 @@ func _ready():
 	
 	PlayerCamera = get_child(4)
 	ChangeCameraBorders()
-
+	AudioManager = $AudioManager
+	AudioManager.ChangeBetweenLitAndUnlit(HasStaff)
+	
 	if (TurnLightOff):
 		GameManager.GetSunStaff().visible = false
 	playerRootNode = get_parent()
@@ -64,7 +72,9 @@ func get_input():
 		direction = 1
 		if (is_on_floor()):
 			playLeftOrRight = true
-	
+			if (not runningSoundPlaying):
+				AudioManager.PlayWalking()
+
 	elif Input.is_action_pressed("Left"):
 		velocity.x -= speed
 		sprite.scale.x = -1
@@ -72,6 +82,14 @@ func get_input():
 		direction = -1
 		if (is_on_floor()):
 			playLeftOrRight = true
+			if (not runningSoundPlaying):
+				AudioManager.PlayWalking()
+	else:
+		AudioManager.StopWalking()
+		AudioManager.StopRunning()
+		if allowMew and (not mewFunc or not mewFunc.is_valid()):
+			allowMew = false
+			mewFunc = MiloMew()
 
 	if Input.is_action_pressed("Jump"):
 		playLeftOrRight = false
@@ -81,13 +99,27 @@ func get_input():
 		justJumped = false
 		playLeftOrRight = false
 		AnimationManager.FallAnimation()
+		yield(get_tree().create_timer(jump_time_to_descent-0.05), "timeout")
+		AudioManager.PlayLanding()
+		AudioManager.PlayBell()
 
 	if Input.is_action_pressed("Sprint") and (Input.is_action_pressed("Left") or Input.is_action_pressed("Right")):
 		velocity.x += speed * 2 * direction
+		if (not justJumped):
+			AudioManager.PlayRunning()
+			runningSoundPlaying = true
+	else:
+		runningSoundPlaying = false
+		AudioManager.StopRunning()
 	
+	if Input.is_action_just_released("Sprint") and (Input.is_action_pressed("Left") or Input.is_action_pressed("Right")):
+		AudioManager.PlayBell()
+	elif Input.is_action_just_pressed("Sprint") and (Input.is_action_pressed("Left") or Input.is_action_pressed("Right")):
+		AudioManager.PlayBell()
+
 	AnimationManager.UpdateAnimations(StateMachine, HasStaff, velocity, playLeftOrRight, speed, MARGIN_OF_ERROR)
 	
-func _physics_process(delta):
+func _process(delta):
 	if (GameManager.IsGamePlaying and GameManager.IsPlayerAlive):
 		get_input()
 		if !is_on_floor():
@@ -115,6 +147,7 @@ func PlayerDeath(position):
 
 func ChangeHasStaffState(state):
 	HasStaff = state
+	AudioManager.ChangeBetweenLitAndUnlit(HasStaff)
 
 func GetHasStaffState():
 	return HasStaff
@@ -125,6 +158,11 @@ func GetGravity():
 func CoyoteTimeJump():
 	yield(get_tree().create_timer(.1), "timeout")
 	ctAllowJump = false
+
+func MiloMew():
+	AudioManager.PlayMew()
+	yield(get_tree().create_timer(8.0), "timeout")
+	allowMew = true
 
 func ChangeCameraBorders():
 	match (GameManager.GetCurrentLevel()):
@@ -147,5 +185,5 @@ func ChangeCameraBorders():
 		"Level3":
 			PlayerCamera.limit_left = -220
 			PlayerCamera.limit_top = -2800
-			PlayerCamera.limit_right = 9795
+			PlayerCamera.limit_right = 9880
 			PlayerCamera.limit_bottom = 1480
