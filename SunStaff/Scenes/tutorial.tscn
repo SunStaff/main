@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/Objects/StaffAltar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/Door.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Objects/SavingPoint.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Objects/GemPickup.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Art/Foreground/ForegroundElementsTutorial.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Objects/Lever.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Milo/Milo.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Main Levels/TutorialBackground.tscn" type="PackedScene" id=8]
@@ -139,6 +140,13 @@ frame = 3
 
 [node name="AnimatedSprite" parent="Section2/Red_GemPickup" index="2"]
 frame = 3
+
+[node name="Foreground" type="Sprite" parent="."]
+light_mask = 0
+position = Vector2( 5250, 192 )
+scale = Vector2( 2, 2 )
+z_index = 1
+texture = ExtResource( 5 )
 
 [connection signal="body_entered" from="Section2/EndTutorial" to="TutorialManager" method="_on_EndTutorial_body_entered"]
 

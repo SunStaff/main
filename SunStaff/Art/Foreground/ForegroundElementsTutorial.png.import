@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/orange_gem_pedastel.png-ba34f163ac41eddc97043dd0c72f355b.stex"
+path="res://.import/ForegroundElementsTutorial.png-7fc1cb2f562788dda247bf731e52fd37.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Misc/Gems/orange_gem_pedastel.png"
-dest_files=[ "res://.import/orange_gem_pedastel.png-ba34f163ac41eddc97043dd0c72f355b.stex" ]
+source_file="res://Art/Foreground/ForegroundElementsTutorial.png"
+dest_files=[ "res://.import/ForegroundElementsTutorial.png-7fc1cb2f562788dda247bf731e52fd37.stex" ]
 
 [params]
 

@@ -13,8 +13,7 @@
 [ext_resource path="res://Scenes/Objects/GemPickup.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Art/Misc/outlineShaderCode.shader" type="Shader" id=12]
 [ext_resource path="res://Scenes/Objects/UnlitOnlyPlatform.tscn" type="PackedScene" id=13]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id=3]
+[ext_resource path="res://Art/Foreground/ForegroundElementsLevel1.png" type="Texture" id=14]
 
 [sub_resource type="ShaderMaterial" id=4]
 resource_local_to_scene = true
@@ -99,13 +98,7 @@ extents = Vector2( 195.75, 359.75 )
 [node name="Level1Background" parent="." instance=ExtResource( 9 )]
 
 [node name="Milo" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1600, -549 )
-
-[node name="Lit" parent="Milo" index="1"]
-frame = 46
-
-[node name="AnimationTree" parent="Milo" index="5"]
-parameters/playback = SubResource( 3 )
+position = Vector2( 135, 18 )
 
 [node name="Level1Manager" type="Node" parent="." groups=["LevelManager"]]
 script = ExtResource( 6 )
@@ -158,6 +151,7 @@ position = Vector2( 14336, 173 )
 [node name="MovingAltar" parent="." instance=ExtResource( 2 )]
 material = SubResource( 7 )
 position = Vector2( 2841, 457 )
+z_index = 1
 
 [node name="MovingBlock" parent="." instance=ExtResource( 5 )]
 position = Vector2( 8759, 47 )
@@ -168,6 +162,7 @@ blockGravity = 0.0
 
 [node name="MovingPlatform" parent="." instance=ExtResource( 1 )]
 position = Vector2( 2841, 530 )
+z_index = 1
 
 [node name="Lever4" parent="." instance=ExtResource( 3 )]
 material = SubResource( 8 )
@@ -265,10 +260,15 @@ frame = 1
 [node name="AnimatedSprite" parent="Green_GemPickup" index="2"]
 frame = 1
 
+[node name="Foreground" type="Sprite" parent="."]
+light_mask = 0
+position = Vector2( 10474, 32 )
+scale = Vector2( 2, 2 )
+z_index = 1
+texture = ExtResource( 14 )
+
 [connection signal="body_entered" from="EndLevel1" to="Level1Manager" method="_on_EndLevel1_body_entered"]
 
-[editable path="Milo"]
-[editable path="Milo/Lit/SunStaff"]
 [editable path="MovingAltar"]
 [editable path="MovingBlock"]
 [editable path="PressurePlate1"]

@@ -173,9 +173,6 @@ texture = ExtResource( 13 )
 [node name="LitBack" type="Node2D" parent="."]
 position = Vector2( 16, 0 )
 z_index = -2
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Lv1BackgroundLitPt1" type="Sprite" parent="LitBack"]
 position = Vector2( 2345, 0 )
@@ -254,19 +251,19 @@ z_index = 3
 texture = ExtResource( 21 )
 
 [node name="Lv1GrassLitPt1" type="Sprite" parent="LitBack"]
-position = Vector2( 4150, 326.001 )
+position = Vector2( 4150, 446.001 )
 scale = Vector2( 2, 2 )
 z_index = 3
 texture = ExtResource( 2 )
 
 [node name="Lv1GrassLitPt2" type="Sprite" parent="LitBack"]
-position = Vector2( 17184.7, -272 )
+position = Vector2( 17296.7, -272 )
 scale = Vector2( 2, 2 )
 z_index = 3
 texture = ExtResource( 10 )
 
 [node name="Lv1DarkgrassLitPt1" type="Sprite" parent="LitBack"]
-position = Vector2( 4150, 326.001 )
+position = Vector2( 4078, 494.001 )
 z_index = 3
 texture = ExtResource( 1 )
 

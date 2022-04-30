@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TreesFront-4.png-79f2ef3936fdb958c9a22c6c2b8b0e22.stex"
+path="res://.import/unlit_platform.png-c6e09dd61c1f00a1feee037a4ff791ee.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Foreground/FrontTrees/TreesFront-4.png"
-dest_files=[ "res://.import/TreesFront-4.png-79f2ef3936fdb958c9a22c6c2b8b0e22.stex" ]
+source_file="res://Art/Unlit/Objects/unlit_platform.png"
+dest_files=[ "res://.import/unlit_platform.png-c6e09dd61c1f00a1feee037a4ff791ee.stex" ]
 
 [params]
 

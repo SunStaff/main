@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/life_Platform_RS.png-b063a282b3acc6047227064aacfdeea3.stex"
+path="res://.import/ForegroundElementsLevel2.png-fbc0a67971b7f3bc158fb7930bd1db9f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Lit/Objects/life_Platform_RS.png"
-dest_files=[ "res://.import/life_Platform_RS.png-b063a282b3acc6047227064aacfdeea3.stex" ]
+source_file="res://Art/Foreground/ForegroundElementsLevel2.png"
+dest_files=[ "res://.import/ForegroundElementsLevel2.png-fbc0a67971b7f3bc158fb7930bd1db9f.stex" ]
 
 [params]
 
