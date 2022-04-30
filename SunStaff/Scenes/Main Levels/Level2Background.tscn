@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Art/Unlit/Backgrounds/Level2/LV_2_unlit_design_darkgrass.png" type="Texture" id=1]
 [ext_resource path="res://Art/Unlit/Backgrounds/Level2/Resized/LV_2_unlit_design_.png" type="Texture" id=2]
@@ -8,10 +8,8 @@
 [ext_resource path="res://Art/Lit/Backgrounds/Level2/Resized/LV_2_design_lit_background.png" type="Texture" id=6]
 [ext_resource path="res://Art/Lit/Backgrounds/Level2/LV_2_design_lit_grass.png" type="Texture" id=7]
 [ext_resource path="res://Art/Unlit/Backgrounds/Level2/LV_2_unlit_design_grass.png" type="Texture" id=8]
-[ext_resource path="res://Art/Lit/Backgrounds/SKY.png" type="Texture" id=9]
 [ext_resource path="res://Art/Lit/Backgrounds/lit_erroded_hillbackground.png" type="Texture" id=10]
 [ext_resource path="res://Art/Unlit/Backgrounds/erroded_hillbackground3.png" type="Texture" id=11]
-[ext_resource path="res://Art/Unlit/Backgrounds/unlit_sky.png" type="Texture" id=12]
 [ext_resource path="res://icon.png" type="Texture" id=13]
 [ext_resource path="res://Art/Misc/fogEffect.shader" type="Shader" id=14]
 [ext_resource path="res://Art/Foreground/rock_for_putting_in_level_lit.png" type="Texture" id=15]
@@ -77,33 +75,6 @@ light_mask = 0
 position = Vector2( 5815, -430 )
 scale = Vector2( 1.5, 1.5 )
 z_index = -2
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sky3" type="Sprite" parent="UnlitBack"]
-light_mask = 2
-position = Vector2( -6720, -538 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 12 )
-
-[node name="Sky4" type="Sprite" parent="UnlitBack"]
-light_mask = 2
-position = Vector2( 6720, -538 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 12 )
-
-[node name="LitErrodedHillbackground13" type="Sprite" parent="UnlitBack"]
-light_mask = 2
-position = Vector2( -5440, 1080.33 )
-scale = Vector2( 0.666667, 0.999383 )
-texture = ExtResource( 11 )
-
-[node name="LitErrodedHillbackground14" type="Sprite" parent="UnlitBack"]
-light_mask = 2
-position = Vector2( -6719.33, 1080.33 )
-scale = Vector2( 0.666667, 0.999383 )
-texture = ExtResource( 11 )
 
 [node name="LitErrodedHillbackground15" type="Sprite" parent="UnlitBack"]
 light_mask = 2
@@ -150,18 +121,6 @@ texture = ExtResource( 11 )
 [node name="LitErrodedHillbackground22" type="Sprite" parent="UnlitBack"]
 light_mask = 2
 position = Vector2( 2880.67, 2159.67 )
-scale = Vector2( 0.666667, 0.999383 )
-texture = ExtResource( 11 )
-
-[node name="LitErrodedHillbackground23" type="Sprite" parent="UnlitBack"]
-light_mask = 2
-position = Vector2( 6718.67, 1081 )
-scale = Vector2( 0.666667, 0.999383 )
-texture = ExtResource( 11 )
-
-[node name="LitErrodedHillbackground24" type="Sprite" parent="UnlitBack"]
-light_mask = 2
-position = Vector2( 5439.33, 1081 )
 scale = Vector2( 0.666667, 0.999383 )
 texture = ExtResource( 11 )
 
@@ -292,24 +251,6 @@ position = Vector2( 5815, -430 )
 scale = Vector2( 1.5, 1.5 )
 z_index = -2
 
-[node name="Sky" type="Sprite" parent="LitBack"]
-position = Vector2( -6728, -539.333 )
-texture = ExtResource( 9 )
-
-[node name="Sky2" type="Sprite" parent="LitBack"]
-position = Vector2( 6728, -540 )
-texture = ExtResource( 9 )
-
-[node name="LitErrodedHillbackground" type="Sprite" parent="LitBack"]
-position = Vector2( -5440, 1080.33 )
-scale = Vector2( 0.666667, 0.999383 )
-texture = ExtResource( 10 )
-
-[node name="LitErrodedHillbackground2" type="Sprite" parent="LitBack"]
-position = Vector2( -6719.33, 1080.33 )
-scale = Vector2( 0.666667, 0.999383 )
-texture = ExtResource( 10 )
-
 [node name="LitErrodedHillbackground3" type="Sprite" parent="LitBack"]
 position = Vector2( -2880, 2158.33 )
 scale = Vector2( 0.666667, 0.999383 )
@@ -347,16 +288,6 @@ texture = ExtResource( 10 )
 
 [node name="LitErrodedHillbackground10" type="Sprite" parent="LitBack"]
 position = Vector2( 2880.67, 2159.67 )
-scale = Vector2( 0.666667, 0.999383 )
-texture = ExtResource( 10 )
-
-[node name="LitErrodedHillbackground11" type="Sprite" parent="LitBack"]
-position = Vector2( 6718.67, 1081 )
-scale = Vector2( 0.666667, 0.999383 )
-texture = ExtResource( 10 )
-
-[node name="LitErrodedHillbackground12" type="Sprite" parent="LitBack"]
-position = Vector2( 5439.33, 1081 )
 scale = Vector2( 0.666667, 0.999383 )
 texture = ExtResource( 10 )
 
