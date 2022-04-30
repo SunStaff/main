@@ -13,6 +13,7 @@ onready var shader = self.material
 func _ready():
 	LeverManager = get_node("/root/LeverManager")
 
+
 #When the switch is interacted with, change lever state from ON to OFF, or OFF to ON.
 func _change_lever_state():
 	isTurnedOn = not isTurnedOn
@@ -64,3 +65,7 @@ func GlowMaterial(state):
 		shader.set_shader_param("color", Color(1,1,1,1.0))
 	else:
 		shader.set_shader_param("color", Color(1,1,1,0))
+
+		
+
+

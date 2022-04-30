@@ -6,6 +6,8 @@ var door2
 var door3
 var door4
 
+var Levers = []
+
 #Similar concept to Doors, but platforms for a level 1 puzzle
 var Platforms = []
 var platform1
@@ -32,7 +34,7 @@ var leverFlippedCount = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	ResetLeverSprites()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -255,3 +257,17 @@ func GetDoors():
 		Doors = get_tree().get_nodes_in_group("Door")
 		door1 = Doors[0]
 		door2 = Doors[1]
+
+
+func ResetLeverSprites():
+	GetLeversInLevel()
+	for lever in Levers:
+		lever.get_child(0).position.x = -30
+		lever.get_child(0).rotation_degrees = -45
+		lever.get_child(2).position.x = -30
+		lever.get_child(2).rotation_degrees = -45
+
+
+func GetLeversInLevel():
+	Levers.clear()
+	Levers = get_tree().get_nodes_in_group("Lever")

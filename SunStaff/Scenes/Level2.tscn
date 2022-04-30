@@ -357,12 +357,16 @@ scale = Vector2( 1.5, 1.5 )
 
 [node name="SkinnyBlock" parent="BlockPuzzle" instance=ExtResource( 6 )]
 position = Vector2( 9259, -374 )
+collision_layer = 9
+collision_mask = 9
 
 [node name="BoxUnlit" parent="BlockPuzzle/SkinnyBlock/Node2D" index="0"]
 light_mask = 1
 
 [node name="SmallBlock" parent="BlockPuzzle" instance=ExtResource( 6 )]
 position = Vector2( 11001, -1409 )
+collision_layer = 9
+collision_mask = 9
 
 [node name="Platform9" parent="BlockPuzzle" instance=ExtResource( 2 )]
 position = Vector2( 8747, 171 )
@@ -411,6 +415,21 @@ visible = false
 
 [node name="CollisionShape2D" parent="BlockPuzzle/Platform11" index="2"]
 position = Vector2( -2, 28.9229 )
+
+[node name="SmallBlockBarrier" parent="BlockPuzzle" instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 11436, -364 )
+rotation = -1.5708
+scale = Vector2( 2.5, 1 )
+collision_layer = 8
+collision_mask = 8
+
+[node name="SkinnyBlockCollisionBarrier" parent="BlockPuzzle" instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 9087, -193 )
+rotation = 4.71239
+collision_layer = 8
+collision_mask = 8
 
 [node name="SavingPoint" parent="." instance=ExtResource( 11 )]
 position = Vector2( 215, 32 )
